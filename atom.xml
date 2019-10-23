@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Aaron Lin</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-10-23T16:07:44.404Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Aaron Lin</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/10/23/hello-world/"/>
+    <id>http://yoursite.com/2019/10/23/hello-world/</id>
+    <published>2019-10-23T12:23:50.000Z</published>
+    <updated>2019-10-23T16:07:44.404Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="过往"><a href="#过往" class="headerlink" title="过往"></a>过往</h2><p>前一段时间发生了很多事，经历了一些变动，让我开始重新审视自己</p><p>大一大二似乎都在随波逐流，做着那些“优秀”的人都在做的事</p><p>到头来不过只是在重复地做着某些领域最简单的事</p><h2 id="当下"><a href="#当下" class="headerlink" title="当下"></a>当下</h2><p>走出舒适圈，和不同的人交流，了解不同的观点</p><p>一点一点地积累，用博客改变自己，也用博客记录自己的改变</p><p>希望自己能坚持下去，不管是写博客，还是其他喜欢的事</p><h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><blockquote><p>写博客是一种“写作式学习”</p><p>只要你坚持写下去几年，写Blog给你带来的收益超乎想象，这是积累的力量。</p><p>引用自 <a href="http://www.read.org.cn/html/2005-xie-bo-ke-shi-yi-zhong-xie-zuo-shi-xue-xi.html" target="_blank" rel="noopener">写博客是一种“写作式学习”</a></p></blockquote><p>搭这个博客的初心就是激励自己，多把时间花在有意义的事情上，深入地学习一些东西</p><p>用的是Hexo + Github Pages，相对那些即开即用的博客，我更享受折腾带来的乐趣</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;过往&quot;&gt;&lt;a href=&quot;#过往&quot; class=&quot;headerlink&quot; title=&quot;过往&quot;&gt;&lt;/a&gt;过往&lt;/h2&gt;&lt;p&gt;前一段时间发生了很多事，经历了一些变动，让我开始重新审视自己&lt;/p&gt;
+&lt;p&gt;大一大二似乎都在随波逐流，做着那些“优秀”的人都在做的事&lt;/p&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="零碎" scheme="http://yoursite.com/categories/%E9%9B%B6%E7%A2%8E/"/>
+    
+    
+  </entry>
+  
+</feed>

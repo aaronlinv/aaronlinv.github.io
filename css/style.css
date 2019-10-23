@@ -489,6 +489,10 @@ button {
 p {
   line-height: 1.7;
 }
+#post-body h2,
+p h2 {
+  margin-bottom: 10px;
+}
 .home h1 {
   font-size: 30px;
   letter-spacing: -1px;
