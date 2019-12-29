@@ -109,7 +109,7 @@
 <li>float和double都不能精确表示小数</li>
 </ul>
 </li>
-<li>自动自动转化<ul>
+<li>自动转化<ul>
 <li>一个算术表达式中包含多个基本数据类型(boolean除外),不同类型的数据先转化为同一类型，然后进行运算。</li>
 <li>byte,short,char –&gt; int –&gt; long –&gt; float  –&gt; double<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span> s=<span class="number">8</span>;</span><br><span class="line"><span class="keyword">byte</span> s2=<span class="number">5</span>;</span><br><span class="line"><span class="keyword">short</span> s=s1+s2;报错</span><br><span class="line"><span class="keyword">int</span> s=s1+s2;  <span class="comment">//正确 </span></span><br><span class="line"><span class="comment">//自动转化为int类型就像：</span></span><br><span class="line"><span class="keyword">int</span> s = (<span class="keyword">int</span>)s1 +(<span class="keyword">int</span>)s2; </span><br><span class="line"><span class="comment">//或者强转 </span></span><br><span class="line"><span class="keyword">short</span> s=(<span class="keyword">short</span>) (s1+s2);</span><br></pre></td></tr></table></figure></li>
 </ul>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+  <meta name="description" content="包规范：
+
+遵循关键字，全部小写
+企业开发包名用公司域名倒写 域名倒写.模块名.组件名
+
+类的全限定名称：包名.类名
+静态导入：把其他包里面的内容在本类当中使用、不需要使用类名调用，直接使用包里面的方法
+import static java.util.Arrays.sort;
+不推荐用：1.有些方法">
+
+
+<link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
+<meta name="theme-color" content="#a1d0f6">
+<title>Java笔记-面向对象2 - Aaron Lin</title>
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+<!-- <link rel="shortcut icon" href="/favicon.png"> -->
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<!-- 谷歌 Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153099566-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153099566-1');
+</script>
+
+
+<nav class="main-nav">
+	
+	    <a href="/">← 主页</a>
+	
+	
+	    <a href="/about/">关于</a>
+	
+	    <a href="/archives/">归档</a>
+	
+	<a class="cta" href="/rss2.xml" data-no-instant>订阅</a>
+</nav>
+
+<section id="wrapper">
+    <article class="post">
+    <header>
+        
+            <h1>Java笔记-面向对象2</h1>
+        
+        <h2 class="headline">Dec 28 2019
+        
+            
+            <a href="/categories/Java笔记/#Java笔记">Java笔记</a>
+        
+        </h2>
+    </header>
+</article>
+<section id="post-body"><h4 id="包"><a href="#包" class="headerlink" title="包"></a>包</h4><p>规范：</p>
+<ol>
+<li>遵循关键字，全部小写</li>
+<li>企业开发包名用公司域名倒写 域名倒写.模块名.组件名</li>
+</ol>
+<p>类的全限定名称：包名.类名</p>
+<p>静态导入：把其他包里面的内容在本类当中使用、不需要使用类名调用，直接使用包里面的方法</p>
+<p>import static java.util.Arrays.sort;</p>
+<p>不推荐用：1.有些方法不能这么用比如toString，2.不知道是自己写的还是导入的</p>
+<h4 id="封装思想"><a href="#封装思想" class="headerlink" title="封装思想"></a>封装思想</h4><p>写一个用户注册，有很多信息需要填写，如果写方法，需要传入很多参数，有很多参数是非必要的但是都要写，<br>方法重载写起来麻烦<br>封装到一个对象里，那就只要传一个参数即可new一个对象，其他用初始值，当成一个整体</p>
+<p>优点：<br>1.参数少了很多，传的是一个对象，把某些信息当成一个整体去使用<br>2.安全性：变量加private，不允许外部读取或者修改它</p>
+<h4 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h4><p><img src="/2019/12/28/java-note-3/1.png" alt="高新强"></p>
+<p>默认和protected的区别：同包下都可以访问，但是只要继承默认权限就不能访问，protected则可以访问<br>使用不同包的成员需要导入</p>
+<h4 id="属性概念"><a href="#属性概念" class="headerlink" title="属性概念"></a>属性概念</h4><p>字段或者成员变量 加上get和set方法才能叫属性<br>Eclipse自动生成右键 -&gt; Source -&gt; Generate Getters and Setters…</p>
+<h4 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h4><p>this:  “这个”指向当前正在使用对象的地址</p>
+<p>注意点：</p>
+<ol>
+<li>帮我们区分成员变量和局部变量的二异性，必须得要使用this</li>
+<li>在同类当中，实例方法的调用，前面其实是有this，可以省略</li>
+<li>可以把this做为参数传递</li>
+<li>可以当做返回值返回</li>
+<li><strong>static不能和this一起使用</strong></li>
+<li>构造器的重载互调，this ( )；此时this代表是构造器名，<strong>必须写到第一行</strong></li>
+</ol>
+<h4 id="继承思想"><a href="#继承思想" class="headerlink" title="继承思想"></a>继承思想</h4><p>老师、学生、员工这些类都有一些相同的变量：比如姓名、年龄，还有相同的方法比如吃<br>代码出现重复，可以通过继承来解决这个问题</p>
+<p>父类：存放共同的状态和行为被继承的类我们称为父类或超类、基类、拓展类。<br>子类：存放自己特有的状态和行为</p>
+<p>继承是一种从一般到特殊的关系，是一种“is a ”的关系，即子类是对父类的派生，是一种特殊的父类<br>比如：狗是动物的一种特殊情况，狗属于动物。</p>
+<p>一般的，在开发工程中先编写多个自定义类，写完之后，发现多个类之间存在共同的代码，此时可以抽去出一个父类</p>
+<p>如果父类中的成员使用protected修饰，子类也继承，不同包也能继承<br>父类的构造器，子类也不能继承，因为构造器必须和当前的类名相同</p>
+<h4 id="继承方法的覆盖"><a href="#继承方法的覆盖" class="headerlink" title="继承方法的覆盖"></a>继承方法的覆盖</h4><p>子类你扩展了父类，就获得了父类当中的方法和成员变量，可是父类当中的某一些方法，不适合子类本身<br>不适合子类的方法，可以覆盖，重新定义这个方法</p>
+<p>运行一个方法会在子类中找，有就调用，没有去父类中查找</p>
+<p>覆盖方法的原则：</p>
+<ol>
+<li>必须得要跟父类当中的方法名相同（签名：方法的名称+参数）</li>
+<li>返回值类型必须得要和父类一样</li>
+<li>访问权限不能比父类的还小</li>
+</ol>
+<p>判断是否是覆写方法：@Override标签,写在重写方法前一行，如果不是重写的方法编译会报错</p>
+<h4 id="方法重载与方法重写"><a href="#方法重载与方法重写" class="headerlink" title="方法重载与方法重写"></a>方法重载与方法重写</h4><p>方法重载 Overload</p>
+<ul>
+<li>作用：解决了同一个类中，相同功能的方法名不同的问题</li>
+<li>规则：同类中，<strong>方法名相同，方法参数列表不同</strong></li>
+</ul>
+<p>方法重写 Override</p>
+<ul>
+<li>作用：解决子类继承父类之后，可能父类的某一个方法不满足子类的具体特征，需要重新在子类中定义该方法，并重写方法体</li>
+<li>规则：<strong>父类和子类的方法签名是相同的</strong></li>
+</ul>
+<h4 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h4><p>代表是父类对象，到父类当中去找指定的方法</p>
+<p>内存分析：<br>在类加载字节码时，会先判断有没有父类，如果有，会先把父类加载成字节码放到内存当中，然后再去把自己加载到内存（方法区）</p>
+<p>如果一个类有父类的，会在构造器当中，默认调用父类的构造器（<strong>子类构造器第一句默认super( );</strong> ）</p>
+<p>super( ) 调用父类构造方法 必须放在第一行<br>凡是子类的构造方法当中都会有super( );<br>this()和super() 构造方法不能一起使用，因为两个都要求放第一行<br>父类中定义了带参构造（就不会生成无参构造），子类一定要手动调用父类的带参构造器，不调用就报错</p>
+<p>super不能直接打印</p>
+<h4 id="字段隐藏"><a href="#字段隐藏" class="headerlink" title="字段隐藏"></a>字段隐藏</h4><ol>
+<li>this.字段或方法先到本类当中去找指定的内容，如果没有，再去到父当中去找<br>如果父类有，再去看一下父类允不允许继承，如果允许就使用父类的<br>super直接到父类当中去找，使用super可以访问父类被隐藏的字段</li>
+<li><strong>方法的隐藏</strong>：子类和父类当中有相同的静态方法（<strong>不是静态就是方法覆盖</strong>）</li>
+</ol>
+<p>因为是静态，所以用对象名调用的本质还是用类名调用</p>
+<ul>
+<li>用子类对象调用，就是执行子类的静态方法</li>
+<li>用父类对象调用，就是执行子类的静态方法</li>
+</ul>
+<ol start="3">
+<li>本类隐藏：方法参数和本类字段名相同<br>用this.字段<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String name=<span class="string">"al"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(name);</span><br><span class="line">        System.out.println(<span class="keyword">this</span>.name);<span class="comment">//本类隐藏，用this关键字</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h4><p>Object类是Java语言的根类，要么是一个类的直接父类，要么就是一个类的间接父类<br>Object提供方法</p>
+<ul>
+<li>hasCode( )</li>
+<li>equals( ) //判断两个对象地址是否相等</li>
+<li>getClass() //获取当前对象的真实类型</li>
+<li>toString( )//打印对象地址值<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.print(对象名.toString);</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line">System.out.print(对象名)</span><br></pre></td></tr></table></figure></code></pre>可以用Eclipse自动生成重写这些方法</li>
+</ul>
+<h4 id="多态思想"><a href="#多态思想" class="headerlink" title="多态思想"></a>多态思想</h4><p>一个对象有多种形态 就称它是多态<br>一个表示自己的类，一个表示自己父类的类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Dog dog =<span class="keyword">new</span> Dog( );</span><br><span class="line">Animal dog =<span class="keyword">new</span> Dog( );</span><br></pre></td></tr></table></figure>
+<p>多态特点：把子类对象赋给父类变量，在运行时期会表现出具体的<strong>子类特征</strong></p>
+<p>多态优点</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//有多种动物，要定义多种feed类</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">feedCat</span><span class="params">(Cat cat)</span> </span>&#123;</span><br><span class="line">        cat.eat();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">feedDog</span><span class="params">(Dog dog)</span> </span>&#123;</span><br><span class="line">        dog.eat();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//多态做法</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">feedAnimal</span><span class="params">(Animal animal)</span> </span>&#123;</span><br><span class="line">        animal.eat();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog dog =<span class="keyword">new</span> Dog();</span><br><span class="line">        Cat cat =<span class="keyword">new</span> Cat();</span><br><span class="line">        </span><br><span class="line">        Person p=<span class="keyword">new</span> Person();</span><br><span class="line">        <span class="comment">//一般做法</span></span><br><span class="line">        p.feedCat(cat);</span><br><span class="line">        p.feedDog(dog);</span><br><span class="line">        <span class="comment">//多态做法</span></span><br><span class="line">        p.feedAnimal(cat);</span><br><span class="line">        p.feedAnimal(dog);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>多态作用</p>
+<ul>
+<li>当把不同的子类对象都当作父类类型来看待，可以屏蔽不同子类对象之间的实现差异</li>
+<li>从而写出通用的代码达到通用编程，以适应需求的不断变化</li>
+<li>在这里使用了多态后，只需要写一个方法就能达到相同的功能（子类没有这个方法，会到父类种找）</li>
+</ul>
+<h4 id="instanceof关键字"><a href="#instanceof关键字" class="headerlink" title="instanceof关键字"></a>instanceof关键字</h4><p>类的强制类型转换：把父类对象赋值给子类类型<br>判断一个对象是否是指定的类，如果是返回true不是，就返回false</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Person类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">feed</span><span class="params">(Animal animal)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (animal <span class="keyword">instanceof</span> Dog) &#123;</span><br><span class="line">			Dog dog = (Dog) animal;<span class="comment">// 把Animal强制成Dog</span></span><br><span class="line">			dog.eat();</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (animal <span class="keyword">instanceof</span> Cat) &#123;</span><br><span class="line">			Cat cat = (Cat) animal;</span><br><span class="line">			cat.eat();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//main方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Person p = <span class="keyword">new</span> Person();</span><br><span class="line">    Animal cat =<span class="keyword">new</span> Cat();</span><br><span class="line">    Animal dog =<span class="keyword">new</span> Dog();</span><br><span class="line">    p.feed(cat);</span><br><span class="line">    p.feed(dog);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="多态中字段的注意点"><a href="#多态中字段的注意点" class="headerlink" title="多态中字段的注意点"></a>多态中字段的注意点</h4><p><strong>方法存在多态，字段不存在多态</strong><br><strong>字段前面对象是什么类型，就调用谁的</strong>，<strong>在编译的时候，就已经确定要去调用谁的</strong></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://study.163.com/course/introduction/1005537028.htm" target="_blank" rel="noopener">Java零基础到高级JavaEE就业实战</a><br><a href></a></p>
+</section>
+    
+
+    <footer id="post-meta" class="clearfix">
+        <a href="/about/">
+        <img class="avatar" src="/images/avatar.jpg">
+        <div>
+            <span class="dark">Aaron Lin</span>
+            <span></span>
+        </div>
+        </a>
+        <section id="sharing">
+            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2019/12/28/java-note-3/ - Java笔记-面向对象2 @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
+            <a title="Share to Facebook" class="facebook" href="#" onclick="
+                window.open(
+                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                  'facebook-share-dialog',
+                  'width=626,height=436');
+                return false;"><span class="icon-facebook-sign">Share</span>
+            </a>
+        </section>
+    </footer>
+
+
+  <section id="comment">
+    <button class="btn" id="loadcmts" onclick="cmts.load();">加载评论</button>
+    <div id="gitment"></div>
+    <script src='/js/gitment.browser.js'></script>
+    <link rel="stylesheet" href=''>
+    <script>
+      var cmts={
+        load:function cmts(){
+          var gitment = new Gitment({
+          
+            id: "Java笔记-面向对象2",
+          
+            owner: "",
+            repo: "",
+            oauth: {
+              client_id: "",
+              client_secret: "",
+            },
+          })
+          gitment.render('gitment');
+          var loadcmt = document.getElementById("loadcmts");
+          var imyourfather = loadcmt.parentNode;
+          imyourfather.removeChild(loadcmts)
+        }
+      }
+    </script>
+  </section>
+
+
+	<footer id="footer">
+    <div id="social">
+        <p class="small">©
+            Aaron Lin | Powered by Hexo &
+                <a href="https://github.com/F0r3at/Lights" target="_blank" rel="noopener"> Lights</a>
+        </p>
+    </div>
+</footer>
+</section>
+
+	<script src="//cdnjs.loli.net/ajax/libs/instantclick/3.0.1/instantclick.min.js" data-no-instant></script>
+	<script data-no-instant>
+		
+		InstantClick.init('mousedown');
+	</script>
+
+
+
