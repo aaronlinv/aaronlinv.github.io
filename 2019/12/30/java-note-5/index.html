@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+  <meta name="description" content="抽象求不同图形的面积定义一个Graph类，getArea方法求图形面积，不同的图形求面积算法是不一样，不同图形写不同子类，继承Graph类
+
+每一个图形子类，都必须得要覆盖getArea方法，在每个里面写上自己的方法体
+父类不知道方法体里面该怎么写，不需要方法体
+
+抽象方法（在方法前面添加了一个关键">
+
+
+<link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
+<meta name="theme-color" content="#a1d0f6">
+<title>Java笔记-面向对象4 - Aaron Lin</title>
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+<!-- <link rel="shortcut icon" href="/favicon.png"> -->
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<!-- 谷歌 Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153099566-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153099566-1');
+</script>
+
+
+<nav class="main-nav">
+	
+	    <a href="/">← 主页</a>
+	
+	
+	    <a href="/about/">关于</a>
+	
+	    <a href="/archives/">归档</a>
+	
+	<a class="cta" href="/rss2.xml" data-no-instant>订阅</a>
+</nav>
+
+<section id="wrapper">
+    <article class="post">
+    <header>
+        
+            <h1>Java笔记-面向对象4</h1>
+        
+        <h2 class="headline">Dec 30 2019
+        
+        </h2>
+    </header>
+</article>
+<section id="post-body"><h4 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h4><p>求不同图形的面积<br>定义一个Graph类，getArea方法求图形面积，不同的图形求面积算法是不一样，不同图形写不同子类，继承Graph类</p>
+<ol>
+<li>每一个图形子类，都必须得要覆盖getArea方法，在每个里面写上自己的方法体</li>
+<li>父类不知道方法体里面该怎么写，不需要方法体</li>
+</ol>
+<p>抽象方法（在方法前面添加了一个关键字abstract）：</p>
+<ol>
+<li>没有方法体（但是有返回值）</li>
+<li>必须要定义在抽象类当中或接口（在类前面添加上了一个abstract就成为了抽象类）</li>
+<li>不能是私有的<strong>private</strong>（子类就不能访问该方法就不能重写），不能使用<strong>final</strong>修饰（final要求子类不能重写，但是abstract要求必须要重写），不能同时使用<strong>static</strong>（static属于类，方法属于对象）</li>
+</ol>
+<p>抽象类<br>抽象类必须得要有子类才行（抽象类一般都当作父类来继承）</p>
+<p>抽象类的注意点：</p>
+<ol>
+<li>抽象类是不能直接创建对象的（但<strong>抽象类是有构造器的</strong>）</li>
+<li>抽象类当中，可以有抽象方法，也<strong>可以有非抽象方法</strong>（普通方法：给子类调用的）</li>
+<li>子类没有去覆盖抽象方法，把子类也变成抽象类（子类没有实现抽象方法，有孙类孙类就要实现，总有人要还的）</li>
+<li>构造方法不能定义为私有化（抽象方法必须得要让子类继承之后，才能实现内部的方法体）（子类继承的话，先去调用父类的构造方法）</li>
+<li>抽象类不能使用final来去修饰</li>
+</ol>
+<p>抽象类和普通类的区别<br>其实是一个不完整类。需要做为一个父类，子类才能完成对应的功能。<br>命名：抽象类命令时，都喜欢在前面添加上一个Abstract</p>
+<p>抽象类与普通的类有什么区别？</p>
+<ol>
+<li>普通类（方法，字段，构造器），抽象类都有</li>
+<li>抽象不能创建对象</li>
+<li>抽象类可以包含抽象方法，也可以包含非抽象方法</li>
+<li>抽象类必须有子类才有意义</li>
+</ol>
+<h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><p>接口只定义了类应当遵循的规范，却不关心这些类的内部数据和其功能的实现细节<br>站在程序角度上说接口只<strong>规定了类里必须提供的方法，从而分离了规范和实现</strong>，增强了系统的可拓展性和可维护性</p>
+<p>Java接口也是表示一种规范，使用<strong>抽象方法</strong>来去定义一组功能，必须要实现者给提供方法的实现</p>
+<p>接口命名：I+名字+able</p>
+<p>接口它其实是一个特殊的抽象类(abstract 可以不写)，接口也会生成对应的字节码</p>
+<p>内部方法的abstract可以省略不写，如果没有在方法前面添加abstract会在编译时自动的添加上public abstract</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">transData</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//编译自动加上等同于：</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">transData</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>接口当中的注意点</p>
+<ol>
+<li>接口是<strong>没有构造器</strong>，接口是不能创建对象</li>
+<li>接口当中定义变量，都是<strong>全局的静态常量</strong>,少用<br>String name=”myxq”;<br>编译后：public static final String name；   //final 修饰的变量必须初始化</li>
+<li>接口当中定义的方法都是<strong>公共的抽象方法</strong><br>void transData（）;<br>编译后：<strong>public abstract</strong> void transData（）;</li>
+<li>接口可以多继承 (类不能多继承，接口继承的时候，不会去覆盖父接口的方法，因为没有方法体，所以无意义）<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Iwalkable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">walk</span><span class="params">()</span></span>; <span class="comment">// 接口方法默认public abstract ，可以不写</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Iswimable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">swim</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Iamphibiousable</span> <span class="keyword">extends</span> <span class="title">Iwalkable</span>, <span class="title">Iswimable</span> </span>&#123;</span><br><span class="line"><span class="comment">//	void swim(); 接口继承的时候，一般都不进行方法覆盖，无意义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>接口中 可以定义内部类，内部类也是public abstract</li>
+</ol>
+<h4 id="接口的实现"><a href="#接口的实现" class="headerlink" title="接口的实现"></a>接口的实现</h4><p>实现类 extends 父类（只能继承一个类）implements其它的接口（接口可以实现多个）<br>例如：class Cat extends Animal implements Iwalkable{}</p>
+<p>在实现类当中必须得要去覆盖接口当中定义的方法<br>实现的方法必须得是public（子类权限不能比父类小）</p>
+<p>多态</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//(Iamphibiousable接口可以说是forg的父类)</span></span><br><span class="line">    <span class="comment">//多态写法，把子类对象赋值给父类类型</span></span><br><span class="line">    Iamphibiousable frog = <span class="keyword">new</span> Frog();<span class="comment">//面向接口编程</span></span><br><span class="line">    frog.swim();<span class="comment">//多态运行时表现子类特征（编译看左边，运行看右边）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行时看左边的Iamphibiousable又没有swin方法（这里是继承自Iswimable），没有就报错，有的话运行右边的Frog类的的swim方法</p>
+<h4 id="接口和抽象类区别"><a href="#接口和抽象类区别" class="headerlink" title="接口和抽象类区别"></a>接口和抽象类区别</h4><p>相同点</p>
+<ol>
+<li>都是被其它类实现或者被继承</li>
+<li>都不能实例化</li>
+<li>都可以定义抽象方法，定义的抽象方法子类都必须得要覆盖</li>
+</ol>
+<p>不同点</p>
+<ol>
+<li>抽象类当中是有构造器，接口是没有构造器</li>
+<li>抽象类可以包含普通方法和抽象方法，接口当中只能有抽象方法，不能有普通方法（带有方法体）(Java8开始，接口可以有普通方法)</li>
+<li>成员变量：抽象类当中默认的权限，接口当中默认：public static final变量 -&gt; 全局静态常量    </li>
+<li>方法：抽象类默认的权限，接口当中默认方法public abstract 方法名；</li>
+</ol>
+<h4 id="面向接口编程"><a href="#面向接口编程" class="headerlink" title="面向接口编程"></a>面向接口编程</h4><p>把实现类对象赋值给接口类型的变量<br>好处：蔽了不同类之间实现差异，从而达到通用编程（就是多态的好处）</p>
+<ol>
+<li>定义接口</li>
+<li>定义接口实现类</li>
+<li>创建具体对象<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4>定义在<strong>类当中的一个类</strong></li>
+</ol>
+<p>为什么要使用内部类<br>1.增强封装，把内部类隐藏在外部类当中，不允许其它类访问这个内部类<br>2.增加了代码一个维护性<br>3.内部类可以直接访问外部类当中的成员</p>
+<p>内部类的分类（4种）<br>1.实例内部类：直接定义在类当中的一个类，在类前面没有任何一个修饰符<br>2.静态内部类：在内部类前面加上一个static<br>3.局部内部类：定义在方法的内部类<br>4.匿名内部类：属于局部内部的一种特殊情况</p>
+<p>外部类的修饰符只能有两个：public或者默认修饰符，内部类可以使用很多个修饰符</p>
+<h4 id="实例内部类"><a href="#实例内部类" class="headerlink" title="实例内部类"></a>实例内部类</h4><p>类当中的成员：<br>字段<br>方法<br>内部类</p>
+<p>实例内部类：属于对象的内部类，不属于类的，不使用static修饰<br>想要使用内部类，必须得要先创建外部类在内部类<br>当中可以访问外部类中的成员，外部类是不能直接访问内部中的成员</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">	String name = <span class="string">"Outer"</span>;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</span><br><span class="line">		String name = <span class="string">"Inner"</span>;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			String name = <span class="string">"Inner test()"</span>;</span><br><span class="line">			</span><br><span class="line">			System.out.println(name);</span><br><span class="line">			System.out.println(<span class="keyword">this</span>.name);</span><br><span class="line">			System.out.println(Outer.<span class="keyword">this</span>.name); <span class="comment">//调用外部类的变量</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Outer outer=<span class="keyword">new</span> Outer(); <span class="comment">//先new 外部类</span></span><br><span class="line">		Outer.Inner inner=outer.new Inner();<span class="comment">//赋值给 Inner inner 会报错</span></span><br><span class="line">		inner.test();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建内部类对象当中，会有一个<strong>外部类的引用</strong><br><img src="/2019/12/30/java-note-5/1.png" alt="高新强"></p>
+<h4 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">	String name = <span class="string">"Outer"</span>;</span><br><span class="line">	<span class="keyword">static</span> String sname = <span class="string">"Outer staic"</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> i = <span class="number">10</span>;<span class="comment">// 5.可以定义非静态成员</span></span><br><span class="line">		<span class="keyword">static</span> String iname = <span class="string">"Inner static"</span>;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			System.out.println(sname);</span><br><span class="line">			<span class="comment">// System.out.println(name); 报错，非静态变量,可以创建实例对象来访问</span></span><br><span class="line">			System.out.println(<span class="keyword">new</span> Outer().name);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 1.static 静态的，属于类，就不需要创建外部类</span></span><br><span class="line">		Outer.Inner inner = <span class="keyword">new</span> Outer.Inner(); <span class="comment">// 类型Outer.Inner 和实例内部类相同</span></span><br><span class="line">		inner.test();</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 4.调用静态类中的静态变量</span></span><br><span class="line">		System.out.println(Outer.Inner.iname);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>静态内部类：在内部类前面加上static</p>
+<ol>
+<li>静态内部类是<strong>不需要创建外部对象</strong>（因为是static，所以是属于类）<br>outter.Inner in=new outter.Inner（）；</li>
+<li>在静态内部类中，<strong>没有外部类引用</strong></li>
+<li>静态内部类，可以访问外部类的静态成员</li>
+<li>访问静态内部类当中的静态成员Outter.Inner.color</li>
+<li>静态内部当中可以定义静态成员，也可以定义非静态成员</li>
+</ol>
+<h4 id="局部内部类（少用）"><a href="#局部内部类（少用）" class="headerlink" title="局部内部类（少用）"></a>局部内部类（少用）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">myxq</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		String name = <span class="string">"Outer test()"</span>;<span class="comment">// 4.本质final 编译自动加</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;<span class="comment">// 局部内部类</span></span><br><span class="line"></span><br><span class="line">			<span class="comment">// 局部内部类的方法test</span></span><br><span class="line">			<span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.println(name);</span><br><span class="line">				<span class="comment">//name="test"; 因为是final 所以不能修改</span></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		Inner in = <span class="keyword">new</span> Inner();</span><br><span class="line">		in.test();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Outer().myxq();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>定义在方法中的内部类<br>1.不能用一些修饰符public private（因为只在方法的局部生效）<br>2.只能在定义的方法中使用<br>3.不能包含静态变量（staic是属于类，但是这个变量属于方法）<br>4.可以包含局部变量，本质是final，编译自动加上（JDK1.8之后可以省略final）（这里的局部变量指的是与局部内部类同级的变量，就是在myxq方法里的局部变量，至于局部内部类里面非final也可以）</p>
+<p>内存分析<br>myxq方法栈帧 入栈 有一个变量name<br>堆中创建Inner对象，地址0x0001赋值栈的in<br>Inner对象的test方法引用了name，指向栈里的<br><img src="/2019/12/30/java-note-5/2.png" alt="高新强"></p>
+<p>myxq方法出栈后<br>堆中一个对象没有人引用，它并不是直接就销毁<br>所以name现在空指针<br>所以引用的必须是final 常量（在方法区）<br><img src="/2019/12/30/java-note-5/3.png" alt="高新强"></p>
+<h4 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IUSB</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">swapData</span><span class="params">()</span></span>;<span class="comment">// public abstract</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MotherBoard</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">PluginIn</span><span class="params">(IUSB iusb)</span> </span>&#123;</span><br><span class="line">		iusb.swapData();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		MotherBoard board = <span class="keyword">new</span> MotherBoard();</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 匿名内部类</span></span><br><span class="line">		board.PluginIn(<span class="keyword">new</span> IUSB() &#123; <span class="comment">// 这里new的不是接口而是匿名内部类</span></span><br><span class="line"></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swapData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"打印工作"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就是一个没有名字的局部内部类  安卓用的比较多<br>匿名内部类是没有构造器<br>只使用一次的时候,来去使用匿名内部类  </p>
+<p>new 父类的构造器 或 接口( ){<br>内部写的代码（在new时候就会自动执行）<br>}      </p>
+<p>匿名内部类必须得要有父类才,或者是实现了接口</p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://study.163.com/course/introduction/1005537028.htm" target="_blank" rel="noopener">Java零基础到高级JavaEE就业实战</a></p>
+</section>
+    
+
+    <footer id="post-meta" class="clearfix">
+        <a href="/about/">
+        <img class="avatar" src="/images/avatar.jpg">
+        <div>
+            <span class="dark">Aaron Lin</span>
+            <span></span>
+        </div>
+        </a>
+        <section id="sharing">
+            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2019/12/30/java-note-5/ - Java笔记-面向对象4 @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
+            <a title="Share to Facebook" class="facebook" href="#" onclick="
+                window.open(
+                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                  'facebook-share-dialog',
+                  'width=626,height=436');
+                return false;"><span class="icon-facebook-sign">Share</span>
+            </a>
+        </section>
+    </footer>
+
+
+  <section id="comment">
+    <button class="btn" id="loadcmts" onclick="cmts.load();">加载评论</button>
+    <div id="gitment"></div>
+    <script src='/js/gitment.browser.js'></script>
+    <link rel="stylesheet" href=''>
+    <script>
+      var cmts={
+        load:function cmts(){
+          var gitment = new Gitment({
+          
+            id: "Java笔记-面向对象4",
+          
+            owner: "",
+            repo: "",
+            oauth: {
+              client_id: "",
+              client_secret: "",
+            },
+          })
+          gitment.render('gitment');
+          var loadcmt = document.getElementById("loadcmts");
+          var imyourfather = loadcmt.parentNode;
+          imyourfather.removeChild(loadcmts)
+        }
+      }
+    </script>
+  </section>
+
+
+	<footer id="footer">
+    <div id="social">
+        <p class="small">©
+            Aaron Lin | Powered by Hexo &
+                <a href="https://github.com/F0r3at/Lights" target="_blank" rel="noopener"> Lights</a>
+        </p>
+    </div>
+</footer>
+</section>
+
+	<script src="//cdnjs.loli.net/ajax/libs/instantclick/3.0.1/instantclick.min.js" data-no-instant></script>
+	<script data-no-instant>
+		
+		InstantClick.init('mousedown');
+	</script>
+
+
+

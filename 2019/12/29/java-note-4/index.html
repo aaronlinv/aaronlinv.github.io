@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+  <meta name="description" content="代码块在类中或方法中使用 { } 括起来的一段代码就称它是一个代码块代码块当中定义的变量，我们称它是局部变量
+
+局部代码块：直接定义在方法内部的代码块  在调用方法的时候执行。（很少用，if while for（）{} 这个{} 就是局部代码块）
+初始化代码块：直接在类当中定义代码块初始化代码块在运">
+
+
+<link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
+<meta name="theme-color" content="#a1d0f6">
+<title>Java笔记-面向对象3 - Aaron Lin</title>
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+<!-- <link rel="shortcut icon" href="/favicon.png"> -->
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<!-- 谷歌 Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153099566-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153099566-1');
+</script>
+
+
+<nav class="main-nav">
+	
+	    <a href="/">← 主页</a>
+	
+	
+	    <a href="/about/">关于</a>
+	
+	    <a href="/archives/">归档</a>
+	
+	<a class="cta" href="/rss2.xml" data-no-instant>订阅</a>
+</nav>
+
+<section id="wrapper">
+    <article class="post">
+    <header>
+        
+            <h1>Java笔记-面向对象3</h1>
+        
+        <h2 class="headline">Dec 29 2019
+        
+            
+            <a href="/categories/Java笔记/#Java笔记">Java笔记</a>
+        
+        </h2>
+    </header>
+</article>
+<section id="post-body"><h4 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h4><p>在类中或方法中使用 { } 括起来的一段代码就称它是一个代码块<br>代码块当中定义的变量，我们称它是局部变量</p>
+<ol>
+<li>局部代码块：直接定义在方法内部的代码块  在调用方法的时候执行。（很少用，if while for（）{} 这个{} 就是局部代码块）</li>
+<li>初始化代码块：直接在类当中定义代码块<br>初始化代码块在运行时，还是要把它放到<strong>构造方法</strong>当中（编译时候直接初始代码块的写到构造方法第一行,带参无参都会）</li>
+<li>静态代码块：在初始化代码块前面加上一个static<br>在加载字节码时就会自动调用在主方法之前执行的。<strong>只执行一次</strong>（先执行静态代码块，然后再执行main）</li>
+</ol>
+<h4 id="组合关系和类的加载"><a href="#组合关系和类的加载" class="headerlink" title="组合关系和类的加载"></a>组合关系和类的加载</h4><p>组合关系：自己当中的字段是一个“类”类型依赖其它的类（类的成员变量是另一个类）<br>类加载：<br>类在什么时候去加载：当第一次使用该类对象的时候，去加载到JVM当中<br><strong>只加载一次，下一次直接从内存中使用了</strong></p>
+<h4 id="字段初始化"><a href="#字段初始化" class="headerlink" title="字段初始化"></a>字段初始化</h4><ol>
+<li>类的加载：第一次创建该类对象的时候，加载到内存中，加载时会执行static代码块</li>
+<li>字段初始化</li>
+</ol>
+<ul>
+<li>静态字段：在静态代码块中初始化</li>
+<li>非静态字段：在构造器中初始化</li>
+</ul>
+<ol start="3">
+<li>子类构造器默认会调用父类构造器</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">"SuperClass static代码块"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SuperClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"SuperClass 构造器"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">"SubClass static代码块"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	SubClass() &#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		System.out.println(<span class="string">"SubClass 构造器"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyXq</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//private static MyXq xq=new MyXq(); //静态字段实在静态代码块中初始化</span></span><br><span class="line">	<span class="comment">//编译实际上是：</span></span><br><span class="line">	 </span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> MyXq xq=<span class="keyword">null</span>;</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		xq=<span class="keyword">new</span> MyXq();</span><br><span class="line">		System.out.println(<span class="string">"MyXq 类的static静态初始化 "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//private SubClass sub=new SubClass();</span></span><br><span class="line">	<span class="comment">//编译实际上是:</span></span><br><span class="line">	<span class="keyword">private</span> SubClass sub=<span class="keyword">null</span>;</span><br><span class="line">	MyXq()&#123;</span><br><span class="line">		sub=<span class="keyword">new</span> SubClass(); <span class="comment">//在构造器中初始化</span></span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"MyXq构造器"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"main"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输出结果：</span></span><br><span class="line"><span class="comment">SuperClass static代码块</span></span><br><span class="line"><span class="comment">SubClass static代码块</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">SuperClass 构造器</span></span><br><span class="line"><span class="comment">SubClass 构造器</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">MyXq构造器</span></span><br><span class="line"><span class="comment">MyXq 类的static静态初始化</span></span><br><span class="line"><span class="comment">main</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>程序运行：执行main，在main之前需要对类初始化</li>
+<li>对MyXq类进行初始化，会执行静态代码块：调用MyXq构造器</li>
+<li>MyXq构造器：new了一个SubClass，new之前先把SubClass这个类加载到内存，加载子类前会先判断有没有父类，如果有，会先把父类加载成字节码放到内存当中，然后再去把自己加载到内存，所以是先加载SuperClass，执行SuperClass的静态代码块，然后是SubClass的静态代码块</li>
+<li>子类构造器第一句为super(),所以先执行SuperClass构造器，再执行SubClass构造器</li>
+</ol>
+<h4 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h4><p>继承弊端：破坏了我们的封装，继承可去访问父类当中的实现细节，可以覆盖父类当中的方法</p>
+<p>字段：不能再去修改该字段<br>方法：子类开就能再去覆盖该方法<br>类：该类就不能再去被继承</p>
+<p>final关键字：只能用，不能修改</p>
+<p>注意点：</p>
+<ul>
+<li>final 修饰字段：必须得要自己手动设置初始值</li>
+<li>final 修饰变量：就代表是一个常量，命令规则：所有的字母都大写MAX_VALUE</li>
+<li>final 可以在局部代码块当中使用</li>
+<li>final 修饰基本数据类型：值不能修改</li>
+<li>final 修饰引用类型：可以修改类里面的成员，但是不能修改地址</li>
+</ul>
+<h4 id="单设计模式"><a href="#单设计模式" class="headerlink" title="单设计模式"></a>单设计模式</h4><p>设计模式：之前很多程序员经常无数次的尝试，总结出来一套最佳实践<br>单例：一个类在内存当中只有一个对象。别人不能再去创建对象<br>工具类一般都是单例设计模式<br>工具类：把一些经常使用的功能，写在一个类当中，以后使用该功能时，直接调用</p>
+<p>饿汉模式（<strong>这类的单例不能被继承</strong>，因为子类默认有构造器，构造器默认有super()默认访问父类构造器，所以报错，其他形式单例可被继承）<br>1.必须得要在该类中创建一个对象出来<br>2.私有化自己的构造器。防止外界通过构造器来创建新的对象<br>3.给外界提供一个方法，能够获取已经创建好的对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ToolUtil</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ToolUtil instance=<span class="keyword">new</span> ToolUtil();</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">ToolUtil</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ToolUtil <span class="title">getInstantce</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>优点<br>1.控制资源的使用<br>2.控制实例的产生数量，达到节省资源目的<br>3.作为通信媒介，数据共享</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h4><p>对基本数据类型进行包装，把基本数据类型包装一个对象。<br>把基本数据类型变的更强大，以面向对象的思想来去使用这些类型。<br>基本数据类型    包装类       （只有int 和char 是英文全称首字母大写 其他都是首字母大写）</p>
+<table>
+<thead>
+<tr>
+<th align="center">基本数据类型</th>
+<th align="center">包装类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">byte</td>
+<td align="center">Byte</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">Short</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center"><strong>Integer</strong></td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">Long</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">Float</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">Double</td>
+</tr>
+<tr>
+<td align="center">char</td>
+<td align="center"><strong>Character</strong></td>
+</tr>
+<tr>
+<td align="center">boolean</td>
+<td align="center">Boolean</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">20</span>;</span><br><span class="line">    Integer num=<span class="keyword">new</span> Integer(i);</span><br><span class="line">    </span><br><span class="line">    System.out.println(num);</span><br><span class="line">    System.out.println(num.MAX_VALUE);<span class="comment">//本质用类名调用 同下一行</span></span><br><span class="line">    System.out.println(Integer.MAX_VALUE);</span><br><span class="line">    System.out.println(Integer.MIN_VALUE);</span><br><span class="line">    System.out.println(num.TYPE);</span><br><span class="line">    </span><br><span class="line">    num=Integer.valueOf(<span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>装箱:基本数据类型 -&gt; 包装类<br>拆箱:包装类-&gt;基本数据类型</p>
+<p>自动装箱 自动拆箱（语法糖）</p>
+<ul>
+<li>自动装箱<br>Integer i1=10;<br>//本质 Integer i1=Integer.valueOf(10);</li>
+<li>自动拆箱<br>int i2=i;<br>//本质int i2=i.intValue() ;</li>
+</ul>
+<h4 id="字符串与其他类型转换"><a href="#字符串与其他类型转换" class="headerlink" title="字符串与其他类型转换"></a>字符串与其他类型转换</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字符串-&gt;包装类型</span></span><br><span class="line">Integer i =<span class="keyword">new</span> Integer(<span class="string">"10"</span>);<span class="comment">//字符串中不能有非数字，比如字母</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//包装类型-&gt;字符串</span></span><br><span class="line">String s=i.toString();</span><br><span class="line"></span><br><span class="line"><span class="comment">//基本数据类型-&gt;字符串</span></span><br><span class="line">String str2=<span class="number">2</span>+<span class="string">""</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串-&gt;基本数据类型</span></span><br><span class="line">String str3=<span class="string">"2020"</span>;</span><br><span class="line"><span class="keyword">int</span> i3 =Integer.parseInt(str3);</span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串转boolean</span></span><br><span class="line">Boolean b=<span class="keyword">new</span> Boolean(<span class="string">"myxq"</span>); <span class="comment">//除了字符串true其他都返回false</span></span><br></pre></td></tr></table></figure>
+<h4 id="基本数据类型和包装类区别"><a href="#基本数据类型和包装类区别" class="headerlink" title="基本数据类型和包装类区别"></a>基本数据类型和包装类区别</h4><ol>
+<li>默认值<br>int 0<br>Integer null</li>
+<li>包装类当中提供了很多方法直接给我们使用如：<br>Integer.toBinaryString(5)</li>
+<li>集合框架当中不能存放基本数据类型，只能存对象</li>
+</ol>
+<p>什么时候使用基本数据类型什么时候使用包装类</p>
+<ul>
+<li>在类当中，成员变量一般都使用包装类</li>
+<li>在方法中，我们一般都使用基本数据类型</li>
+</ul>
+<p>方法中，基本数据类型存储在栈当中，包装类型存放在堆当中</p>
+<h4 id="包装类valueOf缓存设计"><a href="#包装类valueOf缓存设计" class="headerlink" title="包装类valueOf缓存设计"></a>包装类valueOf缓存设计</h4><p>用valueOf获取包装类对象，在缓存范围内直接使用缓存，超过缓存范围，则创建新的对象，返回新的地址</p>
+<ul>
+<li>Boolean：(全部缓存)</li>
+<li>Byte：(全部缓存)</li>
+<li>Character(&lt;= 127缓存)</li>
+<li>Short(-128 — 127缓存)</li>
+<li>Long(-128 — 127缓存)</li>
+<li>Integer(-128 — 127缓存)</li>
+<li>Float(没有缓存)</li>
+<li>Doulbe(没有缓存)</li>
+</ul>
+<h4 id="对基本数据类型包装的好处"><a href="#对基本数据类型包装的好处" class="headerlink" title="对基本数据类型包装的好处"></a>对基本数据类型包装的好处</h4><p>1.使用包装对象后，功能变的更加强大<br>例如：使用Double表示一个人的分数，一个人的分数为0分，可以表示0.0，如果这个人没有来考试可以用null表示</p>
+<p>2.包装类当中给我们提供了很多方法<br>例如：我们要将一个数据转成二进制，使用包装对象后，就可以直接调用方法</p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://study.163.com/course/introduction/1005537028.htm" target="_blank" rel="noopener">Java零基础到高级JavaEE就业实战</a><br><a href="https://www.cnblogs.com/javatech/p/3650460.html" target="_blank" rel="noopener">JAVA包装类的缓存范围</a></p>
+</section>
+    
+
+    <footer id="post-meta" class="clearfix">
+        <a href="/about/">
+        <img class="avatar" src="/images/avatar.jpg">
+        <div>
+            <span class="dark">Aaron Lin</span>
+            <span></span>
+        </div>
+        </a>
+        <section id="sharing">
+            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2019/12/29/java-note-4/ - Java笔记-面向对象3 @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
+            <a title="Share to Facebook" class="facebook" href="#" onclick="
+                window.open(
+                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                  'facebook-share-dialog',
+                  'width=626,height=436');
+                return false;"><span class="icon-facebook-sign">Share</span>
+            </a>
+        </section>
+    </footer>
+
+
+  <section id="comment">
+    <button class="btn" id="loadcmts" onclick="cmts.load();">加载评论</button>
+    <div id="gitment"></div>
+    <script src='/js/gitment.browser.js'></script>
+    <link rel="stylesheet" href=''>
+    <script>
+      var cmts={
+        load:function cmts(){
+          var gitment = new Gitment({
+          
+            id: "Java笔记-面向对象3",
+          
+            owner: "",
+            repo: "",
+            oauth: {
+              client_id: "",
+              client_secret: "",
+            },
+          })
+          gitment.render('gitment');
+          var loadcmt = document.getElementById("loadcmts");
+          var imyourfather = loadcmt.parentNode;
+          imyourfather.removeChild(loadcmts)
+        }
+      }
+    </script>
+  </section>
+
+
+	<footer id="footer">
+    <div id="social">
+        <p class="small">©
+            Aaron Lin | Powered by Hexo &
+                <a href="https://github.com/F0r3at/Lights" target="_blank" rel="noopener"> Lights</a>
+        </p>
+    </div>
+</footer>
+</section>
+
+	<script src="//cdnjs.loli.net/ajax/libs/instantclick/3.0.1/instantclick.min.js" data-no-instant></script>
+	<script data-no-instant>
+		
+		InstantClick.init('mousedown');
+	</script>
+
+
+
