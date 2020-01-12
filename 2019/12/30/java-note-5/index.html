@@ -54,6 +54,9 @@
         
         <h2 class="headline">Dec 30 2019
         
+            
+            <a href="/categories/Java笔记/#Java笔记">Java笔记</a>
+        
         </h2>
     </header>
 </article>
@@ -139,7 +142,7 @@
 <li>静态内部类是<strong>不需要创建外部对象</strong>（因为是static，所以是属于类）<br>outter.Inner in=new outter.Inner（）；</li>
 <li>在静态内部类中，<strong>没有外部类引用</strong></li>
 <li>静态内部类，可以访问外部类的静态成员</li>
-<li>访问静态内部类当中的静态成员Outter.Inner.color</li>
+<li>访问静态内部类当中的静态成员Outter.Inner.iname</li>
 <li>静态内部当中可以定义静态成员，也可以定义非静态成员</li>
 </ol>
 <h4 id="局部内部类（少用）"><a href="#局部内部类（少用）" class="headerlink" title="局部内部类（少用）"></a>局部内部类（少用）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">myxq</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		String name = <span class="string">"Outer test()"</span>;<span class="comment">// 4.本质final 编译自动加</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;<span class="comment">// 局部内部类</span></span><br><span class="line"></span><br><span class="line">			<span class="comment">// 局部内部类的方法test</span></span><br><span class="line">			<span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.println(name);</span><br><span class="line">				<span class="comment">//name="test"; 因为是final 所以不能修改</span></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		Inner in = <span class="keyword">new</span> Inner();</span><br><span class="line">		in.test();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Outer().myxq();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

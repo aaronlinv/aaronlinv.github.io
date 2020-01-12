@@ -4,10 +4,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
 
-  <meta name="description" content="写在最前前一段时间把一些零零碎碎的事都解决了，现在可以沉下心做一件事
-以往我都在纠结自己杂乱地学了很多的东西，后悔自己随波逐流地选择了很多，没有系统地学一项技能
-和一些从事相关行业的前辈聊天后，消除了自己很多的焦虑，在这个阶段，迷茫很正常，但是不能踌躇不前
-这一年，遇到一个在专业上给我很大帮助的学长">
+  <meta name="description" content="Java 基础常量（6种）
+整数
+二进制   0b 0B （Java7的新特性）（这个是数字零，而不是字母O） 
+八进制   0
+十六进制 0x 0X 
+
+
+浮点数
+字符
+字符串
+布尔型
+null
+
+数据类型（Java是强类型语言）
+基本数据类型（4类8种）
+整数
+byte 1字节 
+short 2">
 
 
 <link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
@@ -58,13 +72,7 @@
         </h2>
     </header>
 </article>
-<section id="post-body"><h2 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h2><p>前一段时间把一些零零碎碎的事都解决了，现在可以沉下心做一件事</p>
-<p>以往我都在纠结自己杂乱地学了很多的东西，后悔自己随波逐流地选择了很多，没有系统地学一项技能</p>
-<p>和一些从事相关行业的前辈聊天后，消除了自己很多的焦虑，在这个阶段，迷茫很正常，但是不能踌躇不前</p>
-<p>这一年，遇到一个在专业上给我很大帮助的学长</p>
-<p>以前有个误区：学过就学会了<br>到现在才越发觉得，只有不断的复习和运用才能巩固学到的东西，知易行难，要努力</p>
-<p>重拾Java，先把Java基础重新过了一遍，一些零碎的知识太久没接触忘记了，查缺补漏</p>
-<h2 id="Java-基础"><a href="#Java-基础" class="headerlink" title="Java 基础"></a>Java 基础</h2><h4 id="常量（6种）"><a href="#常量（6种）" class="headerlink" title="常量（6种）"></a>常量（6种）</h4><ul>
+<section id="post-body"><h2 id="Java-基础"><a href="#Java-基础" class="headerlink" title="Java 基础"></a>Java 基础</h2><h4 id="常量（6种）"><a href="#常量（6种）" class="headerlink" title="常量（6种）"></a>常量（6种）</h4><ul>
 <li>整数<ul>
 <li>二进制   0b 0B （Java7的新特性）（这个是数字零，而不是字母O） </li>
 <li>八进制   0</li>
@@ -124,7 +132,7 @@
 </li>
 </ul>
 <h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><ul>
-<li>算术运算<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">'a'</span> + <span class="number">1</span>); <span class="comment">//98</span></span><br><span class="line">System.out.println(<span class="string">"a"</span> + <span class="number">2</span>); <span class="comment">//a2 字符串拼接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//System.out.println(100 /0); 报错</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="number">100.0</span> / <span class="number">0</span>);<span class="comment">//Infinity </span></span><br><span class="line">System.out.println(-<span class="number">100.0</span> / <span class="number">0</span>);<span class="comment">//-Infinity </span></span><br><span class="line"><span class="comment">//0自动转化为double 0.0 一个数除以很无限接近0的数，就无限大 </span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="number">0.0</span> / <span class="number">0.0</span>);<span class="comment">//NaN  not a number</span></span><br><span class="line"></span><br><span class="line">System.out.println(-<span class="number">10</span> / -<span class="number">3</span>);<span class="comment">//   -3 模除符号只取决于第一个数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">short</span> s = <span class="number">8</span>;</span><br><span class="line"><span class="comment">//s = s + 1; 报错 结果为int不能赋值给short</span></span><br><span class="line">s += <span class="number">5</span>; <span class="comment">//自动强转为short类型</span></span><br></pre></td></tr></table></figure></li>
+<li>算术运算<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">'a'</span> + <span class="number">1</span>); <span class="comment">//98</span></span><br><span class="line">System.out.println(<span class="string">"a"</span> + <span class="number">2</span>); <span class="comment">//a2 字符串拼接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//System.out.println(100 /0); 报错</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="number">100.0</span> / <span class="number">0</span>);<span class="comment">//Infinity </span></span><br><span class="line">System.out.println(-<span class="number">100.0</span> / <span class="number">0</span>);<span class="comment">//-Infinity </span></span><br><span class="line"><span class="comment">//0自动转化为double 0.0 一个数除以很无限接近0的数，就无限大 </span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="number">0.0</span> / <span class="number">0.0</span>);<span class="comment">//NaN  not a number</span></span><br><span class="line"></span><br><span class="line">System.out.println(-<span class="number">10</span> % -<span class="number">3</span>);<span class="comment">//   -3 模除符号只取决于第一个数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">short</span> s = <span class="number">8</span>;</span><br><span class="line"><span class="comment">//s = s + 1; 报错 结果为int不能赋值给short</span></span><br><span class="line">s += <span class="number">5</span>; <span class="comment">//自动强转为short类型</span></span><br></pre></td></tr></table></figure></li>
 <li>逻辑运算符的短路</li>
 </ul>
 <h4 id="流程语句"><a href="#流程语句" class="headerlink" title="流程语句"></a>流程语句</h4><ul>
@@ -135,7 +143,7 @@
 <li>找不到匹配的case，执行default，一般放在最后，放在其他位置，也会穿透</li>
 </ol>
 </li>
-<li>for<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">outter:<span class="keyword">for</span>()&#123;</span><br><span class="line">  <span class="keyword">for</span>()&#123;</span><br><span class="line">    <span class="keyword">if</span>() <span class="keyword">break</span> outter;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>for<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">outter:<span class="keyword">for</span>()&#123;</span><br><span class="line">  <span class="keyword">for</span>()&#123;</span><br><span class="line">    <span class="keyword">if</span>() <span class="keyword">break</span> outter; <span class="comment">//直接退出外层循环</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>return <ul>
 <li>结束循环所在的方法</li>
 </ul>
@@ -152,9 +160,9 @@
 <li>在同一个类中,方法签名是唯一的,否则编译报</li>
 </ul>
 </li>
-<li>增强for （foreach） 语法糖<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">int</span> [] arrays=<span class="keyword">new</span> <span class="keyword">int</span> [] &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">   </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> array:arrays) &#123;</span><br><span class="line">     System.out.println(array);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
-<li>方法的可变参数 语法糖<ul>
-<li>可变参数就是,方法的数组参数的一种简写. ( 会自动把… 转成数组 )</li>
+<li>增强for （foreach） 语法糖<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> [] arrays=<span class="keyword">new</span> <span class="keyword">int</span> [] &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> array:arrays) &#123;</span><br><span class="line">  System.out.println(array);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+方法的可变参数 语法糖<ul>
+<li>可变参数就是,方法的数组参数的一种简写 ( 会自动把… 转成数组 )</li>
 <li>可变参数必须作为方法的最后一个参数</li>
 </ul>
 </li>

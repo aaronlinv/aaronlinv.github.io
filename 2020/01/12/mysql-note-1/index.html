@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+  <meta name="description" content="数据库概述这学期专业课数据库学的虽然是SQL Server，但是很多数据库的概念都相通的，所以引用了很多SQL Sever的笔记
+数据库系统 Database System DBS
+数据库 Database, DB
+数据库管理系统
+应用程序
+数据库管理员 Database Administrator">
+
+
+<link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
+<meta name="theme-color" content="#a1d0f6">
+<title>MySQL数据库概述 - Aaron Lin</title>
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+<!-- <link rel="shortcut icon" href="/favicon.png"> -->
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<!-- 谷歌 Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153099566-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153099566-1');
+</script>
+
+
+<nav class="main-nav">
+	
+	    <a href="/">← 主页</a>
+	
+	
+	    <a href="/about/">关于</a>
+	
+	    <a href="/archives/">归档</a>
+	
+	<a class="cta" href="/rss2.xml" data-no-instant>订阅</a>
+</nav>
+
+<section id="wrapper">
+    <article class="post">
+    <header>
+        
+            <h1>MySQL数据库概述</h1>
+        
+        <h2 class="headline">Jan 12 2020
+        
+            
+            <a href="/categories/MySQL笔记/#MySQL笔记">MySQL笔记</a>
+        
+        </h2>
+    </header>
+</article>
+<section id="post-body"><h2 id="数据库概述"><a href="#数据库概述" class="headerlink" title="数据库概述"></a>数据库概述</h2><p>这学期专业课数据库学的虽然是SQL Server，但是很多数据库的概念都相通的，所以引用了很多SQL Sever的笔记</p>
+<h4 id="数据库系统-Database-System-DBS"><a href="#数据库系统-Database-System-DBS" class="headerlink" title="数据库系统 Database System DBS"></a>数据库系统 Database System DBS</h4><ul>
+<li>数据库 Database, DB</li>
+<li>数据库管理系统</li>
+<li>应用程序</li>
+<li>数据库管理员 Database Administrator, DAB</li>
+</ul>
+<p><img src="/2020/01/12/mysql-note-1/2.png" alt="SQL Server"></p>
+<p>数据库管理系统 Database Management System —— DBMS<br>DBMS属于系统软件<br><img src="/2020/01/12/mysql-note-1/1.png" alt="SQL Server"><br>数据库是一种操纵和管理数据库的大型软件，用于建立、使用和维护数据库，简称DBMS<br>它对数据库进行统一的管理和控制，以保证数据库的<strong>安全性</strong>和<strong>完整性</strong><br>用户通过DBMS访问数据库中的数据，数据库管理员也通过DBMS进行数据库的维护工作<br>数据库管理系统是数据库系统的<strong>核心</strong>，是管理数据库的软件<br>我们一般说的数据库,就是指的DBMS</p>
+<h4 id="常见数据库"><a href="#常见数据库" class="headerlink" title="常见数据库"></a>常见数据库</h4><ul>
+<li>关系型数据库：Oracle,DB2,MySQL,SQL Server</li>
+<li>非关系型数据库NoSQL：MongoDB,Redis,HBase</li>
+<li>非关系型的数据库NoSQL：(NoSQL = Not Only SQL),意即“不仅仅是SQL”</li>
+</ul>
+<h4 id="关系型数据库-RDBMS"><a href="#关系型数据库-RDBMS" class="headerlink" title="关系型数据库 RDBMS"></a>关系型数据库 RDBMS</h4><ul>
+<li>表：类似Excel表格，具有固定的列数,和任意的行数</li>
+<li>数据库：数据库是一些关联表的集合</li>
+<li>列：一个数据项 Field 字段</li>
+<li>行：一条记录  row</li>
+<li>主键：唯一，不为空，可以使用主键来查询数据</li>
+<li>外键：外键用于关联两个表</li>
+<li>索引：使用索引可快速访问数据库表中的特定信息。索引是对数据库表中一列或多列的值进行排序的一种结构。类似于书籍的目录</li>
+</ul>
+<h2 id="MySQL数据库"><a href="#MySQL数据库" class="headerlink" title="MySQL数据库"></a>MySQL数据库</h2><p>MySql是开源的，由瑞典MySQL AB公司开发，现在属于Oracle旗下产品。<br>Mysql可以允许于多个系统上，并且支持多种语言，包括C、C++、Python、Java、Perl、PHP、Eiffel、Ruby和Tcl等</p>
+<h4 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h4><p><img src="/2020/01/12/mysql-note-1/3.png" alt="SQL Server"><br>选择Custom然后自己选择要安装的组件</p>
+<p><img src="/2020/01/12/mysql-note-1/4.png" alt="SQL Server"><br>仅选择MySQL Server即可</p>
+<p><img src="/2020/01/12/mysql-note-1/5.png" alt="SQL Server"></p>
+<p><img src="/2020/01/12/mysql-note-1/6.png" alt="SQL Server"><br>记住端口号，这个很重要</p>
+<p><img src="/2020/01/12/mysql-note-1/7.png" alt="SQL Server"><br>Authentication Method 就选择推荐的吧</p>
+<p><img src="/2020/01/12/mysql-note-1/8.png" alt="SQL Server"><br>账号密码很重要</p>
+<p>接下来一路Next即可</p>
+<h5 id="连接MySQL"><a href="#连接MySQL" class="headerlink" title="连接MySQL"></a>连接MySQL</h5><p>打开命令提示符(cmd)<br>cd 到MySQL的目录下的bin目录：C:\Program Files\MySQL\MySQL Server 8.0\bin （不同版本路径可能不同）<br>可以把MySQL的bin配置到环境变量里，这样就不用手动cd到bin目录<br><img src="/2020/01/12/mysql-note-1/9.png" alt="SQL Server"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line"><span class="comment"># -u 表示用户 -p 表示密码</span></span><br></pre></td></tr></table></figure>
+<p>输入密码，光标前变成 mysql&gt; 就登录成功了</p>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>MySQL有两种数据库：<br>系统数据库(数据库服务器自带的,自带的4个)</p>
+<ul>
+<li>information_schema：存储数据库对象信息，如用户表信息,列信息,根除,字符,分区</li>
+<li>performance_schema：存储数据库服务器性能参数信息</li>
+<li>mysql：存储数据库用户权限信息</li>
+<li>sys：通过这个库可以快速的了解系统的元数据信息，这个库是通过视图的形式把information_schema和performance_schema结合起来，查询出更加令人容易理解的数据</li>
+</ul>
+<p>用户数据库（用户自己创建的数据库,一个项目用一个数据库）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 1.连接数据库</span></span><br><span class="line">mysql -u root -p</span><br><span class="line"><span class="comment">-- 输入密码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 开始写sql语句，有三点要注意</span></span><br><span class="line"><span class="comment">--    1.每一条sql语句后面都要以分号结尾;</span></span><br><span class="line"><span class="comment">--    2.sql语句的注释是两个减号：--</span></span><br><span class="line"><span class="comment">--    3.sql语句的关键字不区分大小写，非关键字像数据库名、表名这些最好都区分一下大小写，避免出错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2.显示所有数据库	show databases; (注意最后是有s)</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br><span class="line"><span class="comment">-- 3.创建数据一个数据库(并设置字符集为UTF-8) create database 数据库名  character set utf8;</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> my_demo <span class="built_in">character</span> <span class="keyword">set</span> utf8;</span><br><span class="line"><span class="comment">-- 4.选择数据库 use 数据库名;</span></span><br><span class="line"><span class="keyword">use</span> my_demo;</span><br><span class="line"><span class="comment">-- 5.查看这个数据库里所有表 show tables; (注意最后是有s)</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br><span class="line"><span class="comment">-- 6.新建表 create table 表名 (列名 数据类型,类名 数据类型...);</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> my_table (<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>),age <span class="built_in">int</span>);</span><br><span class="line"><span class="comment">-- 7.查看表的字段信息 desc 表名;</span></span><br><span class="line">desc my_table;</span><br><span class="line"><span class="comment">-- 8.删除表 drop table 表名;</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> my_table;</span><br><span class="line"><span class="comment">-- 9.删除数据库 drop database 数据库名；</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> my_demo;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用Navicat连接MySQL"><a href="#使用Navicat连接MySQL" class="headerlink" title="使用Navicat连接MySQL"></a>使用Navicat连接MySQL</h4><p><img src="/2020/01/12/mysql-note-1/10.png" alt="Navicat"><br><img src="/2020/01/12/mysql-note-1/11.png" alt="Navicat"></p>
+<p>我自己在使用Navicat连接数据库的时候MySQL报错2059<br>搜索后得知是因为MySQL8之后修改了加密规则，参考这篇文章解决了问题：<a href="https://blog.csdn.net/CheneyKKE/article/details/80272777" target="_blank" rel="noopener">Navicat连接数据库MySQL报错2059</a></p>
+<p>这里就有一个小感想：学习一个新技术的时候，最好使用和教程相同版本的软件，这样可以避免很多问题。因为刚接触一个事务的时候，对这个事物的认知往往还不能够支持你解决这些问题。当然爱折腾除外，遇到这些问题解决它其实也是一种学习的方式</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://study.163.com/course/introduction/1005932016.htm" target="_blank" rel="noopener">Java零基础到高级MySQL数据库</a></p>
+</section>
+    
+
+    <footer id="post-meta" class="clearfix">
+        <a href="/about/">
+        <img class="avatar" src="/images/avatar.jpg">
+        <div>
+            <span class="dark">Aaron Lin</span>
+            <span></span>
+        </div>
+        </a>
+        <section id="sharing">
+            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2020/01/12/mysql-note-1/ - MySQL数据库概述 @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
+            <a title="Share to Facebook" class="facebook" href="#" onclick="
+                window.open(
+                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                  'facebook-share-dialog',
+                  'width=626,height=436');
+                return false;"><span class="icon-facebook-sign">Share</span>
+            </a>
+        </section>
+    </footer>
+
+
+  <section id="comment">
+    <button class="btn" id="loadcmts" onclick="cmts.load();">加载评论</button>
+    <div id="gitment"></div>
+    <script src='/js/gitment.browser.js'></script>
+    <link rel="stylesheet" href=''>
+    <script>
+      var cmts={
+        load:function cmts(){
+          var gitment = new Gitment({
+          
+            id: "MySQL数据库概述",
+          
+            owner: "",
+            repo: "",
+            oauth: {
+              client_id: "",
+              client_secret: "",
+            },
+          })
+          gitment.render('gitment');
+          var loadcmt = document.getElementById("loadcmts");
+          var imyourfather = loadcmt.parentNode;
+          imyourfather.removeChild(loadcmts)
+        }
+      }
+    </script>
+  </section>
+
+
+	<footer id="footer">
+    <div id="social">
+        <p class="small">©
+            Aaron Lin | Powered by Hexo &
+                <a href="https://github.com/F0r3at/Lights" target="_blank" rel="noopener"> Lights</a>
+        </p>
+    </div>
+</footer>
+</section>
+
+	<script src="//cdnjs.loli.net/ajax/libs/instantclick/3.0.1/instantclick.min.js" data-no-instant></script>
+	<script data-no-instant>
+		
+		InstantClick.init('mousedown');
+	</script>
+
+
+

@@ -15,7 +15,7 @@
 
 <link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
 <meta name="theme-color" content="#a1d0f6">
-<title>Java笔记-面向对象 - Aaron Lin</title>
+<title>Java笔记-面向对象1 - Aaron Lin</title>
 <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 
@@ -51,7 +51,7 @@
     <article class="post">
     <header>
         
-            <h1>Java笔记-面向对象</h1>
+            <h1>Java笔记-面向对象1</h1>
         
         <h2 class="headline">Dec 25 2019
         
@@ -88,7 +88,7 @@
 <h4 id="类的创建"><a href="#类的创建" class="headerlink" title="类的创建"></a>类的创建</h4><p>注意点</p>
 <ol>
 <li>若类使用public修饰，则当前所在的文件名必须和类名相同</li>
-<li>类型必须符合标识符的命名规范（使用名词，首字母大写）</li>
+<li>类型必须符合标识符的命名规范（使用名词，每个单词首字母都大写）</li>
 </ol>
 <h4 id="JVM内存划分"><a href="#JVM内存划分" class="headerlink" title="JVM内存划分"></a>JVM内存划分</h4><p>JVM将内存主要划分为：方法区、虚拟机栈、本地方法栈、堆、程序计数器</p>
 <ul>
@@ -96,7 +96,7 @@
 <li>栈：每调用一个函数，就创建一个栈帧，加入虚拟机栈，调用结束就出栈</li>
 <li>堆：所有new出来的东西</li>
 </ul>
-<h4 id="方法栈帧"><a href="#方法栈帧" class="headerlink" title="方法栈帧"></a>方法栈帧</h4><p>栈特点：先进后出（类似弹夹）<br>写一个sum方法，再写一个main方法，在main中调用sum方法<br>执行过程：</p>
+<h4 id="方法栈帧"><a href="#方法栈帧" class="headerlink" title="方法栈帧"></a>方法栈帧</h4><p>栈特点：先进后出（类似弹夹）<br>写一个sum方法（在main函数外，和main函数在同一个类），再写一个main方法，在main中调用sum方法<br>执行过程：</p>
 <ul>
 <li>执行main方法，main方法对应一个栈帧入栈，里面包含main的成员变量</li>
 <li>调用sum方法，sum方法栈帧入栈，里面包含sum的成员变量</li>
@@ -105,8 +105,8 @@
 </ul>
 <h4 id="堆与数组初始化"><a href="#堆与数组初始化" class="headerlink" title="堆与数组初始化"></a>堆与数组初始化</h4><p>main方法栈帧入栈</p>
 <ol>
-<li>声明int类型的数组ages int[]ages；</li>
-<li>在堆中初始化数组 new int[]{10，20，30}；</li>
+<li>声明int类型的数组ages：int[]ages；</li>
+<li>在堆中初始化数组： new int[]{10，20，30}；</li>
 <li>把被初始数组的地址赋值给ages变量<br>main方法栈帧出栈</li>
 </ol>
 <p>GC垃圾回收机制：Java自动垃圾回收机制<br>如果给一个数组变量赋了新的数组，就是把新数组的地址赋值给变量<br>原来堆中的数组，就没被引用，等待被回收</p>
@@ -174,10 +174,10 @@
 </ol>
 <ul>
 <li>类成员变量：static修饰的成员变量</li>
-<li>实例成员变量：没有static修饰的成员变量，注意：在方法当中不能定义static变量</li>
+<li>实例成员变量：没有static修饰的成员变量，注意：在方法当中不能定义static变量，包括main方法</li>
 </ul>
 <p><strong>有初始值，可以直接用</strong></p>
-<ol>
+<ol start="2">
 <li>局部变量：定义在方法当中的变量（方法的参数，和内部定的变量,代码块）</li>
 </ol>
 <p><strong>必须初始化才能用</strong></p>
@@ -196,7 +196,7 @@
         </div>
         </a>
         <section id="sharing">
-            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2019/12/25/java-note-2/ - Java笔记-面向对象 @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
+            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2019/12/25/java-note-2/ - Java笔记-面向对象1 @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
             <a title="Share to Facebook" class="facebook" href="#" onclick="
                 window.open(
                   'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
@@ -218,7 +218,7 @@
         load:function cmts(){
           var gitment = new Gitment({
           
-            id: "Java笔记-面向对象",
+            id: "Java笔记-面向对象1",
           
             owner: "",
             repo: "",

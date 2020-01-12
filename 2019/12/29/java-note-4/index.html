@@ -84,7 +84,7 @@
 <li>子类构造器第一句为super(),所以先执行SuperClass构造器，再执行SubClass构造器</li>
 </ol>
 <h4 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h4><p>继承弊端：破坏了我们的封装，继承可去访问父类当中的实现细节，可以覆盖父类当中的方法</p>
-<p>字段：不能再去修改该字段<br>方法：子类开就能再去覆盖该方法<br>类：该类就不能再去被继承</p>
+<p>字段：不能再去修改该字段<br>方法：子类就能再去覆盖该方法<br>类：该类就不能再去被继承</p>
 <p>final关键字：只能用，不能修改</p>
 <p>注意点：</p>
 <ul>
@@ -94,13 +94,11 @@
 <li>final 修饰基本数据类型：值不能修改</li>
 <li>final 修饰引用类型：可以修改类里面的成员，但是不能修改地址</li>
 </ul>
-<h4 id="单设计模式"><a href="#单设计模式" class="headerlink" title="单设计模式"></a>单设计模式</h4><p>设计模式：之前很多程序员经常无数次的尝试，总结出来一套最佳实践<br>单例：一个类在内存当中只有一个对象。别人不能再去创建对象<br>工具类一般都是单例设计模式<br>工具类：把一些经常使用的功能，写在一个类当中，以后使用该功能时，直接调用</p>
+<h4 id="单例设计模式"><a href="#单例设计模式" class="headerlink" title="单例设计模式"></a>单例设计模式</h4><p>设计模式：之前很多程序员经常无数次的尝试，总结出来一套最佳实践<br>单例：一个类在内存当中只有一个对象。别人不能再去创建对象<br>工具类一般都是单例设计模式<br>工具类：把一些经常使用的功能，写在一个类当中，以后使用该功能时，直接调用</p>
 <p>饿汉模式（<strong>这类的单例不能被继承</strong>，因为子类默认有构造器，构造器默认有super()默认访问父类构造器，所以报错，其他形式单例可被继承）<br>1.必须得要在该类中创建一个对象出来<br>2.私有化自己的构造器。防止外界通过构造器来创建新的对象<br>3.给外界提供一个方法，能够获取已经创建好的对象</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ToolUtil</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ToolUtil instance=<span class="keyword">new</span> ToolUtil();</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">ToolUtil</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ToolUtil <span class="title">getInstantce</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>优点<br>1.控制资源的使用<br>2.控制实例的产生数量，达到节省资源目的<br>3.作为通信媒介，数据共享</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h4><p>对基本数据类型进行包装，把基本数据类型包装一个对象。<br>把基本数据类型变的更强大，以面向对象的思想来去使用这些类型。<br>基本数据类型    包装类       （只有int 和char 是英文全称首字母大写 其他都是首字母大写）</p>
+<h4 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h4><p>对基本数据类型进行包装，把基本数据类型包装一个对象。<br>把基本数据类型变的更强大，以面向对象的思想来去使用这些类型。<br>基本数据类型    包装类       （都是首字母大写，只有int和char是英文全称）</p>
 <table>
 <thead>
 <tr>
