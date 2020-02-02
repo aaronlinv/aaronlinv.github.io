@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+  <meta name="description" content="函数字符串函数concat(s1,s2…sn)将传入的字符连接成一个字符串，任何字符串与null进行连接结果都是null
+insert(str,x,y,instr)将字符串str从x位置开始，y个字符长的子串替换为指定的字符
+LOWER(Str)和UPPER(str)将字符串转成小写或大写
+LEFT">
+
+
+<link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
+<meta name="theme-color" content="#a1d0f6">
+<title>MySQL数据库进阶1 - Aaron Lin</title>
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+<!-- <link rel="shortcut icon" href="/favicon.png"> -->
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<!-- 谷歌 Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153099566-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153099566-1');
+</script>
+
+
+<nav class="main-nav">
+	
+	    <a href="/">← 主页</a>
+	
+	
+	    <a href="/about/">关于</a>
+	
+	    <a href="/archives/">归档</a>
+	
+	<a class="cta" href="/rss2.xml" data-no-instant>订阅</a>
+</nav>
+
+<section id="wrapper">
+    <article class="post">
+    <header>
+        
+            <h1>MySQL数据库进阶1</h1>
+        
+        <h2 class="headline">Jan 23 2020
+        
+            
+            <a href="/categories/MySQL笔记/#MySQL笔记">MySQL笔记</a>
+        
+        </h2>
+    </header>
+</article>
+<section id="post-body"><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h4 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h4><p>concat(s1,s2…sn)将传入的字符连接成一个字符串，任何字符串与null进行连接结果都是null</p>
+<p>insert(str,x,y,instr)将字符串str从x位置开始，y个字符长的子串替换为指定的字符</p>
+<p>LOWER(Str)和UPPER(str)将字符串转成小写或大写</p>
+<p>LEFT(str,x)和RIGHT(str，x)分别返回字符串最左边的x个字符和最右边的x个字符，如果第二个参数为null，不返回任何字符</p>
+<p>LPAD（str,n,pad）和RPAD(str,n,pad)用字符串pad对str最左边或最右边进行填充，直接到长度为n个字符长度</p>
+<p>LTRIM(str)和RTRIM(str)去掉字符串当中最左侧和最右侧的空格</p>
+<p>TRIM(str)去掉字符串左右的空格</p>
+<p>REPEAT(str,x)返回str重复x次的结果REPLACE(str,a,b)用字符串b替换字符串str中所有出现的字符串a.</p>
+<p>SUBSTRING(str,x,y)返回字符串str中第x位置起y个字符长度的字符</p>
+<h4 id="数值函数"><a href="#数值函数" class="headerlink" title="数值函数"></a>数值函数</h4><p>ABS(x)返回X的绝对值</p>
+<p>CEIL(x)小数不为零部分上取整，即向上取最近的整数</p>
+<p>FLOOR(x)小数部分下取整，即向下取最近的整数</p>
+<p>MOD(x,y)返回X/Y的模</p>
+<p>RAND()返回0-1内容的随机值</p>
+<h4 id="日期和时间函数"><a href="#日期和时间函数" class="headerlink" title="日期和时间函数"></a>日期和时间函数</h4><p>CURDATE()返回当前日期，只包含年月日</p>
+<p>CURTIME()返回当前时间，只包含时分秒</p>
+<p>NOW()返回当前日期和时间，年月日时分秒都包含</p>
+<p>UNIX_TIMESTAMP返回当前日期的时间戳</p>
+<p>FROM_UNIXTIME(unixtime)将一个时间戳转换成日期</p>
+<p>WEEK(DATE)返回当前是一年中的第几周</p>
+<p>YEAR(DATE)返回所给日期是那一年</p>
+<p>HOUR(TIME)返回当前时间的小时</p>
+<p>MINUTE(TIME)返回当前时间的分钟</p>
+<p>DATE_FORMAT(date,fmt)按字符串格式化日期date值</p>
+<p>DATE_ADD(date,interval expr type)计算日期间隔</p>
+<p>DATEDIFF(date1,date2)计算两个日期相差的天数</p>
+<p>流程函数<br>IF(value,t,f)如果value是真，返回t,否则返回f</p>
+<p>IFNULL(value1,value2)如果value1不为空，返回value1否者返回value2</p>
+<p>CASE WHEN THEN END</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="number">2</span>&gt;<span class="number">3</span> <span class="keyword">then</span> <span class="string">'对'</span> <span class="keyword">else</span> <span class="string">'错'</span> <span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="其他常用函数"><a href="#其他常用函数" class="headerlink" title="其他常用函数"></a>其他常用函数</h4><p>DATABASE()返回当前数据库名</p>
+<p>VERSION()返回当前数据库版本</p>
+<p>USER()返回当前登陆用户名</p>
+<p>PASSWORD(STR)对str进行加密</p>
+<p>MD5()返回str的MD5值</p>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>不可分割的操作，假设该操作有ABCD四个步骤组成<br>若ABCD四个步骤都成功完成,则认为事务成功，若ABCD中任意一个步骤操作失败，则认为事务失败<br>每条sql语句都是一个事务，事务只对DML语句有效，<strong>对于DQL无效</strong></p>
+<h4 id="事务的ACID"><a href="#事务的ACID" class="headerlink" title="事务的ACID"></a>事务的ACID</h4><ul>
+<li>原子性（Atomicity）：原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚</li>
+<li>一致性（Consistency）：一致性是指事务必须使数据库从一个一致性状态变换到另一个一致性状态，也就是说一个事务执行之前和执行之后都必须处于一致性状态</li>
+<li>隔离性（Isolation）隔离性是当多个用户并发访问数据库时，比如操作同一张表时，数据库为每一个用户开启的事务，不能被其他事务的操作所干扰，多个并发事务之间要相互隔离</li>
+<li>持久性（Durability）持久性是指一个事务一旦被提交了，就不能再回滚了，已经把数据保存到数据库当中了</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 需要手动开启事务</span></span><br><span class="line"><span class="keyword">start</span> <span class="keyword">transaction</span></span><br><span class="line"><span class="comment">-- 执行update后查询score没有被改变</span></span><br><span class="line"><span class="comment">-- 事务对于DQL无效</span></span><br><span class="line"><span class="keyword">update</span> score <span class="keyword">set</span> score = <span class="number">10</span>;</span><br><span class="line"><span class="comment">-- 执行了commit后，数据才会改变</span></span><br><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"><span class="comment">-- 如果想撤销之前的sql语句使用回滚</span></span><br><span class="line"><span class="keyword">rollback</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="事务的并发问题"><a href="#事务的并发问题" class="headerlink" title="事务的并发问题"></a>事务的并发问题</h4><ul>
+<li>脏读:读取到了别的事务回滚前的脏数据</li>
+<li>不可重复读：一个事务两次相同的查询却返回了不同数据（两次查询中被其他事务修改了数据）</li>
+<li>幻读：开启事务查询，另一个事务插入或删除数据并提交，再次查询发现与原来数据不同，像是出现了幻觉</li>
+</ul>
+<p>不可重复读的重点是<strong>修改</strong>，同样的条件，你读取过的数据，再次读取出来发现值不一样；（主要在于update和delete）<br>幻读的重点在于<strong>新增或者删除</strong>，同样的条件，第 1 次和第 2 次读出来的记录数不一样。（主要在于insert）</p>
+<table>
+<thead>
+<tr>
+<th align="center">事务隔离级别</th>
+<th align="center">脏读</th>
+<th align="center">不可重复读</th>
+<th align="center">幻读</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">读未提交（read-uncommitted）</td>
+<td align="center">是</td>
+<td align="center">是</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">不可重复读（read-committed）</td>
+<td align="center"></td>
+<td align="center">是</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">可重复读（repeatable-read）</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">串行化（serializable）</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>Read uncommitted：读未提交，一个事务可以读取另一个未提交事务的数据<br>Read committed：读提交，一个事务要等另一个事务提交后才能读取数据<br>Repeatable read：重复读，在开始读取数据（事务开启）时，不再允许删除或修改操作 (MySQL默认这个级别)<br>Serializable：事务串行化顺序执行，可以避免脏读、不可重复读与幻读，这种事务隔离级别效率低下，比较耗数据库性能，一般不使用</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查看隔离级别</span></span><br><span class="line"><span class="keyword">select</span> @@global.tx_isolation,@@tx_isolation;</span><br><span class="line"><span class="comment">-- 修改当前会话隔离级别</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> 隔离级别;</span><br><span class="line"><span class="comment">-- 修改全局会话隔离级别（需要重开会话）</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">read</span> committed;</span><br></pre></td></tr></table></figure>
+
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><p>限制一个用户能够做什么事情，在MySQL中，可以设置全局权限，指定数据库权限，指定表权限，指定字段权限</p>
+<p>权限分类<br>CREATE 创建数据库、表或索引权限<br>DROP 除数据库或表权限<br>ALTER 更改表，比如添加字段、索引等<br>DELETE 删除数据权限<br>INDEX 索引权限<br>INSERT 插入权限<br>SELECT 查询权限<br>UPDATE 更新权限<br>CREATE VIEW 创建视图权限<br>EXECUTE 执行存储过程权限</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建用户 ，新建的用户只能看到information_schema数据库 ，下面不加单引号也可</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">'用户名'</span>@<span class="string">'localhost'</span>;</span><br><span class="line"><span class="comment">-- 分配权限 (把mytest数据库里所有表的select权限分配给用户dev)</span></span><br><span class="line"><span class="comment">-- with grant option 表示这个被授予权限的用户可以把权限传递给其他用户</span></span><br><span class="line"><span class="comment">-- flush privileges; 刷新权限</span></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">select</span> <span class="keyword">on</span> my_test.* <span class="keyword">to</span> dev@localhost  <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建对所有数据库的所有权限</span></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> dev@localhost  <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 分配一个用户只能对stu表进行CRUD操作的权限</span></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">insert</span>,<span class="keyword">update</span>,<span class="keyword">select</span>,<span class="keyword">delete</span> <span class="keyword">on</span> my_test.stu <span class="keyword">to</span> privuser@localhost ;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查看权限</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">grants</span></span><br><span class="line"><span class="comment">-- 查看指定用户的权限</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">grants</span> <span class="keyword">for</span> root@localhost</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除权限</span></span><br><span class="line"><span class="keyword">revoke</span> 权限 <span class="keyword">on</span> 数据库对象 <span class="keyword">from</span> 用户名@localhost；</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除用户</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">user</span> 用户名@localhost;</span><br></pre></td></tr></table></figure>
+
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>视图是一个虚拟表，其内容由查询定义</p>
+<p>视图是对若干张基本表的引用，一张虚表，查询语句执行的结果<br>不存储具体的数据（基本表数据发生了改变，视图也会跟着改变）<br>可以跟基本表一样，进行增删改查操作(增删改操作有条件限制)</p>
+<p>优点：安全性 提高查询性能 提高数据独立性</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建视图</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> emp_salary_view</span><br><span class="line"><span class="keyword">as</span>(<span class="keyword">select</span> * <span class="keyword">from</span> emp </span><br><span class="line"><span class="keyword">where</span> salary &gt;<span class="number">2000</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询视图</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp_salary_view;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 修改视图  </span></span><br><span class="line"><span class="comment">-- create or replace view</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">view</span> emp_salary_view</span><br><span class="line"><span class="keyword">as</span>(<span class="keyword">select</span> * <span class="keyword">from</span> emp </span><br><span class="line"><span class="keyword">where</span> salary &gt;<span class="number">2999</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除视图</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> emp_salary_view;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>ALGORITHM参数</p>
+<ul>
+<li>MERGE：替换式，可以通过修改视图数据更新真实表中的数据</li>
+<li>TEMPTABLE：具化式，由于数据存储在临时表中，所以不可以进行更新操作</li>
+<li>UNDEFINED：没有定义ALGORITHM参数，MySQL更倾向于选择MERGE替换方式，因为它更加有效</li>
+</ul>
+<p>替换式与具化式区别</p>
+<ul>
+<li>MERGE替换式，将视图公式替换后，当成一个整体sql进行处理了</li>
+<li>TEMPTABLE具化式，先处理视图结果，该结果形成一个中间结果暂时存在内存中，后处理外面的查询需求</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- MERGE替换式（MySQL默认方式）</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> (<span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> salary&gt;<span class="number">2000</span>) t;</span><br><span class="line"><span class="comment">-- TEMPTABLE具化式</span></span><br><span class="line"><span class="comment">-- (select * from emp where salary&gt;2000) as temptable; 不可执行用于理解</span></span><br><span class="line"><span class="comment">-- select * from temptable1;</span></span><br></pre></td></tr></table></figure>
+
+<p>WITH CHECK OPTION</p>
+<ul>
+<li>更新数据时不能插入或更新不符合视图限制条件的记录</li>
+</ul>
+<p>LOCAL和CASCADED</p>
+<ul>
+<li>WITH [CASCADED|LOCAL] CHECK OPTION</li>
+<li>为可选参数，决定了检查测试的范围，MySQL默认值为CASCADED</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- with check option</span></span><br><span class="line"><span class="comment">-- 通过视图修改salary的值就不能小等于2500</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> emp_s_v</span><br><span class="line"><span class="keyword">as</span> ( <span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> salary&gt;<span class="number">2500</span> </span><br><span class="line">) <span class="keyword">with</span> <span class="keyword">check</span> <span class="keyword">option</span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>视图不可更新部分：只要视图当中的数据不是来自于基表，就不能够直接修改</p>
+<ul>
+<li>聚合函数</li>
+<li>DISTINCT 关键字</li>
+<li>GROUP BY子句</li>
+<li>HAVING 子句</li>
+<li>UNION 运算符</li>
+<li>FROM 子句中包含多个表</li>
+<li>SELECT 语句中引用了不可更新视图</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://study.163.com/course/introduction/1005932016.htm" target="_blank" rel="noopener">Java零基础到高级MySQL数据库</a><br><a href="https://www.cnblogs.com/jieerma666/p/10805578.html" target="_blank" rel="noopener">数据库事务、事务隔离级别以及锁机制详解</a></p>
+</section>
+    
+
+    <footer id="post-meta" class="clearfix">
+        <a href="/about/">
+        <img class="avatar" src="/images/avatar.jpg">
+        <div>
+            <span class="dark">Aaron Lin</span>
+            <span></span>
+        </div>
+        </a>
+        <section id="sharing">
+            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2020/01/23/mysql-note-4/ - MySQL数据库进阶1 @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
+            <a title="Share to Facebook" class="facebook" href="#" onclick="
+                window.open(
+                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                  'facebook-share-dialog',
+                  'width=626,height=436');
+                return false;"><span class="icon-facebook-sign">Share</span>
+            </a>
+        </section>
+    </footer>
+
+
+  <section id="comment">
+    <button class="btn" id="loadcmts" onclick="cmts.load();">加载评论</button>
+    <div id="gitment"></div>
+    <script src='/js/gitment.browser.js'></script>
+    <link rel="stylesheet" href=''>
+    <script>
+      var cmts={
+        load:function cmts(){
+          var gitment = new Gitment({
+          
+            id: "MySQL数据库进阶1",
+          
+            owner: "",
+            repo: "",
+            oauth: {
+              client_id: "",
+              client_secret: "",
+            },
+          })
+          gitment.render('gitment');
+          var loadcmt = document.getElementById("loadcmts");
+          var imyourfather = loadcmt.parentNode;
+          imyourfather.removeChild(loadcmts)
+        }
+      }
+    </script>
+  </section>
+
+
+	<footer id="footer">
+    <div id="social">
+        <p class="small">©
+            Aaron Lin | Powered by Hexo &
+                <a href="https://github.com/F0r3at/Lights" target="_blank" rel="noopener"> Lights</a>
+        </p>
+    </div>
+</footer>
+</section>
+
+	<script src="//cdnjs.loli.net/ajax/libs/instantclick/3.0.1/instantclick.min.js" data-no-instant></script>
+	<script data-no-instant>
+		
+		InstantClick.init('mousedown');
+	</script>
+
+
+

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+  <meta name="description" content="存储过程一组可编程的函数，是为了完成特定功能的SQL语句集经编译创建并保存在数据库字典中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行
+为什么要用存储过程
+
+将重复性很高的一些操作，封装到一个存储过程中，简化了对这些SQL的调用
+批量处理
+统一接口，确保数据的安全
+相对于Oracle数">
+
+
+<link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
+<meta name="theme-color" content="#a1d0f6">
+<title>MySQL数据库进阶2 - Aaron Lin</title>
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+<!-- <link rel="shortcut icon" href="/favicon.png"> -->
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<!-- 谷歌 Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153099566-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153099566-1');
+</script>
+
+
+<nav class="main-nav">
+	
+	    <a href="/">← 主页</a>
+	
+	
+	    <a href="/about/">关于</a>
+	
+	    <a href="/archives/">归档</a>
+	
+	<a class="cta" href="/rss2.xml" data-no-instant>订阅</a>
+</nav>
+
+<section id="wrapper">
+    <article class="post">
+    <header>
+        
+            <h1>MySQL数据库进阶2</h1>
+        
+        <h2 class="headline">Feb 27 2020
+        
+            
+            <a href="/categories/MySQL笔记/#MySQL笔记">MySQL笔记</a>
+        
+        </h2>
+    </header>
+</article>
+<section id="post-body"><h2 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h2><p>一组可编程的函数，是为了完成特定功能的SQL语句集<br>经编译创建并保存在数据库字典中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行</p>
+<p>为什么要用存储过程</p>
+<ul>
+<li>将重复性很高的一些操作，封装到一个存储过程中，简化了对这些SQL的调用</li>
+<li>批量处理</li>
+<li>统一接口，确保数据的安全</li>
+<li>相对于Oracle数据库来说，MySQL的存储过程相对功能较弱，使用较少</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建存储过程</span></span><br><span class="line">delimiter $$</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> 存储过程名称()</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">语句</span><br><span class="line"><span class="keyword">END</span> $$</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 调用存储过程</span></span><br><span class="line"><span class="keyword">call</span>  存储过程名称();</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询指定数据库中的存储过程</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">procedure</span> <span class="keyword">status</span> <span class="keyword">where</span> db=<span class="string">'数据库名称'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询存储过程详情</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">procedure</span> 存储过程名称;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--删除存储过程</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">procedure</span>  存储过程名称;</span><br></pre></td></tr></table></figure>
+
+<h4 id="DELIMITER"><a href="#DELIMITER" class="headerlink" title="DELIMITER"></a>DELIMITER</h4><p>修改标准分隔符，这个命令与存储过程语法无关<br>作用是告诉MySQL解释器，该段命令是否已经结束了<br>默认情况下，DELIMITER是分号; ，在命令行客户端中，如果有一行命令以分号结束，那么回车后MySQL将立即执行该语句</p>
+<p>在为可能输入较多的语句，且语句中包含有分号,DELIMITER $$ 把标准分隔符; 修改为$$，这样只有当$$出现之后，MySQL解释器才会执行这段语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建存储过程</span></span><br><span class="line">delimiter $$</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> show_emp()</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp;</span><br><span class="line"><span class="keyword">end</span>$$</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 执行存储过程</span></span><br><span class="line"><span class="keyword">call</span> show_emp();</span><br></pre></td></tr></table></figure>
+
+<h4 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">delimiter $$</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> <span class="keyword">test</span>()</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line"><span class="comment">-- 声明变量</span></span><br><span class="line"><span class="comment">-- DECLARE 变量名 数据类型(大小) DEFAULT 默认值;</span></span><br><span class="line"><span class="keyword">declare</span> res <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">default</span> <span class="string">''</span>;</span><br><span class="line"><span class="comment">-- 声明多个变量</span></span><br><span class="line"><span class="keyword">declare</span> x,y <span class="built_in">int</span> <span class="keyword">default</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 通过into 赋值</span></span><br><span class="line"><span class="keyword">declare</span> avgRes <span class="keyword">double</span> <span class="keyword">default</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(salary) <span class="keyword">into</span> avgRes <span class="keyword">from</span> emp;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 输出变量</span></span><br><span class="line"><span class="keyword">select</span> avgRes;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span>$$</span><br><span class="line">delimiter ;</span><br></pre></td></tr></table></figure>
+
+<h4 id="存储过程参数"><a href="#存储过程参数" class="headerlink" title="存储过程参数"></a>存储过程参数</h4><ul>
+<li>IN 传入值</li>
+<li>OUT 传出值</li>
+<li>INOUT IN和OUT参数的组合</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> produce <span class="keyword">name</span>(参数类型 参数名称 数据类型(大小) )</span><br><span class="line"></span><br><span class="line"><span class="comment">-- IN 传入值</span></span><br><span class="line">delimiter $$</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> getName (<span class="keyword">in</span> <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">255</span>))</span><br><span class="line"><span class="keyword">begin</span> </span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> ename = <span class="keyword">name</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span>$$</span><br><span class="line">delimiter ;</span><br><span class="line"><span class="comment">-- 传入参数</span></span><br><span class="line"><span class="keyword">call</span> getName(<span class="string">'李白'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- OUT 传出值</span></span><br><span class="line">delimiter $$</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> getSalary(<span class="keyword">in</span> n <span class="built_in">varchar</span>(<span class="number">255</span>), <span class="keyword">out</span> eSalary <span class="built_in">int</span>)</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line"><span class="keyword">select</span> salary <span class="keyword">into</span> eSalary <span class="keyword">from</span> emp <span class="keyword">where</span> ename = n;</span><br><span class="line"><span class="keyword">end</span>$$</span><br><span class="line">delimiter ;</span><br><span class="line"><span class="comment">-- 传入参数</span></span><br><span class="line"><span class="keyword">call</span> getSalary(<span class="string">'李白'</span>,@s);</span><br><span class="line"><span class="keyword">select</span> @s;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- INOUT IN和OUT参数的组合</span></span><br><span class="line">delimiter $$</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> getNum(inout <span class="keyword">num</span> <span class="built_in">int</span>,<span class="keyword">in</span> x <span class="built_in">int</span> )</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">num</span> = <span class="keyword">num</span> + x;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span>$$</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 设置变量 传入参数</span></span><br><span class="line"><span class="keyword">set</span> @num1 = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">call</span> getNum(@num1,<span class="number">10</span>);</span><br><span class="line"><span class="keyword">select</span> @num1;</span><br></pre></td></tr></table></figure>
+
+<h4 id="存储过程语句"><a href="#存储过程语句" class="headerlink" title="存储过程语句"></a>存储过程语句</h4><p>IF语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">IF expression THEN </span><br><span class="line">statements;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line"></span><br><span class="line">IF expression THEN</span><br><span class="line">statements;</span><br><span class="line">ELSE</span><br><span class="line">else-statements;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">IF</span>;</span><br></pre></td></tr></table></figure>
+
+<p>CASE语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CASE  case_expression</span><br><span class="line">WHEN when_expression_1 THEN commands</span><br><span class="line">WHEN when_expression_2 THEN commands</span><br><span class="line">...</span><br><span class="line">ELSE commands</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">CASE</span>;</span><br></pre></td></tr></table></figure>
+
+<p>循环语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- while循环</span></span><br><span class="line">WHILE expression <span class="keyword">DO</span></span><br><span class="line">statements</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">WHILE</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- repeat循环</span></span><br><span class="line"><span class="keyword">REPEAT</span></span><br><span class="line">statements;</span><br><span class="line">UNTIL expression</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">REPEAT</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 随机生成字符串</span></span><br><span class="line"></span><br><span class="line">delimiter $$</span><br><span class="line"><span class="comment">-- 注意return加s</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">function</span> rand_str(n <span class="built_in">int</span>) <span class="keyword">returns</span> <span class="built_in">varchar</span>(<span class="number">255</span>)</span><br><span class="line"><span class="keyword">begin</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">-- 声明一个str 52个字母</span></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">str</span> <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">default</span> <span class="string">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 记录当前是第几个字符</span></span><br><span class="line"><span class="keyword">declare</span> i <span class="built_in">int</span> <span class="keyword">default</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> res_str <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">default</span> <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">while i &lt; n do</span><br><span class="line"><span class="comment">-- 生成1-52 ：floor(1+RAND()*52)  floor()去掉小数</span></span><br><span class="line"><span class="comment">-- substr(str,floor(1+RAND()*52),1); -- 最后一个代表截取一位</span></span><br><span class="line"><span class="keyword">set</span> res_str = <span class="keyword">concat</span>(res_str,<span class="keyword">substr</span>(<span class="keyword">str</span>,<span class="keyword">floor</span>(<span class="number">1</span>+<span class="keyword">RAND</span>()*<span class="number">52</span>),<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> i = i + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">while</span>;</span><br><span class="line"></span><br><span class="line">return res_str;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span> $$</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 调用自定义函数</span></span><br><span class="line"><span class="keyword">select</span> rand_str(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建千万条数据"><a href="#创建千万条数据" class="headerlink" title="创建千万条数据"></a>创建千万条数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- create table emp (id int,name varchar(50),age int);</span></span><br><span class="line"><span class="comment">-- 插入</span></span><br><span class="line">delimiter $$</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> insert_emp(<span class="keyword">in</span> startNum <span class="built_in">int</span>,<span class="keyword">in</span> max_num <span class="built_in">int</span>)</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> i <span class="built_in">int</span> <span class="keyword">default</span> <span class="number">0</span>;</span><br><span class="line"><span class="comment">-- 默认自动提交sql，这样比较慢，设置为不自动提交sql</span></span><br><span class="line"><span class="keyword">set</span> autocommit = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">repeat</span><br><span class="line"><span class="keyword">set</span> i = i + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> emp <span class="keyword">values</span> (startNum+i,rand_str(<span class="number">5</span>),<span class="keyword">floor</span>(<span class="number">10</span>+<span class="keyword">rand</span>()*<span class="number">30</span>));</span><br><span class="line"></span><br><span class="line">until i = max_num</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">repeat</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">commit</span>; <span class="comment">-- 整体提交所有sql，提高效率 </span></span><br><span class="line"><span class="keyword">end</span>$$</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 调用存储过程</span></span><br><span class="line"><span class="keyword">call</span> insert_emp(<span class="number">100</span>,<span class="number">10000000</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>帮助MySQL高效获取数据的数据结构</p>
+<p>优势</p>
+<ul>
+<li>索引类似大学图书馆建立的书目索引，提高数据检索的效率，降低数据库的IO成本</li>
+<li>通过索引对数据项进行排序，降低数据排序成本，降低了CPU的消耗</li>
+</ul>
+<p>劣势</p>
+<ul>
+<li>实际上索引也是一张表，该表保存了主键与索引字段，并指向实体表的记录，所以索引列也是要占空间的</li>
+<li>虽然索引大大提高了查询速度，同时确会降低更新表的速度，如对表进行INSERT、UPDATE、DELETE</li>
+</ul>
+<p>索引分类</p>
+<ul>
+<li>单值索引：即一个索引只包含单个列，一个表可以有多个单列索引</li>
+<li>唯一索引：索引列的值必须唯一，但允许有空值</li>
+<li>复合索引：一个索引包含多个列 INDEX MultiIdx(id,name,age)</li>
+<li>全文索引：只能在MyISAM引擎上才能使用，只能在CHAR,VARCHAR,TEXT类型字段上使用全文索引</li>
+<li>空间索引：只能在MyISAM引擎上才能使用，对空间数据类型的字段建立索引</li>
+</ul>
+<p>索引操作<br>自动创建索引</p>
+<ul>
+<li>在表上定义了主键时， 会自动创建一个对应的唯一索引</li>
+<li>在表上定义了一个外键时，会自动创建一个普通索引</li>
+</ul>
+<p>explain<br>用来查看索引是否正在被使用，并且输出其使用的索引的信息</p>
+<ul>
+<li>key：实际选用的索引</li>
+<li>key_len：显示了MySQL使用索引的长度(也就是使用的索引个数)，当 key 字段的值为 null时，索引的长度就是 null。注意，key_len的值可以告诉你在联合索引中mysql会真正使用了哪些索引。这里就使用了1个索引，所以为1，</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建索引</span></span><br><span class="line"><span class="comment">-- CREATE INDEX 索引名称 ON table (column[, column]...);</span></span><br><span class="line"><span class="comment">-- 默认是NORMAL类型索引</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">INDEX</span> salary_index <span class="keyword">ON</span> emp(salary);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除索引</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> 索引名称 <span class="keyword">ON</span> 表名</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查看索引</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">index</span> <span class="keyword">from</span> 表名;</span><br></pre></td></tr></table></figure>
+
+<p>索引方法：innoDB不支持Hash，只能Btree<br>Btree索引：B+树<br>Hash索引：哈希算法</p>
+<p>哪些情况需要创建索引</p>
+<ul>
+<li>主键自动建立唯一索引</li>
+<li>频繁作为查询条件的字段应该创建索引</li>
+<li>查询中与其他表关联的字段，外键关系建立索引</li>
+<li>频繁更新的字段不适合建立索引，因为每次更新不单单是更新了记录还会更新索引</li>
+<li>WHERE条件里用不到的字段不创建索引</li>
+<li>查询中排序的字段，排序的字段若通过索引去访问将大大提高排序速度</li>
+<li>查询中统计或者分组字段</li>
+</ul>
+<p>哪些情况不需要创建索引</p>
+<ul>
+<li>表记录太少</li>
+<li>经常增删改的表</li>
+<li>如果某个数据列包含许多重复的内容，为它建立索引就没有太大的实际效果</li>
+</ul>
+</section>
+    
+
+    <footer id="post-meta" class="clearfix">
+        <a href="/about/">
+        <img class="avatar" src="/images/avatar.jpg">
+        <div>
+            <span class="dark">Aaron Lin</span>
+            <span></span>
+        </div>
+        </a>
+        <section id="sharing">
+            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2020/02/27/mysql-note-5/ - MySQL数据库进阶2 @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
+            <a title="Share to Facebook" class="facebook" href="#" onclick="
+                window.open(
+                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                  'facebook-share-dialog',
+                  'width=626,height=436');
+                return false;"><span class="icon-facebook-sign">Share</span>
+            </a>
+        </section>
+    </footer>
+
+
+  <section id="comment">
+    <button class="btn" id="loadcmts" onclick="cmts.load();">加载评论</button>
+    <div id="gitment"></div>
+    <script src='/js/gitment.browser.js'></script>
+    <link rel="stylesheet" href=''>
+    <script>
+      var cmts={
+        load:function cmts(){
+          var gitment = new Gitment({
+          
+            id: "MySQL数据库进阶2",
+          
+            owner: "",
+            repo: "",
+            oauth: {
+              client_id: "",
+              client_secret: "",
+            },
+          })
+          gitment.render('gitment');
+          var loadcmt = document.getElementById("loadcmts");
+          var imyourfather = loadcmt.parentNode;
+          imyourfather.removeChild(loadcmts)
+        }
+      }
+    </script>
+  </section>
+
+
+	<footer id="footer">
+    <div id="social">
+        <p class="small">©
+            Aaron Lin | Powered by Hexo &
+                <a href="https://github.com/F0r3at/Lights" target="_blank" rel="noopener"> Lights</a>
+        </p>
+    </div>
+</footer>
+</section>
+
+	<script src="//cdnjs.loli.net/ajax/libs/instantclick/3.0.1/instantclick.min.js" data-no-instant></script>
+	<script data-no-instant>
+		
+		InstantClick.init('mousedown');
+	</script>
+
+
+
