@@ -170,6 +170,7 @@ listener监听器
 <li>doPost<br>当发送post请求的时候调用</li>
 </ul>
 <h4 id="内部方法调用过程"><a href="#内部方法调用过程" class="headerlink" title="内部方法调用过程"></a>内部方法调用过程</h4><p>当接收到一个请求时， tomcat就会找对应的service方法<br>如果当中servlet当中没有存在service方法，就会到它的父类(HttpServlet)当中去找<br><img src="/2020/02/07/web-server-note-3/7.png" alt="HttpServlet"><br>在父类当中找到service是参数为ServletRequest，在会内部把参数转为httpServlet<br>转换完毕后会再继续调用参数为httpServletRequest的service方法<br><img src="/2020/02/07/web-server-note-3/8.png" alt="HttpServlet2"><br>在此方法当中会获取参数的类型，根据不同的参数类型再去调用不同的方法</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://study.163.com/course/introduction/1005981003.htm" target="_blank" rel="noopener">Java零基础到高级JavaWeb与项目</a></p>
 </section>
     
 
