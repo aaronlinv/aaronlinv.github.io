@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+  <meta name="description" content="会话技术用户开一个浏览器，点击多个超链接，访问服务器多个web资源，然后关闭浏览器，整个过程称之为一个会话
+会话技术解决什么问题
+保持各个客户端自己的数据每个用户在使用浏览器与服务器进行会话的过程中，不可避免各自会产生一些数据，程序要想办法为每个用户保存这些数据
+使用Request域存在的问题Req">
+
+
+<link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
+<meta name="theme-color" content="#a1d0f6">
+<title>Web服务器笔记-Cookie与Session - Aaron Lin</title>
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+<!-- <link rel="shortcut icon" href="/favicon.png"> -->
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<!-- 谷歌 Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153099566-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153099566-1');
+</script>
+
+
+<nav class="main-nav">
+	
+	    <a href="/">← 主页</a>
+	
+	
+	    <a href="/about/">关于</a>
+	
+	    <a href="/archives/">归档</a>
+	
+	<a class="cta" href="/rss2.xml" data-no-instant>订阅</a>
+</nav>
+
+<section id="wrapper">
+    <article class="post">
+    <header>
+        
+            <h1>Web服务器笔记-Cookie与Session</h1>
+        
+        <h2 class="headline">Feb 13 2020
+        
+            
+            <a href="/categories/Web服务器笔记/#Web服务器笔记">Web服务器笔记</a>
+        
+        </h2>
+    </header>
+</article>
+<section id="post-body"><h2 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h2><p>用户开一个浏览器，点击多个超链接，访问服务器多个web资源，然后关闭浏览器，整个过程称之为一个会话</p>
+<p>会话技术解决什么问题</p>
+<p>保持各个客户端自己的数据<br>每个用户在使用浏览器与服务器进行会话的过程中，不可避免各自会产生一些数据，程序要想办法为每个用户保存这些数据</p>
+<p>使用Request域存在的问题<br>Request域的生命周期为请求开始时创建，请求结束时销毁没有办法办到同时多个商品</p>
+<p>使用ServletContext存在的问题<br>ServletContext生命周期比较长，服务器启动时创建，服务器关闭时销毁存放在这里，容易导致不同用户的各个浏览器之间的数据混淆浪费服务器存储空间</p>
+<p>使用Session会话<br>Session域：当一个浏览器访问服务器时创建，关闭服务器或过期时，销毁Session域对象</p>
+<p>使用Cookie会话</p>
+<ol>
+<li>请求时在Servlet当中主动把商品保存到Cookie当中，Cookie是浏览器当中的一个缓存区域</li>
+<li>在结算请求时，把浏览器缓存中存放的数据发送给服务器</li>
+</ol>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h4 id="服务器怎样把Cookie写给客户端"><a href="#服务器怎样把Cookie写给客户端" class="headerlink" title="服务器怎样把Cookie写给客户端"></a>服务器怎样把Cookie写给客户端</h4><p>创建Cookie</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(String cookieName,String cookieValue);</span><br></pre></td></tr></table></figure>
+<p>cookie会以响应头的形式发送给客户端，Cookie只能存储非中文的字符串</p>
+<p>向客户端发送cookie</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.addCookie(cookie名称);</span><br></pre></td></tr></table></figure>
+
+<p>访问<br>第一次访问时， 请求头当中没有cookie，响应当中会看到set-cookie<br>再一次访问时， 请求头当中就能够看到cookie信息<br>访问服务器的任何资源，一般情况下都会把cookie带去过</p>
+<h4 id="Cookie默认存储时间"><a href="#Cookie默认存储时间" class="headerlink" title="Cookie默认存储时间"></a>Cookie默认存储时间</h4><p>默认cookie：会话级别<br>打开浏览器、关闭浏览器为一次会话<br>如果不设置持久化时间，cookie会存储在浏览器的内存中，浏览器关闭    cookie信息销毁</p>
+<p>设置Cookie在客户端的存储时间</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cookie.setMaxAge(<span class="keyword">int</span> seconds);</span><br></pre></td></tr></table></figure>
+<p>设置的时间为秒<br>如果设置持久化时间，cookie信息会被持久化到浏览器的磁盘文件里<br>过期会自动删除</p>
+<h4 id="设置Cookie的携带路径"><a href="#设置Cookie的携带路径" class="headerlink" title="设置Cookie的携带路径"></a>设置Cookie的携带路径</h4><p>访问某一个资源时，要不要带cookie信息<br>    如何每一外资源都携带，会影响传输速度<br>如果不设置携带路径<br>默认情况下会在访问创建cookie的web资源相同的路径（相同目录下）都携带cookie信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当前Servlet路径：http://localhost/29-Cookie-Session/CookieServlet</span><br><span class="line">web资源相同的路径：http://localhost/29-Cookie-Session/CookieServlet2</span><br></pre></td></tr></table></figure>
+<p>在myxq/CookieServlet下创建的cookie，在myxq/下的index.jsp访问时会携带cookie，不是在myxq下，不会携带cookie</p>
+<p>设置携带路径</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cookie.setPath(String path);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只有访问cookieServlet才携带cookie信息</span></span><br><span class="line">cookie.setPath(“/<span class="number">29</span>-Cookie-Session/cookieServlet”);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 访问指定的工程时， 都会携带cookie信息</span></span><br><span class="line">cookie.setPath(“/<span class="number">29</span>-Cookie-Session”);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 访问服务器下部署的所有工程时都会携带cookie</span></span><br><span class="line">cookie.setPath(“/”);</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="删除Cookie"><a href="#删除Cookie" class="headerlink" title="删除Cookie"></a>删除Cookie</h4><p>如果想删除客户端的已经存储的cookie信息<br>使用同名同路径的持久化时间为0的cookie进行覆盖即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"lk"</span>,<span class="string">"it666"</span>);</span><br><span class="line">cookie.setMaxAge(<span class="number">0</span>);</span><br><span class="line">response.addCookie(cookie);</span><br></pre></td></tr></table></figure>
+
+<h4 id="服务器如何获取客户端携带的cookie"><a href="#服务器如何获取客户端携带的cookie" class="headerlink" title="服务器如何获取客户端携带的cookie"></a>服务器如何获取客户端携带的cookie</h4><p>通过Request对象的getCookies()方法，获取的是所有的cookie，要进行遍历</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取所有cookie对象</span></span><br><span class="line">Cookie[] cookies = request.getCookies();</span><br><span class="line"><span class="keyword">if</span> (cookies != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (Cookie cookie : cookies) &#123;</span><br><span class="line">        String name = cookie.getName();</span><br><span class="line">        <span class="keyword">if</span> (name.equals(<span class="string">"lk"</span>)) &#123;</span><br><span class="line">            response.getWriter().write(cookie.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="记录上次登录时间"><a href="#记录上次登录时间" class="headerlink" title="记录上次登录时间"></a>记录上次登录时间</h4><p>1.第一次访问时，获取当前的时间，并把它写到cookie当中，响应给浏览器<br>2.第一次访问，告诉用户是第一次访问<br>3.用户下次访问时，获取用户携带的cookie,把日期在浏览器当中显示，记录最新的cookie</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取当前日期</span></span><br><span class="line">Date date = <span class="keyword">new</span> Date();</span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">String formatDate = sdf.format(date);</span><br><span class="line">System.out.println(formatDate);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写入cookie</span></span><br><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"lastTime"</span>, formatDate);</span><br><span class="line">response.addCookie(cookie);</span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line">String lastTime = <span class="keyword">null</span>;</span><br><span class="line"><span class="comment">// 取cookie</span></span><br><span class="line">Cookie[] cookies = request.getCookies();</span><br><span class="line"><span class="keyword">if</span> (cookies != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (Cookie c : cookies) &#123;</span><br><span class="line">        <span class="keyword">if</span> (c.getName().equals(<span class="string">"lastTime"</span>)) &#123;</span><br><span class="line">            lastTime = c.getValue();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);</span><br><span class="line"><span class="keyword">if</span> (lastTime != <span class="keyword">null</span>) &#123;</span><br><span class="line">    response.getWriter().write(<span class="string">"上次登录时间为："</span>+lastTime);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    response.getWriter().write(<span class="string">"您是第一次登录"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="session"><a href="#session" class="headerlink" title="session"></a>session</h2><p>Session技术是将数据存储在服务器端的技术<br>会为每个客户端都创建一块<strong>内存空间</strong>存储客户的数据<br>客户端需要每次都携带一个标识ID去服务器中寻找属于自己的内存空间<br>Session需要借助于Cookie存储客户的唯一性标识SESSIONID</p>
+<p><img src="/2020/02/13/web-server-note-8/1.png" alt="Session"><br>Session如何办到在一个Servlet当中存数据，在另一个Servlet中取出当初存储的数据<br>每一个用户访问服务器时，会给该用户分配他自己对应的存储空间<br>并且创建的存储空间有一个编号我们称为SessionID<br>第一次访问时， 会把对应的sessionID以Cookie的形式写给浏览器<br>下次再访问时， 会携带sessionID，到当初创建的那个存储空间中取出数据</p>
+<h4 id="获取Session对象"><a href="#获取Session对象" class="headerlink" title="获取Session对象"></a>获取Session对象</h4><p>获得专属于当前会话的Session对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HttpSession session = request.getSession();</span><br></pre></td></tr></table></figure>
+<p>如果服务器端没有该会话的Session对象，会创建一个新的Session返回<br>如果已经有了属于该会话的Session直接将已有的Session返回<br>本质就是根据SESSIONID判断该客户端是否在服务器上已经存在Session</p>
+<h4 id="向Session当中存取数据"><a href="#向Session当中存取数据" class="headerlink" title="向Session当中存取数据"></a>向Session当中存取数据</h4><p>已经学习的其它两个域对象：ServletContext域、Request域</p>
+<p>Session对象也是一个域对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session.setAttribute(String name,Object obj);</span><br><span class="line">session.getAttribute(String name);</span><br><span class="line">session.removeAttribute(String name);</span><br></pre></td></tr></table></figure>
+
+<p>SessionServlet</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HttpSession session = request.getSession();</span><br><span class="line">session.setAttribute(<span class="string">"lk"</span>, <span class="string">"it666"</span>);</span><br></pre></td></tr></table></figure>
+<p>SessionServlet2</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HttpSession session = request.getSession();</span><br><span class="line">System.out.println(session.getAttribute(<span class="string">"lk"</span>));<span class="comment">// it666</span></span><br></pre></td></tr></table></figure>
+<h4 id="Session的生命周期"><a href="#Session的生命周期" class="headerlink" title="Session的生命周期"></a>Session的生命周期</h4><ul>
+<li>创建<br>第一次执行request.getSession()时创建</li>
+<li>销毁</li>
+</ul>
+<p>1.服务器关闭时<br>2.Session过期/失效（默认30分钟，默认配置在Servers的web.xml里session-timeout，也可在工程web.xml中定义）是从最后一次操作结束时计时<br>3.手动销毁对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.invadate();</span><br></pre></td></tr></table></figure>
+<p>浏览器关闭，session就销毁，这句话是不正确的<br>作用范围：默认在一次会话中，也就是说在一次会话中任何资源公用一个Session对象</p>
+<h4 id="JsessioID持久化"><a href="#JsessioID持久化" class="headerlink" title="JsessioID持久化"></a>JsessioID持久化</h4><p>默认情况下，第一次获取session对象时，会帮你创建一个Session，可以获取该Session的ID，会自动的把id写到Cookie中</p>
+<p>存在的问题<br>第一次访问Sevlet1时存储一些数据，在第二个Servlet当中直接取数据，可以直接取到<br>再把浏览器关闭，直接到第二个Servlet中取数据，发现取不到数据了</p>
+<p>原因<br>因为访问的时候要求带着JsessionID.由于默认情况下，存储cookie是会话级别的，关闭浏览器，就没有了<br>所以再次打开浏览器，访问资源时，没有jsessionID.  就会创建一个新的Session，就取不到数据</p>
+<p>解决办法<br>在写数据时，自己手动去把SessionID写到cookie当中<br>写的时候，设置持久化时间<br>注意，key值一定是和它自动生成的key值是一样的</p>
+<p>SessionServlet</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HttpSession session = request.getSession();</span><br><span class="line"></span><br><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"JSESSIONID"</span>, session.getId());</span><br><span class="line">cookie.setPath(<span class="string">"/29-Cookie-Session"</span>);</span><br><span class="line">cookie.setMaxAge(<span class="number">60</span>*<span class="number">2</span>);<span class="comment">// 2分钟</span></span><br><span class="line">response.addCookie(cookie);</span><br><span class="line"></span><br><span class="line">session.setAttribute(<span class="string">"lk"</span>, <span class="string">"it666"</span>);</span><br></pre></td></tr></table></figure>
+<p>SessionServlet2</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HttpSession session = request.getSession();</span><br><span class="line">System.out.println(session.getAttribute(<span class="string">"lk"</span>));<span class="comment">// it666</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://study.163.com/course/introduction/1005981003.htm" target="_blank" rel="noopener">Java零基础到高级JavaWeb与项目</a></p>
+</section>
+    
+
+    <footer id="post-meta" class="clearfix">
+        <a href="/about/">
+        <img class="avatar" src="/images/avatar.jpg">
+        <div>
+            <span class="dark">Aaron Lin</span>
+            <span></span>
+        </div>
+        </a>
+        <section id="sharing">
+            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2020/02/13/web-server-note-8/ - Web服务器笔记-Cookie与Session @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
+            <a title="Share to Facebook" class="facebook" href="#" onclick="
+                window.open(
+                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                  'facebook-share-dialog',
+                  'width=626,height=436');
+                return false;"><span class="icon-facebook-sign">Share</span>
+            </a>
+        </section>
+    </footer>
+
+
+  <section id="comment">
+    <button class="btn" id="loadcmts" onclick="cmts.load();">加载评论</button>
+    <div id="gitment"></div>
+    <script src='/js/gitment.browser.js'></script>
+    <link rel="stylesheet" href=''>
+    <script>
+      var cmts={
+        load:function cmts(){
+          var gitment = new Gitment({
+          
+            id: "Web服务器笔记-Cookie与Session",
+          
+            owner: "",
+            repo: "",
+            oauth: {
+              client_id: "",
+              client_secret: "",
+            },
+          })
+          gitment.render('gitment');
+          var loadcmt = document.getElementById("loadcmts");
+          var imyourfather = loadcmt.parentNode;
+          imyourfather.removeChild(loadcmts)
+        }
+      }
+    </script>
+  </section>
+
+
+	<footer id="footer">
+    <div id="social">
+        <p class="small">©
+            Aaron Lin | Powered by Hexo &
+                <a href="https://github.com/F0r3at/Lights" target="_blank" rel="noopener"> Lights</a>
+        </p>
+    </div>
+</footer>
+</section>
+
+	<script src="//cdnjs.loli.net/ajax/libs/instantclick/3.0.1/instantclick.min.js" data-no-instant></script>
+	<script data-no-instant>
+		
+		InstantClick.init('mousedown');
+	</script>
+
+
+
