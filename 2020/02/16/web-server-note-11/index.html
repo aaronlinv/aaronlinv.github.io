@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+  <meta name="description" content="EL表达式EL (Express Lanuage)表达式可以嵌入在jsp页面内部减少jsp脚本的编写EL出现的目的是要替代jsp页面中脚本的编写
+EL最主要的作用是获得四大域中的数据
+pageContext${pageScope.key};
+request${requestScope.key}
+se">
+
+
+<link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
+<meta name="theme-color" content="#a1d0f6">
+<title>Web服务器笔记-EL/JSTL - Aaron Lin</title>
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+<!-- <link rel="shortcut icon" href="/favicon.png"> -->
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<!-- 谷歌 Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153099566-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153099566-1');
+</script>
+
+
+<nav class="main-nav">
+	
+	    <a href="/">← 主页</a>
+	
+	
+	    <a href="/about/">关于</a>
+	
+	    <a href="/archives/">归档</a>
+	
+	<a class="cta" href="/rss2.xml" data-no-instant>订阅</a>
+</nav>
+
+<section id="wrapper">
+    <article class="post">
+    <header>
+        
+            <h1>Web服务器笔记-EL/JSTL</h1>
+        
+        <h2 class="headline">Feb 16 2020
+        
+            
+            <a href="/categories/Web服务器笔记/#Web服务器笔记">Web服务器笔记</a>
+        
+        </h2>
+    </header>
+</article>
+<section id="post-body"><h2 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a>EL表达式</h2><p>EL (Express Lanuage)表达式可以嵌入在jsp页面内部<br>减少jsp脚本的编写<br>EL出现的目的是要替代jsp页面中脚本的编写</p>
+<h4 id="EL最主要的作用是获得四大域中的数据"><a href="#EL最主要的作用是获得四大域中的数据" class="headerlink" title="EL最主要的作用是获得四大域中的数据"></a>EL最主要的作用是获得四大域中的数据</h4><ul>
+<li>pageContext<br>${pageScope.key};</li>
+<li>request<br>${requestScope.key}</li>
+<li>session<br>${sessionScope.key}</li>
+<li>application<br>${applicationScope.key}</li>
+</ul>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%</span><br><span class="line">	pageContext.setAttribute(<span class="string">"name"</span>, <span class="string">"pageContextValue"</span>);</span><br><span class="line">	request.setAttribute(<span class="string">"name"</span>, <span class="string">"requestValue"</span>);</span><br><span class="line">	session.setAttribute(<span class="string">"name"</span>, <span class="string">"sessionValue"</span>);</span><br><span class="line">	application.setAttribute(<span class="string">"name"</span>, <span class="string">"applicationValue"</span>);</span><br><span class="line">%&gt;</span><br><span class="line">$&#123;pageScope.name &#125;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">$&#123;requestScope.name &#125;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">$&#123;sessionScope.name &#125;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">$&#123;applicationScope.name &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h4><p>${EL表达式}<br>EL从四个域中获得某个值${key}<br>依次从pageContext域，request域，session域，application域中获取属性<br>在某个域中获取后将不在向后寻找(从小到大)</p>
+<h4 id="EL内置11对象（基本不用，只用pageContext）"><a href="#EL内置11对象（基本不用，只用pageContext）" class="headerlink" title="EL内置11对象（基本不用，只用pageContext）"></a>EL内置11对象（基本不用，只用pageContext）</h4><ul>
+<li>pageScope<br>获取JSP中pageScope域中的数据</li>
+<li>requestScope<br>获取JSP中requestScope域中的数据</li>
+<li>sessionScope<br>获取JSP中sessionScope域中的数据</li>
+<li>applicationScope<br>获取JSP中applicationScope域中的数据</li>
+<li>param<br>request.getParameter()</li>
+<li>paramValues<br>rquest.getParameterValues()</li>
+<li>header<br>request.getHeader(name)</li>
+<li>headerValues<br>request.getHeaderValues()</li>
+<li>initParam<br>this.getServletContext().getInitParameter(name)</li>
+<li>cookie<br>request.getCookies()—cookie.getName()—cookie.getValue()</li>
+<li>pageContext<br>pageContext获得其他八大对象</li>
+</ul>
+<p><strong>获取当前项目的名称：${pageContext.request.contextPath}</strong></p>
+<h5 id="EL执行表达式"><a href="#EL执行表达式" class="headerlink" title="EL执行表达式"></a>EL执行表达式</h5><p>内部可以进行运算，只要有结果</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$&#123;<span class="number">1</span>+<span class="number">1</span>&#125;</span><br><span class="line">$&#123;empty user&#125; </span><br><span class="line">$&#123;user==<span class="keyword">null</span>?<span class="keyword">true</span>:<span class="keyword">false</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>判读user是否为空 输出true</p>
+<h2 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h2><p>(JSP Standard Tag Library) JSP标准标签库<br>可以嵌入在JSP页面中使用标签的形式完成业务逻辑等功能<br>JSTL出现的目的同EL一样也是要代替JSP页面中的脚本代码</p>
+<h4 id="JSTL标准标签库有5个子库"><a href="#JSTL标准标签库有5个子库" class="headerlink" title="JSTL标准标签库有5个子库"></a>JSTL标准标签库有5个子库</h4><ul>
+<li>Core :核心库(其他的库都过时了)<br><a href="http://java.sun.com/jsp/jstl/core" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core</a><br>前缀：c</li>
+<li>I18N：国际化库<br><a href="http://java.sun.com/jsp/jstl/fmt" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/fmt</a><br>前缀：fmt</li>
+<li>SQL<br><a href="http://java.sun.com/jsp/jstl/sql" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/sql</a><br>前缀：sql</li>
+<li>XML<br><a href="http://java.sun.com/jsp/jstl/xml" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/xml</a><br>前缀：x</li>
+<li>Functions<br><a href="http://java.sun.com/jsp/jstl/functions" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/functions</a><br>前缀：fn</li>
+</ul>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ol>
+<li>把JSTL标签库jar包引入工程当中 jstl-1.2.jar</li>
+<li>引入标签库<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> prefix=<span class="string">"c"</span>%&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><p>if标签</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:if test="$&#123;1==1 &#125;"&gt;满足条件时，中间的内容才会显示出来&lt;/c:if&gt;</span><br></pre></td></tr></table></figure>
+<p>通过是结合EL表达式一起使用，EL从域中取数据，使用JSTL进行判断或者遍历<br>没有else所有只能</p>
+<p>if标签使用场景：<br>用户登录成功时，进入首页中，显示用户名<br>步骤<br>1.登录成功时，把用户写到session域当中，修改LogginServlet</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (u != <span class="keyword">null</span>) &#123;</span><br><span class="line">    response.getWriter().write(<span class="string">"登录成功"</span>);</span><br><span class="line">    <span class="comment">// </span></span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line">    session.setAttribute(<span class="string">"user"</span>, u);</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    response.setHeader(<span class="string">"refresh"</span>, <span class="string">"2;url=/31-Mystore/index.jsp"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    response.getWriter().write(<span class="string">"登录失败"</span>);</span><br><span class="line">    response.setHeader(<span class="string">"refresh"</span>, <span class="string">"2;url=/31-Mystore/login.jsp"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.在Header.jsp中进行判断，从session域当中取数据，先引入标签库<br>3.通过EL结合JSTL进行判断</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header_top_center"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"h_top_left"</span>&gt;</span>欢迎来到码蚁商城<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"h_top_right"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 判断有没有用户 session --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$&#123;empty user&#125;"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"login.jsp"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"regist.jsp"</span>&gt;</span>免费注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$&#123;!empty user &#125;"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 或者直接$&#123; user.username &#125; --&gt;</span></span><br><span class="line">            欢迎：$&#123;user.getUsername() &#125;</span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>退出<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>购物车<span class="tag">&lt;/<span class="name">a</span>&gt;</span> <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>我的订单<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>foreach标签</p>
+<ul>
+<li>普通循环:从域当中取数据，自动把数据存储pagescope<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach begin=<span class="string">"0"</span> end=<span class="string">"5"</span> <span class="keyword">var</span>=<span class="string">"i"</span>&gt;</span><br><span class="line">	$&#123;i &#125;</span><br><span class="line">&lt;/c:forEach&gt;</span><br><span class="line">&lt;!--等同于 $&#123;pageScope.i&#125; --&gt;</span><br></pre></td></tr></table></figure></li>
+<li>第二种：增加for循环<br>遍历字符串集合<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">List&lt;String&gt; strList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">strList.add(<span class="string">"aaa"</span>);</span><br><span class="line">strList.add(<span class="string">"bbb"</span>);</span><br><span class="line">session.setAttribute(<span class="string">"strList"</span>, strList);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:forEach items=<span class="string">"$&#123;strList&#125;"</span> <span class="keyword">var</span>=<span class="string">"str"</span>&gt; </span><br><span class="line">	$&#123;str &#125;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>遍历对象集合</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">List&lt;User&gt; userList = <span class="keyword">new</span> ArrayList&lt;User&gt;();</span><br><span class="line">User u1 = <span class="keyword">new</span> User();</span><br><span class="line">u1.setUsername(<span class="string">"zs"</span>);</span><br><span class="line">userList.add(u1);</span><br><span class="line"></span><br><span class="line">User u2 = <span class="keyword">new</span> User();</span><br><span class="line">u2.setUsername(<span class="string">"ls"</span>);</span><br><span class="line">userList.add(u2);</span><br><span class="line"></span><br><span class="line">session.setAttribute(<span class="string">"userList"</span>, userList);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:forEach items=<span class="string">"$&#123;userList&#125;"</span> <span class="keyword">var</span>=<span class="string">"user"</span>&gt; </span><br><span class="line">	$&#123;user.username &#125;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<p>遍历map</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">Map&lt;String ,String&gt; strMap = <span class="keyword">new</span> HashMap&lt;String,String&gt;();</span><br><span class="line">strMap.put(<span class="string">"name"</span>,<span class="string">"zs"</span>);</span><br><span class="line">strMap.put(<span class="string">"age"</span>, <span class="string">"30"</span>);</span><br><span class="line">session.setAttribute(<span class="string">"strMap"</span>, strMap);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:forEach items=<span class="string">"$&#123;strMap &#125;"</span> <span class="keyword">var</span> = <span class="string">"entry"</span>&gt;</span><br><span class="line">	$&#123;entry.key&#125;:$&#123;entry.value&#125;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<p>商品列表展示<br>修改goods_list.jsp</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">"$&#123;empty allGoods &#125;"</span>&gt;</span><br><span class="line">    没有商品</span><br><span class="line">&lt;/c:if&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;c:forEach items=<span class="string">"$&#123;allGoods &#125;"</span> <span class="keyword">var</span>=<span class="string">"goods"</span>&gt;</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">    &lt;a href=<span class="string">"#"</span>&gt;</span><br><span class="line">        &lt;img src=<span class="string">"images/pimages/$&#123;goods.image &#125;"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">        &lt;p&gt;$&#123;goods.name &#125;&lt;/p&gt;</span><br><span class="line">        &lt;i id="yuan"&gt;￥&lt;/i&gt; &lt;span id="price"&gt;$&#123;goods.price &#125;&lt;/span&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://study.163.com/course/introduction/1005981003.htm" target="_blank" rel="noopener">Java零基础到高级JavaWeb与项目</a></p>
+</section>
+    
+
+    <footer id="post-meta" class="clearfix">
+        <a href="/about/">
+        <img class="avatar" src="/images/avatar.jpg">
+        <div>
+            <span class="dark">Aaron Lin</span>
+            <span></span>
+        </div>
+        </a>
+        <section id="sharing">
+            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2020/02/16/web-server-note-11/ - Web服务器笔记-EL/JSTL @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
+            <a title="Share to Facebook" class="facebook" href="#" onclick="
+                window.open(
+                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                  'facebook-share-dialog',
+                  'width=626,height=436');
+                return false;"><span class="icon-facebook-sign">Share</span>
+            </a>
+        </section>
+    </footer>
+
+
+  <section id="comment">
+    <button class="btn" id="loadcmts" onclick="cmts.load();">加载评论</button>
+    <div id="gitment"></div>
+    <script src='/js/gitment.browser.js'></script>
+    <link rel="stylesheet" href=''>
+    <script>
+      var cmts={
+        load:function cmts(){
+          var gitment = new Gitment({
+          
+            id: "Web服务器笔记-EL/JSTL",
+          
+            owner: "",
+            repo: "",
+            oauth: {
+              client_id: "",
+              client_secret: "",
+            },
+          })
+          gitment.render('gitment');
+          var loadcmt = document.getElementById("loadcmts");
+          var imyourfather = loadcmt.parentNode;
+          imyourfather.removeChild(loadcmts)
+        }
+      }
+    </script>
+  </section>
+
+
+	<footer id="footer">
+    <div id="social">
+        <p class="small">©
+            Aaron Lin | Powered by Hexo &
+                <a href="https://github.com/F0r3at/Lights" target="_blank" rel="noopener"> Lights</a>
+        </p>
+    </div>
+</footer>
+</section>
+
+	<script src="//cdnjs.loli.net/ajax/libs/instantclick/3.0.1/instantclick.min.js" data-no-instant></script>
+	<script data-no-instant>
+		
+		InstantClick.init('mousedown');
+	</script>
+
+
+
