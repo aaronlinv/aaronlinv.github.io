@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+  <meta name="description" content="过滤器filter是对客户端访问资源的过滤，符合条件放行，不符合条件不放行并且可以对目标资源访问前后进行逻辑处理
+
+过滤器编写步骤
+
+编写一个过滤器的类实现Filter接口
+实现接口中尚未实现的方法(着重实现doFilter方法)
+在web.xml中进行配置(主要是配置要对哪些资源进行过滤)
+配置f">
+
+
+<link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
+<meta name="theme-color" content="#a1d0f6">
+<title>Web服务器笔记-过滤器 - Aaron Lin</title>
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+<!-- <link rel="shortcut icon" href="/favicon.png"> -->
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<!-- 谷歌 Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153099566-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153099566-1');
+</script>
+
+
+<nav class="main-nav">
+	
+	    <a href="/">← 主页</a>
+	
+	
+	    <a href="/about/">关于</a>
+	
+	    <a href="/archives/">归档</a>
+	
+	<a class="cta" href="/rss2.xml" data-no-instant>订阅</a>
+</nav>
+
+<section id="wrapper">
+    <article class="post">
+    <header>
+        
+            <h1>Web服务器笔记-过滤器</h1>
+        
+        <h2 class="headline">Feb 23 2020
+        
+            
+            <a href="/categories/Web服务器笔记/#Web服务器笔记">Web服务器笔记</a>
+        
+        </h2>
+    </header>
+</article>
+<section id="post-body"><h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><p>filter是对客户端访问资源的过滤，符合条件放行，不符合条件不放行<br>并且可以对目标资源访问前后进行逻辑处理<br><img src="/2020/02/23/web-server-note-17/1.png" alt></p>
+<p><img src="/2020/02/23/web-server-note-17/2.png" alt></p>
+<p>过滤器编写步骤</p>
+<ol>
+<li>编写一个过滤器的类实现Filter接口</li>
+<li>实现接口中尚未实现的方法(着重实现doFilter方法)</li>
+<li>在web.xml中进行配置(主要是配置要对哪些资源进行过滤)</li>
+<li>配置filter-class</li>
+<li>配置filter-mapping，对哪些资源进行过滤</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itlike.web.filter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FirstFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否对请求进行放行</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is Filter "</span>);</span><br><span class="line">        <span class="comment">// 放行</span></span><br><span class="line">        filterChain.doFilter(servletRequest,servletResponse);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itlike.web;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/MyServlet"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"MyServlet"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">"4.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>myfliter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.itlike.web.filter.FirstFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>myfliter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 发送MySerlvet请求的时候，就会到myfliter--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/MyServlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Filter选择javax.servlet.Filter<br>注意：更改了Web.xml 要重启服务器</p>
+<p>访问一个资源的时候，会被过滤器拦截<br>要在过滤器当中进行放行之后， 才能够访问到对应的servlet<br>chain.doFilter(req,res)</p>
+<h2 id="过滤器的访问流程"><a href="#过滤器的访问流程" class="headerlink" title="过滤器的访问流程"></a>过滤器的访问流程</h2><p>在发送一个请求时， web容器会先到filter当中，创建三个参数，res,req,chain<br>在过滤器当中，放行之后，才能够访问到对应的资源<br>中间的过滤器可能有多个，在一个过滤器当中，可以调用另外一个过滤器<br>也有可能过滤器没有拦截所有的资源，有些资源可以直接被访问</p>
+<h2 id="filter生命周期"><a href="#filter生命周期" class="headerlink" title="filter生命周期"></a>filter生命周期</h2><h4 id="init方法"><a href="#init方法" class="headerlink" title="init方法"></a>init方法</h4><p>当filter对象创建时调用<br>当服务器启动时创建<br>因为有可能一个filter对应多个servlet<br>启动时， 先把filter准备好， 访问资源时就可以进行过滤了</p>
+<p>filterconfig<br>当前filter对象的配置信息<br>和servletConfig差不多， 获取名称，参数<br>获取servletContext对象<br>先有的ServletContext</p>
+<h4 id="dofitter方法"><a href="#dofitter方法" class="headerlink" title="dofitter方法"></a>dofitter方法</h4><p>当匹配到mapping时调用dofilter<br>参数：res req FilterChain</p>
+<p>FilterChain 过滤器链对象<br>内部维护着各个filter的索引，并且知道所有filter的顺序<br>是根据mapping的顺序来执行的</p>
+<h4 id="destroy方法"><a href="#destroy方法" class="headerlink" title="destroy方法"></a>destroy方法</h4><p>当filter对象销毁时调用<br>关闭服务器时销毁对象<br>和servletContext的生命周期是一样</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h4 id="mapping"><a href="#mapping" class="headerlink" title="mapping"></a>mapping</h4><p>完全匹配<br>目录匹配<br>扩展名匹配</p>
+<h4 id="servlet-name"><a href="#servlet-name" class="headerlink" title="servlet_name"></a>servlet_name</h4><p>可以把路径直接指定<strong>某一个</strong>Servlet，可以有多个servlet_name<br>开发中基本上使用的都是mapping</p>
+<h4 id="dispatcher"><a href="#dispatcher" class="headerlink" title="dispatcher"></a>dispatcher</h4><p>配置请求的形式，不是请求方式，是页面跳转的形式<br>形式分类</p>
+<ul>
+<li>REQUEST<br>默认值，代表直接访问某个资源时执行filter</li>
+<li>ERROR<br>发生错误时 进行跳转是执行filter</li>
+<li>INCLUDE<br>包含资源时执行filter</li>
+<li>FORWARD<br>转发之后才去执行filter</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://study.163.com/course/introduction/1005981003.htm" target="_blank" rel="noopener">Java零基础到高级JavaWeb与项目</a></p>
+</section>
+    
+
+    <footer id="post-meta" class="clearfix">
+        <a href="/about/">
+        <img class="avatar" src="/images/avatar.jpg">
+        <div>
+            <span class="dark">Aaron Lin</span>
+            <span></span>
+        </div>
+        </a>
+        <section id="sharing">
+            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2020/02/23/web-server-note-17/ - Web服务器笔记-过滤器 @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
+            <a title="Share to Facebook" class="facebook" href="#" onclick="
+                window.open(
+                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                  'facebook-share-dialog',
+                  'width=626,height=436');
+                return false;"><span class="icon-facebook-sign">Share</span>
+            </a>
+        </section>
+    </footer>
+
+
+  <section id="comment">
+    <button class="btn" id="loadcmts" onclick="cmts.load();">加载评论</button>
+    <div id="gitment"></div>
+    <script src='/js/gitment.browser.js'></script>
+    <link rel="stylesheet" href=''>
+    <script>
+      var cmts={
+        load:function cmts(){
+          var gitment = new Gitment({
+          
+            id: "Web服务器笔记-过滤器",
+          
+            owner: "",
+            repo: "",
+            oauth: {
+              client_id: "",
+              client_secret: "",
+            },
+          })
+          gitment.render('gitment');
+          var loadcmt = document.getElementById("loadcmts");
+          var imyourfather = loadcmt.parentNode;
+          imyourfather.removeChild(loadcmts)
+        }
+      }
+    </script>
+  </section>
+
+
+	<footer id="footer">
+    <div id="social">
+        <p class="small">©
+            Aaron Lin | Powered by Hexo &
+                <a href="https://github.com/F0r3at/Lights" target="_blank" rel="noopener"> Lights</a>
+        </p>
+    </div>
+</footer>
+</section>
+
+	<script src="//cdnjs.loli.net/ajax/libs/instantclick/3.0.1/instantclick.min.js" data-no-instant></script>
+	<script data-no-instant>
+		
+		InstantClick.init('mousedown');
+	</script>
+
+
+
