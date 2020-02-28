@@ -57,14 +57,14 @@ JavaEE也就是Java Enterprise Edition，Java的企业版开发JavaWeb应用程�
     </header>
 </article>
 <section id="post-body"><h2 id="Java分类"><a href="#Java分类" class="headerlink" title="Java分类"></a>Java分类</h2><h4 id="JavaSE"><a href="#JavaSE" class="headerlink" title="JavaSE"></a>JavaSE</h4><p>Java的标准版，一般用来开发桌面应用程序，但是在开发桌面应用程序上相对VB，Delphi，VC++并没有什么优势</p>
-<h4 id="JavaEE"><a href="#JavaEE" class="headerlink" title="JavaEE"></a>JavaEE</h4><p>也就是Java Enterprise Edition，Java的企业版<br>开发JavaWeb应用程序，初级的一般是用JSP(Java Server Pages) + servlet + Javabean来开发的<br>大型的网站一般是使用框架来开发: struts , hibernate , spring , Mybatis</p>
+<h4 id="JavaEE"><a href="#JavaEE" class="headerlink" title="JavaEE"></a>JavaEE</h4><p>也就是Java Enterprise Edition，Java的企业版<br>开发JavaWeb应用程序，初级的一般是用JSP(Java Server Pages) + Servlet + Javabean来开发的<br>大型的网站一般是使用框架来开发: struts , hibernate , spring , Mybatis</p>
 <h4 id="JavaME"><a href="#JavaME" class="headerlink" title="JavaME"></a>JavaME</h4><p>JavaME,Java Micro Edition,Java的微型版<br>诺基亚手机上运行的Java程序就是指用这个版本开发的程序</p>
 <h2 id="JavaEE规范"><a href="#JavaEE规范" class="headerlink" title="JavaEE规范"></a>JavaEE规范</h2><p>JavaEE的共有13个技术规范<br>Sun公司定义了这么多标准，其它公司的人都可以来去根据这些标准来做JavaEE程序</p>
-<p>JDBC<br>java数据连接，是一种用于执行SQL语句的Java API</p>
+<p>JDBC<br>Java数据连接，是一种用于执行SQL语句的Java API</p>
 <p>JNDI<br>Java命名和目录接口</p>
 <p>EJB<br>EJB是sun的JavaEE服务器端组件模型，设计目标与核心应用是部署分布式应用程序</p>
-<p>RMI<br>远程方法调用，能够让在某个java虚拟机上的对象调用本地对象一样的<br>调用另一个java虚拟机中高的对象上的方法</p>
-<p>JSP<br>java服务器页面，是一个动态内容模板，实现了Html语法中的java扩展</p>
+<p>RMI<br>远程方法调用，能够让在某个Java虚拟机上的对象调用本地对象一样的<br>调用另一个Java虚拟机中高的对象上的方法</p>
+<p>JSP<br>Java服务器页面，是一个动态内容模板，实现了Html语法中的Java扩展</p>
 <p>Servlet<br>Servlet是一种小型的Java程序，它扩展了Web服务器的功能</p>
 <p>XML<br>是一种可扩展的标记语言</p>
 <p>JMS<br>是一个Java平台中关于面向消息中间件（MOM）的API<br>用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信</p>
@@ -73,9 +73,9 @@ JavaEE也就是Java Enterprise Edition，Java的企业版开发JavaWeb应用程�
 <p>JTA<br>JTA允许应用程序执行分布式事务处理——在两个或多个网络计算机资源上访问并且更新数据</p>
 <p>JavaMail<br>提供给开发者处理电子邮件相关的编程接口</p>
 <p>JAF<br>JAF是一个专用的数据处理框架，它用于封装数据，并为应用程序提供访问和操作数据的接口</p>
-<h2 id="常见JavaWeb应用服务器"><a href="#常见JavaWeb应用服务器" class="headerlink" title="常见JavaWeb应用服务器"></a>常见JavaWeb应用服务器</h2><p>weblogic<br>oracle公司的大型收费Web服务器 支持全部JavaEE规范</p>
-<p>websphere<br>IBM公司的大型收费Web服务器 支持全部的JavaEE规范</p>
-<p>Tomcat<br>Apache开源组织下的开源免费的中小型的Web应用服务器<br>支持JavaEE中的servlet和JSP规范</p>
+<h2 id="常见JavaWeb应用服务器"><a href="#常见JavaWeb应用服务器" class="headerlink" title="常见JavaWeb应用服务器"></a>常见JavaWeb应用服务器</h2><p>WebLogic<br>oracle公司的大型收费Web服务器 支持全部JavaEE规范</p>
+<p>WebSphere<br>IBM公司的大型收费Web服务器 支持全部的JavaEE规范</p>
+<p>Tomcat<br>Apache开源组织下的开源免费的中小型的Web应用服务器<br>支持JavaEE中的Servlet和JSP规范</p>
 <h2 id="Tomcat安装"><a href="#Tomcat安装" class="headerlink" title="Tomcat安装"></a>Tomcat安装</h2><p>企业老项目一般使用Tomcat7<br>解压到</p>
 <h5 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h5><p>bin<br>脚本程序<br>可执行的命令</p>
 <p>conf<br>配置目录<br>内部有一个server.xml核心配置文件</p>
@@ -92,12 +92,12 @@ JavaEE也就是Java Enterprise Edition，Java的企业版开发JavaWeb应用程�
 <ul>
 <li>没有配置JAVA_HOME</li>
 </ul>
-<p>在启动过程当中如果没有配置Java_home，就会一闪没了<br>Java_HOME配置的就是JDK bin的上级目录</p>
+<p>在启动过程当中如果没有配置JAVA_HOME，就会一闪没了<br>JAVA_HOME配置的就是JDK bin的上级目录</p>
 <ul>
 <li>端口冲突,默认的端口是8080(两种解决方法)</li>
 </ul>
 <p>把占用的端口杀死<br>netstat -aov  查看端口占用情况  记下占用端口的pid<br>到任务管理器当中查看任务详细信息，把对应pid给关掉</p>
-<p>到config目录当中修改核心配置文件server.xml，修改por</p>
+<p>到config目录当中修改核心配置文件server.xml，修改port</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
 <ol start="4">
@@ -157,7 +157,7 @@ JavaEE也就是Java Enterprise Edition，Java的企业版开发JavaWeb应用程�
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">appBase</span>=<span class="string">"webapps"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span> <span class="attr">name</span>=<span class="string">"localhost"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">unpackWARs</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">Valve</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.valves.AccessLogValve"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">directory</span>=<span class="string">"logs"</span> <span class="attr">pattern</span>=<span class="string">"%h %l %u %t &amp;quot;%r&amp;quot; %s %b"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">prefix</span>=<span class="string">"localhost_access_log."</span> <span class="attr">suffix</span>=<span class="string">".txt"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"myproject2"</span> <span class="attr">path</span>=<span class="string">"/myp2"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">reloadable</span>=<span class="string">"true"</span> <span class="attr">source</span>=<span class="string">"org.eclipse.jst.jee.server:myproject2"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"myproject"</span> <span class="attr">path</span>=<span class="string">"/myproject"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">reloadable</span>=<span class="string">"true"</span> <span class="attr">source</span>=<span class="string">"org.eclipse.jst.jee.server:myproject"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>添加虚拟主机：在Host标签后面再添加一个Host标签</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">appBase</span>=<span class="string">"webapps"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span> <span class="attr">name</span>=<span class="string">"m.myxq.com"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">unpackWARs</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"myproject"</span> <span class="attr">path</span>=<span class="string">"/myp2"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">reloadable</span>=<span class="string">"true"</span> <span class="attr">source</span>=<span class="string">"org.eclipse.jst.jee.server:myproject"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>可以在server.xml修改端口，浏览器默认访问80端口，这样就可以免输入端口<br>通过<a href="http://http://m.myxq.com/myp/" target="_blank" rel="noopener">http://http://m.myxq.com/myp/</a> 和<a href="http://localhost/myp/" target="_blank" rel="noopener">http://localhost/myp/</a> 访问的项目不同，不同域名映射到同一个IP</p>
+<p>可以在server.xml修改端口，浏览器默认访问80端口，这样就可以免输入端口<br>通过 <a href="http://m.myxq.com/myp/" target="_blank" rel="noopener">http://m.myxq.com/myp/</a> 和 <a href="http://localhost/myp/" target="_blank" rel="noopener">http://localhost/myp/</a> 访问的项目不同，不同域名映射到同一个IP</p>
 <h2 id="Tomcat插件安装"><a href="#Tomcat插件安装" class="headerlink" title="Tomcat插件安装"></a>Tomcat插件安装</h2><ol>
 <li><a href="https://jaist.dl.sourceforge.net/project/tomcatplugin/net.sf.eclipse.tomcat.updatesite-2018-03-08.zip" target="_blank" rel="noopener">下载插件</a></li>
 <li>到Eclipse当中找到help-&gt;install new software</li>

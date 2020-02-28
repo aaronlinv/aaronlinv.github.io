@@ -69,7 +69,7 @@ listener监听器
 </ol>
 <p>用来处理客户端请求、响应给浏览器的动态资源<br>servlet的实质就是java代码，通过Java的API动态的向客户端输出内容<br>以后写的程序就不在是在本地执行了。而是编译成字节码，放到服务器上来去执行。<br>编写程序时， 不需要有main函数了。因为写完后，就把编写的程序编译成字节码，放到服务器上面。当前发送就一个请求的时候，服务器就会按照一定规则调用编写的代码</p>
 <h2 id="Servlet快速入门"><a href="#Servlet快速入门" class="headerlink" title="Servlet快速入门"></a>Servlet快速入门</h2><ol>
-<li>创建一个web工程</li>
+<li>创建一个Web工程</li>
 <li>在JavaResource中src下创建一个包名称为com.myxq.servlet</li>
 <li>在创建的servlet包当中创建一个class文件起名为FirstServlet</li>
 <li>进入该class实现一个Servlet接口，实现它未实现的方法，在service方法中写入一句话输出</li>
@@ -100,7 +100,7 @@ listener监听器
 <ul>
 <li>根类加载器<br>也被称为引导类加载器，负责Java核心类的加载<br>比如System,String等。在JDK中JRE的lib目录下rt.jar文件中</li>
 <li>扩展类加载器<br>负责JRE的扩展目录中jar包的加载<br>在JDK中JRE的lib目录下ext目录</li>
-<li>系统类加载器<br>负责在JVM启动时加载来自java命令的class文件<br>以及classpath环境变量所指定的jar包和类路径</li>
+<li>系统类加载器<br>负责在JVM启动时加载来自Java命令的class文件<br>以及classpath环境变量所指定的jar包和类路径</li>
 </ul>
 <h4 id="反射-1"><a href="#反射-1" class="headerlink" title="反射"></a>反射</h4><p>创建一个对象的三个阶段</p>
 <ol>
@@ -144,8 +144,14 @@ listener监听器
 <h2 id="Servlet访问流程"><a href="#Servlet访问流程" class="headerlink" title="Servlet访问流程"></a>Servlet访问流程</h2><p>ServletRequest对象和ServletResponse对象是引擎提前创建好的<br>每次请求时调用service方法并把这两个对象传入<br><img src="/2020/02/07/web-server-note-3/3.png" alt="Servlet访问流程"></p>
 <h2 id="Servlet配置信息"><a href="#Servlet配置信息" class="headerlink" title="Servlet配置信息"></a>Servlet配置信息</h2><p>init-params标签</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>myxq<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.it666.servlet.FirstServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>3<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- init-params标签 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>my<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>1234<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">	<span class="comment">// 1.获取web.xml的Servlet名称</span></span><br><span class="line">	System.out.println(config.getServletName());<span class="comment">// 获取&lt;servlet-name&gt; 输出：myxq</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 2.获取一些初始化参数 web.xml</span></span><br><span class="line">	String value = config.getInitParameter(<span class="string">"my"</span>);</span><br><span class="line">	System.out.println(value);<span class="comment">// 输出：1234</span></span><br><span class="line">	<span class="comment">// 3.获取ServletContext</span></span><br><span class="line">	ServletContext sc = config.getServletContext();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>init方法的config参数<br>该servlert的配置信息<br>获得web.xml当中参数<br>初始化参数<br>获取servletContext对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">	<span class="comment">// 1.获取web.xml的Servlet名称</span></span><br><span class="line">	System.out.println(config.getServletName());<span class="comment">// 获取&lt;servlet-name&gt; 输出：myxq</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 2.获取一些初始化参数 web.xml</span></span><br><span class="line">	String value = config.getInitParameter(<span class="string">"my"</span>);</span><br><span class="line">	System.out.println(value);<span class="comment">// 输出：1234</span></span><br><span class="line">	<span class="comment">// 3.获取ServletContext</span></span><br><span class="line">	ServletContext sc = config.getServletContext();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>init方法的config参数</p>
+<ol>
+<li>该servlert的配置信息</li>
+<li>获得web.xml当中参数</li>
+<li>初始化参数</li>
+<li>获取servletContext对象</li>
+</ol>
 <p>url-patten</p>
 <ol>
 <li>完全匹配</li>
@@ -169,7 +175,7 @@ listener监听器
 <li>doGet<br>当发送get请求时调用</li>
 <li>doPost<br>当发送post请求的时候调用</li>
 </ul>
-<h4 id="内部方法调用过程"><a href="#内部方法调用过程" class="headerlink" title="内部方法调用过程"></a>内部方法调用过程</h4><p>当接收到一个请求时， tomcat就会找对应的service方法<br>如果当中servlet当中没有存在service方法，就会到它的父类(HttpServlet)当中去找<br><img src="/2020/02/07/web-server-note-3/7.png" alt="HttpServlet"><br>在父类当中找到service是参数为ServletRequest，在会内部把参数转为httpServlet<br>转换完毕后会再继续调用参数为httpServletRequest的service方法<br><img src="/2020/02/07/web-server-note-3/8.png" alt="HttpServlet2"><br>在此方法当中会获取参数的类型，根据不同的参数类型再去调用不同的方法</p>
+<h4 id="内部方法调用过程"><a href="#内部方法调用过程" class="headerlink" title="内部方法调用过程"></a>内部方法调用过程</h4><p>当接收到一个请求时， tomcat就会找对应的service方法<br>如果当中servlet当中没有存在service方法，就会到它的父类(HttpServlet)当中去找<br><img src="/2020/02/07/web-server-note-3/7.png" alt="HttpServlet"><br>在父类当中找到service是参数为ServletRequest，会在内部把参数转为httpServlet<br>转换完毕后会再继续调用参数为httpServletRequest的service方法<br><img src="/2020/02/07/web-server-note-3/8.png" alt="HttpServlet2"><br>在此方法当中会获取参数的类型，根据不同的参数类型再去调用不同的方法</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://study.163.com/course/introduction/1005981003.htm" target="_blank" rel="noopener">Java零基础到高级JavaWeb与项目</a></p>
 </section>
     
