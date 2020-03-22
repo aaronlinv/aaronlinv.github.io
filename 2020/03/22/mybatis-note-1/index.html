@@ -82,7 +82,6 @@
 <li>#{}：内部用?作为占位符，执行的时候会给参数两边加单引号，可以防止sql注入，可以实现preparedStatement向占位符中设置值，自动进行Java类型和JDBC类型转换</li>
 <li>${}：表示拼接sql串，将parameterType 传入的内容拼接在sql中且<strong>不进行jdbc类型转换</strong></li>
 <li>parameterType传输单个简单类型值，${}括号中只能为value即：${value}，而#{}括号中<strong>任意</strong><br>
-<br>
 
 
 </li>
@@ -97,11 +96,10 @@
 <li>namespace 必须为 Mapper接口全限定类名</li>
 <li>id 必须和 Mapper接口方法名一致</li>
 <li>parameterType 与接口方法参数类型一致</li>
-<li>resultType 与接口方法返回值类型一致</li>
-</ol>
-<br>
-<br>
+<li>resultType 与接口方法返回值类型一致<br>
 
+</li>
+</ol>
 <p>传递多个参数</p>
 <ol>
 <li>在映射文件的sql语句中使用#{arg0} #{arg1} 或者#{param1} #{param2} </li>

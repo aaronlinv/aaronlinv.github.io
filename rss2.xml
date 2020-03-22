@@ -9,7 +9,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sun, 22 Mar 2020 15:27:20 GMT</pubDate>
+    <pubDate>Sun, 22 Mar 2020 16:29:26 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -30,7 +30,7 @@
       </description>
       
       
-      <content:encoded><![CDATA[<p>MyBatis执行流程：</p><ol><li>创建 SqlSessionFactoryBuilder</li><li>通过 SqlSessionFactoryBuilder 读取 SqlMappingConfig.xml 核心配置文件（还需要加载映射文件），创建 SqlSessionFactory </li><li>获取 Session</li><li>执行 Sql语句 </li><li>关闭 Session</li></ol><p>注意点：</p><ol><li>Session线程不安全，不能定义为字段</li><li>映射文件中 resultType 或 parameterType 为domian 值需要写domain的全限定类名</li><li>涉及修改数据库的操作都需要commit</li><li>不同操作在映射文件中写不同标签 select updata delete</li><li>返回添加过后自增的主键的写法</li></ol><p>#{} 和 ${} 区别</p><ol><li>都可以${}可以接收简单类型值或pojo属性值</li><li>#{}：内部用?作为占位符，执行的时候会给参数两边加单引号，可以防止sql注入，可以实现preparedStatement向占位符中设置值，自动进行Java类型和JDBC类型转换</li><li>${}：表示拼接sql串，将parameterType 传入的内容拼接在sql中且<strong>不进行jdbc类型转换</strong></li><li>parameterType传输单个简单类型值，${}括号中只能为value即：${value}，而#{}括号中<strong>任意</strong><br><br></li></ol><p>传统方式写DAO</p><ol><li>定义接口</li><li>写接口实现类，在实现类中调用 SqlSession 执行对于语句</li></ol><p>使用Mapper动态代理，避免写实现类，需要满足要求</p><ol><li>namespace 必须为 Mapper接口全限定类名</li><li>id 必须和 Mapper接口方法名一致</li><li>parameterType 与接口方法参数类型一致</li><li>resultType 与接口方法返回值类型一致</li></ol><br><br><p>传递多个参数</p><ol><li>在映射文件的sql语句中使用#{arg0} #{arg1} 或者#{param1} #{param2} </li><li>在接口方法参数加注解@Param(“”)  在#{}中使用定义好的名称</li><li>传入 Map&lt;String,Object&gt; put键值对 在#{}中使用定义好的名称</li><li>POJO类 在#{}中使用POJO类字段名</li></ol>]]></content:encoded>
+      <content:encoded><![CDATA[<p>MyBatis执行流程：</p><ol><li>创建 SqlSessionFactoryBuilder</li><li>通过 SqlSessionFactoryBuilder 读取 SqlMappingConfig.xml 核心配置文件（还需要加载映射文件），创建 SqlSessionFactory </li><li>获取 Session</li><li>执行 Sql语句 </li><li>关闭 Session</li></ol><p>注意点：</p><ol><li>Session线程不安全，不能定义为字段</li><li>映射文件中 resultType 或 parameterType 为domian 值需要写domain的全限定类名</li><li>涉及修改数据库的操作都需要commit</li><li>不同操作在映射文件中写不同标签 select updata delete</li><li>返回添加过后自增的主键的写法</li></ol><p>#{} 和 ${} 区别</p><ol><li>都可以${}可以接收简单类型值或pojo属性值</li><li>#{}：内部用?作为占位符，执行的时候会给参数两边加单引号，可以防止sql注入，可以实现preparedStatement向占位符中设置值，自动进行Java类型和JDBC类型转换</li><li>${}：表示拼接sql串，将parameterType 传入的内容拼接在sql中且<strong>不进行jdbc类型转换</strong></li><li>parameterType传输单个简单类型值，${}括号中只能为value即：${value}，而#{}括号中<strong>任意</strong><br></li></ol><p>传统方式写DAO</p><ol><li>定义接口</li><li>写接口实现类，在实现类中调用 SqlSession 执行对于语句</li></ol><p>使用Mapper动态代理，避免写实现类，需要满足要求</p><ol><li>namespace 必须为 Mapper接口全限定类名</li><li>id 必须和 Mapper接口方法名一致</li><li>parameterType 与接口方法参数类型一致</li><li>resultType 与接口方法返回值类型一致<br></li></ol><p>传递多个参数</p><ol><li>在映射文件的sql语句中使用#{arg0} #{arg1} 或者#{param1} #{param2} </li><li>在接口方法参数加注解@Param(“”)  在#{}中使用定义好的名称</li><li>传入 Map&lt;String,Object&gt; put键值对 在#{}中使用定义好的名称</li><li>POJO类 在#{}中使用POJO类字段名</li></ol>]]></content:encoded>
       
       <comments>https://aaronlinv.github.io/2020/03/22/mybatis-note-1/#disqus_thread</comments>
     </item>

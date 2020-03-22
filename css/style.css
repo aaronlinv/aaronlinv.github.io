@@ -493,6 +493,10 @@ p {
 p h2 {
   margin-bottom: 10px;
 }
+#post-body p,
+p p {
+  margin-bottom: 5px;
+}
 .home h1 {
   font-size: 30px;
   letter-spacing: -1px;
