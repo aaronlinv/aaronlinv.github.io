@@ -9,7 +9,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sun, 22 Mar 2020 16:29:26 GMT</pubDate>
+    <pubDate>Mon, 23 Mar 2020 10:26:50 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -30,7 +30,7 @@
       </description>
       
       
-      <content:encoded><![CDATA[<p>MyBatis执行流程：</p><ol><li>创建 SqlSessionFactoryBuilder</li><li>通过 SqlSessionFactoryBuilder 读取 SqlMappingConfig.xml 核心配置文件（还需要加载映射文件），创建 SqlSessionFactory </li><li>获取 Session</li><li>执行 Sql语句 </li><li>关闭 Session</li></ol><p>注意点：</p><ol><li>Session线程不安全，不能定义为字段</li><li>映射文件中 resultType 或 parameterType 为domian 值需要写domain的全限定类名</li><li>涉及修改数据库的操作都需要commit</li><li>不同操作在映射文件中写不同标签 select updata delete</li><li>返回添加过后自增的主键的写法</li></ol><p>#{} 和 ${} 区别</p><ol><li>都可以${}可以接收简单类型值或pojo属性值</li><li>#{}：内部用?作为占位符，执行的时候会给参数两边加单引号，可以防止sql注入，可以实现preparedStatement向占位符中设置值，自动进行Java类型和JDBC类型转换</li><li>${}：表示拼接sql串，将parameterType 传入的内容拼接在sql中且<strong>不进行jdbc类型转换</strong></li><li>parameterType传输单个简单类型值，${}括号中只能为value即：${value}，而#{}括号中<strong>任意</strong><br></li></ol><p>传统方式写DAO</p><ol><li>定义接口</li><li>写接口实现类，在实现类中调用 SqlSession 执行对于语句</li></ol><p>使用Mapper动态代理，避免写实现类，需要满足要求</p><ol><li>namespace 必须为 Mapper接口全限定类名</li><li>id 必须和 Mapper接口方法名一致</li><li>parameterType 与接口方法参数类型一致</li><li>resultType 与接口方法返回值类型一致<br></li></ol><p>传递多个参数</p><ol><li>在映射文件的sql语句中使用#{arg0} #{arg1} 或者#{param1} #{param2} </li><li>在接口方法参数加注解@Param(“”)  在#{}中使用定义好的名称</li><li>传入 Map&lt;String,Object&gt; put键值对 在#{}中使用定义好的名称</li><li>POJO类 在#{}中使用POJO类字段名</li></ol>]]></content:encoded>
+      <content:encoded><![CDATA[<p>MyBatis执行流程：</p><ol><li>创建 SqlSessionFactoryBuilder</li><li>通过 SqlSessionFactoryBuilder 读取 SqlMappingConfig.xml 核心配置文件（还需要加载映射文件），创建 SqlSessionFactory </li><li>获取 Session</li><li>执行 Sql语句 </li><li>关闭 Session</li></ol><p>注意点：</p><ol><li>Session线程不安全，不能定义为字段</li><li>映射文件中 resultType 或 parameterType 为domian 值需要写domain的全限定类名(或用 typeAliases 定义别名)</li><li>涉及修改数据库的操作都需要commit</li><li>不同操作在映射文件中写不同标签 select updata delete</li><li>返回添加过后自增的主键的写法</li></ol><p>#{} 和 ${} 区别</p><ol><li>都可以${}可以接收简单类型值或pojo属性值</li><li>#{}：内部用?作为占位符，执行的时候会给参数两边加单引号，可以防止sql注入，可以实现preparedStatement向占位符中设置值，自动进行Java类型和JDBC类型转换</li><li>${}：表示拼接sql串，将parameterType 传入的内容拼接在sql中且<strong>不进行jdbc类型转换</strong></li><li>parameterType传输单个简单类型值，${}括号中只能为value即：${value}，而#{}括号中<strong>任意</strong><br></li></ol><p>传统方式写DAO</p><ol><li>定义接口</li><li>写接口实现类，在实现类中调用 SqlSession 执行对于语句</li></ol><p>使用Mapper动态代理，避免写实现类，需要满足要求</p><ol><li>namespace 必须为 Mapper接口全限定类名</li><li>id 必须和 Mapper接口方法名一致</li><li>parameterType 与接口方法参数类型一致</li><li>resultType 与接口方法返回值类型一致<br></li></ol><p>传递多个参数</p><ol><li>在映射文件的sql语句中使用#{arg0} #{arg1} 或 #{param1} #{param2} </li><li>在接口方法参数加注解@Param(“”)  在#{}中使用定义好的名称<strong>或 #{param1} #{param2}</strong></li><li>传入 Map&lt;String,Object&gt; put键值对 在#{}中使用定义好的名称</li><li>POJO类 在#{}中使用POJO类字段名</li></ol><p>输出类型</p><ol><li>简单类型</li><li>Map&lt;String,Object&gt; 键值对 resultType=”map”</li><li>Map&lt;Integer,Customer&gt; 需要在接口方法指定Map的键 @MapKey(“”) resultType为bean</li><li>resultMap：表字段名与POJO类属性名不一致（resultMap中的id标签指定为主键）</li></ol><p>MyBatis核心配置文件</p><ul><li>properties</li><li>settings: mapUnderscoreToCamelCase sql打印</li><li>typeAliases: 可批量定义，与子包类名冲突，在类上使用注解@Alias(“别名”)</li><li>typeHandlers</li><li>plugins</li><li>environments</li><li>databaseIDProvider</li><li>mappers</li></ul><p>mappers 指定 package : mapper接口名称和mapper映射文件名称需相同，且放在同一个目录</p><p>多表查询</p><ul><li>表设置外键约束</li><li>bean属性需要引用另一个bean</li><li>连接表后需要用 resultMap 封装数据：直接把连接后的所有列写在resultMap里或<strong>写在association标签里</strong></li></ul><p>分步查询：在association标签的select属性写上查询的接口方法</p>]]></content:encoded>
       
       <comments>https://aaronlinv.github.io/2020/03/22/mybatis-note-1/#disqus_thread</comments>
     </item>
@@ -44,14 +44,15 @@
       
         
         
-          &lt;p&gt;挖坑待填&lt;/p&gt;
-
+          &lt;h2 id=&quot;上手实践&quot;&gt;&lt;a href=&quot;#上手实践&quot; class=&quot;headerlink&quot; title=&quot;上手实践&quot;&gt;&lt;/a&gt;上手实践&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;WEB-INF/lib/ 添加Spring相关JAR包 &lt;/li&gt;
+&lt;li&gt;src或resources下配置sp
         
       
       </description>
       
       
-      <content:encoded><![CDATA[<p>挖坑待填</p>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="上手实践"><a href="#上手实践" class="headerlink" title="上手实践"></a>上手实践</h2><ol><li>WEB-INF/lib/ 添加Spring相关JAR包 </li><li>src或resources下配置springmvc.xml (注意：1.要开启对包的注解扫描 2.可配置在返回地址上添加前缀和后缀）</li><li>web.xml 配置DispatcherServlet前端控制器(注意：1.配置springmvc.xml位置2.load-on-startup标签 Tomcat启动时加载DispatcherServlet 3.SpringMVC的拦截路径)</li><li>创建类 @Controller @RequestMapping</li></ol><p>注意点</p><ol><li>需要传递参数返回ModelAndView 不传递参数可以返回String</li><li>重定向：返回字符串前加redirect:</li><li>@RequestMapping匹配请求.action可省略；浏览器、重定向：redirect 发送请求不可省略 </li></ol><p>web.xml中SpringMVC的url-patten取值</p><ul><li>/ :拦截所有,不包括jsp，<strong>包含.js .png .css</strong> (推荐) </li><li>/* :拦截所有:jsp .js .png .css  </li><li>*.action *.do: 拦截以do action 结尾的请求</li></ul><ol><li>通过传入 HttpServletRequest request 可获取网页传递数据 getParameter</li><li>请求参数名称与处理器形参名称一致时会将请求参数与形参进行绑定</li><li>使用@RequestParam(value = “”) 指定请求参数，其他参数：required,defaultValue </li></ol><h2 id="SpringMVC执行过程"><a href="#SpringMVC执行过程" class="headerlink" title="SpringMVC执行过程"></a>SpringMVC执行过程</h2><ol><li>用户发送请求至 前端控制器DispatcherServlet</li><li>DispatcherServlet 收到请求调用 HandlerMapping处理器映射器</li><li>处理器映射器 根据请求url找到具体的处理器，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet</li><li>DispatcherServlet 通过 HandlerAdapter处理器适配器 调用处理器</li><li>执行处理器(Controller，也叫后端控制器)</li><li>Controller 执行完成返回 ModelAndView</li><li>HandlerAdapter 将 Controller执行结果 ModelAndView返回给 DispatcherServlet</li><li>DispatcherServlet 将 ModelAndView 传给 ViewReslover视图解析器</li><li>ViewReslover 解析后返回具体View</li><li>DispatcherServlet 对View进行渲染视图（即将模型数据填充至视图中）</li><li>DispatcherServlet 响应用户</li></ol><p>自定义部分：前端控制器DispatcherServlet、处理器Handler、视图View</p><p>HandlerMapping：映射@RequestMapping注解，映射成功返回HandlerMethod<br>HandlerAdapter：对@RequestMapping方法进行适配，解析对应方法<br>ViewReslover：在springmvc.xml中配置视图解析器，给返回地址添加前缀和后缀</p>]]></content:encoded>
       
       <comments>https://aaronlinv.github.io/2020/03/01/springmvc-note-1/#disqus_thread</comments>
     </item>

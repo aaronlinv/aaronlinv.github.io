@@ -71,7 +71,7 @@
 <p>注意点：</p>
 <ol>
 <li>Session线程不安全，不能定义为字段</li>
-<li>映射文件中 resultType 或 parameterType 为domian 值需要写domain的全限定类名</li>
+<li>映射文件中 resultType 或 parameterType 为domian 值需要写domain的全限定类名(或用 typeAliases 定义别名)</li>
 <li>涉及修改数据库的操作都需要commit</li>
 <li>不同操作在映射文件中写不同标签 select updata delete</li>
 <li>返回添加过后自增的主键的写法</li>
@@ -102,11 +102,37 @@
 </ol>
 <p>传递多个参数</p>
 <ol>
-<li>在映射文件的sql语句中使用#{arg0} #{arg1} 或者#{param1} #{param2} </li>
-<li>在接口方法参数加注解@Param(“”)  在#{}中使用定义好的名称</li>
+<li>在映射文件的sql语句中使用#{arg0} #{arg1} 或 #{param1} #{param2} </li>
+<li>在接口方法参数加注解@Param(“”)  在#{}中使用定义好的名称<strong>或 #{param1} #{param2}</strong></li>
 <li>传入 Map&lt;String,Object&gt; put键值对 在#{}中使用定义好的名称</li>
 <li>POJO类 在#{}中使用POJO类字段名</li>
 </ol>
+<p>输出类型</p>
+<ol>
+<li>简单类型</li>
+<li>Map&lt;String,Object&gt; 键值对 resultType=”map”</li>
+<li>Map&lt;Integer,Customer&gt; 需要在接口方法指定Map的键 @MapKey(“”) resultType为bean</li>
+<li>resultMap：表字段名与POJO类属性名不一致（resultMap中的id标签指定为主键）</li>
+</ol>
+<p>MyBatis核心配置文件</p>
+<ul>
+<li>properties</li>
+<li>settings: mapUnderscoreToCamelCase sql打印</li>
+<li>typeAliases: 可批量定义，与子包类名冲突，在类上使用注解@Alias(“别名”)</li>
+<li>typeHandlers</li>
+<li>plugins</li>
+<li>environments</li>
+<li>databaseIDProvider</li>
+<li>mappers</li>
+</ul>
+<p>mappers 指定 package : mapper接口名称和mapper映射文件名称需相同，且放在同一个目录</p>
+<p>多表查询</p>
+<ul>
+<li>表设置外键约束</li>
+<li>bean属性需要引用另一个bean</li>
+<li>连接表后需要用 resultMap 封装数据：直接把连接后的所有列写在resultMap里或<strong>写在association标签里</strong></li>
+</ul>
+<p>分步查询：在association标签的select属性写上查询的接口方法</p>
 </section>
     
 
