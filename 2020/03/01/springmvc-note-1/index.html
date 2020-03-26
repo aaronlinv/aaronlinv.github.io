@@ -61,7 +61,7 @@ web.xml 配置DispatcherServlet前端控制器(注意：1.配置springmvc">
 <section id="post-body"><h2 id="上手实践"><a href="#上手实践" class="headerlink" title="上手实践"></a>上手实践</h2><ol>
 <li>WEB-INF/lib/ 添加Spring相关JAR包 </li>
 <li>src或resources下配置springmvc.xml (注意：1.要开启对包的注解扫描 2.可配置在返回地址上添加前缀和后缀）</li>
-<li>web.xml 配置DispatcherServlet前端控制器(注意：1.配置springmvc.xml位置2.load-on-startup标签 Tomcat启动时加载DispatcherServlet 3.SpringMVC的拦截路径)</li>
+<li>web.xml 配置DispatcherServlet前端控制器(注意：1.配置springmvc.xml位置2.load-on-startup标签 Tomcat启动时加载DispatcherServlet 3.SpringMVC的拦截路径 4.配置编码过滤器解决post提交表单乱码)</li>
 <li>创建类 @Controller @RequestMapping</li>
 </ol>
 <p>注意点</p>
@@ -76,11 +76,53 @@ web.xml 配置DispatcherServlet前端控制器(注意：1.配置springmvc">
 <li>/* :拦截所有:jsp .js .png .css  </li>
 <li>*.action *.do: 拦截以do action 结尾的请求</li>
 </ul>
+<p>数据绑定</p>
 <ol>
 <li>通过传入 HttpServletRequest request 可获取网页传递数据 getParameter</li>
-<li>请求参数名称与处理器形参名称一致时会将请求参数与形参进行绑定</li>
+<li>请求参数名称与处理器形参名称一致时会将请求参数与形参进行绑定（表单也可以）</li>
 <li>使用@RequestParam(value = “”) 指定请求参数，其他参数：required,defaultValue </li>
+<li>传递Bean要求表单和属性一致</li>
+<li>表单name属性相同封装数组</li>
+<li>包装类绑定数据需要使用：类名.属性名，包装类List使用：类名[n].属性名 (n&gt;=0)</li>
 </ol>
+<p>自定义Date参数绑定</p>
+<ol>
+<li>网页传输的参数都是String类型，由转换器转换为对应类型，转换失败404(Date默认格式yyyy/MM/dd)</li>
+<li>实现 Converter&lt;String,Date&gt; 类，实现convert方法</li>
+<li>springmvc.xml 注入转换器，添加注解驱动</li>
+</ol>
+<p>RequestMapping参数</p>
+<ol>
+<li>value 设置多个路径共同访问对应方法</li>
+<li>method 限制请求方式</li>
+<li>params 限制请求参数和请求值</li>
+<li>headers 限制请求头</li>
+</ol>
+<p>@RequestHeader<br>@CookieValue</p>
+<p>Ant URL风格</p>
+<ol>
+<li>一个?匹配一个字符</li>
+<li>*匹配任意字符</li>
+<li>**匹配多重路径</li>
+</ol>
+<p>REST 资源定位及资源操作风格</p>
+<ol>
+<li>URL定位资源，HTTP描述操作(POST,GET,PUT,DELETE 分别对应 CRUD)</li>
+<li>RequestMapping方法参数使用 @PathVariable 接收路径参数 </li>
+<li>默认情况下Form表单是不支持PUT请求和DELETE请求的（POST请求转换为PUT或DELETE请求：1.配置过滤器 2.表单添加_method字段）</li>
+<li>Tomcat 8 开始 JSPs 只允许GET,POST,HEAD 需要重定向，否则404</li>
+</ol>
+<h2 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h2><p>Request域：一次请求过程中传递处理的数据</p>
+<ol>
+<li>RequestMapping方法参数传入 ModeAndView,Model,Map,Bean 数据都是写入Request域</li>
+<li>键值对、domian(也是放在键值对里，键：类名小写，值：对象)、HashMap、List（元素包装类型小写为key）</li>
+<li>mergeAttributes：Map键相同不会覆盖 </li>
+<li>containsAttribute：是否包含属性</li>
+</ol>
+<p>HttpSession：多个请求之间可以共享这个属性<br>类上添加@SessionAttributes 指定需要存放到Session域中的key值或者类型<br>方法参数也可用用这个注解@SessionAttributes</p>
+<p>RequestMapping方法参数内使用@ModelAttribute 可以给修改存入Request域的键值<br>@ModelAttribute注解注释的方法会在此controller每个方法执行前被执行</p>
+<p>方法参数内使用@ModelAttribute修饰的Bean 会覆盖掉已存在的属性值（表单没有传递这个属性，那么还继续用ModelAttribute中定义的属性值）</p>
+<p>ModelAttribute写的内容会真覆盖Session内容</p>
 <h2 id="SpringMVC执行过程"><a href="#SpringMVC执行过程" class="headerlink" title="SpringMVC执行过程"></a>SpringMVC执行过程</h2><ol>
 <li>用户发送请求至 前端控制器DispatcherServlet</li>
 <li>DispatcherServlet 收到请求调用 HandlerMapping处理器映射器</li>
