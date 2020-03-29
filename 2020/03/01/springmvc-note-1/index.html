@@ -157,7 +157,13 @@ web">
 </ol>
 <p>国际化</p>
 <p>拦截器</p>
-<h2 id="SpringMVC执行过程"><a href="#SpringMVC执行过程" class="headerlink" title="SpringMVC执行过程"></a>SpringMVC执行过程</h2><ol>
+<p>如果发生异常<br>    处理器方法执行之前调用 preHandle<br>    / by zero<br>    请求处理完成之后 afterCompletion</p>
+<p>多个拦截器执行顺序</p>
+<ul>
+<li>preHandle 按照 springmvc.xml 配置的顺序执行</li>
+<li>postHandle,afterCompletion 都是倒叙执行<h2 id="SpringMVC执行过程"><a href="#SpringMVC执行过程" class="headerlink" title="SpringMVC执行过程"></a>SpringMVC执行过程</h2></li>
+</ul>
+<ol>
 <li>用户发送请求至 前端控制器DispatcherServlet</li>
 <li>DispatcherServlet 收到请求调用 HandlerMapping处理器映射器</li>
 <li>处理器映射器 根据请求url找到具体的处理器，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet</li>
