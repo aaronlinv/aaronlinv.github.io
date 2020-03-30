@@ -4,10 +4,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
 
-  <meta name="description" content="函数字符串函数concat(s1,s2…sn)将传入的字符连接成一个字符串，任何字符串与null进行连接结果都是null
-insert(str,x,y,instr)将字符串str从x位置开始，y个字符长的子串替换为指定的字符
-LOWER(Str)和UPPER(str)将字符串转成小写或大写
-LEFT">
+  <meta name="description" content="函数
+字符串函数
+数值函数
+日期和时间函数
+其他常用函数事务不可分割的操作，假设该操作有ABCD四个步骤组成若ABCD四个步骤都成功完成,则认为事务成功，若ABCD中任意一个步骤操作失败，则认为事务失败每条sql语句都是一个事务，事务只对DML语句有效，对于DQL无效事务的ACID
+原子性（Atom">
 
 
 <link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
@@ -58,43 +60,11 @@ LEFT">
         </h2>
     </header>
 </article>
-<section id="post-body"><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h4 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h4><p>concat(s1,s2…sn)将传入的字符连接成一个字符串，任何字符串与null进行连接结果都是null</p>
-<p>insert(str,x,y,instr)将字符串str从x位置开始，y个字符长的子串替换为指定的字符</p>
-<p>LOWER(Str)和UPPER(str)将字符串转成小写或大写</p>
-<p>LEFT(str,x)和RIGHT(str，x)分别返回字符串最左边的x个字符和最右边的x个字符，如果第二个参数为null，不返回任何字符</p>
-<p>LPAD（str,n,pad）和RPAD(str,n,pad)用字符串pad对str最左边或最右边进行填充，直接到长度为n个字符长度</p>
-<p>LTRIM(str)和RTRIM(str)去掉字符串当中最左侧和最右侧的空格</p>
-<p>TRIM(str)去掉字符串左右的空格</p>
-<p>REPEAT(str,x)返回str重复x次的结果REPLACE(str,a,b)用字符串b替换字符串str中所有出现的字符串a.</p>
-<p>SUBSTRING(str,x,y)返回字符串str中第x位置起y个字符长度的字符</p>
-<h4 id="数值函数"><a href="#数值函数" class="headerlink" title="数值函数"></a>数值函数</h4><p>ABS(x)返回X的绝对值</p>
-<p>CEIL(x)小数不为零部分上取整，即向上取最近的整数</p>
-<p>FLOOR(x)小数部分下取整，即向下取最近的整数</p>
-<p>MOD(x,y)返回X/Y的模</p>
-<p>RAND()返回0-1内容的随机值</p>
-<h4 id="日期和时间函数"><a href="#日期和时间函数" class="headerlink" title="日期和时间函数"></a>日期和时间函数</h4><p>CURDATE()返回当前日期，只包含年月日</p>
-<p>CURTIME()返回当前时间，只包含时分秒</p>
-<p>NOW()返回当前日期和时间，年月日时分秒都包含</p>
-<p>UNIX_TIMESTAMP返回当前日期的时间戳</p>
-<p>FROM_UNIXTIME(unixtime)将一个时间戳转换成日期</p>
-<p>WEEK(DATE)返回当前是一年中的第几周</p>
-<p>YEAR(DATE)返回所给日期是那一年</p>
-<p>HOUR(TIME)返回当前时间的小时</p>
-<p>MINUTE(TIME)返回当前时间的分钟</p>
-<p>DATE_FORMAT(date,fmt)按字符串格式化日期date值</p>
-<p>DATE_ADD(date,interval expr type)计算日期间隔</p>
-<p>DATEDIFF(date1,date2)计算两个日期相差的天数</p>
-<p>流程函数<br>IF(value,t,f)如果value是真，返回t,否则返回f</p>
-<p>IFNULL(value1,value2)如果value1不为空，返回value1否者返回value2</p>
-<p>CASE WHEN THEN END</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="number">2</span>&gt;<span class="number">3</span> <span class="keyword">then</span> <span class="string">'对'</span> <span class="keyword">else</span> <span class="string">'错'</span> <span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="其他常用函数"><a href="#其他常用函数" class="headerlink" title="其他常用函数"></a>其他常用函数</h4><p>DATABASE()返回当前数据库名</p>
-<p>VERSION()返回当前数据库版本</p>
-<p>USER()返回当前登陆用户名</p>
-<p>PASSWORD(STR)对str进行加密</p>
-<p>MD5()返回str的MD5值</p>
-<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>不可分割的操作，假设该操作有ABCD四个步骤组成<br>若ABCD四个步骤都成功完成,则认为事务成功，若ABCD中任意一个步骤操作失败，则认为事务失败<br>每条sql语句都是一个事务，事务只对DML语句有效，<strong>对于DQL无效</strong></p>
-<h4 id="事务的ACID"><a href="#事务的ACID" class="headerlink" title="事务的ACID"></a>事务的ACID</h4><ul>
+<section id="post-body"><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>字符串函数</li>
+<li>数值函数</li>
+<li>日期和时间函数</li>
+<li>其他常用函数<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2>不可分割的操作，假设该操作有ABCD四个步骤组成<br>若ABCD四个步骤都成功完成,则认为事务成功，若ABCD中任意一个步骤操作失败，则认为事务失败<br>每条sql语句都是一个事务，事务只对DML语句有效，<strong>对于DQL无效</strong><h4 id="事务的ACID"><a href="#事务的ACID" class="headerlink" title="事务的ACID"></a>事务的ACID</h4></li>
 <li>原子性（Atomicity）：原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚</li>
 <li>一致性（Consistency）：一致性是指事务必须使数据库从一个一致性状态变换到另一个一致性状态，也就是说一个事务执行之前和执行之后都必须处于一致性状态</li>
 <li>隔离性（Isolation）隔离性是当多个用户并发访问数据库时，比如操作同一张表时，数据库为每一个用户开启的事务，不能被其他事务的操作所干扰，多个并发事务之间要相互隔离</li>

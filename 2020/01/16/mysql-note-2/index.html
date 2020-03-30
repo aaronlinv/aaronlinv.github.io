@@ -4,18 +4,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
 
-  <meta name="description" content="DQL（查询表数据）条件查询和运算符= != &amp;lt;&amp;gt;(不等于) &amp;lt; &amp;lt;= &amp;gt; &amp;gt;=BETWEEN…AND…INIS NULL, IS NOT NULLAND OR NOT 
-模糊查询通配符：
-
-_：任意一个字符
-%：任意0-n个字符写在WHERE关键词后
-
-12--">
+  <meta name="description" content="SQL语句概述Structured Query Language (结构化查询语言)SQL是专为数据库而建立的操作命令集，是一种功能齐全的数据库语言
+SQL语句分类
+DDL DataDefinationLanguage 数据定义语言：用来定义数据库对象：创建库，表，列等
+DML DataManipu">
 
 
 <link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
 <meta name="theme-color" content="#a1d0f6">
-<title>MySQL数据库基础2 - Aaron Lin</title>
+<title>MySQL数据库基础 - Aaron Lin</title>
 <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 
@@ -51,7 +48,7 @@ _：任意一个字符
     <article class="post">
     <header>
         
-            <h1>MySQL数据库基础2</h1>
+            <h1>MySQL数据库基础</h1>
         
         <h2 class="headline">Jan 16 2020
         
@@ -61,7 +58,51 @@ _：任意一个字符
         </h2>
     </header>
 </article>
-<section id="post-body"><h2 id="DQL（查询表数据）"><a href="#DQL（查询表数据）" class="headerlink" title="DQL（查询表数据）"></a>DQL（查询表数据）</h2><h4 id="条件查询和运算符"><a href="#条件查询和运算符" class="headerlink" title="条件查询和运算符"></a>条件查询和运算符</h4><p>= != &lt;&gt;(不等于) &lt; &lt;= &gt; &gt;=<br>BETWEEN…AND…<br>IN<br>IS NULL, IS NOT NULL<br>AND OR NOT </p>
+<section id="post-body"><h2 id="SQL语句概述"><a href="#SQL语句概述" class="headerlink" title="SQL语句概述"></a>SQL语句概述</h2><p>Structured Query Language (结构化查询语言)<br>SQL是专为数据库而建立的操作命令集，是一种功能齐全的数据库语言</p>
+<h4 id="SQL语句分类"><a href="#SQL语句分类" class="headerlink" title="SQL语句分类"></a>SQL语句分类</h4><ul>
+<li>DDL DataDefinationLanguage 数据定义语言：用来定义数据库对象：创建库，表，列等</li>
+<li>DML DataManipulationLanguage 数据操作语言：用来操作数据库表中的记录</li>
+<li>DQL DataQueryLanguage 数据查询语言：用来查询数据</li>
+<li>DCL DataControlLanguage 数据控制语言：用来定义访问权限和安全级别</li>
+</ul>
+<h4 id="SQL数据类型"><a href="#SQL数据类型" class="headerlink" title="SQL数据类型"></a>SQL数据类型</h4><p>SQMySQL支持所有标准SQL数值数据类型</p>
+<p>常用数据类型</p>
+<ul>
+<li>int：整数</li>
+<li>double：浮点型，例如double(5,2)表示最多5位，其中- 须有2位小数，即最大值为999.99</li>
+<li>char：固定长度字符串类型 char(10)  ‘abc       ‘ （abc后面有7个空格）</li>
+<li>varchar：可变长度字符串类型；varchar(10) ‘abc’</li>
+<li>text：字符串类型</li>
+<li>blob：二进制类型</li>
+<li>date：日期类型，格式为：yyyy-MM-dd</li>
+<li>time：时间类型，格式为：hh:mm:ss （HH是24小时制，hh是12小时制）</li>
+<li>datetime:日期时间类型 yyyy-MM-dd hh:mm:ss</li>
+</ul>
+<h2 id="DDL-对表结构的操作"><a href="#DDL-对表结构的操作" class="headerlink" title="DDL (对表结构的操作)"></a>DDL (对表结构的操作)</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 数据库操作</span></span><br><span class="line"><span class="comment">-- 1.创建数据库 create database 数据库名  character set utf8;</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> my_database <span class="built_in">character</span> <span class="keyword">set</span> utf8;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2.修改数据库字符集 alter database 数据库名 charactor set gbk;</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> my_database <span class="built_in">character</span> <span class="keyword">set</span> gbk;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 选择数据库 use 数据库名;</span></span><br><span class="line"><span class="keyword">use</span> my_database;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 表操作</span></span><br><span class="line"><span class="comment">-- 1.新建表 create table 表名 (列名 数据类型,类名 数据类型...);</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> my_table (<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>),age <span class="built_in">int</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2.查看表的创建细节 show create table 表名;</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> my_table;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 3.查看表的字段信息 desc 表名;</span></span><br><span class="line">desc my_table;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 4.添加一列(字段) alter table 表名 add 列名 数据类型;</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> my_table <span class="keyword">add</span> <span class="keyword">id</span> <span class="built_in">bigint</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 5.修改一个表的字段类型 alter table 表名 modify 字段名 数据类型;</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> my_table <span class="keyword">modify</span> <span class="keyword">id</span> <span class="built_in">int</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 6.修改表的列名 alter table 表名 change 原始列名 新列名 数据类型;</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> my_table <span class="keyword">change</span> age <span class="keyword">id</span> <span class="built_in">bigint</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 7.删除一列 alter table 表名 drop 字段名;</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> my_table <span class="keyword">drop</span> <span class="keyword">id</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 8.修改表名 rename table 原始表名 to 要修改的表名;</span></span><br><span class="line"><span class="keyword">rename</span> <span class="keyword">table</span> my_table <span class="keyword">to</span> my_t;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 9.删除表 drop table 表名;</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> my_t;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 10.删除数据库 drop database 数据库名;</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> my_database;</span><br></pre></td></tr></table></figure>
+<p>注意点：</p>
+<ul>
+<li>字符集UTF-8要写作utf8</li>
+<li>modify只能修改数据类型，change可以修改字段名和数据类型，修改的数据类型都在最后指定</li>
+<li>修改表名比较特殊：rename table 原始表名 to 要修改的表名;</li>
+</ul>
+<h2 id="DML（对表的数据增、删、改）"><a href="#DML（对表的数据增、删、改）" class="headerlink" title="DML（对表的数据增、删、改）"></a>DML（对表的数据增、删、改）</h2><h4 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 建表：create table my_table (name varchar(20),age int);</span></span><br><span class="line"><span class="comment">-- insert into 表名（列名1，列名2 ...）value (列值1，列值2...);</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> my_table (<span class="keyword">name</span>,age) <span class="keyword">value</span> (<span class="string">'zs'</span>,<span class="number">28</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 插入多条</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> my_table (<span class="keyword">name</span>,age) <span class="keyword">values</span> </span><br><span class="line">    (<span class="string">'ls'</span>,<span class="number">30</span>)，</span><br><span class="line">    (<span class="string">'ww'</span>,<span class="number">29</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询是否插入成功 select * from 表名;</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> my_table;</span><br></pre></td></tr></table></figure>
+<p>注意事项</p>
+<ul>
+<li>列名与列值的类型、个数、顺序要一一对应</li>
+<li>值不要超出列定义的长度</li>
+<li>插入的日期和字符一样，都使用引号括起来</li>
+<li>插入多条，多条数据之间用逗号隔开</li>
+<li>插入一条或者多条时，用value或者values都可</li>
+</ul>
+<h4 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- updata 表名 set 列名1=列值1,列名2=列值2...  where 列名=值</span></span><br><span class="line"><span class="comment">-- 修改表中所有列的age为10</span></span><br><span class="line"><span class="keyword">update</span> my_table <span class="keyword">set</span> age=<span class="number">10</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">-- 修改name为'zs'的列的age为20</span></span><br><span class="line"><span class="keyword">update</span> my_table <span class="keyword">set</span> age=<span class="number">20</span> <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'zs'</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- delete from 表名 where 列名=值;</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> my_table <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'zs'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- truncate table 表名;</span></span><br><span class="line"><span class="keyword">truncate</span> <span class="keyword">table</span> my_table;</span><br></pre></td></tr></table></figure>
+<p>delete与truncate的区别</p>
+<ul>
+<li>delete 删除表中的数据，表结构还在;删除后的数据可以找回</li>
+<li>truncate 删除是把表直接drop掉，然后再创建一个同样的新表，删除的数据不能找回，执行速度比delete快</li>
+</ul>
+<h2 id="DQL（查询表数据）"><a href="#DQL（查询表数据）" class="headerlink" title="DQL（查询表数据）"></a>DQL（查询表数据）</h2><h4 id="条件查询和运算符"><a href="#条件查询和运算符" class="headerlink" title="条件查询和运算符"></a>条件查询和运算符</h4><p>= != &lt;&gt;(不等于) &lt; &lt;= &gt; &gt;=<br>BETWEEN…AND…<br>IN<br>IS NULL, IS NOT NULL<br>AND OR NOT </p>
 <h4 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h4><p>通配符：</p>
 <ol>
 <li>_：任意一个字符</li>
@@ -89,8 +130,8 @@ _：任意一个字符
 <li>having：筛选分组之后的结果</li>
 </ul>
 <h4 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- SELECT * FROM 表名 LIMIT 从哪一行开始查询,需要查询的行数;</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> stu <span class="keyword">LIMIT</span> <span class="number">0</span>,<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="顺序"><a href="#顺序" class="headerlink" title="顺序"></a>顺序</h4><p>书写顺序<br><img src="/2020/01/16/mysql-note-3/1.png" alt></p>
-<p>执行顺序<br><img src="/2020/01/16/mysql-note-3/2.png" alt></p>
+<h4 id="顺序"><a href="#顺序" class="headerlink" title="顺序"></a>顺序</h4><p>书写顺序<br><img src="/2020/01/16/mysql-note-2/1.png" alt></p>
+<p>执行顺序<br><img src="/2020/01/16/mysql-note-2/2.png" alt></p>
 <h2 id="数据完整性"><a href="#数据完整性" class="headerlink" title="数据完整性"></a>数据完整性</h2><p>保证用户输入的数据保存到数据库中是正确的</p>
 <ol>
 <li>实体完整性：一行（一条记录）数据代表一个实体 （标识每一行数据不重复，行级约束）<ul>
@@ -134,7 +175,7 @@ _：任意一个字符
 <ul>
 <li>学生选课:一个学生可以选修多门课程，每门课程可供多个学生选择</li>
 <li>需要创建中间的关系表</li>
-<li>拆分表：避免大量冗余数据的出现<br><img src="/2020/01/16/mysql-note-3/3.png" alt="冗余数据"><h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><h4 id="合并结果集"><a href="#合并结果集" class="headerlink" title="合并结果集"></a>合并结果集</h4>合并结果集就是把两个select语句的查询结果合并到一起        </li>
+<li>拆分表：避免大量冗余数据的出现<br><img src="/2020/01/16/mysql-note-2/3.png" alt="冗余数据"><h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><h4 id="合并结果集"><a href="#合并结果集" class="headerlink" title="合并结果集"></a>合并结果集</h4>合并结果集就是把两个select语句的查询结果合并到一起        </li>
 <li>UNION：合并时去除重复记录</li>
 <li>UNION ALL：合并时不去除重复记录</li>
 <li>注意事项:被合并的两个结果列数、列类型必须相同</li>
@@ -183,7 +224,7 @@ _：任意一个字符
         </div>
         </a>
         <section id="sharing">
-            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2020/01/16/mysql-note-3/ - MySQL数据库基础2 @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
+            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2020/01/16/mysql-note-2/ - MySQL数据库基础 @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
             <a title="Share to Facebook" class="facebook" href="#" onclick="
                 window.open(
                   'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
@@ -205,7 +246,7 @@ _：任意一个字符
         load:function cmts(){
           var gitment = new Gitment({
           
-            id: "MySQL数据库基础2",
+            id: "MySQL数据库基础",
           
             owner: "",
             repo: "",
