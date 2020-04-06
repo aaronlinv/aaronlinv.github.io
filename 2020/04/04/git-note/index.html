@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+  <meta name="description" content="学习建议廖雪峰老师的教程比较详细，可操作性也比较强，在评论区可以找到勘误Git官方推荐的Pro Git也很不错，推荐掌握了一定Git基础后再看对于没有Linux基础，或者文字版学起来比较困难的朋友可以看系列视频教程《互联网人都该懂点 Git》廖雪峰Git教程 官方推荐的Pro Git视频教学：互联网">
+
+
+<link rel="alternate" href="/atom.xml" title="Aaron Lin" type="application/atom+xml">
+<meta name="theme-color" content="#a1d0f6">
+<title>Git笔记 - Aaron Lin</title>
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+<!-- <link rel="shortcut icon" href="/favicon.png"> -->
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<!-- 谷歌 Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153099566-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153099566-1');
+</script>
+
+
+<nav class="main-nav">
+	
+	    <a href="/">← 主页</a>
+	
+	
+	    <a href="/about/">关于</a>
+	
+	    <a href="/archives/">归档</a>
+	
+	<a class="cta" href="/rss2.xml" data-no-instant>订阅</a>
+</nav>
+
+<section id="wrapper">
+    <article class="post">
+    <header>
+        
+            <h1>Git笔记</h1>
+        
+        <h2 class="headline">Apr 04 2020
+        
+            
+            <a href="/categories/编程杂记/#编程杂记">编程杂记</a>
+        
+        </h2>
+    </header>
+</article>
+<section id="post-body"><h2 id="学习建议"><a href="#学习建议" class="headerlink" title="学习建议"></a>学习建议</h2><p>廖雪峰老师的教程比较详细，可操作性也比较强，在评论区可以找到勘误<br>Git官方推荐的Pro Git也很不错，推荐掌握了一定Git基础后再看<br>对于没有Linux基础，或者文字版学起来比较困难的朋友可以看系列视频教程《互联网人都该懂点 Git》<br><a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰Git教程 </a><br><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">官方推荐的Pro Git</a><br><a href="https://www.bilibili.com/video/BV1HW411f7VJ" target="_blank" rel="noopener">视频教学：互联网人都该懂点 Git</a></p>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>Git 2.23 (2019.8.16)<br>git checkout 这个命令被拆分成了两个新命令：git switch 和 git restore<br>创建并切换到dev分支：git checkout -b dev 现在用git switch -c dev 效果相同</p>
+<h2 id="场景0：Git基本使用"><a href="#场景0：Git基本使用" class="headerlink" title="场景0：Git基本使用"></a>场景0：Git基本使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建文件夹，初始化为Git仓库</span></span><br><span class="line">mkdir learn-git</span><br><span class="line"><span class="built_in">cd</span> learn-git</span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加并编辑文件</span></span><br><span class="line">vim test.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看文件状态 test.txt现在为Untracked状态</span></span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加文件到暂存区</span></span><br><span class="line">git add test.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交commit -m 代表添加一个“提交信息”</span></span><br><span class="line">git commit -m <span class="string">"add test.txt"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送到GitHub（在GitHub上创建空白仓库，并复制仓库地址）</span></span><br><span class="line"><span class="comment"># 先添加远端参考</span></span><br><span class="line">git remote add origin git@github.com:aaronlinv/learn-git.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看远端操作（会显示 fetch和push）</span></span><br><span class="line">git remote -v </span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送到远端仓库（使用SSH协议需要配置SSH免密登录）</span></span><br><span class="line">git push -u origin master</span><br><span class="line"><span class="comment"># -u：指定默认远端仓库别名，下一次推送只需使用git push</span></span><br><span class="line"><span class="comment"># origin：远端仓库的别名（默认origin）</span></span><br><span class="line"><span class="comment"># master：分支名称</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="场景1：克隆仓库"><a href="#场景1：克隆仓库" class="headerlink" title="场景1：克隆仓库"></a>场景1：克隆仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 克隆仓库到本地（可以使用HTTPS或者SSH协议）</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/aaronlinv/learn-git.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># Git会新建一个与仓库名同名的文件夹，进入文件夹</span></span><br><span class="line"><span class="built_in">cd</span> learn-git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果这个仓库已经克隆很久了，本地和远程可能存在差异了，可以拉取远程仓库最新状态到本地仓库</span></span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<h2 id="场景2：分支管理"><a href="#场景2：分支管理" class="headerlink" title="场景2：分支管理"></a>场景2：分支管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 已经克隆仓库到本地</span></span><br><span class="line"><span class="comment"># 开始工作前，先拉取远程最新修改（可能同事已经修改代码并提交了commit）</span></span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建并跳转到dev分支（也可使用git branch -b dev）</span></span><br><span class="line">git switch -c dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看分支情况</span></span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以在dev 分支上修改代码做add和commit</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送dev分支到远程（需要拥有远端仓库的权限）</span></span><br><span class="line">git push origin dev</span><br><span class="line"><span class="comment"># 如果需要重命名远端分支则加上 :f1</span></span><br><span class="line">git push origin dev:f1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除远端dev分支</span></span><br><span class="line">git push origin :dev </span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并dev分支到master(需要先切换到master分支，在merge的过程可能需要解决冲突)</span></span><br><span class="line">git switch master</span><br><span class="line">git merge --no-ff dev </span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看分支合并情况</span></span><br><span class="line">git <span class="built_in">log</span> --graph --pretty=oneline --abbrev-commit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除本地dev分支</span></span><br><span class="line">git checkout -d dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="merge和rebase"><a href="#merge和rebase" class="headerlink" title="merge和rebase"></a>merge和rebase</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建文件夹，初始化为Git仓库</span></span><br><span class="line">mkdir learn-git</span><br><span class="line"><span class="built_in">cd</span> learn-git</span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加并编辑文件 </span></span><br><span class="line">vim c2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加文件到暂存区</span></span><br><span class="line">git add c2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交commit -m 代表添加一个“提交信息”</span></span><br><span class="line">git commit -m <span class="string">"c2"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建并跳转到experiment分支</span></span><br><span class="line">git switch -c experiment</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加并提交c4</span></span><br><span class="line">vim c4</span><br><span class="line">git add c4</span><br><span class="line">git commit -m <span class="string">"c4"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换回master分支</span></span><br><span class="line">git switch master</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加并提交c3</span></span><br><span class="line">vim c3</span><br><span class="line">git add c3</span><br><span class="line">git commit -m <span class="string">"c3"</span></span><br></pre></td></tr></table></figure>
+<p>到这c2就产生了分叉，experiment分支推进到了c4，master分支推进到了c3<br>这个时候如果想把两个分支的修改合并到master分支上，可以使用merge或rebase(变基)，两种方式最后合并的结果是一样的，但rebase不会产生分叉，rebase的提交历史也比merge更线性</p>
+<h4 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用merge方式合并分支</span></span><br><span class="line"><span class="comment"># 先切换到master分支</span></span><br><span class="line">git switch master</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并分支（会弹出commit message的编辑框，:wq 保存退出）</span></span><br><span class="line">git merge experiment</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看分支合并情况</span></span><br><span class="line">git <span class="built_in">log</span> --graph --pretty=oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><img src="/2020/04/04/git-note/1.png" alt="merge"><br>— merge示意图 引用自《Git Pro》</p>
+</blockquote>
+<p>使用merge合并分支，相当于三方合并，合并c2,c3,c4（未新建experiment分支前的修改c2、新建分支后master分支的修改c3、experiment分支的修改c4）</p>
+<p>直接使用git merge &lt;要被merge的分支名&gt; ，没有冲突的情况下默认使用参数：–f 即：Fast-forward（快进式合并）<br>推荐使用–no-ff 即：git merge –no-ff &lt;要被merge的分支名&gt;<br>这个参数的意思是禁止快进式合并，合并时会自动创建一次commit提交，保证提交链的完整性<br>而Fast-forward合并分支会丢掉分支信息</p>
+<h4 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用rebase方式合并分支</span></span><br><span class="line"><span class="comment"># 先切换到experiment分支</span></span><br><span class="line">git switch experiment</span><br><span class="line"></span><br><span class="line"><span class="comment"># rebase分支</span></span><br><span class="line">git rebase experiment</span><br><span class="line"></span><br><span class="line"><span class="comment"># 先切换到master分支</span></span><br><span class="line">git switch master</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将experiment合并到master</span></span><br><span class="line">git merge experiment</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看分支合并情况</span></span><br><span class="line">git <span class="built_in">log</span> --graph --pretty=oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><img src="/2020/04/04/git-note/2.png" alt="rebase"><br>— rebase示意图 引用自《Git Pro》</p>
+</blockquote>
+<p>rebase的原理是：找到c3和c4共同的祖先c2，暂存共同祖先c2到当前分支(expriment)的修改内容，然后将分支指向master的c3，并应用之前暂存的修改内容<br>我们可以这么理解：rebase就是当前分支(experiment)提交的修改(c4)放到最前面，而把其他分支(master)已经提交的代码（c3）放到后面去，这样做的好处就是：自己写代码(experiment分支上的)将出现在master最新的一次commit中，一目了然</p>
+<p>rebase：黄金法则：绝对不要在公共分支使用rebase，rebase会重写提交历史</p>
+<p>rebase操作</p>
+<pre><code class="bash"></code></pre>
+<h2 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h2><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://blog.csdn.net/zombres/article/details/82179122" target="_blank" rel="noopener">Git 合并时 –no-ff 的作用</a></p>
+</section>
+    
+
+    <footer id="post-meta" class="clearfix">
+        <a href="/about/">
+        <img class="avatar" src="/images/avatar.jpg">
+        <div>
+            <span class="dark">Aaron Lin</span>
+            <span></span>
+        </div>
+        </a>
+        <section id="sharing">
+            <a title="Share to Twitter" class="twitter" href="https://twitter.com/intent/tweet?text=https://aaronlinv.github.io/2020/04/04/git-note/ - Git笔记 @" target="_blank" rel="noopener"><span class="icon-twitter">tweet</span></a>
+            <a title="Share to Facebook" class="facebook" href="#" onclick="
+                window.open(
+                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+                  'facebook-share-dialog',
+                  'width=626,height=436');
+                return false;"><span class="icon-facebook-sign">Share</span>
+            </a>
+        </section>
+    </footer>
+
+
+  <section id="comment">
+    <button class="btn" id="loadcmts" onclick="cmts.load();">加载评论</button>
+    <div id="gitment"></div>
+    <script src='/js/gitment.browser.js'></script>
+    <link rel="stylesheet" href=''>
+    <script>
+      var cmts={
+        load:function cmts(){
+          var gitment = new Gitment({
+          
+            id: "Git笔记",
+          
+            owner: "",
+            repo: "",
+            oauth: {
+              client_id: "",
+              client_secret: "",
+            },
+          })
+          gitment.render('gitment');
+          var loadcmt = document.getElementById("loadcmts");
+          var imyourfather = loadcmt.parentNode;
+          imyourfather.removeChild(loadcmts)
+        }
+      }
+    </script>
+  </section>
+
+
+	<footer id="footer">
+    <div id="social">
+        <p class="small">©
+            Aaron Lin | Powered by Hexo &
+                <a href="https://github.com/F0r3at/Lights" target="_blank" rel="noopener"> Lights</a>
+        </p>
+    </div>
+</footer>
+</section>
+
+	<script src="//cdnjs.loli.net/ajax/libs/instantclick/3.0.1/instantclick.min.js" data-no-instant></script>
+	<script data-no-instant>
+		
+		InstantClick.init('mousedown');
+	</script>
+
+
+
