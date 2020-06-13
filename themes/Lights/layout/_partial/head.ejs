@@ -31,7 +31,7 @@ if (is_archive()){
 <% } else if (config.keywords){ %>
 	<meta name="keywords" content="<%= config.keywords %>">
 <% } %>
-<link rel="alternate" href="<% if (theme.rss){ %><%- theme.rss %><% } else { %><%- config.root %>rss2.xml<% } %>" title="<%= config.title %>" type="application/atom+xml">
+<link rel="alternate" href="<% if (theme.rss){ %><%- theme.rss %><% } else { %><%- config.root %>rss2.xml<% } %>" title="<%= config.title %>" type="application/rss+xml">
 <meta name="theme-color" content="#<%- theme.theme_color %>">
 <title><% if (title){ %><%= title %> - <% } %><%= config.title %></title>
 <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
