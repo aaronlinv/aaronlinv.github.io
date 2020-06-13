@@ -24,12 +24,12 @@ after_script:
   - git config user.email "1546848781@qq.com"  #修改email
   - git add .
   - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"  # 提交记录包含时间 跟上面更改时区配合
-  - git push --force --quiet "https://${GITHUB_REPO_TOKEN}@${GH_REF}" master:master  #Travis_Token是在Travis中配置环境变量的名称
+  - git push --force --quiet "https://${GITHUB_REPO_TOKEN}@${GH_REF}" source:master  #Travis_Token是在Travis中配置环境变量的名称
   # 前面一个master是源码 后面一个静态页面放置的分支
 
 branches:
   only:
-    - master  #只监测master分支，master是我的分支的名称，可根据自己情况设置
+    - source  #只监测master分支，master是我的分支的名称，可根据自己情况设置
 env:
  global:
    - GH_REF: github.com:aaronlinv/aaronlinv.github.io.git  #设置GH_REF，注意更改yourname
