@@ -88,10 +88,10 @@ pagination_dir: page
 Plugins: 
 - hexo-generator-feed
 feed:
-  # type: rss2
-  # path: rss2.xml
-  type: atom
-  path: atom.xml
+  type: rss2
+  path: rss2.xml
+  # type: atom
+  # path: atom.xml
   limit: 20
   icon: favicon.ico
   #avater.jpg 
