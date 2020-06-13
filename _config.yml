@@ -104,6 +104,6 @@ theme: Lights
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  # 修改https为ssh 解决CI Authentication failed 问题
-  repo: git@github.com:aaronlinv/aaronlinv.github.io.git
+  # 修改 解决CI Authentication failed 问题
+  repo: https://gh_token@github.com/aaronlinv/aaronlinv.github.io.git
   branch: master
