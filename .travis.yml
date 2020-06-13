@@ -24,6 +24,9 @@ before_install:
 install:
   - npm install
   - npm install hexo-deployer-git --save
+  - npm install hexo-asset-image –save
+  - npm install hexo-generator-feed --save
+  - npm install hexo-generator-sitemap --save
 
   # 设置git提交名，邮箱；替换真实token到_config.yml文件
 before_script:
