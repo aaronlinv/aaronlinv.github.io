@@ -1,6 +1,6 @@
 ---
 title: CentOS7 VMware安装
-categories: Java笔记
+categories: Linux笔记
 date: 2020-08-10 13:51:14
 ---
 ## 环境和软件
