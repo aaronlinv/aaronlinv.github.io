@@ -14,9 +14,10 @@ git checkout 这个命令被拆分成了两个新命令：git switch 和 git res
 
 ## 初始配置
 安装Git Bash后需要做初始配置
+
 1. 用户名邮箱
 ```bash
-# 任意文件夹右键 点击“Git Bash Here”
+# 任意文件夹右键 点击“ Git Bash Here ”
 # ""内替换为自己的用户名和邮箱
 git config --global user.name "username"
 git config --global user.email "email"
@@ -27,17 +28,21 @@ git config user.email
 ```
 2. SSH 免密登录
 ```bash
-# ssh-keygen用于生成，管理和转换身份验证密钥
+# ssh-keygen 用于生成，管理和转换身份验证密钥
 # -t：密钥的类型 
 # -C：用于识别这个密钥的注释（不添加注释直接ssh-keygen -t rsa也不影响使用）
 ssh-keygen -t rsa -C "邮箱地址"
 
 # 连续按3次回车
 
-# 将用户目录下.ssh文件夹内的id_rsa.pub的内容粘贴到 GitHub Settings-SSH and GPG keys-SSH keys
+# 将用户目录下.ssh文件夹内的id_rsa.pub的内容粘贴到GitHub的SSH Keys中
+# 具体位置：GitHub Settings -> SSH and GPG keys -> SSH keys
 
-# 测试是否成功Github 
+# 测试是否成功 Github 
+# 码云测试命令为：ssh git@gitee.com 反馈的结果与 GitHub 类似
+
 ssh git@github.com
+
 # Are you sure you want to continue connecting (yes/no)? 
 # 这时需要输入：yes
 
@@ -46,14 +51,14 @@ ssh git@github.com
 # Connection to github.com closed.
 ```
 
-## 场景0：Git基本使用
+## 场景0：Git 基本使用
 ```bash 
 # 新建文件夹，初始化为Git仓库
 mkdir learn-git
 cd learn-git
 git init
 
-# 添加并编辑文件
+# 在当前目录添加并编辑文件(不熟悉 vim 编辑器可以用其他编辑器新建文件并编辑文件 )
 vim test.txt
 
 # 查看文件状态 test.txt现在为Untracked状态
@@ -65,8 +70,10 @@ git add test.txt
 # 提交commit -m 代表添加一个“提交信息”
 git commit -m "add test.txt"
 
-# 推送到GitHub（在GitHub上创建空白仓库，并复制仓库地址）
-# 先添加远端参考
+# 推送到 GitHub（在 GitHub 上创建空白仓库，并复制仓库地址）
+# "git@github.com:aaronlinv/learn-git.git" 需要替换为自己新建的仓库地址
+# 先添加远端仓库
+# origin：远端仓库的别名（默认origin）
 git remote add origin git@github.com:aaronlinv/learn-git.git
 
 # 查看远端操作（会显示 fetch和push）
@@ -87,14 +94,15 @@ git pull origin master --allow-unrelated-histories
 ## 场景1：克隆仓库
 ```bash
 # 克隆仓库到本地（可以使用HTTPS或者SSH协议）
+# "https://github.com/aaronlinv/learn-git.git" 为目标仓库地址
 git clone https://github.com/aaronlinv/learn-git.git
 
 # Git会新建一个与仓库名同名的文件夹，进入文件夹
+# "learn-git" 为项目名称
 cd learn-git
 
 # 如果这个仓库已经克隆很久了，本地和远程可能存在差异了，可以拉取远程仓库最新状态到本地仓库
 git pull
-
 
 ```
 ## 场景2：分支管理
@@ -130,7 +138,7 @@ git log --graph --pretty=oneline --abbrev-commit
 git branch -d dev 
 ```
 
-## merge和rebase
+## merge 和 rebase
 #### 创建冲突场景
 ```bash
 # 新建文件夹，初始化为Git仓库
@@ -215,7 +223,7 @@ git log --graph --pretty=oneline --abbrev-commit
 rebase的原理是：找到c3和c4共同的祖先c2，暂存共同祖先c2到当前分支(expriment)的修改内容，然后将分支指向master的c3，并应用之前暂存的修改内容
 我们可以这么理解：
 
-rebase就是当前分支(experiment)提交的修改(c4)放到最前面，而把其他分支(master)已经提交的代码（c3）放到后面去，这样做的好处就是：自己写代码(experiment分支上的)将出现在master最新的一次commit中，一目了然
+rebase就是先把其他分支(master)已经提交的代码（c3）放到前面，把当前分支(experiment)提交的修改(c4)放到后面，这样做的好处就是：自己写代码(experiment分支上的)将出现在master最新的一次commit中，一目了然
 
 rebase：黄金法则：绝对不要在公共分支使用rebase，rebase会重写提交历史
 

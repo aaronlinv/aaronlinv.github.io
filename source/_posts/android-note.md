@@ -6,25 +6,25 @@ date: 2020-03-30 20:05:45
 ## 初见安卓开发
 ![安卓开发者官网 2020.6.1](/android-note/01_android_web.png)
   
-从 [Android开发者官网](https://developer.android.google.cn/) 的导航栏我们可以看得出来Google在安卓开发方面主推Jetpack和Kotlin
+从 [Android开发者官网](https://developer.android.google.cn/) 的导航栏我们可以看得出来 Google 在安卓开发方面主推 Jetpack 和 Kotlin
 
-<br>[Android Jetpack](https://developer.android.google.cn/jetpack/) 是一套组件库，其中包含了很多组件，比如：LiveData,Room,ViewModel等等，使用这些组件极大简化了开发，消除样板代码，提高应用质量
-<br>[Kotlin](https://developer.android.google.cn/kotlin) 是JetBrains在2011年发布的静态类型编程语言（这是一个开源项目），虽然语法上不能与Java兼容，但它是面向JVM，所以它可以和Java代码相互运作。在Google I/O 2017中，Google宣布在Android上为Kotlin提供最佳支持，后来Google就把Android开发的官方语言更换为了Kotlin
+<br>[Android Jetpack](https://developer.android.google.cn/jetpack/) 是一套组件库，其中包含了很多组件，比如：LiveData、Room、ViewModel等等，使用这些组件极大简化了开发，消除样板代码，提高应用质量
+<br>[Kotlin](https://developer.android.google.cn/kotlin) 是 JetBrains 在 2011 年发布的静态类型编程语言（这是一个开源项目），虽然语法上不能与 Java 兼容，但它是面向JVM，所以它可以和Java代码相互运作。在 Google I/O 2017 中，Google 宣布在 Android 上为 Kotlin 提供最佳支持，后来 Google 就把 Android 开发的官方语言更换为了 Kotlin
 ## Java or Kotlin
-选择语言确实比较重要，会极大影响后续的开发工作。目前情况：团队成员有Java基础、无Kotlin基础、无安卓开发经验，项目有时间限制。这里列举几个我们团队比较可感知的影响因素进行对比
+选择语言确实比较重要，会极大影响后续的开发工作。目前情况：团队成员有 Java 基础、无 Kotlin 基础、无安卓开发经验，项目有时间限制。这里列举几个我们团队比较可感知的影响因素进行对比
 
 #### Java
-优点：Java安卓开发的资料相对多、遇到问题搜索到的概率比较大、Github上有大量的Java安卓项目可以学习
-缺点：相对Kotlin有很多样板代码、没有Kotlin的一些特性代码写起来会比较麻烦、Jetpack库的资料大多用Kotlin举例
+优点：Java安卓开发的资料相对多、遇到问题搜索到的概率比较大、Github 上有大量的 Java 安卓项目可以学习
+缺点：相对 Kotlin 有很多样板代码、没有 Kotlin 的一些特性代码写起来会比较麻烦、Jetpack 库的资料大多用 Kotlin 举例
 #### Kotlin
-优点：有很多语法糖、简化findViewById、简化数据类、空指针安全、函数式编程、协程（解决异步任务处理）...
-缺点：Kotlin安卓相关的教程比较少，Kotlin的资料相对没有Java那么多，遇到问题搜索到的概率相对低一点
+优点：有很多语法糖、简化 findViewById、简化数据类、空指针安全、函数式编程、协程（解决异步任务处理）...
+缺点：Kotlin 安卓相关的教程比较少，Kotlin 的资料相对没有 Java 那么多，遇到问题搜索到的概率相对低一点
 
-结合实际情况，我们最终选择了Java，对于在这个时间节点，初学安卓使用Java没什么太大问题，以后转Kotlin也会比较容易，总的来说各有利弊，看取舍
+结合实际情况，我们最终选择了 Java，对于在这个时间节点，初学安卓使用 Java 没什么太大问题，以后转 Kotlin 也会比较容易，总的来说各有利弊，看取舍
 
 ## 实际遇到的困难
-1. 虽然JetPack已经发布了比较长的时间（2018年谷歌I/O上发布），但是相关的资料并不很很好找（中文资料就更难找了），因为我们选择了Java，在查JetPack资料的时候很容看到一些文章写的是Kotlin，没有学过Kotlin，看起来一头雾水
-2. 因为技术更替速度很快，所以搜索一些问题的时候，会出现很多无效的解决方案。如果发布时间是14、15、16年或是使用Eclipse进行讲解的解决方案，要仔细辨别一下方案的时效性，那如果是讲解思路的话那就没有关系
+1. 虽然 JetPack 已经发布了比较长的时间（2018 年谷歌I/O 上发布），但是相关的资料并不很很好找（中文资料就更难找了），因为我们选择了 Java，在查 JetPack 资料的时候很容看到一些文章写的是 Kotlin，没有学过 Kotlin ，看起来一头雾水
+2. 因为技术更替速度很快，所以搜索一些问题的时候，会出现很多无效的解决方案。如果发布时间是 14、15、16 年或是使用 Eclipse 进行讲解的解决方案，要仔细辨别一下方案的时效性，那如果是讲解思路的话那就没有关系
 3. 安卓手机屏幕尺寸多样化，界面需要对不同屏幕进行适配
 4. 如果应用上架应用市场，需要考虑平台上架的规范，对于一些类型的应用需要资质才能上架，下面为酷安 2020.6.1 截取的上架规范
 ![酷安上架规范2020.6.1](android-note/02_coolapk.png)
