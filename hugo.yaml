@@ -1,5 +1,5 @@
 baseURL: "https://examplesite.com/"
-title: ExampleSite
+title: Aaron Lin
 paginate: 5
 theme: PaperMod
 
@@ -15,21 +15,21 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: "Aaron's Blog"
-  description: "ExampleSite description"
-  keywords: [Blog, Portfolio, PaperMod]
-  author: Aaron Lin
+  description: "Less is more"
+  keywords: [Blog, Web, Technology]
+  # author: Aaron Lin
   # author: ["Me", "You"] # multiple authors
   images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
-  ShowReadingTime: true
-  ShowShareButtons: true
+  # ShowReadingTime: true
+  # ShowShareButtons: true
   ShowPostNavLinks: true
-  ShowBreadCrumbs: true
+  # ShowBreadCrumbs: true
   ShowCodeCopyButtons: false
-  ShowWordCount: true
+  # ShowWordCount: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
   disableSpecial1stPost: false
@@ -39,7 +39,6 @@ params:
   hideSummary: false
   showtoc: false
   tocopen: false
-
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
@@ -50,7 +49,7 @@ params:
     safari_pinned_tab: "<link / abs url>"
 
   label:
-    text: "Home"
+    text: "Aaron's Blog"
     icon: /apple-touch-icon.png
     iconHeight: 35
 
@@ -70,17 +69,17 @@ params:
         url: tags
 
   # home-info mode
-  homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+  # homeInfoParams:
+  #   Title: "Hi there \U0001F44B"
+  #   Content: Welcome to my blog
 
-  socialIcons:
-    - name: x
-      url: "https://x.com/"
-    - name: stackoverflow
-      url: "https://stackoverflow.com"
-    - name: github
-      url: "https://github.com/"
+  # socialIcons:
+  #   - name: x
+  #     url: "https://x.com/"
+  #   - name: stackoverflow
+  #     url: "https://stackoverflow.com"
+  #   - name: github
+  #     url: "https://github.com/"
 
   analytics:
     google:
@@ -95,10 +94,10 @@ params:
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
 
-  editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+  # editPost:
+  #   URL: "https://github.com/<path_to_repo>/content"
+  #   Text: "Suggest Changes" # edit text
+  #   appendFilePath: true # to append file path to Edit link
 
   # for search
   # https://fusejs.io/api/options.html
@@ -113,18 +112,29 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
+    - identifier: archive
+      name: Archive
+      url: /archives/
+      weight: 1
+
     - identifier: categories
-      name: categories
+      name: Categories
       url: /categories/
-      weight: 10
-    - identifier: tags
-      name: tags
-      url: /tags/
+      weight: 2
+
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 3
+
+    - identifier: about
+      name: About
+      url: /about/
       weight: 20
-    - identifier: example
-      name: example.org
-      url: https://example.org
-      weight: 30
+    # - identifier: tags
+    #   name: tags
+    #   url: /tags/
+    #   weight: 20
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
@@ -135,3 +145,8 @@ markup:
     # guessSyntax: true
     # lineNos: true
     # style: monokai
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
