@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Aaron Lin</title>
-    <link>https://aaronlinv.github.io/</link>
-    <description>Recent content on Aaron Lin</description>
+    <title>Posts on Aaron Lin</title>
+    <link>https://aaronlinv.github.io/posts/</link>
+    <description>Recent content in Posts on Aaron Lin</description>
     <image>
       <title>Aaron Lin</title>
       <url>https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.142.0</generator>
     <language>en</language>
     <lastBuildDate>Wed, 09 Nov 2022 08:32:33 +0800</lastBuildDate>
-    <atom:link href="https://aaronlinv.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://aaronlinv.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>32 位计算机时间戳溢出的思考 —— 整数的二进制表示</title>
       <link>https://aaronlinv.github.io/posts/32-%E4%BD%8D%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%97%B6%E9%97%B4%E6%88%B3%E6%BA%A2%E5%87%BA%E7%9A%84%E6%80%9D%E8%80%83--%E6%95%B4%E6%95%B0%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA/</link>
@@ -48,13 +48,6 @@
 &lt;h2 id=&#34;原码反码补码&#34;&gt;原码、反码、补码&lt;/h2&gt;
 &lt;p&gt;计算机底层是通过二进制的方式存储整数，两者转换可以参考文章：&lt;a href=&#34;https://zhuanlan.zhihu.com/p/75291280&#34;&gt;二进制和十进制之间的互相转换&lt;/a&gt;，除了整数的大小，还需要存储的是整数的正负，一般首位（最高位）用于存储正负，0 代表该整数为正数，1 代表该数为负数，将一个整数对应的二进制数转化为计算机存储的二进制数，这个变换就是《数字逻辑电路》里面经常提到的原码、反码、补码转化。注意：正数和 0 的原码、反码、补码相同，负数则需要转换&lt;/p&gt;
 &lt;p&gt;我们回顾一下，以 4 位二进制表示的整数举例：0 的原反补码都是 &lt;code&gt;0000&lt;/code&gt;，1 的原反补码都是 &lt;code&gt;0001&lt;/code&gt;，而 -1 该如何表示呢？&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>About Me</title>
-      <link>https://aaronlinv.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://aaronlinv.github.io/about/</guid>
-      <description></description>
     </item>
   </channel>
 </rss>
