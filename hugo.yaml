@@ -1,6 +1,7 @@
 baseURL: "https://aaronlinv.github.io/"
 title: Aaron Lin
-paginate: 5
+pagination:
+  pagerSize: 10
 theme: PaperMod
 
 enableRobotsTXT: true
