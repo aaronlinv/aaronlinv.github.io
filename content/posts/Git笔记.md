@@ -190,7 +190,7 @@ git merge experiment
 git log --graph --pretty=oneline --abbrev-commit
 ```
 
-> ![](Git笔记/1929786-20200903234159965-1790101703.png)
+> ![](../Git笔记/1929786-20200903234159965-1790101703.png)
 
 > --- merge示意图 引用自《Git Pro》
 
@@ -220,8 +220,8 @@ git merge experiment
 # 查看分支合并情况
 git log --graph --pretty=oneline --abbrev-commit
 ```
-> ![](Git笔记/1929786-20200903234226344-1926644927.png)
-> ![](Git笔记/1929786-20200903234229156-1873148272.png)
+> ![](../Git笔记/1929786-20200903234226344-1926644927.png)
+> ![](../Git笔记/1929786-20200903234229156-1873148272.png)
 
 > --- rebase示意图 引用自《Git Pro》
 

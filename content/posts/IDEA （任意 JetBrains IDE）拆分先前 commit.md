@@ -24,7 +24,7 @@ categories: ["Git"]
 3. 将 `B` 的修改内容分多个 commit 提交 `B1` 和 `B2`
 4. 使用 rebase 的 `continue` 将刚才隐藏的 `C` 和 `D` 恢复回来，需要注意的是：因为之前的 commit 记录已经改变了，所以这时的 `C` 和 `D` 已经与原来的 commit 记录不相同，故标记为 `C'` 和 `D'`
  
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240406133647807-70803179.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240406133647807-70803179.png)
 
 
 
@@ -37,56 +37,56 @@ git clone git@github.com:quii/learn-go-with-tests.git
 
 需要用到 Rebase，IDEA 默认保护主分支，改写 commit 记录的功能会被禁用
 
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326173139514-293363336.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326173139514-293363336.png)
 
 需要先取消分支保护，移除 `Protected branches` 中的 `master;main`
 
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326173325200-470557609.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326173325200-470557609.png)
 
 假设我们需要将下面 commit 拆分为两个：
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326173549906-1525247286.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326173549906-1525247286.png)
 
 ### 1. 启动 Rebase 并标记目标 commit 为 edit
 
 点击 `Interactively Rebase from Here...`
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326173657561-355272434.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326173657561-355272434.png)
 
 选择需要拆分的 commit，右键选择 `Stop to Edit`，然后再点击 `Start Rebasing`
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326173955830-407995748.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326173955830-407995748.png)
 
 这时有右下角会提示您正在处于 `Rebase` 状态
 选择框可以选择 `Continue` 即继续 Rebase，`Abort` 则会退出 Rebase
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326174502325-994025394.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326174502325-994025394.png)
 
 commit 列表也会显示感叹号
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326180325399-260917660.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326180325399-260917660.png)
 
 ### 2. 使用 soft reset 将 commit 撤销回 暂存区
 
 我们需要先 soft reset 到目标 commit 的上一个 commit
 选择上一个 commit，右键选择：`Reset Current Branch to Here...`
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326181826922-371872963.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326181826922-371872963.png)
 
 选择 `Soft`，这样目标 commit 的修改就会退回到暂存区
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326181955939-1262699884.png)
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326200723734-869876115.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326181955939-1262699884.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326200723734-869876115.png)
 
 ### 3. 将暂存区改动分为若干个 commit 提交
 
 这个时候我们就可以继续分开提交两次 commit
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326200837139-649603743.png)
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326200840847-260504442.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326200837139-649603743.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326200840847-260504442.png)
 
 查看 log，两条 commit 被成功提交
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326201317357-1477966212.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326201317357-1477966212.png)
 
 ### 4. 使用 rebase 的 continue 恢复剩下的 commit
 
 这时候我们需要继续 Rebase，将剩下的 commit 还原回去：点击右下角分分支按钮，选择 `Continue Rebase`
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326204930715-1014809023.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326204930715-1014809023.png)
 
 完成 Rebase 后，剩余的 commit 就会被追加到我们新提交的 commit 后面，至此我们就完成了先前 commit 的拆分
-![](IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326204843891-646919102.png)
+![](../IDEA（任意JetBrainsIDE）拆分先前commit/1929786-20240326204843891-646919102.png)
 
 ## Rebase edit 的拓展
 

@@ -66,20 +66,20 @@ http://192.168.43.161:2375/version
 
 ## IDEA 配置
 1. IDEA 安装 Docker 插件
-![](IDEA配合Dockerfile部署SpringBoot工程/1929786-20210905013152477-164085770.png)
+![](../IDEA配合Dockerfile部署SpringBoot工程/1929786-20210905013152477-164085770.png)
 
 2. 配置 IDEA Docker 连接
 在设置中可以找到 Docker，点击加号可以添加新的 Docker 连接，输入名称、Engine API URL，然后就会提示：Connection successful，即连接成功
-![](IDEA配合Dockerfile部署SpringBoot工程/1929786-20210905013201545-1146330617.png)
+![](../IDEA配合Dockerfile部署SpringBoot工程/1929786-20210905013201545-1146330617.png)
 
 3. 点击 Run/Debug Configurations
-![](IDEA配合Dockerfile部署SpringBoot工程/1929786-20210905013242319-2019612509.png)
+![](../IDEA配合Dockerfile部署SpringBoot工程/1929786-20210905013242319-2019612509.png)
 输入名称、添加 Dockerfile（刚刚添加的那个）、容器名称、映射端口号
 Before launch选择Maven 并输入命令：`clean package -U -DskipTests`，这个命令在每次编译 Dockerfile 之前都会运行
-![](IDEA配合Dockerfile部署SpringBoot工程/1929786-20210905013303292-693195648.png)
+![](../IDEA配合Dockerfile部署SpringBoot工程/1929786-20210905013303292-693195648.png)
 
 4. 点击运行就会自动打 jar 包，并在宿主机上构建镜像，运行容器
-![](IDEA配合Dockerfile部署SpringBoot工程/1929786-20210905013312217-1028032982.png)
+![](../IDEA配合Dockerfile部署SpringBoot工程/1929786-20210905013312217-1028032982.png)
 
 5. 可以通过 Docker 宿主机进行测试访问，这里演示使用的 `192.168.43.161` 需要替换成自己 Docker 宿主机的 IP
 

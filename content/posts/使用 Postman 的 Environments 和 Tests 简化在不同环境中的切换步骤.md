@@ -10,17 +10,17 @@ categories: ["工具"]
 # 手动更新 Token
 1. 在 `Environments` 面板中 `new` 一个新的 `Environment` (环境)，用于存储当前环境的：Token、地址、用户名、密码，需要先填上地址、用户名、密码的 `CURRENT VALUE`
 
-![](使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220102144-1179572122.png)
+![](../使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220102144-1179572122.png)
 
 
 2. 在 `Collections` 中添加一个新的 `Collection`（集合），名字为 Demo，点击右键选择 `Add Request` 添加一个获取 Token 的 Request。注意右上角的 Environment 需要选择刚才定义的，这样才可以通过 `{{}}` 获取到 Environment 中变量的值。这里的 base URL、账号、密码都可以根据实际请求的情况进行设置
 
-![](使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220109252-1239737981.png)
+![](../使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220109252-1239737981.png)
 
 
 3. 编写这个 `Request` 的 `Test`（Test会在请求执行后自动运行），编写 `Test` 目的是为了在请求后自动更新当前 Environment 的 Token，写完就点击 `Send` 发送请求。点击右上角的眼睛，可以快速查看当前 Environment 变量
 
-![](使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220124010-2012060462.png)
+![](../使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220124010-2012060462.png)
 
 ```js
 // 判断相应的状态码是否为 200
@@ -42,22 +42,22 @@ pm.environment.set("token", token);
 
 2. 选择 `Collection`，然后选择 `Edit`
 
-![](使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220130741-83553475.png)
+![](../使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220130741-83553475.png)
 
 
 3. 给整个 `Collection` 都设置上统一的 `Authorization`，Type 设置为 `Bearer Token`，Token 值则设置为 `{{token}}`，就是上面设置进 `Environment` 的变量
 
-![](使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220136799-729019785.png)
+![](../使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220136799-729019785.png)
 
 
 4. 新建一个 `Request`，`Authorization` 选择 `Inherit auth from parent` (继承父级的 auth)，这样就可以避免手动填写 Token 了
 
-![](使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220142521-507740706.png)
+![](../使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220142521-507740706.png)
 
 
 5. 之后再使用就可以直接点击 `Duplicate`，复制一个新的 `Request` 来使用
 
-![](使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220147814-1784072148.png)
+![](../使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220147814-1784072148.png)
 
 
 # 自动更新 Token
@@ -106,7 +106,7 @@ if (pm.response.code === 401) {
     sendLoginRequest()
 }
 ```
-![](使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220155122-1950292517.png)
+![](../使用Postman的Environments和Tests简化在不同环境中的切换步骤/1929786-20220303220155122-1950292517.png)
 
 
 2. 这样一来，如果 Token 错误，它会自动重新获取并更新 Token，只需要再点一次 `Send` 就可以正常请求了
