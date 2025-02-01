@@ -1,6 +1,6 @@
 ---
 date: '2020-09-03T23:50:33+08:00'
-title: 'Git笔记'
+title: 'Git 笔记'
 categories: ["Git"]
 ---
 
