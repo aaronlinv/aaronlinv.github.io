@@ -128,7 +128,7 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;01绘制任务&#34; loading=&#34;lazy&#34; src=&#34;JavaScript%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/1929786-20240416173932693-109077340.gif&#34;&gt;&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;01绘制任务&#34; loading=&#34;lazy&#34; src=&#34;../JavaScript%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/1929786-20240416173932693-109077340.gif&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>如何弄懂复杂项目</title>
@@ -185,7 +185,7 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
 &lt;li&gt;将 &lt;code&gt;B&lt;/code&gt; 的修改内容分多个 commit 提交 &lt;code&gt;B1&lt;/code&gt; 和 &lt;code&gt;B2&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;使用 rebase 的 &lt;code&gt;continue&lt;/code&gt; 将刚才隐藏的 &lt;code&gt;C&lt;/code&gt; 和 &lt;code&gt;D&lt;/code&gt; 恢复回来，需要注意的是：因为之前的 commit 记录已经改变了，所以这时的 &lt;code&gt;C&lt;/code&gt; 和 &lt;code&gt;D&lt;/code&gt; 已经与原来的 commit 记录不相同，故标记为 &lt;code&gt;C&#39;&lt;/code&gt; 和 &lt;code&gt;D&#39;&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;IDEA%EF%BC%88%E4%BB%BB%E6%84%8FJetBrainsIDE%EF%BC%89%E6%8B%86%E5%88%86%E5%85%88%E5%89%8Dcommit/1929786-20240406133647807-70803179.png&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;../IDEA%EF%BC%88%E4%BB%BB%E6%84%8FJetBrainsIDE%EF%BC%89%E6%8B%86%E5%88%86%E5%85%88%E5%89%8Dcommit/1929786-20240406133647807-70803179.png&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>SpringBoot 测试实践 - 3：@MockBean、@SpyBean 、提升测试运行速度、Testcontainer</title>
@@ -391,7 +391,7 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
       <guid>https://aaronlinv.github.io/posts/git-%E4%B8%AD%E7%9A%84%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9Creset-%E5%92%8C-revert/</guid>
       <description>&lt;p&gt;Git 中回退有 &lt;code&gt;reset&lt;/code&gt; 和 &lt;code&gt;revert&lt;/code&gt;，这两个的区别就是是否保留更改记录&lt;/p&gt;
 &lt;p&gt;假设当前的提交情况是：&lt;code&gt;A &amp;lt;- B &amp;lt;- C &amp;lt;- D &amp;lt;- HEAD&lt;/code&gt;，如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;Git%E4%B8%AD%E7%9A%84%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9C%EF%BC%9Areset%E5%92%8Crevert/1929786-20220707135502142-725016820.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;../Git%E4%B8%AD%E7%9A%84%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9C%EF%BC%9Areset%E5%92%8Crevert/1929786-20220707135502142-725016820.png&#34;&gt;&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;当前是 &lt;code&gt;D&lt;/code&gt;，希望回退到 &lt;code&gt;A&lt;/code&gt;，那我们可以使用 &lt;code&gt;reset&lt;/code&gt; 命令，reset 后再看 git log 就会发现：&lt;code&gt;B &amp;lt;- C &amp;lt;- D&lt;/code&gt; 宛如没有出现过，这适用于想完全舍弃 &lt;code&gt;A&lt;/code&gt; 之后的修改&lt;/p&gt;
 &lt;p&gt;但是如果我们想保留 &lt;code&gt;B &amp;lt;- C &amp;lt;- D&lt;/code&gt; 的修改记录，可能这三个 commit 的功能只是暂时用不到，以后可能还用到，或者可能当前分支是一个公共分支，&lt;code&gt;B &amp;lt;- C &amp;lt;- D&lt;/code&gt; 可能已经被同步到了其他小伙伴电脑上，为了尽量避免代码冲突。这些情况就需要使用 &lt;code&gt;revert&lt;/code&gt; 命令，这样会重新生成新的 commit，其中包含回退的记录（假设 &lt;code&gt;D&lt;/code&gt; 这个 commit 是添加了一些代码，那么 revert &lt;code&gt;D&lt;/code&gt; 的 commit 就是删除这些代码）&lt;/p&gt;
@@ -410,11 +410,11 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
 &lt;p&gt;minSdk：28&lt;/p&gt;
 &lt;p&gt;targetSdk：32&lt;/p&gt;
 &lt;h3 id=&#34;创建工程&#34;&gt;创建工程&lt;/h3&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210514734-1960395499.png&#34;&gt;
-&lt;img loading=&#34;lazy&#34; src=&#34;%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210525579-2009840573.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;../%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210514734-1960395499.png&#34;&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;../%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210525579-2009840573.png&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;默认效果展示&#34;&gt;默认效果展示：&lt;/h3&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210614755-1486958964.png&#34;&gt;
-&lt;img loading=&#34;lazy&#34; src=&#34;%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210619669-753508730.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;../%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210614755-1486958964.png&#34;&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;../%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210619669-753508730.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;修改步骤&#34;&gt;修改步骤&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;设置状态栏变为透明：修改主题配置&lt;/li&gt;
@@ -449,8 +449,8 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;lt;style name=&amp;#34;Theme.MyApplication.PopupOverlay&amp;#34; parent=&amp;#34;ThemeOverlay.AppCompat.Light&amp;#34; /&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;/resources&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改后的效果：
-&lt;img loading=&#34;lazy&#34; src=&#34;%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210630970-1651493127.png&#34;&gt;
-&lt;img loading=&#34;lazy&#34; src=&#34;%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210636209-924413269.png&#34;&gt;&lt;/p&gt;</description>
+&lt;img loading=&#34;lazy&#34; src=&#34;../%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210630970-1651493127.png&#34;&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;../%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210636209-924413269.png&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>使用 Postman 的 Environments 和 Tests 简化在不同环境中的切换步骤</title>
@@ -462,15 +462,15 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
 &lt;ol&gt;
 &lt;li&gt;在 &lt;code&gt;Environments&lt;/code&gt; 面板中 &lt;code&gt;new&lt;/code&gt; 一个新的 &lt;code&gt;Environment&lt;/code&gt; (环境)，用于存储当前环境的：Token、地址、用户名、密码，需要先填上地址、用户名、密码的 &lt;code&gt;CURRENT VALUE&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;%E4%BD%BF%E7%94%A8Postman%E7%9A%84Environments%E5%92%8CTests%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/1929786-20220303220102144-1179572122.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;../%E4%BD%BF%E7%94%A8Postman%E7%9A%84Environments%E5%92%8CTests%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/1929786-20220303220102144-1179572122.png&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;在 &lt;code&gt;Collections&lt;/code&gt; 中添加一个新的 &lt;code&gt;Collection&lt;/code&gt;（集合），名字为 Demo，点击右键选择 &lt;code&gt;Add Request&lt;/code&gt; 添加一个获取 Token 的 Request。注意右上角的 Environment 需要选择刚才定义的，这样才可以通过 &lt;code&gt;{{}}&lt;/code&gt; 获取到 Environment 中变量的值。这里的 base URL、账号、密码都可以根据实际请求的情况进行设置&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;%E4%BD%BF%E7%94%A8Postman%E7%9A%84Environments%E5%92%8CTests%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/1929786-20220303220109252-1239737981.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;../%E4%BD%BF%E7%94%A8Postman%E7%9A%84Environments%E5%92%8CTests%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/1929786-20220303220109252-1239737981.png&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;编写这个 &lt;code&gt;Request&lt;/code&gt; 的 &lt;code&gt;Test&lt;/code&gt;（Test会在请求执行后自动运行），编写 &lt;code&gt;Test&lt;/code&gt; 目的是为了在请求后自动更新当前 Environment 的 Token，写完就点击 &lt;code&gt;Send&lt;/code&gt; 发送请求。点击右上角的眼睛，可以快速查看当前 Environment 变量&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;%E4%BD%BF%E7%94%A8Postman%E7%9A%84Environments%E5%92%8CTests%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/1929786-20220303220124010-2012060462.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;../%E4%BD%BF%E7%94%A8Postman%E7%9A%84Environments%E5%92%8CTests%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/1929786-20220303220124010-2012060462.png&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 判断相应的状态码是否为 200
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Status code is 200&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
@@ -1147,7 +1147,7 @@ git checkout 这个命令被拆分成了两个新命令：git switch 和 git res
       <pubDate>Tue, 01 Sep 2020 14:34:33 +0800</pubDate>
       <guid>https://aaronlinv.github.io/posts/%E5%88%9D%E8%A7%81%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/</guid>
       <description>&lt;h2 id=&#34;初见安卓开发&#34;&gt;初见安卓开发&lt;/h2&gt;
-&lt;p&gt;&lt;img alt=&#34;Android开发者官网 2020.6.1&#34; loading=&#34;lazy&#34; src=&#34;%E5%88%9D%E8%A7%81%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/1929786-20200901142151492-852214615.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Android开发者官网 2020.6.1&#34; loading=&#34;lazy&#34; src=&#34;../%E5%88%9D%E8%A7%81%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/1929786-20200901142151492-852214615.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;从 &lt;a href=&#34;https://developer.android.google.cn/&#34;&gt;Android开发者官网&lt;/a&gt; 的导航栏我们可以看得出来 Google 在安卓开发方面主推 Jetpack 和 Kotlin&lt;/p&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://developer.android.google.cn/jetpack/&#34;&gt;Android Jetpack&lt;/a&gt; 是一套组件库，其中包含了很多组件，比如：LiveData、Room、ViewModel等等，使用这些组件极大简化了开发，消除样板代码，提高应用质量
 &lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://developer.android.google.cn/kotlin&#34;&gt;Kotlin&lt;/a&gt; 是 JetBrains 在 2011 年发布的静态类型编程语言（这是一个开源项目），虽然语法上不能与 Java 兼容，但它是面向JVM，所以它可以和Java代码相互运作。在 Google I/O 2017 中，Google 宣布在 Android 上为 Kotlin 提供最佳支持，后来 Google 就把 Android 开发的官方语言更换为了 Kotlin&lt;/p&gt;

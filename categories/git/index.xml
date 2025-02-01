@@ -32,7 +32,7 @@
 &lt;li&gt;将 &lt;code&gt;B&lt;/code&gt; 的修改内容分多个 commit 提交 &lt;code&gt;B1&lt;/code&gt; 和 &lt;code&gt;B2&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;使用 rebase 的 &lt;code&gt;continue&lt;/code&gt; 将刚才隐藏的 &lt;code&gt;C&lt;/code&gt; 和 &lt;code&gt;D&lt;/code&gt; 恢复回来，需要注意的是：因为之前的 commit 记录已经改变了，所以这时的 &lt;code&gt;C&lt;/code&gt; 和 &lt;code&gt;D&lt;/code&gt; 已经与原来的 commit 记录不相同，故标记为 &lt;code&gt;C&#39;&lt;/code&gt; 和 &lt;code&gt;D&#39;&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;IDEA%EF%BC%88%E4%BB%BB%E6%84%8FJetBrainsIDE%EF%BC%89%E6%8B%86%E5%88%86%E5%85%88%E5%89%8Dcommit/1929786-20240406133647807-70803179.png&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;../IDEA%EF%BC%88%E4%BB%BB%E6%84%8FJetBrainsIDE%EF%BC%89%E6%8B%86%E5%88%86%E5%85%88%E5%89%8Dcommit/1929786-20240406133647807-70803179.png&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Git 中的回退操作：reset 和 revert</title>
@@ -41,7 +41,7 @@
       <guid>https://aaronlinv.github.io/posts/git-%E4%B8%AD%E7%9A%84%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9Creset-%E5%92%8C-revert/</guid>
       <description>&lt;p&gt;Git 中回退有 &lt;code&gt;reset&lt;/code&gt; 和 &lt;code&gt;revert&lt;/code&gt;，这两个的区别就是是否保留更改记录&lt;/p&gt;
 &lt;p&gt;假设当前的提交情况是：&lt;code&gt;A &amp;lt;- B &amp;lt;- C &amp;lt;- D &amp;lt;- HEAD&lt;/code&gt;，如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;Git%E4%B8%AD%E7%9A%84%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9C%EF%BC%9Areset%E5%92%8Crevert/1929786-20220707135502142-725016820.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;../Git%E4%B8%AD%E7%9A%84%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9C%EF%BC%9Areset%E5%92%8Crevert/1929786-20220707135502142-725016820.png&#34;&gt;&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;当前是 &lt;code&gt;D&lt;/code&gt;，希望回退到 &lt;code&gt;A&lt;/code&gt;，那我们可以使用 &lt;code&gt;reset&lt;/code&gt; 命令，reset 后再看 git log 就会发现：&lt;code&gt;B &amp;lt;- C &amp;lt;- D&lt;/code&gt; 宛如没有出现过，这适用于想完全舍弃 &lt;code&gt;A&lt;/code&gt; 之后的修改&lt;/p&gt;
 &lt;p&gt;但是如果我们想保留 &lt;code&gt;B &amp;lt;- C &amp;lt;- D&lt;/code&gt; 的修改记录，可能这三个 commit 的功能只是暂时用不到，以后可能还用到，或者可能当前分支是一个公共分支，&lt;code&gt;B &amp;lt;- C &amp;lt;- D&lt;/code&gt; 可能已经被同步到了其他小伙伴电脑上，为了尽量避免代码冲突。这些情况就需要使用 &lt;code&gt;revert&lt;/code&gt; 命令，这样会重新生成新的 commit，其中包含回退的记录（假设 &lt;code&gt;D&lt;/code&gt; 这个 commit 是添加了一些代码，那么 revert &lt;code&gt;D&lt;/code&gt; 的 commit 就是删除这些代码）&lt;/p&gt;
