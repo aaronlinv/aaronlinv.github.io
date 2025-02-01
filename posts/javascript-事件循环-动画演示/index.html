@@ -1,0 +1,173 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>JavaScript 事件循环 动画演示 | Aaron Lin</title>
+<meta name=keywords content><meta name=description content="在前端代码中很经常看到使用 setTimeout(fn, 0)，如下面代码所示，乍一看很多余，但是移除了可能会出现一些奇奇怪怪的问题。要解释这个就需要理解 事件循环（Event Loop），下面会通过一些例子和动画来辅助理解事件循环
+setTimeout(() => {
+  // 调用一些方法
+}, 0)
+为什么使用事件循环
+JS 是单线程的（浏览器和 Node则是多线程的），为了避免 渲染主线程 阻塞，需要异步，事件循环 是异步的实现方式
+浏览器在一个渲染主线程中运行一个页面中的所有 JavaScript 脚本，以及呈现布局，回流，和垃圾回收。为了避免 同步 的执行方式导致渲染主线程阻塞，使得页面卡死，所以浏览器采用异步的方式：渲染主线程将任务交给其他线程去处理，自身 立即结束 任务的执行，转而执行后续代码，当其他线程完成时，将事先传递的回调函数包装成任务，加入到对应的消息队列的末尾排队，等待渲染主线程调度执行
+流程：
+
+渲染主线程执行全局 JS，需要异步的任务放到对应的队列，如果是 setTimeout 则会有线程计时，到了指定时间会将任务放入 延时队列（并非立即执行）
+渲染主线程为空时，按队列的优先级依次选择队列（最先执行微队列的任务），依次按顺序执行各个队列的任务
+
+任务没有优先级，而消息队列有优先级，不同任务分属于不同队列：参考 W3C 规范。微队列优先级最高，接着是交互队列然后才是延时队列
+常见队列：
+
+微队列（microtask）：⽤户存放需要最快执⾏的任务，优先级「最⾼」，通过 Promise.resolve().then() ⽴即把⼀个函数添加到微队列
+交互队列：⽤于存放⽤户操作后产⽣的事件处理任务，优先级「⾼」
+延时队列：⽤于存放计时器到达后的回调任务，优先级「中」
+
+事件循环
+下面例子来自于：《WEB前端大师课》，大块的文字描述相对没那么直观，所以用 Keynote 做了 gif 方便理解（如果有更好的做 gif 的方式可以留言告诉我）
+1. JS阻碍页面渲染
+JS 修改了 DOM 后，并不会马上显示在页面上，需要进行 绘制 后才会显示页面变更
+<!DOCTYPE html>
+<html lang=&#34;en&#34;>
+  <head></head>
+  <body>
+    <h1>初始h1</h1>
+    <button>change</button>
+    <script>
+      var h1 = document.querySelector('h1');
+      var btn = document.querySelector('button');
+
+      function delay(duration) {
+        var start = Date.now();
+        while (Date.now() - start < duration) {}
+      }
+      
+      btn.onclick = function () {
+        h1.textContent = '修改h1 textContent';
+        delay(3000);
+      };
+    </script>
+  </body>
+</html>
+"><meta name=author content><link rel=canonical href=https://aaronlinv.github.io/posts/javascript-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF-%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/><meta name=google-site-verification content="XYZabc"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as=style><link rel=icon href=https://aaronlinv.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://aaronlinv.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://aaronlinv.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://aaronlinv.github.io/apple-touch-icon.png><link rel=mask-icon href=https://aaronlinv.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://aaronlinv.github.io/posts/javascript-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF-%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://aaronlinv.github.io/posts/javascript-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF-%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/"><meta property="og:site_name" content="Aaron Lin"><meta property="og:title" content="JavaScript 事件循环 动画演示"><meta property="og:description" content="在前端代码中很经常看到使用 setTimeout(fn, 0)，如下面代码所示，乍一看很多余，但是移除了可能会出现一些奇奇怪怪的问题。要解释这个就需要理解 事件循环（Event Loop），下面会通过一些例子和动画来辅助理解事件循环
+setTimeout(() => { // 调用一些方法 }, 0) 为什么使用事件循环 JS 是单线程的（浏览器和 Node则是多线程的），为了避免 渲染主线程 阻塞，需要异步，事件循环 是异步的实现方式
+浏览器在一个渲染主线程中运行一个页面中的所有 JavaScript 脚本，以及呈现布局，回流，和垃圾回收。为了避免 同步 的执行方式导致渲染主线程阻塞，使得页面卡死，所以浏览器采用异步的方式：渲染主线程将任务交给其他线程去处理，自身 立即结束 任务的执行，转而执行后续代码，当其他线程完成时，将事先传递的回调函数包装成任务，加入到对应的消息队列的末尾排队，等待渲染主线程调度执行
+流程：
+渲染主线程执行全局 JS，需要异步的任务放到对应的队列，如果是 setTimeout 则会有线程计时，到了指定时间会将任务放入 延时队列（并非立即执行） 渲染主线程为空时，按队列的优先级依次选择队列（最先执行微队列的任务），依次按顺序执行各个队列的任务 任务没有优先级，而消息队列有优先级，不同任务分属于不同队列：参考 W3C 规范。微队列优先级最高，接着是交互队列然后才是延时队列
+常见队列：
+微队列（microtask）：⽤户存放需要最快执⾏的任务，优先级「最⾼」，通过 Promise.resolve().then() ⽴即把⼀个函数添加到微队列 交互队列：⽤于存放⽤户操作后产⽣的事件处理任务，优先级「⾼」 延时队列：⽤于存放计时器到达后的回调任务，优先级「中」 事件循环 下面例子来自于：《WEB前端大师课》，大块的文字描述相对没那么直观，所以用 Keynote 做了 gif 方便理解（如果有更好的做 gif 的方式可以留言告诉我）
+1. JS阻碍页面渲染 JS 修改了 DOM 后，并不会马上显示在页面上，需要进行 绘制 后才会显示页面变更
+<!DOCTYPE html> <html lang=&#34;en&#34;> <head></head> <body> <h1>初始h1</h1> <button>change</button> <script> var h1 = document.querySelector('h1'); var btn = document.querySelector('button'); function delay(duration) { var start = Date.now(); while (Date.now() - start < duration) {} } btn.onclick = function () { h1.textContent = '修改h1 textContent'; delay(3000); }; </script> </body> </html> "><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-04-17T07:49:33+08:00"><meta property="article:modified_time" content="2024-04-17T07:49:33+08:00"><meta property="og:image" content="https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="JavaScript 事件循环 动画演示"><meta name=twitter:description content="在前端代码中很经常看到使用 setTimeout(fn, 0)，如下面代码所示，乍一看很多余，但是移除了可能会出现一些奇奇怪怪的问题。要解释这个就需要理解 事件循环（Event Loop），下面会通过一些例子和动画来辅助理解事件循环
+setTimeout(() => {
+  // 调用一些方法
+}, 0)
+为什么使用事件循环
+JS 是单线程的（浏览器和 Node则是多线程的），为了避免 渲染主线程 阻塞，需要异步，事件循环 是异步的实现方式
+浏览器在一个渲染主线程中运行一个页面中的所有 JavaScript 脚本，以及呈现布局，回流，和垃圾回收。为了避免 同步 的执行方式导致渲染主线程阻塞，使得页面卡死，所以浏览器采用异步的方式：渲染主线程将任务交给其他线程去处理，自身 立即结束 任务的执行，转而执行后续代码，当其他线程完成时，将事先传递的回调函数包装成任务，加入到对应的消息队列的末尾排队，等待渲染主线程调度执行
+流程：
+
+渲染主线程执行全局 JS，需要异步的任务放到对应的队列，如果是 setTimeout 则会有线程计时，到了指定时间会将任务放入 延时队列（并非立即执行）
+渲染主线程为空时，按队列的优先级依次选择队列（最先执行微队列的任务），依次按顺序执行各个队列的任务
+
+任务没有优先级，而消息队列有优先级，不同任务分属于不同队列：参考 W3C 规范。微队列优先级最高，接着是交互队列然后才是延时队列
+常见队列：
+
+微队列（microtask）：⽤户存放需要最快执⾏的任务，优先级「最⾼」，通过 Promise.resolve().then() ⽴即把⼀个函数添加到微队列
+交互队列：⽤于存放⽤户操作后产⽣的事件处理任务，优先级「⾼」
+延时队列：⽤于存放计时器到达后的回调任务，优先级「中」
+
+事件循环
+下面例子来自于：《WEB前端大师课》，大块的文字描述相对没那么直观，所以用 Keynote 做了 gif 方便理解（如果有更好的做 gif 的方式可以留言告诉我）
+1. JS阻碍页面渲染
+JS 修改了 DOM 后，并不会马上显示在页面上，需要进行 绘制 后才会显示页面变更
+<!DOCTYPE html>
+<html lang=&#34;en&#34;>
+  <head></head>
+  <body>
+    <h1>初始h1</h1>
+    <button>change</button>
+    <script>
+      var h1 = document.querySelector('h1');
+      var btn = document.querySelector('button');
+
+      function delay(duration) {
+        var start = Date.now();
+        while (Date.now() - start < duration) {}
+      }
+      
+      btn.onclick = function () {
+        h1.textContent = '修改h1 textContent';
+        delay(3000);
+      };
+    </script>
+  </body>
+</html>
+"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://aaronlinv.github.io/posts/"},{"@type":"ListItem","position":2,"name":"JavaScript 事件循环 动画演示","item":"https://aaronlinv.github.io/posts/javascript-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF-%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"JavaScript 事件循环 动画演示","name":"JavaScript 事件循环 动画演示","description":"在前端代码中很经常看到使用 setTimeout(fn, 0)，如下面代码所示，乍一看很多余，但是移除了可能会出现一些奇奇怪怪的问题。要解释这个就需要理解 事件循环（Event Loop），下面会通过一些例子和动画来辅助理解事件循环\nsetTimeout(() =\u0026gt; { // 调用一些方法 }, 0) 为什么使用事件循环 JS 是单线程的（浏览器和 Node则是多线程的），为了避免 渲染主线程 阻塞，需要异步，事件循环 是异步的实现方式\n浏览器在一个渲染主线程中运行一个页面中的所有 JavaScript 脚本，以及呈现布局，回流，和垃圾回收。为了避免 同步 的执行方式导致渲染主线程阻塞，使得页面卡死，所以浏览器采用异步的方式：渲染主线程将任务交给其他线程去处理，自身 立即结束 任务的执行，转而执行后续代码，当其他线程完成时，将事先传递的回调函数包装成任务，加入到对应的消息队列的末尾排队，等待渲染主线程调度执行\n流程：\n渲染主线程执行全局 JS，需要异步的任务放到对应的队列，如果是 setTimeout 则会有线程计时，到了指定时间会将任务放入 延时队列（并非立即执行） 渲染主线程为空时，按队列的优先级依次选择队列（最先执行微队列的任务），依次按顺序执行各个队列的任务 任务没有优先级，而消息队列有优先级，不同任务分属于不同队列：参考 W3C 规范。微队列优先级最高，接着是交互队列然后才是延时队列\n常见队列：\n微队列（microtask）：⽤户存放需要最快执⾏的任务，优先级「最⾼」，通过 Promise.resolve().then() ⽴即把⼀个函数添加到微队列 交互队列：⽤于存放⽤户操作后产⽣的事件处理任务，优先级「⾼」 延时队列：⽤于存放计时器到达后的回调任务，优先级「中」 事件循环 下面例子来自于：《WEB前端大师课》，大块的文字描述相对没那么直观，所以用 Keynote 做了 gif 方便理解（如果有更好的做 gif 的方式可以留言告诉我）\n1. JS阻碍页面渲染 JS 修改了 DOM 后，并不会马上显示在页面上，需要进行 绘制 后才会显示页面变更\n\u0026lt;!DOCTYPE html\u0026gt; \u0026lt;html lang=\u0026#34;en\u0026#34;\u0026gt; \u0026lt;head\u0026gt;\u0026lt;/head\u0026gt; \u0026lt;body\u0026gt; \u0026lt;h1\u0026gt;初始h1\u0026lt;/h1\u0026gt; \u0026lt;button\u0026gt;change\u0026lt;/button\u0026gt; \u0026lt;script\u0026gt; var h1 = document.querySelector(\u0026#39;h1\u0026#39;); var btn = document.querySelector(\u0026#39;button\u0026#39;); function delay(duration) { var start = Date.now(); while (Date.now() - start \u0026lt; duration) {} } btn.onclick = function () { h1.textContent = \u0026#39;修改h1 textContent\u0026#39;; delay(3000); }; \u0026lt;/script\u0026gt; \u0026lt;/body\u0026gt; \u0026lt;/html\u0026gt; ","keywords":[],"articleBody":"在前端代码中很经常看到使用 setTimeout(fn, 0)，如下面代码所示，乍一看很多余，但是移除了可能会出现一些奇奇怪怪的问题。要解释这个就需要理解 事件循环（Event Loop），下面会通过一些例子和动画来辅助理解事件循环\nsetTimeout(() =\u003e { // 调用一些方法 }, 0) 为什么使用事件循环 JS 是单线程的（浏览器和 Node则是多线程的），为了避免 渲染主线程 阻塞，需要异步，事件循环 是异步的实现方式\n浏览器在一个渲染主线程中运行一个页面中的所有 JavaScript 脚本，以及呈现布局，回流，和垃圾回收。为了避免 同步 的执行方式导致渲染主线程阻塞，使得页面卡死，所以浏览器采用异步的方式：渲染主线程将任务交给其他线程去处理，自身 立即结束 任务的执行，转而执行后续代码，当其他线程完成时，将事先传递的回调函数包装成任务，加入到对应的消息队列的末尾排队，等待渲染主线程调度执行\n流程：\n渲染主线程执行全局 JS，需要异步的任务放到对应的队列，如果是 setTimeout 则会有线程计时，到了指定时间会将任务放入 延时队列（并非立即执行） 渲染主线程为空时，按队列的优先级依次选择队列（最先执行微队列的任务），依次按顺序执行各个队列的任务 任务没有优先级，而消息队列有优先级，不同任务分属于不同队列：参考 W3C 规范。微队列优先级最高，接着是交互队列然后才是延时队列\n常见队列：\n微队列（microtask）：⽤户存放需要最快执⾏的任务，优先级「最⾼」，通过 Promise.resolve().then() ⽴即把⼀个函数添加到微队列 交互队列：⽤于存放⽤户操作后产⽣的事件处理任务，优先级「⾼」 延时队列：⽤于存放计时器到达后的回调任务，优先级「中」 事件循环 下面例子来自于：《WEB前端大师课》，大块的文字描述相对没那么直观，所以用 Keynote 做了 gif 方便理解（如果有更好的做 gif 的方式可以留言告诉我）\n1. JS阻碍页面渲染 JS 修改了 DOM 后，并不会马上显示在页面上，需要进行 绘制 后才会显示页面变更\n\u003c!DOCTYPE html\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e\u003c/head\u003e \u003cbody\u003e \u003ch1\u003e初始h1\u003c/h1\u003e \u003cbutton\u003echange\u003c/button\u003e \u003cscript\u003e var h1 = document.querySelector('h1'); var btn = document.querySelector('button'); function delay(duration) { var start = Date.now(); while (Date.now() - start \u003c duration) {} } btn.onclick = function () { h1.textContent = '修改h1 textContent'; delay(3000); }; \u003c/script\u003e \u003c/body\u003e \u003c/html\u003e 效果：点击 change 后，页面卡死，3s 后 h1 内容变更为：修改h1 textContent\n2. 延迟队列 setTimeout 到达指定时间可能并不会立即执行\nsetTimeout(function () { console.log(1); }, 0); function delay(duration) { var start = Date.now(); while (Date.now() - start \u003c duration) {} } delay(3000); console.log(2); 效果：卡死 3s 后输出 2 1\n3. 微队列 使用 Promise.resolve().then 可以将任务直接添加到微队列\nsetTimeout(function () { console.log(1); }, 0); Promise.resolve().then(function () { console.log(2); }); console.log(3); 效果：依次输出 3 2 1\n4. 复杂情况 function a() { console.log(1); Promise.resolve().then(function () { console.log(2); }); } setTimeout(function () { console.log(3); Promise.resolve().then(a); }, 0); Promise.resolve().then(function () { console.log(4); }); console.log(5); 效果：依次输出 5 4 3 1 2\n拓展 理解了上面的概念，可以尝试分析一下 现代 JavaScript 教程 事件循环例子，检查一下是否理解了事件循环\n参考资料 2024 年我还在写这样的代码 为什么 JS 要加入 setTimeout， css 的 transition 才能生效 深入理解和使用 Javascript 中的 setTimeout(fn,0) 主线程 并发模型与事件循环 异步 JavaScript 调度：setTimeout 和 setInterval\n","wordCount":"223","inLanguage":"en","image":"https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished":"2024-04-17T07:49:33+08:00","dateModified":"2024-04-17T07:49:33+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://aaronlinv.github.io/posts/javascript-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF-%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/"},"publisher":{"@type":"Organization","name":"Aaron Lin","logo":{"@type":"ImageObject","url":"https://aaronlinv.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://aaronlinv.github.io/ accesskey=h title="Aaron's Blog (Alt + H)">Aaron's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://aaronlinv.github.io/archives/ title=Archive><span>Archive</span></a></li><li><a href=https://aaronlinv.github.io/categories/ title=Categories><span>Categories</span></a></li><li><a href=https://aaronlinv.github.io/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://aaronlinv.github.io/about/ title=About><span>About</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">JavaScript 事件循环 动画演示</h1><div class=post-meta><span title='2024-04-17 07:49:33 +0800 +0800'>April 17, 2024</span></div></header><div class=post-content><p>在前端代码中很经常看到使用 <code>setTimeout(fn, 0)</code>，如下面代码所示，乍一看很多余，但是移除了可能会出现一些奇奇怪怪的问题。要解释这个就需要理解 <strong>事件循环（Event Loop）</strong>，下面会通过一些例子和动画来辅助理解事件循环</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// 调用一些方法
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>},</span> <span class=mi>0</span><span class=p>)</span>
+</span></span></code></pre></div><h2 id=为什么使用事件循环>为什么使用事件循环<a hidden class=anchor aria-hidden=true href=#为什么使用事件循环>#</a></h2><p>JS 是单线程的（<a href=https://www.reddit.com/r/node/comments/nqxelw/why_everyone_is_saying_that_js_is_single_threaded/>浏览器和 Node则是多线程的</a>），为了避免 <strong>渲染主线程</strong> 阻塞，需要异步，<strong>事件循环</strong> 是异步的实现方式</p><p>浏览器在一个渲染主线程中运行一个页面中的所有 JavaScript 脚本，以及呈现布局，回流，和垃圾回收。为了避免 <strong>同步</strong> 的执行方式导致渲染主线程阻塞，使得页面卡死，所以浏览器采用异步的方式：渲染主线程将任务交给其他线程去处理，自身 <strong>立即结束</strong> 任务的执行，转而执行后续代码，当其他线程完成时，将事先传递的回调函数包装成任务，加入到对应的消息队列的<strong>末尾</strong>排队，等待渲染主线程调度执行</p><p>流程：</p><ol><li>渲染主线程执行全局 JS，需要异步的任务放到对应的队列，如果是 <code>setTimeout</code> 则会有线程计时，到了指定时间会将任务放入 <code>延时队列</code>（并非立即执行）</li><li>渲染主线程为空时，按队列的优先级依次选择队列（最先执行微队列的任务），依次按顺序执行各个队列的任务</li></ol><p>任务没有优先级，而消息队列有优先级，不同任务分属于不同队列：<a href=https://html.spec.whatwg.org/multipage/webappapis.html#generic-task-sources>参考 W3C 规范</a>。<a href=https://html.spec.whatwg.org/multipage/webappapis.html#perform-a-microtask-checkpoint>微队列优先级最高</a>，接着是交互队列然后才是延时队列</p><p>常见队列：</p><ul><li>微队列（microtask）：⽤户存放需要最快执⾏的任务，优先级「最⾼」，通过 <code>Promise.resolve().then()</code> ⽴即把⼀个函数添加到微队列</li><li>交互队列：⽤于存放⽤户操作后产⽣的事件处理任务，优先级「⾼」</li><li>延时队列：⽤于存放计时器到达后的回调任务，优先级「中」</li></ul><h2 id=事件循环>事件循环<a hidden class=anchor aria-hidden=true href=#事件循环>#</a></h2><p>下面例子来自于：<a href=https://ke.qq.com/course/5892689>《WEB前端大师课》</a>，大块的文字描述相对没那么直观，所以用 Keynote 做了 gif 方便理解（如果有更好的做 gif 的方式可以留言告诉我）</p><h3 id=1-js阻碍页面渲染>1. JS阻碍页面渲染<a hidden class=anchor aria-hidden=true href=#1-js阻碍页面渲染>#</a></h3><p>JS 修改了 DOM 后，并不会马上显示在页面上，需要进行 <strong>绘制</strong> 后才会显示页面变更</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=cp>&lt;!DOCTYPE html&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>html</span> <span class=na>lang</span><span class=o>=</span><span class=s>&#34;en&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>初始h1<span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>button</span><span class=p>&gt;</span>change<span class=p>&lt;/</span><span class=nt>button</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=kd>var</span> <span class=nx>h1</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=s1>&#39;h1&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=kd>var</span> <span class=nx>btn</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=s1>&#39;button&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=kd>function</span> <span class=nx>delay</span><span class=p>(</span><span class=nx>duration</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kd>var</span> <span class=nx>start</span> <span class=o>=</span> <span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span> <span class=p>(</span><span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>()</span> <span class=o>-</span> <span class=nx>start</span> <span class=o>&lt;</span> <span class=nx>duration</span><span class=p>)</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>      
+</span></span><span class=line><span class=cl>      <span class=nx>btn</span><span class=p>.</span><span class=nx>onclick</span> <span class=o>=</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>h1</span><span class=p>.</span><span class=nx>textContent</span> <span class=o>=</span> <span class=s1>&#39;修改h1 textContent&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>delay</span><span class=p>(</span><span class=mi>3000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=p>};</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</span></span></code></pre></div><p><img alt=01绘制任务 loading=lazy src=JavaScript%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/1929786-20240416173932693-109077340.gif></p><p>效果：点击 <code>change</code> 后，页面卡死，3s 后 <code>h1</code> 内容变更为：<code>修改h1 textContent</code></p><h3 id=2-延迟队列>2. 延迟队列<a hidden class=anchor aria-hidden=true href=#2-延迟队列>#</a></h3><p><code>setTimeout</code> 到达指定时间可能并不会立即执行</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>setTimeout</span><span class=p>(</span><span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>},</span> <span class=mi>0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>delay</span><span class=p>(</span><span class=nx>duration</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>start</span> <span class=o>=</span> <span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=k>while</span> <span class=p>(</span><span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>()</span> <span class=o>-</span> <span class=nx>start</span> <span class=o>&lt;</span> <span class=nx>duration</span><span class=p>)</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>delay</span><span class=p>(</span><span class=mi>3000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=mi>2</span><span class=p>);</span>
+</span></span></code></pre></div><p><img alt=02settimeout loading=lazy src=JavaScript%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/1929786-20240416174000096-2033848170.gif></p><p>效果：卡死 3s 后输出 2 1</p><h3 id=3-微队列>3. 微队列<a hidden class=anchor aria-hidden=true href=#3-微队列>#</a></h3><p>使用 <code>Promise.resolve().then</code> 可以将任务直接添加到微队列</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>setTimeout</span><span class=p>(</span><span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>},</span> <span class=mi>0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>Promise</span><span class=p>.</span><span class=nx>resolve</span><span class=p>().</span><span class=nx>then</span><span class=p>(</span><span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=mi>3</span><span class=p>);</span>
+</span></span></code></pre></div><p><img alt=03微队列 loading=lazy src=JavaScript%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/1929786-20240416174033217-629343889.gif></p><p>效果：依次输出 3 2 1</p><h3 id=4-复杂情况>4. 复杂情况<a hidden class=anchor aria-hidden=true href=#4-复杂情况>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>a</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=nb>Promise</span><span class=p>.</span><span class=nx>resolve</span><span class=p>().</span><span class=nx>then</span><span class=p>(</span><span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=nx>setTimeout</span><span class=p>(</span><span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=mi>3</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=nb>Promise</span><span class=p>.</span><span class=nx>resolve</span><span class=p>().</span><span class=nx>then</span><span class=p>(</span><span class=nx>a</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>},</span> <span class=mi>0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>Promise</span><span class=p>.</span><span class=nx>resolve</span><span class=p>().</span><span class=nx>then</span><span class=p>(</span><span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=mi>4</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=mi>5</span><span class=p>);</span>
+</span></span></code></pre></div><p><img alt=04复杂Promise loading=lazy src=JavaScript%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/1929786-20240416174055454-1565610014.gif></p><p>效果：依次输出 5 4 3 1 2</p><h3 id=拓展>拓展<a hidden class=anchor aria-hidden=true href=#拓展>#</a></h3><p>理解了上面的概念，可以尝试分析一下 <a href=https://zh.javascript.info/event-loop#xia-fang-zhe-duan-dai-ma-de-shu-chu-shi-shi-mo>现代 JavaScript 教程 事件循环例子</a>，检查一下是否理解了事件循环</p><h2 id=参考资料>参考资料<a hidden class=anchor aria-hidden=true href=#参考资料>#</a></h2><p><a href=https://twitter.com/randyloop/status/1779145003824288010>2024 年我还在写这样的代码</a>
+<a href=https://v2ex.com/t/633069>为什么 JS 要加入 setTimeout， css 的 transition 才能生效</a>
+<a href=https://yugasun.com/post/understand-settimeout-fn-0>深入理解和使用 Javascript 中的 setTimeout(fn,0)</a>
+<a href=https://developer.mozilla.org/zh-CN/docs/Glossary/Main_thread>主线程</a>
+<a href=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Event_loop>并发模型与事件循环</a>
+<a href=https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Asynchronous>异步 JavaScript</a>
+<a href=https://zh.javascript.info/settimeout-setinterval>调度：setTimeout 和 setInterval</a></p></div><footer class=post-footer><ul class=post-tags></ul><nav class=paginav><a class=prev href=https://aaronlinv.github.io/posts/%E7%90%86%E8%A7%A3%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/><span class=title>« Prev</span><br><span>理解前端工程化</span>
+</a><a class=next href=https://aaronlinv.github.io/posts/%E5%A6%82%E4%BD%95%E5%BC%84%E6%87%82%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE/><span class=title>Next »</span><br><span>如何弄懂复杂项目</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://aaronlinv.github.io/>Aaron Lin</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>

@@ -11,8 +11,86 @@
     </image>
     <generator>Hugo -- 0.142.0</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Nov 2022 08:32:33 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 15 May 2024 08:56:33 +0800</lastBuildDate>
     <atom:link href="https://aaronlinv.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>为什么 AI 时代更应该 Learn in Public</title>
+      <link>https://aaronlinv.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88-ai-%E6%97%B6%E4%BB%A3%E6%9B%B4%E5%BA%94%E8%AF%A5-learn-in-public/</link>
+      <pubDate>Wed, 15 May 2024 08:56:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88-ai-%E6%97%B6%E4%BB%A3%E6%9B%B4%E5%BA%94%E8%AF%A5-learn-in-public/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;Learn in Public 强调将学习到的知识 &lt;strong&gt;分享到公共空间&lt;/strong&gt;，相较于纯输入式的学习有诸多好处。AI 工具极大降低了信息检索、整理、概括的门槛，使得输入信息更容易，但对我们真正掌握知识的帮助仍然有限，所以我们更需践行要像 Learn in Public 这样能提供 &lt;strong&gt;有效输出&lt;/strong&gt; 的学习方式&lt;/p&gt;
+&lt;p&gt;AI 工具大大降低了信息检索、整理和概括的门槛，使得获取信息更加便捷，但对我们真正掌握知识的帮助仍然有限。因此我们更需要践行像 Learn in Public 这样重视 &lt;strong&gt;有效输出&lt;/strong&gt; 的学习方式&lt;/p&gt;
+&lt;h2 id=&#34;为什么会想到这个话题&#34;&gt;为什么会想到这个话题&lt;/h2&gt;
+&lt;p&gt;偶然间看到 &lt;a href=&#34;https://twitter.com/OwenYoungZh/status/1775977873301713157&#34;&gt;Owen&lt;/a&gt; 发的贴子：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;看到一个说法：笔记是一种无限游戏，没有结果，只有过程；而博客是一种有限游戏，因为它产出了完成的作品：博文。这说明我们不能当一个完美主义者，只在脑海或草稿箱中保留想法，我们应该尽可能完成作品，公开它，然后不断的练习这个过程。&lt;/p&gt;
+&lt;p&gt;我更坚定那个想法了：做一个默认设计为公开的笔记软件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;看到这个贴子，马上联想到了 &lt;strong&gt;Learn in Public&lt;/strong&gt; 这个概念，开始思考自己的这些年记笔记的方式，意识到了原来的方式可能存在一些问题，于是开始尝试践行 Learn in Public，将自己学习的一些东西写成博客、用学到的知识做一个有意义的产品等等。经过了这段时间的实践，再结合上自己日常使用 AI 的一些感受和想法，很自然地就想到了这个话题&lt;/p&gt;
+&lt;h2 id=&#34;什么是-learn-in-public&#34;&gt;什么是 Learn In Public&lt;/h2&gt;
+&lt;p&gt;在 swyx 发布 &lt;a href=&#34;https://www.swyx.io/learn-in-public&#34;&gt;Learn In Public&lt;/a&gt; 后，这个概念变得更加流行。Learn in Public 强调的是 &lt;strong&gt;将学到的东西分享到公共空间&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;常见的 Learn In Public 的方式，例如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;撰写博客、教程&lt;/li&gt;
+&lt;li&gt;在会议上发言&lt;/li&gt;
+&lt;li&gt;在问答社区提问或者回答&lt;/li&gt;
+&lt;li&gt;制作并发布视频&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;与之相对的 Learn in Private 侧重的是 &lt;strong&gt;消费内容&lt;/strong&gt;，例如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;个人笔记&lt;/li&gt;
+&lt;li&gt;阅读书籍&lt;/li&gt;
+&lt;li&gt;阅读源码&lt;/li&gt;
+&lt;li&gt;订阅 GitHub 的 Repos 和 Issues，观察其他的人实践&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;为什么需要-learn-in-public&#34;&gt;为什么需要 Learn in Public&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Learn in Public 是一个输出的过程，促进知识的整理、理解、求证，帮助我们拓宽对某些 &lt;strong&gt;知识理解的边界&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;公共空间能提供 &lt;strong&gt;反馈&lt;/strong&gt;，反馈可以产生激励、也可以修正我们努力的方向&lt;/li&gt;
+&lt;li&gt;有助于 &lt;strong&gt;筛选&lt;/strong&gt; 所要学习的东西，Learn In Public 会花费大量精力，它能促使我们评估即将学习的内容是否值得&lt;/li&gt;
+&lt;li&gt;对抗完美主义，先有产出，走出第一步再根据反馈 &lt;strong&gt;持续迭代&lt;/strong&gt;，而不是止步不前&lt;/li&gt;
+&lt;li&gt;很多的知识都来自 Public ，所以没有什么好藏着掖着，大部分的成果可能都是站在巨人的肩膀上&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;为什么-ai-时代更应该-learn-in-public&#34;&gt;为什么 AI 时代更应该 Learn in Public&lt;/h2&gt;
+&lt;p&gt;在 AI 的推动下，知识获取已经实现了质的飞跃，但对我们真正掌握知识的帮助仍然有限，所以我们更应该 Learn in Public，做更多的 &lt;strong&gt;有效输出&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>如何弄懂复杂项目</title>
+      <link>https://aaronlinv.github.io/posts/%E5%A6%82%E4%BD%95%E5%BC%84%E6%87%82%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Sun, 07 Apr 2024 08:31:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E5%A6%82%E4%BD%95%E5%BC%84%E6%87%82%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;先跑起来，通过文档和实践熟悉业务流程&lt;/p&gt;
+&lt;p&gt;这一步可以通过&lt;a href=&#34;%5Bhttps://plantegg.github.io/2023/04/06/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E4%B8%8D%E5%8E%BB%E7%9C%8B%E6%96%87%E6%A1%A3/%5D(https://plantegg.github.io/2023/04/06/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E4%B8%8D%E5%8E%BB%E7%9C%8B%E6%96%87%E6%A1%A3/)&#34;&gt;看官方文档&lt;/a&gt;开始，要注意的是一些项目是 &lt;strong&gt;更新先于文档&lt;/strong&gt; 的，比如新版本启动方式有变更，但是文档还没更新。跟着文档不一定能把项目跑起来，需要借助 GitHub Issue 或者是 Slack 这样的工具以获取即时的帮助&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;看测试，通过测试了解流程&lt;/p&gt;
+&lt;p&gt;如果是开源项目，可以通过 &lt;a href=&#34;https://twitter.com/yihong0618/status/1621897825431990276&#34;&gt;GitHub Action 快速了解需要哪些依赖、如何快速运行测试&lt;/a&gt;，便于在本地运行测试，通过这些集成测试可以快速弄懂业务主线&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过 debug 高效快速地梳理流程&lt;/p&gt;
+&lt;p&gt;通过断点可以一步一步跟踪程序的运行，可以比较直观地看调用栈、变量等等的&lt;/p&gt;
+&lt;p&gt;对于一些无法本地调试的项目来说，我们可以退而求其次，断点它的测试，这也是一个很有效的方法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;画图：降低复杂度&lt;/p&gt;
+&lt;p&gt;很多项目会使用一些比较优雅的设计或是引入一些抽象层，这样代码读起来就会跳来跳去，层级深的话就很容把人给绕晕了&lt;/p&gt;
+&lt;p&gt;可以用 &lt;a href=&#34;http://draw.io&#34;&gt;draw.io&lt;/a&gt; 或者 &lt;a href=&#34;https://excalidraw.com/&#34;&gt;excalidraw&lt;/a&gt; 等工具，根据实际情况画一画 活动图、时序图等&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;提出具体的问题，带着问题看项目&lt;/p&gt;
+&lt;p&gt;如果只是盲目地看项目代码，可能看完还是一头雾水，但是如果能提出一个具体问题，或是带着一个需求去看，效果就会好得多&lt;/p&gt;
+&lt;p&gt;比如我提出问题：“某个任务在集群内是如何完成的？”，我可能会先去找到该任务的创建入口，然后顺藤摸瓜，找到任务的调度逻辑，顺着 &lt;a href=&#34;https://www.zhihu.com/question/398382396/answer/1254936358&#34;&gt;happy path&lt;/a&gt; 找到下发任务的逻辑，再找到 Woker 的处理逻辑，这样就能弄懂整个调度流程&lt;/p&gt;
+&lt;p&gt;最后如果能用 &lt;strong&gt;一句话&lt;/strong&gt; 回答提出的问题，那可能能说明你对这个问题涉及的知识已经有了一个比较好的理解&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;英语很重要&lt;/p&gt;
+&lt;p&gt;大多数项目的注释、日志等的都是英文，看懂这些能极大提高效率&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
     <item>
       <title>32 位计算机时间戳溢出的思考 —— 整数的二进制表示</title>
       <link>https://aaronlinv.github.io/posts/32-%E4%BD%8D%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%97%B6%E9%97%B4%E6%88%B3%E6%BA%A2%E5%87%BA%E7%9A%84%E6%80%9D%E8%80%83--%E6%95%B4%E6%95%B0%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA/</link>
@@ -48,6 +126,22 @@
 &lt;h2 id=&#34;原码反码补码&#34;&gt;原码、反码、补码&lt;/h2&gt;
 &lt;p&gt;计算机底层是通过二进制的方式存储整数，两者转换可以参考文章：&lt;a href=&#34;https://zhuanlan.zhihu.com/p/75291280&#34;&gt;二进制和十进制之间的互相转换&lt;/a&gt;，除了整数的大小，还需要存储的是整数的正负，一般首位（最高位）用于存储正负，0 代表该整数为正数，1 代表该数为负数，将一个整数对应的二进制数转化为计算机存储的二进制数，这个变换就是《数字逻辑电路》里面经常提到的原码、反码、补码转化。注意：正数和 0 的原码、反码、补码相同，负数则需要转换&lt;/p&gt;
 &lt;p&gt;我们回顾一下，以 4 位二进制表示的整数举例：0 的原反补码都是 &lt;code&gt;0000&lt;/code&gt;，1 的原反补码都是 &lt;code&gt;0001&lt;/code&gt;，而 -1 该如何表示呢？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>开源≠免费 常见开源协议介绍</title>
+      <link>https://aaronlinv.github.io/posts/%E5%BC%80%E6%BA%90%E5%85%8D%E8%B4%B9-%E5%B8%B8%E8%A7%81%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Mon, 20 Dec 2021 09:29:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E5%BC%80%E6%BA%90%E5%85%8D%E8%B4%B9-%E5%B8%B8%E8%A7%81%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/</guid>
+      <description>&lt;h1 id=&#34;不根据协议使用开源软件可能面临的风险&#34;&gt;不根据协议使用开源软件可能面临的风险&lt;/h1&gt;
+&lt;p&gt;2003 年 Linksys 公司（同年 3 月被思科收购）推出 WRT-54G，这款路由器采用了基于 Linux 的固件，而 Linux 使用的是 GPL 开源协议，所以思科迫于压力，开放了 WRT-54G 的源码，这使得爱好者们知道了路由器固件的实现方式，进而促成了各种相关开源项目的繁荣，其中就包括 OpenWRT&lt;/p&gt;
+&lt;h1 id=&#34;android-和-linux-内核-的关系&#34;&gt;Android 和 Linux 内核 的关系&lt;/h1&gt;
+&lt;p&gt;Android 使用了 Linux 内核，而 Linux 内核采用的是 GPL 的开源协议，所以 Google 修改了 Linux 内核，使得驱动程序可以在 Linux 内核的上层运行，这样上层的代码可以绕过GPL协议。这也使得所有 Android 上的开源驱动，不经过修改无法直接用在 Linux 内核上，造成了Linux 内核的分裂，所以 Linux 内核开发小组撤下了 Android 所贡献的代码&lt;/p&gt;
+&lt;p&gt;而非内核部分，&lt;a href=&#34;https://source.android.google.cn/setup/start/licenses?hl=zh-cn&#34;&gt;Android 开源项目 (AOSP) 许可&lt;/a&gt;提到了：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于用户空间（非内核）软件，相比其他许可（例如宽通用公共许可证 (LGPL)），我们更倾向于 Apache 2.0（以及 BSD 和 MIT 等类似许可）
+我们为自己的代码首选 Apache 2.0&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;因为 AOSP 采用了 Apache 2.0 协议，所以任何人都可以基于 AOSP 开发自己的 Android 系统，而且不需要开源，国内的一些定制 Android 系统都是基于 AOSP，具体可以参考&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AE%A2%E8%A3%BD%E5%8C%96Android%E9%9F%8C%E9%AB%94%E5%88%97%E8%A1%A8&#34;&gt;定制Android固件列表&lt;/a&gt;。虽然 AOSP 是开源的，但是 Google 移动服务 GMS（Google Mobile Service）是闭源的，GMS 中包括，如果手机厂商想要使用 GMS，就必须向 Google 支付授权费。GMS 包含了 Google 自家的App 和服务，除此之外海外 Android 平台发布的 App 严重依赖 GMS，没有 GMS 可能导致软件无法使用等问题，Google 禁止华为对 GMS 的使用，导致华为手机海外出货量大幅下降&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

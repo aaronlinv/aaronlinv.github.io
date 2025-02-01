@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Git on Aaron Lin</title>
+    <link>https://aaronlinv.github.io/categories/git/</link>
+    <description>Recent content in Git on Aaron Lin</description>
+    <image>
+      <title>Aaron Lin</title>
+      <url>https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.142.0</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 27 Mar 2024 08:50:33 +0800</lastBuildDate>
+    <atom:link href="https://aaronlinv.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IDEA （任意 JetBrains IDE）拆分先前 commit</title>
+      <link>https://aaronlinv.github.io/posts/idea-%E4%BB%BB%E6%84%8F-jetbrains-ide%E6%8B%86%E5%88%86%E5%85%88%E5%89%8D-commit/</link>
+      <pubDate>Wed, 27 Mar 2024 08:50:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/idea-%E4%BB%BB%E6%84%8F-jetbrains-ide%E6%8B%86%E5%88%86%E5%85%88%E5%89%8D-commit/</guid>
+      <description>&lt;p&gt;最近在合并上游代码，遇到了一个问题：某个 commit 杂糅了几个不同的特性修改，这可能会导致 rebase 上游代码时需要再对该 commit 进行额外的代码冲突处理&lt;/p&gt;
+&lt;p&gt;解决方法：合并上游分支前，拆分杂糅的 commit，并将其中不同的特性修改合并（Squash）回相关的 commit。可以直接通过命令行进行操作，可以参考：&lt;a href=&#34;https://stackoverflow.com/a/6217314&#34;&gt;Break a previous commit into multiple commits&lt;/a&gt;。也可以通过 JetBrains 家内置的 Git 进行操作，下面会介绍 IDEA 图形化操作的方法&lt;/p&gt;
+&lt;h2 id=&#34;非先前-commit-的拆分&#34;&gt;非先前 commit 的拆分&lt;/h2&gt;
+&lt;p&gt;对于刚提交的 commit，要拆分多个 commit 是非常容易的，因为我们只要 &lt;code&gt;soft reset&lt;/code&gt; commit，将 commit 内容撤销回至 &lt;code&gt;暂存区&lt;/code&gt;，就可以随意提交 commit&lt;/p&gt;
+&lt;p&gt;如果对于 &lt;code&gt;soft reset&lt;/code&gt; 不太了解，可以参考我之前的博客：&lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/16454183.html&#34;&gt;Git 中的回退操作：reset 和 revert &lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;先前-commit-的拆分&#34;&gt;先前 commit 的拆分&lt;/h2&gt;
+&lt;p&gt;先前 commit 指的是：在目标 commit 后已经有了若干个 commit。它无法直接通过 &lt;code&gt;soft reset&lt;/code&gt; 进行拆分，因为这样会丢失后续的 commit，如下图，我们需要拆分 &lt;code&gt;B&lt;/code&gt; commit，我们就无法直接使用 &lt;code&gt;soft reset&lt;/code&gt; ，因为这样会丢失 &lt;code&gt;C&lt;/code&gt; 和 &lt;code&gt;D&lt;/code&gt; commit 的修改&lt;/p&gt;
+&lt;p&gt;所以我们需要使用 rebase，具体步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在 交互式 (interactive) rebase 中将 &lt;code&gt;B&lt;/code&gt; 标记为 &lt;code&gt;edit&lt;/code&gt;，这时 &lt;code&gt;B&lt;/code&gt; 后面的 commit 会被暂时隐藏起来&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;soft reset&lt;/code&gt; 将 &lt;code&gt;B&lt;/code&gt; 撤销回 &lt;code&gt;暂存区&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;B&lt;/code&gt; 的修改内容分多个 commit 提交 &lt;code&gt;B1&lt;/code&gt; 和 &lt;code&gt;B2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;使用 rebase 的 &lt;code&gt;continue&lt;/code&gt; 将刚才隐藏的 &lt;code&gt;C&lt;/code&gt; 和 &lt;code&gt;D&lt;/code&gt; 恢复回来，需要注意的是：因为之前的 commit 记录已经改变了，所以这时的 &lt;code&gt;C&lt;/code&gt; 和 &lt;code&gt;D&lt;/code&gt; 已经与原来的 commit 记录不相同，故标记为 &lt;code&gt;C&#39;&lt;/code&gt; 和 &lt;code&gt;D&#39;&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;IDEA%EF%BC%88%E4%BB%BB%E6%84%8FJetBrainsIDE%EF%BC%89%E6%8B%86%E5%88%86%E5%85%88%E5%89%8Dcommit/1929786-20240406133647807-70803179.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git 中的回退操作：reset 和 revert</title>
+      <link>https://aaronlinv.github.io/posts/git-%E4%B8%AD%E7%9A%84%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9Creset-%E5%92%8C-revert/</link>
+      <pubDate>Fri, 08 Jul 2022 08:36:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/git-%E4%B8%AD%E7%9A%84%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9Creset-%E5%92%8C-revert/</guid>
+      <description>&lt;p&gt;Git 中回退有 &lt;code&gt;reset&lt;/code&gt; 和 &lt;code&gt;revert&lt;/code&gt;，这两个的区别就是是否保留更改记录&lt;/p&gt;
+&lt;p&gt;假设当前的提交情况是：&lt;code&gt;A &amp;lt;- B &amp;lt;- C &amp;lt;- D &amp;lt;- HEAD&lt;/code&gt;，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;Git%E4%B8%AD%E7%9A%84%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9C%EF%BC%9Areset%E5%92%8Crevert/1929786-20220707135502142-725016820.png&#34;&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;当前是 &lt;code&gt;D&lt;/code&gt;，希望回退到 &lt;code&gt;A&lt;/code&gt;，那我们可以使用 &lt;code&gt;reset&lt;/code&gt; 命令，reset 后再看 git log 就会发现：&lt;code&gt;B &amp;lt;- C &amp;lt;- D&lt;/code&gt; 宛如没有出现过，这适用于想完全舍弃 &lt;code&gt;A&lt;/code&gt; 之后的修改&lt;/p&gt;
+&lt;p&gt;但是如果我们想保留 &lt;code&gt;B &amp;lt;- C &amp;lt;- D&lt;/code&gt; 的修改记录，可能这三个 commit 的功能只是暂时用不到，以后可能还用到，或者可能当前分支是一个公共分支，&lt;code&gt;B &amp;lt;- C &amp;lt;- D&lt;/code&gt; 可能已经被同步到了其他小伙伴电脑上，为了尽量避免代码冲突。这些情况就需要使用 &lt;code&gt;revert&lt;/code&gt; 命令，这样会重新生成新的 commit，其中包含回退的记录（假设 &lt;code&gt;D&lt;/code&gt; 这个 commit 是添加了一些代码，那么 revert &lt;code&gt;D&lt;/code&gt; 的 commit 就是删除这些代码）&lt;/p&gt;
+&lt;h2 id=&#34;reset&#34;&gt;reset&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;git reset A&lt;/code&gt; ，reset 会修改 head 的指向，这样可以回滚到 &lt;code&gt;A&lt;/code&gt;，默认使用的参数是 &lt;code&gt;--mixed&lt;/code&gt;，这个参数决定了 &lt;code&gt;reset&lt;/code&gt; 时 Git 该如何处理工作区和暂存区&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git笔记</title>
+      <link>https://aaronlinv.github.io/posts/git%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 03 Sep 2020 23:50:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/git%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;学习建议&#34;&gt;学习建议&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/896043488029600&#34;&gt;廖雪峰Git教程 &lt;/a&gt;比较详细，可操作性也比较强，在评论区可以找到勘误
+Git官方推荐的&lt;a href=&#34;https://git-scm.com/book/zh/v2&#34;&gt;《Pro Git》&lt;/a&gt;也很不错，推荐掌握了一定Git基础后再看
+对于没有 Linux 基础，或者文字版学起来比较困难的朋友可以看系列视频教程 &lt;a href=&#34;https://www.bilibili.com/video/BV1HW411f7VJ&#34;&gt;互联网人都该懂点 Git&lt;/a&gt;
+Linux 下最常用的编辑器就是 Vim，然而第一用可能会让你怀疑人生，建议先学习一下 ：&lt;a href=&#34;https://blog.csdn.net/qinfuan2017/article/details/79728906&#34;&gt;使用Vim创建和编辑文本文件&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;注意点&#34;&gt;注意点&lt;/h2&gt;
+&lt;p&gt;Git 2.23 (2019.8.16)
+git checkout 这个命令被拆分成了两个新命令：git switch 和 git restore
+创建并切换到dev分支：git checkout -b dev 现在用git switch -c dev 效果相同&lt;/p&gt;
+&lt;h2 id=&#34;初始配置&#34;&gt;初始配置&lt;/h2&gt;
+&lt;p&gt;安装Git Bash后需要做初始配置&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用户名邮箱&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 任意文件夹右键 点击“ Git Bash Here ”&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# &amp;#34;&amp;#34;内替换为自己的用户名和邮箱&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.name &lt;span class=&#34;s2&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.email &lt;span class=&#34;s2&#34;&gt;&amp;#34;email&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看配置是否成功&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config user.name
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config user.email
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;SSH 免密登录&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# ssh-keygen 用于生成，管理和转换身份验证密钥&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -t：密钥的类型 &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -C：用于识别这个密钥的注释（不添加注释直接ssh-keygen -t rsa也不影响使用）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -t rsa -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;邮箱地址&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 连续按3次回车&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 将用户目录下.ssh文件夹内的id_rsa.pub的内容粘贴到GitHub的SSH Keys中&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 具体位置：GitHub Settings -&amp;gt; SSH and GPG keys -&amp;gt; SSH keys&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 测试是否成功 Github &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 码云测试命令为：ssh git@gitee.com 反馈的结果与 GitHub 类似&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh git@github.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Are you sure you want to continue connecting (yes/no)? &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 这时需要输入：yes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#成功会提示成功认证你的账户&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Hi aaronlinv! You&amp;#39;ve successfully authenticated, but GitHub does not provide shell access.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Connection to github.com closed.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;场景0git-基本使用&#34;&gt;场景0：Git 基本使用&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 新建文件夹，初始化为Git仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir learn-git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; learn-git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 在当前目录添加并编辑文件(不熟悉 vim 编辑器可以用其他编辑器新建文件并编辑文件 )&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim test.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看文件状态 test.txt现在为Untracked状态&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git status
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 添加文件到暂存区&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add test.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 提交commit -m 代表添加一个“提交信息”&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;add test.txt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 推送到 GitHub（在 GitHub 上创建空白仓库，并复制仓库地址）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# &amp;#34;git@github.com:aaronlinv/learn-git.git&amp;#34; 需要替换为自己新建的仓库地址&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 先添加远端仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# origin：远端仓库的别名（默认origin）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote add origin git@github.com:aaronlinv/learn-git.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看远端操作（会显示 fetch和push）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote -v 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 推送到远端仓库（使用SSH协议需要配置SSH免密登录）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -u：指定默认远端仓库别名，下一次推送只需使用git push&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# origin：远端仓库的别名（默认origin）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# master：分支名称&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;push 是可能会遇到报错：refusing to merge unrelated histories
+原因是远程仓库和本地仓库做了不同的改变并commit，导致本地仓库和远程仓库变成了独立的两个仓库，所以不能直接合并，执行以下命令合并代码，再push即可&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

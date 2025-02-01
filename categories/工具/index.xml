@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>工具 on Aaron Lin</title>
+    <link>https://aaronlinv.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on Aaron Lin</description>
+    <image>
+      <title>Aaron Lin</title>
+      <url>https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.142.0</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 04 Mar 2022 08:53:33 +0800</lastBuildDate>
+    <atom:link href="https://aaronlinv.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Postman 的 Environments 和 Tests 简化在不同环境中的切换步骤</title>
+      <link>https://aaronlinv.github.io/posts/%E4%BD%BF%E7%94%A8-postman-%E7%9A%84-environments-%E5%92%8C-tests-%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/</link>
+      <pubDate>Fri, 04 Mar 2022 08:53:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E4%BD%BF%E7%94%A8-postman-%E7%9A%84-environments-%E5%92%8C-tests-%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/</guid>
+      <description>&lt;p&gt;调试 API 的时候，我们需要经常需要在本地、开发、生产来回切换，还需要面临 Token 失效等的问题，让人头大，看到一些教程有介绍用 Postman 来简化流程，但是实践起来还是遇到一些问题，所以就有了这篇细致地介绍使用 Postman 的 &lt;code&gt;Environments&lt;/code&gt; 和 &lt;code&gt;Tests&lt;/code&gt; 来简化在不同环境中切换的步骤，无感知地调试 API 的博客&lt;/p&gt;
+&lt;h1 id=&#34;手动更新-token&#34;&gt;手动更新 Token&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;在 &lt;code&gt;Environments&lt;/code&gt; 面板中 &lt;code&gt;new&lt;/code&gt; 一个新的 &lt;code&gt;Environment&lt;/code&gt; (环境)，用于存储当前环境的：Token、地址、用户名、密码，需要先填上地址、用户名、密码的 &lt;code&gt;CURRENT VALUE&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;%E4%BD%BF%E7%94%A8Postman%E7%9A%84Environments%E5%92%8CTests%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/1929786-20220303220102144-1179572122.png&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;在 &lt;code&gt;Collections&lt;/code&gt; 中添加一个新的 &lt;code&gt;Collection&lt;/code&gt;（集合），名字为 Demo，点击右键选择 &lt;code&gt;Add Request&lt;/code&gt; 添加一个获取 Token 的 Request。注意右上角的 Environment 需要选择刚才定义的，这样才可以通过 &lt;code&gt;{{}}&lt;/code&gt; 获取到 Environment 中变量的值。这里的 base URL、账号、密码都可以根据实际请求的情况进行设置&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;%E4%BD%BF%E7%94%A8Postman%E7%9A%84Environments%E5%92%8CTests%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/1929786-20220303220109252-1239737981.png&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;编写这个 &lt;code&gt;Request&lt;/code&gt; 的 &lt;code&gt;Test&lt;/code&gt;（Test会在请求执行后自动运行），编写 &lt;code&gt;Test&lt;/code&gt; 目的是为了在请求后自动更新当前 Environment 的 Token，写完就点击 &lt;code&gt;Send&lt;/code&gt; 发送请求。点击右上角的眼睛，可以快速查看当前 Environment 变量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;%E4%BD%BF%E7%94%A8Postman%E7%9A%84Environments%E5%92%8CTests%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/1929786-20220303220124010-2012060462.png&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 判断相应的状态码是否为 200
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Status code is 200&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;have&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 更新当前 Environment 的 Token
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;token&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;token&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;token&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;token&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;使用-request&#34;&gt;使用 Request&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;调用获取 Token 的 &lt;code&gt;Request&lt;/code&gt;，更新全局 Token&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

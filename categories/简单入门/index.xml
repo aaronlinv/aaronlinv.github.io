@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>简单入门 on Aaron Lin</title>
+    <link>https://aaronlinv.github.io/categories/%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</link>
+    <description>Recent content in 简单入门 on Aaron Lin</description>
+    <image>
+      <title>Aaron Lin</title>
+      <url>https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.142.0</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Jan 2022 09:08:33 +0800</lastBuildDate>
+    <atom:link href="https://aaronlinv.github.io/categories/%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>简单的 Shell 脚本入门教程</title>
+      <link>https://aaronlinv.github.io/posts/%E7%AE%80%E5%8D%95%E7%9A%84-shell-%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Wed, 05 Jan 2022 09:08:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E7%AE%80%E5%8D%95%E7%9A%84-shell-%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</guid>
+      <description>&lt;p&gt;Shell脚本 运作方式与解释型语言相当，如果有语言基础，学起 Shell 脚本就非常容易，但是 Shell 与常见的语言不同，一些常见的函数在 Shell 中需要组合一些命令得以实现&lt;/p&gt;
+&lt;h1 id=&#34;工具推荐&#34;&gt;工具推荐&lt;/h1&gt;
+&lt;p&gt;Shell 似乎没有定制的 IDE，这里推荐 VS Code 搭配对应的插件：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;shellman 智能提示和自动补全，在插件页面有介绍常用代码片段的触发关键词，作者在 &lt;a href=&#34;https://medium.com/@remisa.yousefvand/shellman-reborn-f2cc948ce3fc&#34;&gt;Shellman reborn&lt;/a&gt; 中写到了 Shellman 诞生的故事，挺有趣的&lt;/li&gt;
+&lt;li&gt;shellcheck 语法静态检查工具，插件安装后需要本地安装 shellcheck，参考 &lt;a href=&#34;https://github.com/koalaman/shellcheck#installing&#34;&gt;shellcheck Installing&lt;/a&gt;，Mac OS 可以使用 &lt;code&gt;brew install shellcheck&lt;/code&gt;，这样在写 Shell 的时候，语法有误的地方就会以波浪线的方式提示&lt;/li&gt;
+&lt;li&gt;shell-format 代码整理，Win 快捷键：Alt + Shift + F，Mac OS 快捷键：option + shift + F&lt;/li&gt;
+&lt;li&gt;Code Runner 脚本运行，右键 &lt;code&gt;Run Code&lt;/code&gt;，Win 快捷键：Ctrl + Alt + N，Mac OS 快捷键：control + option + N&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;运行-shell-脚本&#34;&gt;运行 shell 脚本&lt;/h1&gt;
+&lt;p&gt;新建脚本：&lt;code&gt;test.sh&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 使用echo 打印字符串或者变量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;hello world&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以用 Code Runner 运行，就会输出：&lt;code&gt;hello world&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>简单的 Go 入门教程</title>
+      <link>https://aaronlinv.github.io/posts/%E7%AE%80%E5%8D%95%E7%9A%84-go-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Mon, 18 Oct 2021 09:10:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E7%AE%80%E5%8D%95%E7%9A%84-go-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</guid>
+      <description>&lt;p&gt;Go（又称 Golang ）是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言&lt;/p&gt;
+&lt;p&gt;Docker 和 Kubernetes 都是使用 Go 进行开发的，这几年 Go 越来越流行，生态也越来越好了&lt;/p&gt;
+&lt;p&gt;初学 Go 的时候会遇到了一些小问题，在一些教程中没有提及或者因为时效性的缘故，经常需要查阅很多资料才能弄懂，所以想写一篇比较新人视角的文章帮助大家入门&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;Go 的官网就是 &lt;a href=&#34;https://golang.org/&#34;&gt;golang.org&lt;/a&gt;，点击首页的 &lt;a href=&#34;https://golang.org/dl/&#34;&gt;Download Go&lt;/a&gt; 就可以跳转到下载页面，然后下载对应操作系统的 Go，如果国内访问缓慢，可以访问镜像站：&lt;a href=&#34;https://golang.google.cn/&#34;&gt;golang.google.cn&lt;/a&gt;，官方安装教程：&lt;a href=&#34;https://golang.org/doc/install&#34;&gt;Download and install&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Windows 只要下载对应的 msi 文件，然后打开后按照提示基本上就是下一步下一步&amp;hellip; 具体可以参考这篇博客：&lt;a href=&#34;https://www.cnblogs.com/Can-daydayup/p/15177665.html&#34;&gt;Windows Go 开发环境下载、安装并配置&lt;/a&gt;，安装完成后 Windows 需要 Win键 + R键，然后输入 &lt;code&gt;cmd&lt;/code&gt;，输入 &lt;code&gt;go version&lt;/code&gt;，显示版本号就说明安装完成&lt;/p&gt;
+&lt;h2 id=&#34;goproxy&#34;&gt;GOPROXY&lt;/h2&gt;
+&lt;p&gt;国内下载依赖库会比较缓慢，所有我们需要配置 Go Proxy 加速依赖下载（有点像 Java 中修改 Maven 镜像仓库），这里镜像源使用 &lt;a href=&#34;https://goproxy.cn&#34;&gt;七牛云&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go env -w &lt;span class=&#34;nv&#34;&gt;GOPROXY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;https://goproxy.cn,direct
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也可以通过 &lt;code&gt;go env&lt;/code&gt; 查看所有的 Go 环境变量，其中就包括 GOPROXY，这个变量定义的就是配置 Go 镜像&lt;/p&gt;
+&lt;h2 id=&#34;hello-world&#34;&gt;Hello World&lt;/h2&gt;
+&lt;p&gt;推荐使用 JetBrains 家的 &lt;a href=&#34;https://www.jetbrains.com/go/&#34;&gt;GoLand&lt;/a&gt;，使用体验基本和 JetBrains 家的其他软件例如：IDEA、PyCharm 相似，还有一种也比较主流，就是使用 VSCode 配合 Go 插件，可以参考：&lt;a href=&#34;https://zhuanlan.zhihu.com/p/320343679&#34;&gt;VsCode Go插件配置最佳实践指南&lt;/a&gt;，相对来说需要比较多的配置，而且调试比较麻烦，对于新手不是很友好&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -11,8 +11,343 @@
     </image>
     <generator>Hugo -- 0.142.0</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Nov 2022 08:32:33 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 15 May 2024 08:56:33 +0800</lastBuildDate>
     <atom:link href="https://aaronlinv.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>为什么 AI 时代更应该 Learn in Public</title>
+      <link>https://aaronlinv.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88-ai-%E6%97%B6%E4%BB%A3%E6%9B%B4%E5%BA%94%E8%AF%A5-learn-in-public/</link>
+      <pubDate>Wed, 15 May 2024 08:56:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88-ai-%E6%97%B6%E4%BB%A3%E6%9B%B4%E5%BA%94%E8%AF%A5-learn-in-public/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;Learn in Public 强调将学习到的知识 &lt;strong&gt;分享到公共空间&lt;/strong&gt;，相较于纯输入式的学习有诸多好处。AI 工具极大降低了信息检索、整理、概括的门槛，使得输入信息更容易，但对我们真正掌握知识的帮助仍然有限，所以我们更需践行要像 Learn in Public 这样能提供 &lt;strong&gt;有效输出&lt;/strong&gt; 的学习方式&lt;/p&gt;
+&lt;p&gt;AI 工具大大降低了信息检索、整理和概括的门槛，使得获取信息更加便捷，但对我们真正掌握知识的帮助仍然有限。因此我们更需要践行像 Learn in Public 这样重视 &lt;strong&gt;有效输出&lt;/strong&gt; 的学习方式&lt;/p&gt;
+&lt;h2 id=&#34;为什么会想到这个话题&#34;&gt;为什么会想到这个话题&lt;/h2&gt;
+&lt;p&gt;偶然间看到 &lt;a href=&#34;https://twitter.com/OwenYoungZh/status/1775977873301713157&#34;&gt;Owen&lt;/a&gt; 发的贴子：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;看到一个说法：笔记是一种无限游戏，没有结果，只有过程；而博客是一种有限游戏，因为它产出了完成的作品：博文。这说明我们不能当一个完美主义者，只在脑海或草稿箱中保留想法，我们应该尽可能完成作品，公开它，然后不断的练习这个过程。&lt;/p&gt;
+&lt;p&gt;我更坚定那个想法了：做一个默认设计为公开的笔记软件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;看到这个贴子，马上联想到了 &lt;strong&gt;Learn in Public&lt;/strong&gt; 这个概念，开始思考自己的这些年记笔记的方式，意识到了原来的方式可能存在一些问题，于是开始尝试践行 Learn in Public，将自己学习的一些东西写成博客、用学到的知识做一个有意义的产品等等。经过了这段时间的实践，再结合上自己日常使用 AI 的一些感受和想法，很自然地就想到了这个话题&lt;/p&gt;
+&lt;h2 id=&#34;什么是-learn-in-public&#34;&gt;什么是 Learn In Public&lt;/h2&gt;
+&lt;p&gt;在 swyx 发布 &lt;a href=&#34;https://www.swyx.io/learn-in-public&#34;&gt;Learn In Public&lt;/a&gt; 后，这个概念变得更加流行。Learn in Public 强调的是 &lt;strong&gt;将学到的东西分享到公共空间&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;常见的 Learn In Public 的方式，例如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;撰写博客、教程&lt;/li&gt;
+&lt;li&gt;在会议上发言&lt;/li&gt;
+&lt;li&gt;在问答社区提问或者回答&lt;/li&gt;
+&lt;li&gt;制作并发布视频&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;与之相对的 Learn in Private 侧重的是 &lt;strong&gt;消费内容&lt;/strong&gt;，例如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;个人笔记&lt;/li&gt;
+&lt;li&gt;阅读书籍&lt;/li&gt;
+&lt;li&gt;阅读源码&lt;/li&gt;
+&lt;li&gt;订阅 GitHub 的 Repos 和 Issues，观察其他的人实践&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;为什么需要-learn-in-public&#34;&gt;为什么需要 Learn in Public&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Learn in Public 是一个输出的过程，促进知识的整理、理解、求证，帮助我们拓宽对某些 &lt;strong&gt;知识理解的边界&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;公共空间能提供 &lt;strong&gt;反馈&lt;/strong&gt;，反馈可以产生激励、也可以修正我们努力的方向&lt;/li&gt;
+&lt;li&gt;有助于 &lt;strong&gt;筛选&lt;/strong&gt; 所要学习的东西，Learn In Public 会花费大量精力，它能促使我们评估即将学习的内容是否值得&lt;/li&gt;
+&lt;li&gt;对抗完美主义，先有产出，走出第一步再根据反馈 &lt;strong&gt;持续迭代&lt;/strong&gt;，而不是止步不前&lt;/li&gt;
+&lt;li&gt;很多的知识都来自 Public ，所以没有什么好藏着掖着，大部分的成果可能都是站在巨人的肩膀上&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;为什么-ai-时代更应该-learn-in-public&#34;&gt;为什么 AI 时代更应该 Learn in Public&lt;/h2&gt;
+&lt;p&gt;在 AI 的推动下，知识获取已经实现了质的飞跃，但对我们真正掌握知识的帮助仍然有限，所以我们更应该 Learn in Public，做更多的 &lt;strong&gt;有效输出&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>理解前端工程化</title>
+      <link>https://aaronlinv.github.io/posts/%E7%90%86%E8%A7%A3%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</link>
+      <pubDate>Sun, 28 Apr 2024 08:58:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E7%90%86%E8%A7%A3%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</guid>
+      <description>&lt;p&gt;最初对前端的观感：眼花缭乱，各种各样的工具链以及其对应的配置文件、VS Code 插件，各种技术百家争鸣，选择众多。后来才理解前端不同于后端，后端代码的运行环境相对可控，而前端代码运行在用户设备上，所以需要兼容不同的环境，而很大一部分的工具、配置都是解决兼容性的问题&lt;/p&gt;
+&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;工程化的目的：降低开发成本提高开发效率
+方式：解决前端三大件（HTML, CSS, JS）存在的问题并对其进行增强，JS 通过 &lt;code&gt;Babel&lt;/code&gt; 而 CSS 可以通过 &lt;code&gt;Sass&lt;/code&gt;, &lt;code&gt;Less&lt;/code&gt;, &lt;code&gt;PostCSS&lt;/code&gt;  等工具实现进行增强，并且保证输出向后兼容的的 JS 或 CSS 代码&lt;/p&gt;
+&lt;h2 id=&#34;模块化包管理&#34;&gt;模块化、包管理&lt;/h2&gt;
+&lt;p&gt;分解聚合：拆分复杂任务，降低复杂度（分而治之）&lt;/p&gt;
+&lt;p&gt;模块化解决 &lt;strong&gt;问题&lt;/strong&gt;：1. 全局污染 2. 依赖管理 等等
+JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;CommonJS&lt;/code&gt; （Node 标准）2. &lt;code&gt;ES modules&lt;/code&gt;（JavaScript 官方标准模块化方案）
+&lt;strong&gt;实现&lt;/strong&gt;：1. 浏览器只支持 ESM 2. Node 和 构建工具 上面两种标准都支持&lt;/p&gt;
+&lt;p&gt;包 (package) 管理：npm（Node.js的标准包管理器），还有其他的 pnpm 和 yarn 等&lt;/p&gt;
+&lt;h2 id=&#34;js-工具链&#34;&gt;JS 工具链&lt;/h2&gt;
+&lt;p&gt;JS 语言本身一直都在繁荣地发展，经常出现新的 API 和 语言特性，但是用户的运行环境（浏览器、Node等）的版本可能是五花八门的，可能会导致报错、兼容性等的问题，所以最朴素的解决方式就是把 JS 都&lt;strong&gt;转换&lt;/strong&gt;为向后兼容的老版本 JS 代码。前端的运行环境更多的是在&lt;strong&gt;用户&lt;/strong&gt;这边，这点不同于后端能比较自由地调整服务器运行环境，这可能就是前端缝缝补补的原因吧，修补主要有的方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;新 API：使用 Polyfill（填充物），为其实现缺少的 API，例如 &lt;code&gt;core-js&lt;/code&gt; 库，就实现了 &lt;code&gt;Array&lt;/code&gt; 的 &lt;code&gt;flatMap&lt;/code&gt; 方法，这样在旧版本的 Node 环境，也可使用该方法&lt;/li&gt;
+&lt;li&gt;新语法：例如 &lt;code&gt;Promise&lt;/code&gt;，对于这样的语法糖，就无法直接为其编写方法，需要转换代码，有点类似翻译，通过 &lt;code&gt;regenerator&lt;/code&gt; 库可以将含有 &lt;code&gt;Promise&lt;/code&gt; 的代码转换为向后兼容的代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;有很多这样的库用于解决某个特定的兼容性问题，一个个导入很麻烦，所以就有了 &lt;a href=&#34;https://es6.ruanyifeng.com/#docs/intro#Babel-%E8%BD%AC%E7%A0%81%E5%99%A8&#34;&gt;Babel&lt;/a&gt;，可以通过 &lt;code&gt;Babel&lt;/code&gt; 的插件整合这些转换代码的库，需要安装对应的 &lt;code&gt;Babel&lt;/code&gt; 插件依赖 并在 &lt;code&gt;babel.config.js&lt;/code&gt; 中配置 &lt;code&gt;plugins&lt;/code&gt;。这样还是很麻烦，所以我们可以直接使用 &lt;code&gt;Babel&lt;/code&gt; 的预设，其中最常用的就是：&lt;code&gt;@babel/preset-env&lt;/code&gt;，安装依赖以后完成以下的 &lt;code&gt;babel.config.js&lt;/code&gt; 配置，即可开箱即用：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JavaScript 事件循环 动画演示</title>
+      <link>https://aaronlinv.github.io/posts/javascript-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF-%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/</link>
+      <pubDate>Wed, 17 Apr 2024 07:49:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/javascript-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF-%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/</guid>
+      <description>&lt;p&gt;在前端代码中很经常看到使用 &lt;code&gt;setTimeout(fn, 0)&lt;/code&gt;，如下面代码所示，乍一看很多余，但是移除了可能会出现一些奇奇怪怪的问题。要解释这个就需要理解 &lt;strong&gt;事件循环（Event Loop）&lt;/strong&gt;，下面会通过一些例子和动画来辅助理解事件循环&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;setTimeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;c1&#34;&gt;// 调用一些方法
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;为什么使用事件循环&#34;&gt;为什么使用事件循环&lt;/h2&gt;
+&lt;p&gt;JS 是单线程的（&lt;a href=&#34;https://www.reddit.com/r/node/comments/nqxelw/why_everyone_is_saying_that_js_is_single_threaded/&#34;&gt;浏览器和 Node则是多线程的&lt;/a&gt;），为了避免 &lt;strong&gt;渲染主线程&lt;/strong&gt; 阻塞，需要异步，&lt;strong&gt;事件循环&lt;/strong&gt; 是异步的实现方式&lt;/p&gt;
+&lt;p&gt;浏览器在一个渲染主线程中运行一个页面中的所有 JavaScript 脚本，以及呈现布局，回流，和垃圾回收。为了避免 &lt;strong&gt;同步&lt;/strong&gt; 的执行方式导致渲染主线程阻塞，使得页面卡死，所以浏览器采用异步的方式：渲染主线程将任务交给其他线程去处理，自身 &lt;strong&gt;立即结束&lt;/strong&gt; 任务的执行，转而执行后续代码，当其他线程完成时，将事先传递的回调函数包装成任务，加入到对应的消息队列的&lt;strong&gt;末尾&lt;/strong&gt;排队，等待渲染主线程调度执行&lt;/p&gt;
+&lt;p&gt;流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;渲染主线程执行全局 JS，需要异步的任务放到对应的队列，如果是 &lt;code&gt;setTimeout&lt;/code&gt; 则会有线程计时，到了指定时间会将任务放入 &lt;code&gt;延时队列&lt;/code&gt;（并非立即执行）&lt;/li&gt;
+&lt;li&gt;渲染主线程为空时，按队列的优先级依次选择队列（最先执行微队列的任务），依次按顺序执行各个队列的任务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;任务没有优先级，而消息队列有优先级，不同任务分属于不同队列：&lt;a href=&#34;https://html.spec.whatwg.org/multipage/webappapis.html#generic-task-sources&#34;&gt;参考 W3C 规范&lt;/a&gt;。&lt;a href=&#34;https://html.spec.whatwg.org/multipage/webappapis.html#perform-a-microtask-checkpoint&#34;&gt;微队列优先级最高&lt;/a&gt;，接着是交互队列然后才是延时队列&lt;/p&gt;
+&lt;p&gt;常见队列：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;微队列（microtask）：⽤户存放需要最快执⾏的任务，优先级「最⾼」，通过 &lt;code&gt;Promise.resolve().then()&lt;/code&gt; ⽴即把⼀个函数添加到微队列&lt;/li&gt;
+&lt;li&gt;交互队列：⽤于存放⽤户操作后产⽣的事件处理任务，优先级「⾼」&lt;/li&gt;
+&lt;li&gt;延时队列：⽤于存放计时器到达后的回调任务，优先级「中」&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;事件循环&#34;&gt;事件循环&lt;/h2&gt;
+&lt;p&gt;下面例子来自于：&lt;a href=&#34;https://ke.qq.com/course/5892689&#34;&gt;《WEB前端大师课》&lt;/a&gt;，大块的文字描述相对没那么直观，所以用 Keynote 做了 gif 方便理解（如果有更好的做 gif 的方式可以留言告诉我）&lt;/p&gt;
+&lt;h3 id=&#34;1-js阻碍页面渲染&#34;&gt;1. JS阻碍页面渲染&lt;/h3&gt;
+&lt;p&gt;JS 修改了 DOM 后，并不会马上显示在页面上，需要进行 &lt;strong&gt;绘制&lt;/strong&gt; 后才会显示页面变更&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;lang&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;初始h1&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;button&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;change&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;button&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;h1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;querySelector&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;h1&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;btn&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;querySelector&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;button&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;delay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;duration&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;start&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;start&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;duration&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nx&#34;&gt;btn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;onclick&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;h1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;textContent&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;修改h1 textContent&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;delay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;01绘制任务&#34; loading=&#34;lazy&#34; src=&#34;JavaScript%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E5%8A%A8%E7%94%BB%E6%BC%94%E7%A4%BA/1929786-20240416173932693-109077340.gif&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>如何弄懂复杂项目</title>
+      <link>https://aaronlinv.github.io/posts/%E5%A6%82%E4%BD%95%E5%BC%84%E6%87%82%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Sun, 07 Apr 2024 08:31:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E5%A6%82%E4%BD%95%E5%BC%84%E6%87%82%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;先跑起来，通过文档和实践熟悉业务流程&lt;/p&gt;
+&lt;p&gt;这一步可以通过&lt;a href=&#34;%5Bhttps://plantegg.github.io/2023/04/06/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E4%B8%8D%E5%8E%BB%E7%9C%8B%E6%96%87%E6%A1%A3/%5D(https://plantegg.github.io/2023/04/06/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E4%B8%8D%E5%8E%BB%E7%9C%8B%E6%96%87%E6%A1%A3/)&#34;&gt;看官方文档&lt;/a&gt;开始，要注意的是一些项目是 &lt;strong&gt;更新先于文档&lt;/strong&gt; 的，比如新版本启动方式有变更，但是文档还没更新。跟着文档不一定能把项目跑起来，需要借助 GitHub Issue 或者是 Slack 这样的工具以获取即时的帮助&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;看测试，通过测试了解流程&lt;/p&gt;
+&lt;p&gt;如果是开源项目，可以通过 &lt;a href=&#34;https://twitter.com/yihong0618/status/1621897825431990276&#34;&gt;GitHub Action 快速了解需要哪些依赖、如何快速运行测试&lt;/a&gt;，便于在本地运行测试，通过这些集成测试可以快速弄懂业务主线&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过 debug 高效快速地梳理流程&lt;/p&gt;
+&lt;p&gt;通过断点可以一步一步跟踪程序的运行，可以比较直观地看调用栈、变量等等的&lt;/p&gt;
+&lt;p&gt;对于一些无法本地调试的项目来说，我们可以退而求其次，断点它的测试，这也是一个很有效的方法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;画图：降低复杂度&lt;/p&gt;
+&lt;p&gt;很多项目会使用一些比较优雅的设计或是引入一些抽象层，这样代码读起来就会跳来跳去，层级深的话就很容把人给绕晕了&lt;/p&gt;
+&lt;p&gt;可以用 &lt;a href=&#34;http://draw.io&#34;&gt;draw.io&lt;/a&gt; 或者 &lt;a href=&#34;https://excalidraw.com/&#34;&gt;excalidraw&lt;/a&gt; 等工具，根据实际情况画一画 活动图、时序图等&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;提出具体的问题，带着问题看项目&lt;/p&gt;
+&lt;p&gt;如果只是盲目地看项目代码，可能看完还是一头雾水，但是如果能提出一个具体问题，或是带着一个需求去看，效果就会好得多&lt;/p&gt;
+&lt;p&gt;比如我提出问题：“某个任务在集群内是如何完成的？”，我可能会先去找到该任务的创建入口，然后顺藤摸瓜，找到任务的调度逻辑，顺着 &lt;a href=&#34;https://www.zhihu.com/question/398382396/answer/1254936358&#34;&gt;happy path&lt;/a&gt; 找到下发任务的逻辑，再找到 Woker 的处理逻辑，这样就能弄懂整个调度流程&lt;/p&gt;
+&lt;p&gt;最后如果能用 &lt;strong&gt;一句话&lt;/strong&gt; 回答提出的问题，那可能能说明你对这个问题涉及的知识已经有了一个比较好的理解&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;英语很重要&lt;/p&gt;
+&lt;p&gt;大多数项目的注释、日志等的都是英文，看懂这些能极大提高效率&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>IDEA （任意 JetBrains IDE）拆分先前 commit</title>
+      <link>https://aaronlinv.github.io/posts/idea-%E4%BB%BB%E6%84%8F-jetbrains-ide%E6%8B%86%E5%88%86%E5%85%88%E5%89%8D-commit/</link>
+      <pubDate>Wed, 27 Mar 2024 08:50:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/idea-%E4%BB%BB%E6%84%8F-jetbrains-ide%E6%8B%86%E5%88%86%E5%85%88%E5%89%8D-commit/</guid>
+      <description>&lt;p&gt;最近在合并上游代码，遇到了一个问题：某个 commit 杂糅了几个不同的特性修改，这可能会导致 rebase 上游代码时需要再对该 commit 进行额外的代码冲突处理&lt;/p&gt;
+&lt;p&gt;解决方法：合并上游分支前，拆分杂糅的 commit，并将其中不同的特性修改合并（Squash）回相关的 commit。可以直接通过命令行进行操作，可以参考：&lt;a href=&#34;https://stackoverflow.com/a/6217314&#34;&gt;Break a previous commit into multiple commits&lt;/a&gt;。也可以通过 JetBrains 家内置的 Git 进行操作，下面会介绍 IDEA 图形化操作的方法&lt;/p&gt;
+&lt;h2 id=&#34;非先前-commit-的拆分&#34;&gt;非先前 commit 的拆分&lt;/h2&gt;
+&lt;p&gt;对于刚提交的 commit，要拆分多个 commit 是非常容易的，因为我们只要 &lt;code&gt;soft reset&lt;/code&gt; commit，将 commit 内容撤销回至 &lt;code&gt;暂存区&lt;/code&gt;，就可以随意提交 commit&lt;/p&gt;
+&lt;p&gt;如果对于 &lt;code&gt;soft reset&lt;/code&gt; 不太了解，可以参考我之前的博客：&lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/16454183.html&#34;&gt;Git 中的回退操作：reset 和 revert &lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;先前-commit-的拆分&#34;&gt;先前 commit 的拆分&lt;/h2&gt;
+&lt;p&gt;先前 commit 指的是：在目标 commit 后已经有了若干个 commit。它无法直接通过 &lt;code&gt;soft reset&lt;/code&gt; 进行拆分，因为这样会丢失后续的 commit，如下图，我们需要拆分 &lt;code&gt;B&lt;/code&gt; commit，我们就无法直接使用 &lt;code&gt;soft reset&lt;/code&gt; ，因为这样会丢失 &lt;code&gt;C&lt;/code&gt; 和 &lt;code&gt;D&lt;/code&gt; commit 的修改&lt;/p&gt;
+&lt;p&gt;所以我们需要使用 rebase，具体步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在 交互式 (interactive) rebase 中将 &lt;code&gt;B&lt;/code&gt; 标记为 &lt;code&gt;edit&lt;/code&gt;，这时 &lt;code&gt;B&lt;/code&gt; 后面的 commit 会被暂时隐藏起来&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;soft reset&lt;/code&gt; 将 &lt;code&gt;B&lt;/code&gt; 撤销回 &lt;code&gt;暂存区&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;B&lt;/code&gt; 的修改内容分多个 commit 提交 &lt;code&gt;B1&lt;/code&gt; 和 &lt;code&gt;B2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;使用 rebase 的 &lt;code&gt;continue&lt;/code&gt; 将刚才隐藏的 &lt;code&gt;C&lt;/code&gt; 和 &lt;code&gt;D&lt;/code&gt; 恢复回来，需要注意的是：因为之前的 commit 记录已经改变了，所以这时的 &lt;code&gt;C&lt;/code&gt; 和 &lt;code&gt;D&lt;/code&gt; 已经与原来的 commit 记录不相同，故标记为 &lt;code&gt;C&#39;&lt;/code&gt; 和 &lt;code&gt;D&#39;&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;IDEA%EF%BC%88%E4%BB%BB%E6%84%8FJetBrainsIDE%EF%BC%89%E6%8B%86%E5%88%86%E5%85%88%E5%89%8Dcommit/1929786-20240406133647807-70803179.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SpringBoot 测试实践 - 3：@MockBean、@SpyBean 、提升测试运行速度、Testcontainer</title>
+      <link>https://aaronlinv.github.io/posts/springboot-%E6%B5%8B%E8%AF%95%E5%AE%9E%E8%B7%B5---3@mockbean@spybean-%E6%8F%90%E5%8D%87%E6%B5%8B%E8%AF%95%E8%BF%90%E8%A1%8C%E9%80%9F%E5%BA%A6testcontainer/</link>
+      <pubDate>Thu, 24 Aug 2023 08:40:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/springboot-%E6%B5%8B%E8%AF%95%E5%AE%9E%E8%B7%B5---3@mockbean@spybean-%E6%8F%90%E5%8D%87%E6%B5%8B%E8%AF%95%E8%BF%90%E8%A1%8C%E9%80%9F%E5%BA%A6testcontainer/</guid>
+      <description>&lt;p&gt;上一节：&lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/17645803.html&#34;&gt;SpringBoot 测试实践 - 2：单元测试与集成测试&lt;/a&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;hr&gt;
+&lt;p&gt;编写测试的时候，我们必须保证外部依赖行为一致，也需要模拟一些边界条件，所以我们需要使用 Mock 来模拟对象的行为。SpringBoot 提供了 &lt;code&gt;@MockBean&lt;/code&gt; 和 &lt;code&gt;@SpyBean&lt;/code&gt; 注解，可以方便地将模拟对象与 Spring 测试相结合，简化测试代码的编写&lt;/p&gt;
+&lt;h2 id=&#34;mockbean&#34;&gt;@MockBean&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;@MockBean&lt;/code&gt; 是 Spring Boot Test提供的注解，用于在 Spring Boot 测试中创建一个模拟的 Bean 实例，并注入到测试类中的依赖项中。使用 Mock 可以控制被 Mock 对象的行为：自定义返回值、抛出指定异常等，模拟各种可能的情况，提高测试的覆盖率&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@SpringBootTest&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@RunWith&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SpringRunner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MyServiceTest&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@MockBean&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExternalDependency&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;externalDependency&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@Autowired&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyService&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;myService&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@Test&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;testSomeMethod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 定义外部依赖的行为&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Mockito&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;externalDependency&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;someMethod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Mocked Result&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 调用被测试类的方法&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 被测方法内部调用了 ExternalDependency 的 someMethod 方法&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;myService&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;someMethod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 验证外部依赖的方法是否被调用&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Mockito&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;verify&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;externalDependency&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;someMethod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 断言结果&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;assertEquals&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Mocked Result&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;需要注意的是：使用了 &lt;code&gt;@MockBean&lt;/code&gt;，会创建完全模拟的对象，它&lt;strong&gt;完全替代&lt;/strong&gt;了被模拟的 Bean，并且所有方法的调用都被模拟。对于未指定行为的方法，返回值如果是基本类型则返回对应基本类型的默认值，如果是引用类型则返回 &lt;code&gt;null&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SpringBoot 测试实践 - 2：单元测试与集成测试</title>
+      <link>https://aaronlinv.github.io/posts/springboot-%E6%B5%8B%E8%AF%95%E5%AE%9E%E8%B7%B5---2%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B8%8E%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Tue, 22 Aug 2023 08:48:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/springboot-%E6%B5%8B%E8%AF%95%E5%AE%9E%E8%B7%B5---2%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B8%8E%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95/</guid>
+      <description>&lt;p&gt;上一节：&lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/17645009.html&#34;&gt;SpringBoot 测试实践 - 1：常用的工具&lt;/a&gt;
+下一节：&lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/17652720.html&#34;&gt;SpringBoot 测试实践 - 3：@MockBean、@SpyBean 、提升测试运行速度、Testcontainer&lt;/a&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;单元测试-vs-集成测试&#34;&gt;单元测试 vs. 集成测试&lt;/h2&gt;
+&lt;p&gt;只编写单测，无法测试方法之间的集成情况，而且某些需求可能会修改多个方法，这可能会影响方法对应的单测，涉及到大量的相关单测的修改，这样的维护成本很高&lt;/p&gt;
+&lt;p&gt;可以把重心放在完善集成测试上，专注从外部判断程序是否符合预期。对于一些非常重要的方法，增加单元测试可以减轻集成测试排查错误的难度&lt;/p&gt;
+&lt;p&gt;先导知识可以参考上一节：&lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/17645009.html&#34;&gt;SpringBoot 测试实践 - 1：常用的工具&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;springboottest-和-mockmvc-进行集成测试&#34;&gt;SpringBootTest 和 MockMvc 进行集成测试&lt;/h2&gt;
+&lt;p&gt;从 &lt;a href=&#34;https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.1-Release-Notes#junit-5&#34;&gt;Spring Boot 2.1&lt;/a&gt; 开始 &lt;code&gt;@ExtendWith({SpringExtension.class})&lt;/code&gt; 作为元注解包含在 Spring Boot 测试注解中，例如 @DataJpaTest、@WebMvcTest 和 @SpringBootTest，所以我们不用重复添加 &lt;code&gt;@ExtendWith({SpringExtension.class})&lt;/code&gt; 注解&lt;/p&gt;
+&lt;h3 id=&#34;helloworld-测试&#34;&gt;HelloWorld 测试&lt;/h3&gt;
+&lt;p&gt;使用 SpringBoot 一个简单的 HelloWorld 案例，通过 &lt;code&gt;@SpringBootTest&lt;/code&gt; 可以在测试环境中加载整个 Spring 应用程序上下文，&lt;code&gt;@SpringBootTest&lt;/code&gt; 注解会扫描应用程序的主配置类，并加载所有的 Bean（包括依赖的 Bean）到测试上下文中。这样，测试中就可以使用完整的 Spring 功能，包括依赖注入、AOP、事务管理等&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;@AutoConfigureMockMvc&lt;/code&gt; 自动配置 &lt;code&gt;MockMvc&lt;/code&gt;，通过 &lt;code&gt;MockMvc&lt;/code&gt; 可以模拟 HTTP 请求，并对响应的结果进行断言和验证&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;org.junit.jupiter.api.Test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;org.springframework.beans.factory.annotation.Autowired&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;org.springframework.boot.test.context.SpringBootTest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;org.springframework.http.MediaType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;org.springframework.test.web.servlet.MockMvc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;org.springframework.test.web.servlet.request.MockMvcRequestBuilders&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;org.springframework.test.web.servlet.result.MockMvcResultMatchers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@AutoConfigureMockMvc&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@SpringBootTest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;webEnvironment&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SpringBootTest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;WebEnvironment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;RANDOM_PORT&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MySpringBootTest&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@Autowired&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MockMvc&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mockMvc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 注入 MockMvc&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@Test&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;testHelloWorld&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Exception&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 发送 GET 请求&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mockMvc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;perform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MockMvcRequestBuilders&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/hello&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 设置请求头&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;accept&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MediaType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;APPLICATION_JSON&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 验证响应状态码&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;andExpect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MockMvcResultMatchers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isOk&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 验证响应内容&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;andExpect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MockMvcResultMatchers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;content&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;涉及数据层的测试h2&#34;&gt;涉及数据层的测试：H2&lt;/h3&gt;
+&lt;p&gt;部分操作涉及到数据库，一般都会引入数据层的依赖，在对应的 HTTP 请求后，对响应体和数据库数据进行断言和验证，就像下面这样：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SpringBoot 测试实践 - 1：常用的工具</title>
+      <link>https://aaronlinv.github.io/posts/springboot-%E6%B5%8B%E8%AF%95%E5%AE%9E%E8%B7%B5---1%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Mon, 21 Aug 2023 09:00:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/springboot-%E6%B5%8B%E8%AF%95%E5%AE%9E%E8%B7%B5---1%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7/</guid>
+      <description>&lt;p&gt;下一节：&lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/17645803.html&#34;&gt;SpringBoot 测试实践 - 2：单元测试与集成测试&lt;/a&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;hr&gt;
+&lt;p&gt;我自己接触到的一些商业或是开源的基于 SpringBoot 项目，它们大部分是没有测试代码的，&lt;code&gt;test&lt;/code&gt; 文件夹只有脚手架初始化生成的那个测试类，跟不同的开发聊到这个话题，发现他们中的大部分没有写测试的习惯，或者是觉得写测试代码麻烦，主要还是依赖测试工程师做黑盒的测试。只做黑盒测试的话有一定的的局限性，一些边界的条件可能就覆盖不到，而且相对来说人也比较容易出错、遗漏。而测试代码能解决其中很大一部分的问题，利用好单元测试和集成测试在某些情况下相对于直接通过 UI 进行测试是要更方便、节省时间的，所以想通过几篇博客来分享一下自己的测试实践&lt;/p&gt;
+&lt;h2 id=&#34;为什么要写测试优点&#34;&gt;为什么要写测试（优点）&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;覆盖更多的边界条件，且随时都可以运行测试代码（一劳永逸）&lt;/li&gt;
+&lt;li&gt;缩小测试范围：测试某个方法只需要运行对应的测试代码，而不需要运行整个项目通过请求接口进行测试&lt;/li&gt;
+&lt;li&gt;对重构更友好，可以随时重构有集成测试的代码，不用担心打破原有的代码&lt;/li&gt;
+&lt;li&gt;其他人也可以通过测试快速地理清楚对应被测代码的主线逻辑（类似文档的作用，特别是复杂代码，通过测试能快速理解上手）&lt;/li&gt;
+&lt;li&gt;写测试的过程，给自己一个新的视角去审视代码结构的设计，有助于改善代码设计&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;当然代码方式的测试也并非完美无缺：测试代码增加编写和维护的成本，同时一些外部依赖也需要通过 Mock 的方式实现，这些都提高了整个测试编写的门槛。也倒逼我们思考更好地组织代码，减少依赖&lt;/p&gt;
+&lt;p&gt;另一个方面：测试对于重构也是至关重要的，随着对业务的理解越来越深刻，可以重构代码，抽象出了一些共性的逻辑，优化代码结构，但是如果没有相关测试，面对着旧代码就只能望而却步了&lt;/p&gt;
+&lt;h2 id=&#34;测试工具junit-5-assertjmockito&#34;&gt;测试工具：JUnit 5, AssertJ，Mockito&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;spring-boot-starter-test&lt;/code&gt; 自带常用的测试工具：&lt;code&gt;JUnit5&lt;/code&gt;、&lt;code&gt;Assertj&lt;/code&gt;、&lt;code&gt;Mockito&lt;/code&gt;，可以直接使用&lt;/p&gt;
+&lt;h3 id=&#34;junit5&#34;&gt;JUnit5&lt;/h3&gt;
+&lt;p&gt;Junit 5 包含：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;JUnit Platform：Test Engine&lt;/li&gt;
+&lt;li&gt;Jupiter：编程模型和拓展模型&lt;/li&gt;
+&lt;li&gt;Vintage：兼容老版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;JUnit 4 和 5 使用的包有所不同&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// JUnit 4&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;org.junit.Test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;org.junit.Assert.assertEquals&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// JUnit 5&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;org.junit.jupiter.api.Test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;org.junit.jupiter.api.Assertions.assertEquals&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果不考虑兼容 JUnit 4 的测试，我们可以直接在依赖中直接排除 JUnit 4 的依赖，这样也可以避免在使用的时候错误地引入 JUnit 4 的包&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>快速重拾 Tmux</title>
+      <link>https://aaronlinv.github.io/posts/%E5%BF%AB%E9%80%9F%E9%87%8D%E6%8B%BE-tmux-/</link>
+      <pubDate>Thu, 13 Apr 2023 08:43:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E5%BF%AB%E9%80%9F%E9%87%8D%E6%8B%BE-tmux-/</guid>
+      <description>&lt;p&gt;&lt;code&gt;Tmux&lt;/code&gt; 是一个 Linux （Mac OS也支持）下的终端复用器，相较于 &lt;code&gt;Screen&lt;/code&gt; 更为强大，但快捷键和操作逻辑也更复杂，一段时间不用，就很容易忘记相关的命令和快捷键。本文旨在通过一个简单的场景，快速重拾 Tmux&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Tmux&lt;/code&gt; 通常用来保持会话（session），如果我们通过 ssh 连接服务器处理打包等的耗时操作，那么网络波动可能会导致连接断开，使得操作失败，使用 &lt;code&gt;Tmux&lt;/code&gt; 会话会被保持，任务依然会继续，我们可以随时恢复会话&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Tmux&lt;/code&gt; 另一个常用的功能是分屏，快速地创建 &lt;code&gt;Window&lt;/code&gt; 和 &lt;code&gt;Pane&lt;/code&gt;，方便地在不同的任务间穿梭&lt;/p&gt;
+&lt;h2 id=&#34;修改配置&#34;&gt;修改配置&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim ~/.tmux.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 将默认修饰键（prefix） ctrl + b 修改：ctrl + a&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g prefix C-a
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;unbind C-b
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;bind&lt;/span&gt; C-a send-prefix
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 激活鼠标模式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;set-option -g -q mouse on
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 修改分屏快捷键&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 左右分屏&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;bind&lt;/span&gt; h split-window -h
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 上下分屏&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;bind&lt;/span&gt; v split-window -v
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 可以取消默认的分屏快捷键映射&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# unbind &amp;#39;&amp;#34;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# unbind %&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 将 tmux 的复制模式键绑定设置为 vi 模式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;setw -g mode-keys vi
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# windows 和 panes 的序号从 1 开始 &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g base-index &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;setw -g pane-base-index &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重新加载 Tmux 配置文件&lt;/p&gt;</description>
+    </item>
     <item>
       <title>32 位计算机时间戳溢出的思考 —— 整数的二进制表示</title>
       <link>https://aaronlinv.github.io/posts/32-%E4%BD%8D%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%97%B6%E9%97%B4%E6%88%B3%E6%BA%A2%E5%87%BA%E7%9A%84%E6%80%9D%E8%80%83--%E6%95%B4%E6%95%B0%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA/</link>
@@ -48,6 +383,782 @@
 &lt;h2 id=&#34;原码反码补码&#34;&gt;原码、反码、补码&lt;/h2&gt;
 &lt;p&gt;计算机底层是通过二进制的方式存储整数，两者转换可以参考文章：&lt;a href=&#34;https://zhuanlan.zhihu.com/p/75291280&#34;&gt;二进制和十进制之间的互相转换&lt;/a&gt;，除了整数的大小，还需要存储的是整数的正负，一般首位（最高位）用于存储正负，0 代表该整数为正数，1 代表该数为负数，将一个整数对应的二进制数转化为计算机存储的二进制数，这个变换就是《数字逻辑电路》里面经常提到的原码、反码、补码转化。注意：正数和 0 的原码、反码、补码相同，负数则需要转换&lt;/p&gt;
 &lt;p&gt;我们回顾一下，以 4 位二进制表示的整数举例：0 的原反补码都是 &lt;code&gt;0000&lt;/code&gt;，1 的原反补码都是 &lt;code&gt;0001&lt;/code&gt;，而 -1 该如何表示呢？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git 中的回退操作：reset 和 revert</title>
+      <link>https://aaronlinv.github.io/posts/git-%E4%B8%AD%E7%9A%84%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9Creset-%E5%92%8C-revert/</link>
+      <pubDate>Fri, 08 Jul 2022 08:36:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/git-%E4%B8%AD%E7%9A%84%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9Creset-%E5%92%8C-revert/</guid>
+      <description>&lt;p&gt;Git 中回退有 &lt;code&gt;reset&lt;/code&gt; 和 &lt;code&gt;revert&lt;/code&gt;，这两个的区别就是是否保留更改记录&lt;/p&gt;
+&lt;p&gt;假设当前的提交情况是：&lt;code&gt;A &amp;lt;- B &amp;lt;- C &amp;lt;- D &amp;lt;- HEAD&lt;/code&gt;，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;Git%E4%B8%AD%E7%9A%84%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9C%EF%BC%9Areset%E5%92%8Crevert/1929786-20220707135502142-725016820.png&#34;&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;当前是 &lt;code&gt;D&lt;/code&gt;，希望回退到 &lt;code&gt;A&lt;/code&gt;，那我们可以使用 &lt;code&gt;reset&lt;/code&gt; 命令，reset 后再看 git log 就会发现：&lt;code&gt;B &amp;lt;- C &amp;lt;- D&lt;/code&gt; 宛如没有出现过，这适用于想完全舍弃 &lt;code&gt;A&lt;/code&gt; 之后的修改&lt;/p&gt;
+&lt;p&gt;但是如果我们想保留 &lt;code&gt;B &amp;lt;- C &amp;lt;- D&lt;/code&gt; 的修改记录，可能这三个 commit 的功能只是暂时用不到，以后可能还用到，或者可能当前分支是一个公共分支，&lt;code&gt;B &amp;lt;- C &amp;lt;- D&lt;/code&gt; 可能已经被同步到了其他小伙伴电脑上，为了尽量避免代码冲突。这些情况就需要使用 &lt;code&gt;revert&lt;/code&gt; 命令，这样会重新生成新的 commit，其中包含回退的记录（假设 &lt;code&gt;D&lt;/code&gt; 这个 commit 是添加了一些代码，那么 revert &lt;code&gt;D&lt;/code&gt; 的 commit 就是删除这些代码）&lt;/p&gt;
+&lt;h2 id=&#34;reset&#34;&gt;reset&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;git reset A&lt;/code&gt; ，reset 会修改 head 的指向，这样可以回滚到 &lt;code&gt;A&lt;/code&gt;，默认使用的参数是 &lt;code&gt;--mixed&lt;/code&gt;，这个参数决定了 &lt;code&gt;reset&lt;/code&gt; 时 Git 该如何处理工作区和暂存区&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>安卓导航抽屉 Navigation Drawer 实现沉浸通知栏</title>
+      <link>https://aaronlinv.github.io/posts/%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89-navigation-drawer-%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/</link>
+      <pubDate>Tue, 10 May 2022 09:08:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89-navigation-drawer-%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/</guid>
+      <description>&lt;p&gt;在使用 Navigation Drawer Activity 模版的时候，遇到了通知栏无法完全沉浸的问题，尝试搜索一些现有的解决方法，但是或多或少都会存在一些问题，通过反复尝试找到找到了一种比较靠谱的思路&lt;/p&gt;
+&lt;h2 id=&#34;环境&#34;&gt;环境&lt;/h2&gt;
+&lt;p&gt;测试模拟器：Pixel 3A&lt;/p&gt;
+&lt;p&gt;compileSdk：32&lt;/p&gt;
+&lt;p&gt;minSdk：28&lt;/p&gt;
+&lt;p&gt;targetSdk：32&lt;/p&gt;
+&lt;h3 id=&#34;创建工程&#34;&gt;创建工程&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210514734-1960395499.png&#34;&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210525579-2009840573.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;默认效果展示&#34;&gt;默认效果展示：&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210614755-1486958964.png&#34;&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210619669-753508730.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;修改步骤&#34;&gt;修改步骤&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;设置状态栏变为透明：修改主题配置&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; &amp;lt;item name=&amp;#34;android:statusBarColor&amp;#34; tools:targetApi=&amp;#34;l&amp;#34;&amp;gt;?attr/colorPrimaryVariant&amp;lt;/item&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;修改为：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;item name=&amp;#34;android:statusBarColor&amp;#34;&amp;gt;@android:color/transparent&amp;lt;/item&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;修改后完整文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;resources&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;lt;!-- Base application theme. --&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;lt;style name=&amp;#34;Theme.MyApplication&amp;#34; parent=&amp;#34;Theme.MaterialComponents.DayNight.DarkActionBar&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &amp;lt;!-- Primary brand color. --&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &amp;lt;item name=&amp;#34;colorPrimary&amp;#34;&amp;gt;@color/purple_500&amp;lt;/item&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &amp;lt;item name=&amp;#34;colorPrimaryVariant&amp;#34;&amp;gt;@color/purple_700&amp;lt;/item&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &amp;lt;item name=&amp;#34;colorOnPrimary&amp;#34;&amp;gt;@color/white&amp;lt;/item&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &amp;lt;!-- Secondary brand color. --&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &amp;lt;item name=&amp;#34;colorSecondary&amp;#34;&amp;gt;@color/teal_200&amp;lt;/item&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &amp;lt;item name=&amp;#34;colorSecondaryVariant&amp;#34;&amp;gt;@color/teal_700&amp;lt;/item&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &amp;lt;item name=&amp;#34;colorOnSecondary&amp;#34;&amp;gt;@color/black&amp;lt;/item&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &amp;lt;!-- Status bar color. --&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gi&#34;&gt;+       &amp;lt;item name=&amp;#34;android:statusBarColor&amp;#34;&amp;gt;@android:color/transparent&amp;lt;/item&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gi&#34;&gt;&lt;/span&gt;        &amp;lt;!-- Customize your theme here. --&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;lt;/style&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;lt;style name=&amp;#34;Theme.MyApplication.NoActionBar&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &amp;lt;item name=&amp;#34;windowActionBar&amp;#34;&amp;gt;false&amp;lt;/item&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &amp;lt;item name=&amp;#34;windowNoTitle&amp;#34;&amp;gt;true&amp;lt;/item&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;lt;/style&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;lt;style name=&amp;#34;Theme.MyApplication.AppBarOverlay&amp;#34; parent=&amp;#34;ThemeOverlay.AppCompat.Dark.ActionBar&amp;#34; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;lt;style name=&amp;#34;Theme.MyApplication.PopupOverlay&amp;#34; parent=&amp;#34;ThemeOverlay.AppCompat.Light&amp;#34; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;/resources&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改后的效果：
+&lt;img loading=&#34;lazy&#34; src=&#34;%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210630970-1651493127.png&#34;&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89NavigationDrawer%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/1929786-20220509210636209-924413269.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用 Postman 的 Environments 和 Tests 简化在不同环境中的切换步骤</title>
+      <link>https://aaronlinv.github.io/posts/%E4%BD%BF%E7%94%A8-postman-%E7%9A%84-environments-%E5%92%8C-tests-%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/</link>
+      <pubDate>Fri, 04 Mar 2022 08:53:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E4%BD%BF%E7%94%A8-postman-%E7%9A%84-environments-%E5%92%8C-tests-%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/</guid>
+      <description>&lt;p&gt;调试 API 的时候，我们需要经常需要在本地、开发、生产来回切换，还需要面临 Token 失效等的问题，让人头大，看到一些教程有介绍用 Postman 来简化流程，但是实践起来还是遇到一些问题，所以就有了这篇细致地介绍使用 Postman 的 &lt;code&gt;Environments&lt;/code&gt; 和 &lt;code&gt;Tests&lt;/code&gt; 来简化在不同环境中切换的步骤，无感知地调试 API 的博客&lt;/p&gt;
+&lt;h1 id=&#34;手动更新-token&#34;&gt;手动更新 Token&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;在 &lt;code&gt;Environments&lt;/code&gt; 面板中 &lt;code&gt;new&lt;/code&gt; 一个新的 &lt;code&gt;Environment&lt;/code&gt; (环境)，用于存储当前环境的：Token、地址、用户名、密码，需要先填上地址、用户名、密码的 &lt;code&gt;CURRENT VALUE&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;%E4%BD%BF%E7%94%A8Postman%E7%9A%84Environments%E5%92%8CTests%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/1929786-20220303220102144-1179572122.png&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;在 &lt;code&gt;Collections&lt;/code&gt; 中添加一个新的 &lt;code&gt;Collection&lt;/code&gt;（集合），名字为 Demo，点击右键选择 &lt;code&gt;Add Request&lt;/code&gt; 添加一个获取 Token 的 Request。注意右上角的 Environment 需要选择刚才定义的，这样才可以通过 &lt;code&gt;{{}}&lt;/code&gt; 获取到 Environment 中变量的值。这里的 base URL、账号、密码都可以根据实际请求的情况进行设置&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;%E4%BD%BF%E7%94%A8Postman%E7%9A%84Environments%E5%92%8CTests%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/1929786-20220303220109252-1239737981.png&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;编写这个 &lt;code&gt;Request&lt;/code&gt; 的 &lt;code&gt;Test&lt;/code&gt;（Test会在请求执行后自动运行），编写 &lt;code&gt;Test&lt;/code&gt; 目的是为了在请求后自动更新当前 Environment 的 Token，写完就点击 &lt;code&gt;Send&lt;/code&gt; 发送请求。点击右上角的眼睛，可以快速查看当前 Environment 变量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;%E4%BD%BF%E7%94%A8Postman%E7%9A%84Environments%E5%92%8CTests%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/1929786-20220303220124010-2012060462.png&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 判断相应的状态码是否为 200
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Status code is 200&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;have&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 更新当前 Environment 的 Token
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;token&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;token&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;pm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;token&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;token&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;使用-request&#34;&gt;使用 Request&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;调用获取 Token 的 &lt;code&gt;Request&lt;/code&gt;，更新全局 Token&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>我的二本学生 阅读笔记</title>
+      <link>https://aaronlinv.github.io/posts/%E6%88%91%E7%9A%84%E4%BA%8C%E6%9C%AC%E5%AD%A6%E7%94%9F-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 25 Jan 2022 01:24:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E6%88%91%E7%9A%84%E4%BA%8C%E6%9C%AC%E5%AD%A6%E7%94%9F-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;第一次知道黄灯老师是在随机波动的播客：&lt;a href=&#34;https://c.y.qq.com/base/fcgi-bin/u?__=9u9ACce64MZb&#34;&gt;【随机波动025】一本二本的尽头是否都是就业零件？&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;后面又在软工教学群里看到了分享：&lt;a href=&#34;https://mp.weixin.qq.com/s/6CdkrPXAw8GuaqDf8CjXiQ&#34;&gt;专访《我的二本学生》作者黄灯：看见中国普通年轻人的命运&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;随后也看到了十三幺：&lt;a href=&#34;https://v.qq.com/x/cover/mzc002009opyj1s/c3315crtcue.html&#34;&gt;许知远对话黄灯 我和我的二本学生&lt;/a&gt;
+以及黄灯老师的演讲：&lt;a href=&#34;https://www.bilibili.com/video/BV1hb4y1J7jz&#34;&gt;黄灯：二本学生的困境，也是当下所有年轻人的危机&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;近期翻阅了黄灯老师所写的这本札记，对于所提到学生有了更具象的了解，书中一些片段与生活认知有高度的重叠，其中就包括：苦难对于学生不同的影响、原生家庭对于孩子成长的影响、大的时代背景下的个体的选择和命运、多子女家庭和独生子女家庭学生性格的差异&lt;/p&gt;
+&lt;p&gt;看这本书的时候，我总会回想起大学时期担任软件工程助教的那些事情。通过助教这个工作，有幸以另一种角度窥见自己所在的学校、自己熟悉的课堂，见证同学们学习的状态。在结束了一个学期的助教工作后，我越发了解同学们的所面临的境况，同时也更深刻地感受到了教师的无奈，以及他们所面临的困境。对于我来说有时这种绝望是打在身上的，能够触及的改变太少了&lt;/p&gt;
+&lt;p&gt;正如黄灯老师所说的：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我希望我的学生毕业之后都能在社会上立足，不要过着很艰难的生活
+我也希望他们更有冲劲，能够去追求梦想，有更多的勇气，但我知道其实很多爸爸妈妈，他们希望自己的孩子读完大学之后有一份稳定的工作，让父母放心，在城里面立足&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我也看到有不少学生，在坚持自己的理想和底线的时候，在现实中会碰的头破血流
+我们作为过来人其实在他准备那样去做的时候就能够预料到他的后果，但是当时可能也不忍心去把他的那种激情破灭，但是事实上你过了好多年，再回过头去看其实孩子还是付出很大的代价&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个社会的反，抗不能完全由年轻人冲到前面，我觉得这个社会的改革应该首先从反省自己开始，尤其是那些获得利益的人
+一个农村来的孩子，父母通过打工，在外面卖苦力来供养他读书，说句不好听的，你指望他来改变这个社会，我觉得太残酷了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;互相看见是特别重要的，互相看见才会达成和解，这社会才会产生一种韧性的力量，而不是动不动就撕裂&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;序言-看见他们&#34;&gt;序言 看见他们&lt;/h1&gt;
+&lt;p&gt;中国二本院校的学生，从某种程度而言，折射了中国最多数普通年轻人的状况，他们的命运，勾画出了中国年轻群体最为常见的成长路径&lt;/p&gt;
+&lt;p&gt;写作的直接动因：课上的关于风的现场写作所引出的故事，让作者意识到了自己对于广东经济发展刻板印象&lt;/p&gt;
+&lt;h1 id=&#34;一-在龙洞&#34;&gt;一 在龙洞&lt;/h1&gt;
+&lt;p&gt;龙洞的变化折射了城市变迁史
+不同的学生毕业后都租住在龙洞，伟福将住所收拾的妥帖，让人舒坦，在结束一天的工作后，能拥有让自己享受的空间
+冉辛追将龙洞作为人生过渡期的暂居之处，受到爷爷的影响，对文学骨子里地热爱，最后却选择了人力资源专业，他的选择让爷爷迷茫和失望，这种遗憾也成为了他人生选择的隐秘动力，父母支持考研，提供生活费，通过三年的努力，最终成为复旦的一员。与之相似的还有姚大顺，他们都没有办法按照生活预设好的轨道前行，所以最终选择了考研，但家庭和成长环境不同，导致了大顺无法接受家人资助，全心考研。经过折腾最后回到了龙洞，他是家中的长子，母亲希望他可以稳定下来&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;除了身份已变，他的生活，和学生时代没有太大的不同，他依旧拥有龙洞，拥有学校的操场，拥有活色生香的饭堂，当然，也拥有大学时代低廉的生活成本，甚至还可以非常方便地联系想见的老师。这种便捷也许会让他忘记现实的残酷，淡化母亲给予他的忧伤，让他偶然沉湎咋学生时代的幻梦中&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;二-公共课&#34;&gt;二 公共课&lt;/h1&gt;
+&lt;p&gt;公共课所教授的《经济应用文写作》与博士期间所学习的写作之间的鸿沟是面临的挑战&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于人文学科而言，多媒体对于课堂的干扰和伤害，先让没有引起足够的重视，信息的泛滥及花里胡哨的内容，让老师无形中倍感压迫，也让学生在深度思考和理解上，缺乏锻炼的机会和耐心&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;邓桦真 《风》 写自己家境的贫寒，为贷款烦透心
+朱洁韵 《父爱》 个性要强，来到大学后，幡然醒悟懂得了父亲的爱&lt;/p&gt;
+&lt;p&gt;面临的一个问题：无法触及一个真实群体的问题，企图借助考试，调动他们与己有关的生活经验，以此了解他们对于社会、自身的认知&lt;/p&gt;
+&lt;p&gt;让学生困惑的事情：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;电子产品对生活的渗透&lt;/li&gt;
+&lt;li&gt;负载在家庭之上的生存挣扎&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;城市孩子：批判应式教育，深恶痛绝，刘奕晓比喻为“一场赌博”，方雪怡：高考作为划分线，中国学生的青春时代被简单粗暴地划分成两部分
+农村孩子：充满闯过高考的庆幸惴惴不安&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;正因为经受了压力过大的考试阶段，课堂上学生中规中矩、老成持重，他们的平和中正与我们大学时代的张扬放肆，鲜明对比。他们收缩了属于青春年代的触角和锋芒，逼到绝境，唯一能够下手的对象只有自己&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;从记事起，无形的、细密的重荷就负载在他们身上，早已将他们裁剪得规规整整，难以在生活中泄露狡黠的契机&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;教育像一场慢性炎症，中小学时代服下的猛药、抗生素、激素，到了大学时代，终于结下了漠然、无所谓、不思考、不主动的恶果&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;三-班主任&#34;&gt;三 班主任&lt;/h1&gt;
+&lt;p&gt;因为班主任的身份，目睹了一个群体从学生时代，完全步入真实的社会，并和这个社会产生真实的关联&lt;/p&gt;
+&lt;p&gt;这些二本学生有的是在毕业后短暂挣扎，但最后又是为了解决生存&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;梦想，每个人都应该拥有，但不是每个人都能实现
+大学毕业后，我的首要任务是要解决我和家人的生活问题&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;四任班长，其中能几个之所以能在社会立足，并过上让长辈放心、安心的稳定生活，要不就是早早认清现实的规划顺着社会去经营生活，要么就是是经过现实的碰撞，终于认清进入体制内工作的优势，选择毕业后回炉考公务员。志勇综合条件优秀，但是毕业后九年经历证明了，现实已经没有多少空间和可能&lt;/p&gt;
+&lt;p&gt;夹缝中的光芒：
+钟梦兰：得益于中国高速的城市化进程，父亲从事建筑行业，在市里购地建房，在小城市生活
+潘海燕：父母进城打工，保证了三姊妹的教育费用，没有重蹈村里贫困家庭长女的遭遇，早早辍学嫁人
+广东发达经济条件和成熟的市场意识，导致家庭开过工厂或小作坊和内地农村家庭依赖农业的鲜明对比，造成职业观念的不同：倾向于从事商业活动&lt;/p&gt;
+&lt;p&gt;062111毕业生去向：
+班上的女生很多在毕业后经过折腾，通过考公务员，进入机关事业单位，获得安稳工作，其二是银行、保险等金融机构，其三，国营、民营及各类私营企业，最后是：创业&lt;/p&gt;
+&lt;p&gt;梅怡的就业观中，没有动过寻找稳定工作的心思，和父母的鼓励、大城市出身、长大后的见识、较好的家庭经济条件分不开&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;062111学生之所以能在教育彻底市场化的境况下，获得良好的发展机会，显示了这一代普通青年，曾经拥有的丰富资源和时代机遇&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;分化已经开始：
+一部分实现了财务自由，另一部分居无定所、收入有限，两者分野的关键要素是是否买房&lt;/p&gt;
+&lt;h2 id=&#34;曾迎欢&#34;&gt;曾迎欢&lt;/h2&gt;
+&lt;p&gt;毕业就去北京，开拓了眼界，提升了能力，打下了基础，回到广州。婚后选择买房，靠着借款和存款一次性付清，有了第一个孩子后，选择全职妈妈，期间还留意政策风向、金融市场动态，适当理财，第二年又购置第二套房。基本上每年一套房，实现财富增值。&lt;strong&gt;得益于努力和忧患意识&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;陈柳鸿&#34;&gt;陈柳鸿&lt;/h2&gt;
+&lt;p&gt;家里经商，耳濡目染，她的小姨注重培养她社交能力，毕业后通过家里人脉，进入广州某行业协会，由于复杂的人际关系，离开，进入了某电视台，认识了杨总，走上了艺术品拍卖，开始累积了人脉，与知名作家妻子合作做翡翠生意，后面合作崩盘，自己单干抓住微商红利。&lt;strong&gt;庆幸关键时刻总有贵人相助&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;杨胜轩&#34;&gt;杨胜轩&lt;/h2&gt;
+&lt;p&gt;父母下岗，房屋拆迁，在拆迁补偿的基础上借钱买饭，抓住了稍纵即逝的红利。父母下岗后生存所遭遇的艰辛，在他性格中打下了很深的烙印&lt;/p&gt;
+&lt;h2 id=&#34;对照记&#34;&gt;对照记&lt;/h2&gt;
+&lt;p&gt;两种完全不同的教育图景：&lt;strong&gt;计划经济条件下国家主导的高等教育&lt;/strong&gt; 与 &lt;strong&gt;市场经济条件下资本与资源主导的高等教育&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>《马文 柯林斯的教育之道》阅读笔记</title>
+      <link>https://aaronlinv.github.io/posts/%E9%A9%AC%E6%96%87%E6%9F%AF%E6%9E%97%E6%96%AF%E7%9A%84%E6%95%99%E8%82%B2%E4%B9%8B%E9%81%93%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Wed, 05 Jan 2022 09:08:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E9%A9%AC%E6%96%87%E6%9F%AF%E6%9E%97%E6%96%AF%E7%9A%84%E6%95%99%E8%82%B2%E4%B9%8B%E9%81%93%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/33394561/&#34;&gt;《马文·柯林斯的教育之道》&lt;/a&gt; 是 &lt;a href=&#34;https://www.bilibili.com/video/BV1kx411S7ZU&#34;&gt;哈佛幸福课（积极心理学）&lt;/a&gt; 中强列推荐的一本书&lt;/p&gt;
+&lt;p&gt;这本书主写的是 马文·柯林斯 的成长经历已经和教育理念，仅看介绍，会误认为这本书只是在说鼓励式的教学理念，看完发现还有写塑造了她性格的人生经历，这部分更具有启发性。提及的很多点引起共鸣，能看到个人成长经历对于她教育方式的影响，最终形成的教育理念又改变了很多人的命运&lt;/p&gt;
+&lt;p&gt;马文儿时生活在亚拉巴马州蒙罗韦尔小镇，在这里远离了许多犯罪行为，人文、自然让她度过了无忧无虑的快乐童年。她目睹了因为种族的缘故父亲遭受到的不公待遇，但父亲从不墨守成规、安于旧俗 ，拥有强大的价值观和坚定信仰，这使得马文有强烈的安全感并且坚定自信&lt;/p&gt;
+&lt;p&gt;小时候通过模仿祖母诵读，马文学会了通过音节拼读单词，祖母读那些书籍诗歌启蒙了马文&lt;/p&gt;
+&lt;p&gt;小学时马文因写错2被老师用尺子打手，这影响了马文的教学理念：应该对孩子采取积极的策略，不应该指责和嘲笑，应该建立信心 ，孩子是敏感，自尊心是脆弱的&lt;/p&gt;
+&lt;p&gt;因为黑人身份在上学和就业时处处受到限制，致使她在培门罗县训机构教书，这段经历使马文掌握了教学方法，还让她懂得了优秀的教师更应该懂了解学生&lt;/p&gt;
+&lt;p&gt;在去芝加哥拜访祖母表亲安妮时，遇见了她的丈夫柯拉鲁斯，丈夫始终都很支持马文做的事&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“能够对别人的孩子表现出极大耐心的男士一定会事一个好父亲和好丈夫”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在辞去医疗秘书工作后，马文到南卡尔洪小学二年级教书。传统教学通过图片教授阅读，这降低教材和课程难度，学生的反馈使得马文摒弃了这种教学方式，转而选择一些优秀的故事，教授孩子们正确的价值观和生活经验，这相较于传统课本更能激发阅读兴趣&lt;/p&gt;
+&lt;p&gt;办公室政治让马文失去了继续留在公立学校的动力，最终马文开始和一群对公立学校不满的女性邻居一起在 丹尼尔·黑尔·威廉姆斯大学 里建立了私立小学，在这所马文自己的小学里，她充分践行了她的教育理念，后来马搬到了自己家二楼并将学校改名为 西区预备学校，继续教书育人&lt;/p&gt;
+&lt;p&gt;马文给《芝加哥太阳时报》的专栏作家 扎伊·史密斯 写信，并接受了采访，之后收到关注和捐助，她到公立学校演讲，获得500美元，她也以此激励孩子努力学习&lt;/p&gt;
+&lt;p&gt;之后有了更多像 莉莲·沃恩、艾拉·麦考伊 这样的对待孩子温柔有耐心且乐于接受马文的教学方法的老师加入了马文的学校&lt;/p&gt;
+&lt;p&gt;《60分钟》栏目为学校打开资金来源，学校换了新的校址，有了更多的学生&lt;/p&gt;
+&lt;p&gt;面对各种正面和负面的报道，各种各样的批评，刚开始马文拒绝回应，朋友建议马文回应，但是这使得马文筋疲力竭&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;那些讥笑讽刺和含沙射影的批评永远不可能减少她真正的成就：那些孩子接受教育，受到鼓励，变得自信果敢，最后在这个世界上闯出了属于自己得路。这才是马文的宝贵遗产&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;马文教学的载体是基础读本中的每个故事，还引入了补充材料，培养学生发散性思维，用概括的方式来启发他们，让学生看见知识的流动 -&amp;gt; 用故事撑起孩子们广阔的知识面 -&amp;gt; 孩子们可把这些知识用于课堂、生活，从而形成正反馈不断激励孩子们自发学习。不局限于文学，她也会讲述歌剧及其背后的故事，她相信：要想让年轻人受到良好的教育，需要让他们接触所有的文化形式。她还在课堂上提出开放式的问题，激发学生批判性思维，提出省略事实的不完整问题，教会他们评估问题，意识到信息不充分&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;马文则坚信：“真正的解决途径就是教育，我们必须教会孩子自尊自立，我们必须教导他们，读书、培养技能和自立是非常重要的”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“马文作为老师的最高目标就是赋予学生为自己学习的意愿”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;教育的重中之重就是让孩子阅读，需要艰难且乏味的学习，没有任何捷径可走&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;危害当代教育一个弊端是由于过度强调“进步注意”的教学方法造成的。学校为了努力遵从 约翰·杜威 以学生为中学而非以课程为中心的教学理念，过多地牺牲了教学内容，过度关注如何教而不是教什么&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在我们的学校里，没有奇迹，更没有魔法，否则教书对我而言就不会那么劳神费力了，学习对于这些孩子而言也不会那么艰辛困难了。正是由于所有的这些付出和艰难，孩子们才会细细品味每一次成功，并甘之如饴。并且一但他们开始成功了，便会想要更多，甚至不愿回头&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;马文擅长用鼓励或批评引导学生：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“你们会学习所有的发音规律，这样的单词将不再是什么难懂的谜，多么富有或者多么漂亮。你可以和任何人对话，无论对方多么聪明，多么富有或者多么漂亮。你们都是聪明伶俐的孩子，没有什么事你们做不到的”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“总有一天，在无数次的赞扬和拥抱之后，他的抵触情绪会自动消解。孩子们最终想要的是，一个真实的自己可以被接受，感受到自己是有价值的。一但他们感觉到自价值，就会痴迷于学习，而且永远都会求知若渴”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;人和事分开，你的行为愚蠢 不等于 人愚蠢，这样学生才能接受意见和批评，放弃错误行为，而不是去尊严或自我价值&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;关注每一个孩子，这可能与她的经历有关，对于被孤立的感觉更能感同身受，她也提倡互助小组，不断督促彼此，为彼此取得的小成绩而感到快乐&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;课间看见独自的孩子会重新组织游戏玩伴，让每个孩子都感觉到被集体接受，不被排斥&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;每个孩子都需要感觉到被爱和被需要。每个孩子都需要归属感。大多数孩子依旧因为在之前的学校里被羞辱和被排挤而痛苦不堪&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;她不是被动地等着学生向她寻求帮助，而是常常就让自己在学生身边，通常困惑的孩子会呆在座位上，忘记了解决问题这件事，直到最后完全跟不上，彻底放弃&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当你们想要伤害另一个人的时候，又怎么能够抱怨这个社会有种族偏见呢，所以你们学会互相帮助和相互爱护之前，不要谈论别人都对你们做了什么&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;她认为也应该把 ”不好的事物“ 也展现在孩子面前，这也是我们传统教育中比较缺失的东西，导致一部分人不知道该怎么面对现实生活中的苦难&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;让孩子知道自己的坏情绪，这很重要，小孩子容易认为是他们做了什么事才给大人添了许多麻烦&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;毫不避讳地和孩子谈论自己的事，教师不应该故作完美：“如果老师不展现人类脆弱的一面，那么孩子也会羞于承认他们自己脆弱的一面”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我也认为，不应该过度保护孩子，不应该把他们的阅读方位局限于只会以盲目乐观地视角审视这个世界的故事。生活是混乱无序且充满瑕疵的，而且孩子们应该被告知这一点，像死亡、贪婪和暴力这些话题并非不可言说的禁忌&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;和孩子们分享自己以前做的“坏事”，告诉孩子们：“如果有老师放我一马，我就会得过且过”，所以她严格要求孩子们的学习&lt;/p&gt;
+&lt;p&gt;父母对于孩子的教育也起到了非常大的作用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“在这个混乱的世界里，唯有拥有意志坚定的父母或强大的老师的孩子才能有所成就，至少具备其中一个条件，或者二者都具备”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;必须强大起来并为孩子定调子的应该是家长，家长不给孩子立规矩，却期待老师在课堂上维持好纪律和秩序，在家从未要求承担责任，或者做家务&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>简单的 Shell 脚本入门教程</title>
+      <link>https://aaronlinv.github.io/posts/%E7%AE%80%E5%8D%95%E7%9A%84-shell-%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Wed, 05 Jan 2022 09:08:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E7%AE%80%E5%8D%95%E7%9A%84-shell-%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</guid>
+      <description>&lt;p&gt;Shell脚本 运作方式与解释型语言相当，如果有语言基础，学起 Shell 脚本就非常容易，但是 Shell 与常见的语言不同，一些常见的函数在 Shell 中需要组合一些命令得以实现&lt;/p&gt;
+&lt;h1 id=&#34;工具推荐&#34;&gt;工具推荐&lt;/h1&gt;
+&lt;p&gt;Shell 似乎没有定制的 IDE，这里推荐 VS Code 搭配对应的插件：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;shellman 智能提示和自动补全，在插件页面有介绍常用代码片段的触发关键词，作者在 &lt;a href=&#34;https://medium.com/@remisa.yousefvand/shellman-reborn-f2cc948ce3fc&#34;&gt;Shellman reborn&lt;/a&gt; 中写到了 Shellman 诞生的故事，挺有趣的&lt;/li&gt;
+&lt;li&gt;shellcheck 语法静态检查工具，插件安装后需要本地安装 shellcheck，参考 &lt;a href=&#34;https://github.com/koalaman/shellcheck#installing&#34;&gt;shellcheck Installing&lt;/a&gt;，Mac OS 可以使用 &lt;code&gt;brew install shellcheck&lt;/code&gt;，这样在写 Shell 的时候，语法有误的地方就会以波浪线的方式提示&lt;/li&gt;
+&lt;li&gt;shell-format 代码整理，Win 快捷键：Alt + Shift + F，Mac OS 快捷键：option + shift + F&lt;/li&gt;
+&lt;li&gt;Code Runner 脚本运行，右键 &lt;code&gt;Run Code&lt;/code&gt;，Win 快捷键：Ctrl + Alt + N，Mac OS 快捷键：control + option + N&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;运行-shell-脚本&#34;&gt;运行 shell 脚本&lt;/h1&gt;
+&lt;p&gt;新建脚本：&lt;code&gt;test.sh&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 使用echo 打印字符串或者变量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;hello world&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以用 Code Runner 运行，就会输出：&lt;code&gt;hello world&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>开源≠免费 常见开源协议介绍</title>
+      <link>https://aaronlinv.github.io/posts/%E5%BC%80%E6%BA%90%E5%85%8D%E8%B4%B9-%E5%B8%B8%E8%A7%81%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Mon, 20 Dec 2021 09:29:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E5%BC%80%E6%BA%90%E5%85%8D%E8%B4%B9-%E5%B8%B8%E8%A7%81%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/</guid>
+      <description>&lt;h1 id=&#34;不根据协议使用开源软件可能面临的风险&#34;&gt;不根据协议使用开源软件可能面临的风险&lt;/h1&gt;
+&lt;p&gt;2003 年 Linksys 公司（同年 3 月被思科收购）推出 WRT-54G，这款路由器采用了基于 Linux 的固件，而 Linux 使用的是 GPL 开源协议，所以思科迫于压力，开放了 WRT-54G 的源码，这使得爱好者们知道了路由器固件的实现方式，进而促成了各种相关开源项目的繁荣，其中就包括 OpenWRT&lt;/p&gt;
+&lt;h1 id=&#34;android-和-linux-内核-的关系&#34;&gt;Android 和 Linux 内核 的关系&lt;/h1&gt;
+&lt;p&gt;Android 使用了 Linux 内核，而 Linux 内核采用的是 GPL 的开源协议，所以 Google 修改了 Linux 内核，使得驱动程序可以在 Linux 内核的上层运行，这样上层的代码可以绕过GPL协议。这也使得所有 Android 上的开源驱动，不经过修改无法直接用在 Linux 内核上，造成了Linux 内核的分裂，所以 Linux 内核开发小组撤下了 Android 所贡献的代码&lt;/p&gt;
+&lt;p&gt;而非内核部分，&lt;a href=&#34;https://source.android.google.cn/setup/start/licenses?hl=zh-cn&#34;&gt;Android 开源项目 (AOSP) 许可&lt;/a&gt;提到了：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于用户空间（非内核）软件，相比其他许可（例如宽通用公共许可证 (LGPL)），我们更倾向于 Apache 2.0（以及 BSD 和 MIT 等类似许可）
+我们为自己的代码首选 Apache 2.0&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;因为 AOSP 采用了 Apache 2.0 协议，所以任何人都可以基于 AOSP 开发自己的 Android 系统，而且不需要开源，国内的一些定制 Android 系统都是基于 AOSP，具体可以参考&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AE%A2%E8%A3%BD%E5%8C%96Android%E9%9F%8C%E9%AB%94%E5%88%97%E8%A1%A8&#34;&gt;定制Android固件列表&lt;/a&gt;。虽然 AOSP 是开源的，但是 Google 移动服务 GMS（Google Mobile Service）是闭源的，GMS 中包括，如果手机厂商想要使用 GMS，就必须向 Google 支付授权费。GMS 包含了 Google 自家的App 和服务，除此之外海外 Android 平台发布的 App 严重依赖 GMS，没有 GMS 可能导致软件无法使用等问题，Google 禁止华为对 GMS 的使用，导致华为手机海外出货量大幅下降&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>简单的 Go 入门教程</title>
+      <link>https://aaronlinv.github.io/posts/%E7%AE%80%E5%8D%95%E7%9A%84-go-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Mon, 18 Oct 2021 09:10:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E7%AE%80%E5%8D%95%E7%9A%84-go-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</guid>
+      <description>&lt;p&gt;Go（又称 Golang ）是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言&lt;/p&gt;
+&lt;p&gt;Docker 和 Kubernetes 都是使用 Go 进行开发的，这几年 Go 越来越流行，生态也越来越好了&lt;/p&gt;
+&lt;p&gt;初学 Go 的时候会遇到了一些小问题，在一些教程中没有提及或者因为时效性的缘故，经常需要查阅很多资料才能弄懂，所以想写一篇比较新人视角的文章帮助大家入门&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;Go 的官网就是 &lt;a href=&#34;https://golang.org/&#34;&gt;golang.org&lt;/a&gt;，点击首页的 &lt;a href=&#34;https://golang.org/dl/&#34;&gt;Download Go&lt;/a&gt; 就可以跳转到下载页面，然后下载对应操作系统的 Go，如果国内访问缓慢，可以访问镜像站：&lt;a href=&#34;https://golang.google.cn/&#34;&gt;golang.google.cn&lt;/a&gt;，官方安装教程：&lt;a href=&#34;https://golang.org/doc/install&#34;&gt;Download and install&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Windows 只要下载对应的 msi 文件，然后打开后按照提示基本上就是下一步下一步&amp;hellip; 具体可以参考这篇博客：&lt;a href=&#34;https://www.cnblogs.com/Can-daydayup/p/15177665.html&#34;&gt;Windows Go 开发环境下载、安装并配置&lt;/a&gt;，安装完成后 Windows 需要 Win键 + R键，然后输入 &lt;code&gt;cmd&lt;/code&gt;，输入 &lt;code&gt;go version&lt;/code&gt;，显示版本号就说明安装完成&lt;/p&gt;
+&lt;h2 id=&#34;goproxy&#34;&gt;GOPROXY&lt;/h2&gt;
+&lt;p&gt;国内下载依赖库会比较缓慢，所有我们需要配置 Go Proxy 加速依赖下载（有点像 Java 中修改 Maven 镜像仓库），这里镜像源使用 &lt;a href=&#34;https://goproxy.cn&#34;&gt;七牛云&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go env -w &lt;span class=&#34;nv&#34;&gt;GOPROXY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;https://goproxy.cn,direct
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也可以通过 &lt;code&gt;go env&lt;/code&gt; 查看所有的 Go 环境变量，其中就包括 GOPROXY，这个变量定义的就是配置 Go 镜像&lt;/p&gt;
+&lt;h2 id=&#34;hello-world&#34;&gt;Hello World&lt;/h2&gt;
+&lt;p&gt;推荐使用 JetBrains 家的 &lt;a href=&#34;https://www.jetbrains.com/go/&#34;&gt;GoLand&lt;/a&gt;，使用体验基本和 JetBrains 家的其他软件例如：IDEA、PyCharm 相似，还有一种也比较主流，就是使用 VSCode 配合 Go 插件，可以参考：&lt;a href=&#34;https://zhuanlan.zhihu.com/p/320343679&#34;&gt;VsCode Go插件配置最佳实践指南&lt;/a&gt;，相对来说需要比较多的配置，而且调试比较麻烦，对于新手不是很友好&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Docker Compose 实践及梳理</title>
+      <link>https://aaronlinv.github.io/posts/docker-compose-%E5%AE%9E%E8%B7%B5%E5%8F%8A%E6%A2%B3%E7%90%86/</link>
+      <pubDate>Wed, 15 Sep 2021 09:01:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/docker-compose-%E5%AE%9E%E8%B7%B5%E5%8F%8A%E6%A2%B3%E7%90%86/</guid>
+      <description>&lt;p&gt;上一节：&lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/15228488.html&#34;&gt;IDEA 配合 Dockerfile 部署 SpringBoot 工程&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Docker Compose 可以实现 Docker 容器集群的编排，可以通过 &lt;code&gt;docker-compose.yml&lt;/code&gt; 文件，定义我们的服务及其需要的依赖，轻松地运行在测试、生产等环境&lt;/p&gt;
+&lt;h2 id=&#34;文档&#34;&gt;文档&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;Product manuals&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/compose/compose-file/compose-file-v3/&#34;&gt;Compose file version 3 reference&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://vuepress.mirror.docker-practice.com/compose/introduction/&#34;&gt;Docker 从入门到实践 【中文】&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装-compose&#34;&gt;安装 Compose&lt;/h2&gt;
+&lt;p&gt;Compose 依赖 Docker Engine，所有要保证环境安装了 Docker，可参考&lt;a href=&#34;https://docs.docker.com/compose/install/&#34;&gt;官方教程&lt;/a&gt;，主要分为两步：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 1. 下载 Compose 只执行文件到 usr/local/bin/ 目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 下载失败可以参考下一小结提供地址安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo curl -L &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://github.com/docker/compose/releases/download/1.29.2/docker-compose-&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;uname -s&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;uname -m&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; -o /usr/local/bin/docker-compose
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 2. 对 Compose 可执行文件添加运行权限&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chmod +x /usr/local/bin/docker-compose
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 输入下面命令查看帮助，测试安装是否成功&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker-compose -h
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Compose 开源在 Docker 官方的 GitHub 仓库：&lt;a href=&#34;https://github.com/docker/compose&#34;&gt;docker/compose&lt;/a&gt;，所有的 Compose 都会发布在仓库的 &lt;a href=&#34;https://github.com/docker/compose/releases&#34;&gt;Releases&lt;/a&gt; 里，步骤1就是使用 curl 命令从 Releases 里下载可执行文件，&lt;code&gt;uname -s&lt;/code&gt;和&lt;code&gt;uname -m&lt;/code&gt; 可以读取系统的内核名称和硬件架构，用来匹配需要的 Compose 版本， &lt;code&gt;curl&lt;/code&gt; 的 -L 参数会让 HTTP 请求跟随重定向（默认不跟随），-o (小写o) 会将服务器响应保存成文件，直接下载到：usr/local/bin/ 下，文件名为：docker-compose，因为这个路径已经在环境变量中了，所以完成步骤2，添加可执行权限后，就可以在任意位置使用了&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>IDEA 配合 Dockerfile 部署 SpringBoot 工程</title>
+      <link>https://aaronlinv.github.io/posts/idea-%E9%85%8D%E5%90%88-dockerfile-%E9%83%A8%E7%BD%B2-springboot-%E5%B7%A5%E7%A8%8B/</link>
+      <pubDate>Sun, 05 Sep 2021 01:31:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/idea-%E9%85%8D%E5%90%88-dockerfile-%E9%83%A8%E7%BD%B2-springboot-%E5%B7%A5%E7%A8%8B/</guid>
+      <description>&lt;p&gt;上一节：&lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/15213211.html&#34;&gt;Dockerfile 实践及梳理&lt;/a&gt;
+下一节：&lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/15270704.html&#34;&gt;Docker Compose 实践及梳理&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;准备-springboot-工程&#34;&gt;准备 SpringBoot 工程&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;新建 SpringBoot 项目，默认的端口是 8080 ，新建 Controller 和 Mapping&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@RestController&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;HelloController&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@GetMapping&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;hello&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hello world!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意，需要在 pom 中添加 spring-boot-maven-plugin 插件，否则运行 jar 包时会提示：没有主清单属性&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;nt&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&#34;nt&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;nt&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-maven-plugin&lt;span class=&#34;nt&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;启动项目，访问 http://localhost:8080/hello 测试&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;在项目目录添加 Dockerfile 文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; openjdk:8-jre&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;#  ./target/demo-0.0.1-SNAPSHOT.jar 为编译后的 jar 包位置&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# jar 包的名称要与自己配置的相同，格式为：项目名称-版本号.jar&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; ./target/demo-0.0.1-SNAPSHOT.jar app.jar&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;EXPOSE&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; 8080&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ENTRYPOINT&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;java&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;-jar&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CMD&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;app.jar&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Docker 远程连接配置
+演示使用的 Docker 宿主机是 CentOS 7，修改配置并重启 Docker 服务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim /lib/systemd/system/docker.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将 &lt;code&gt;ExecStar&lt;/code&gt; 这行配置修改为下面这行&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dockerfile 实践及梳理</title>
+      <link>https://aaronlinv.github.io/posts/dockerfile-%E5%AE%9E%E8%B7%B5%E5%8F%8A%E6%A2%B3%E7%90%86/</link>
+      <pubDate>Wed, 01 Sep 2021 09:15:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/dockerfile-%E5%AE%9E%E8%B7%B5%E5%8F%8A%E6%A2%B3%E7%90%86/</guid>
+      <description>&lt;p&gt;上一节：&lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/15130730.html&#34;&gt;Docker 实践及命令梳理&lt;/a&gt;
+下一节：&lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/15228488.html&#34;&gt;IDEA 配合 Dockerfile 部署 SpringBoot 工程&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Dockerfile 是一个文本文件，我们可以通过组合一条条的指令 (Instruction)，来构建满足我们需求的 Docker 镜像&lt;/p&gt;
+&lt;h2 id=&#34;文档&#34;&gt;文档&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/develop/develop-images/dockerfile_best-practices/&#34;&gt;Best practices for writing Dockerfiles&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/engine/reference/builder/&#34;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://yeasy.gitbook.io/docker_practice/image/dockerfile&#34;&gt;Dockerfile 指令详解&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;简单上手&#34;&gt;简单上手&lt;/h2&gt;
+&lt;p&gt;使用 Dockerfile 构建SpringBoot 工程的镜像&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;新建 SpringBoot 项目，默认的端口是 8080 ，新建 Controller 和 Mapping&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@RestController&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;HelloController&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@GetMapping&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;hello&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hello world!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;启动项目，访问 http://localhost:8080/hello 测试&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;打 jar 包
+注意，需要在 pom 中添加 spring-boot-maven-plugin 插件，否则运行 jar 包时会提示：没有主清单属性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;nt&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&#34;nt&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;nt&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-maven-plugin&lt;span class=&#34;nt&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#打包&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mvn package
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;target 目录下就可以找到 .jar 文件，我这里的文件名为：demo-0.0.1-SNAPSHOT.jar
+在 Linux 新建 &lt;code&gt;~/springboot&lt;/code&gt; 文件夹，并将 jar 包上传到这个文件夹下&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SpringBoot 整合 SpringSecurity 梳理</title>
+      <link>https://aaronlinv.github.io/posts/springboot-%E6%95%B4%E5%90%88-springsecurity-%E6%A2%B3%E7%90%86/</link>
+      <pubDate>Tue, 24 Aug 2021 00:31:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/springboot-%E6%95%B4%E5%90%88-springsecurity-%E6%A2%B3%E7%90%86/</guid>
+      <description>&lt;h2 id=&#34;文档&#34;&gt;文档&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/current/reference/html5/&#34;&gt;Spring Security Reference&lt;/a&gt;
+&lt;a href=&#34;https://www.cnblogs.com/pjjlt/p/10960690.html&#34;&gt;SpringBoot+SpringSecurity+jwt整合及初体验&lt;/a&gt;
+&lt;a href=&#34;https://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html&#34;&gt;JSON Web Token 入门教程 - 阮一峰&lt;/a&gt;
+&lt;a href=&#34;https://jwt.io/&#34;&gt;JWT 官网&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;springsecurity&#34;&gt;SpringSecurity&lt;/h2&gt;
+&lt;p&gt;项目 GitHub 仓库地址：&lt;a href=&#34;https://github.com/aaronlinv/springsecurity-jwt-demo&#34;&gt;https://github.com/aaronlinv/springsecurity-jwt-demo&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;依赖&#34;&gt;依赖&lt;/h3&gt;
+&lt;p&gt;主要用到了: SpringSecurity,Thymeleaf,Web,Lombok&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&#34;nt&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-security&lt;span class=&#34;nt&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&#34;nt&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-thymeleaf&lt;span class=&#34;nt&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&#34;nt&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-web&lt;span class=&#34;nt&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.projectlombok&lt;span class=&#34;nt&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;lombok&lt;span class=&#34;nt&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;页面&#34;&gt;页面&lt;/h3&gt;
+&lt;p&gt;编写页面和 Controller 进行测试，具体页面可以看 &lt;a href=&#34;https://github.com/aaronlinv/springsecurity-jwt-demo/commit/a3653a02ab9e074d0e25387cf387b2b338353d8d&#34;&gt;代码&lt;/a&gt;
+主要包含了首页(index)，订单(order)，还有 user,role,menu这三个位于 &lt;code&gt;/system&lt;/code&gt; 下，需要 admin 权限&lt;/p&gt;
+&lt;h3 id=&#34;使用内存用户进行表单登录&#34;&gt;使用内存用户进行表单登录&lt;/h3&gt;
+&lt;p&gt;在 &lt;code&gt;static&lt;/code&gt; 下新建 &lt;code&gt;login.html&lt;/code&gt;，用于登录&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;form&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/login&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;method&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;post&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;账户&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;label&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;br&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;label&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;password&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;密码&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;label&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;password&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;password&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;password&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;br&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;submit&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;登录&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;form&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;编写继承 WebSecurityConfigurerAdapter 的 Security 配置类，并开启 @EnableWebSecurity 注解，这个注解包含了 @Configuration
+WebSecurityConfigurerAdapter 中有两个方法，它们名称相同，但是入参不同&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;protected&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;configure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;HttpSecurity&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;http&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Exception&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;protected&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;configure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;AuthenticationManagerBuilder&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;auth&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Exception&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;入参为 HttpSecurity 的 configure 可以配置拦截相关的参数
+另一个入参为 AuthenticationManagerBuilder，则是用来配置验证相关的参数&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Docker 实践及命令梳理</title>
+      <link>https://aaronlinv.github.io/posts/docker-%E5%AE%9E%E8%B7%B5%E5%8F%8A%E5%91%BD%E4%BB%A4%E6%A2%B3%E7%90%86/</link>
+      <pubDate>Wed, 11 Aug 2021 23:19:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/docker-%E5%AE%9E%E8%B7%B5%E5%8F%8A%E5%91%BD%E4%BB%A4%E6%A2%B3%E7%90%86/</guid>
+      <description>&lt;p&gt;下一节：&lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/15213211.html&#34;&gt;Dockerfile 实践及梳理&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;文档&#34;&gt;文档&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/reference/&#34;&gt;Docker Reference Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://vuepress.mirror.docker-practice.com/&#34;&gt;Docker 从入门到实践 【中文】&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;安装 Docker，设置开机启动，然后配置阿里云镜像加速&lt;/p&gt;
+&lt;h3 id=&#34;1-安装-docker&#34;&gt;1. 安装 Docker&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/get-docker/&#34;&gt;Docker 官方安装&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/engine/install/centos/&#34;&gt;CentOS 官方安装教程&lt;/a&gt;，直接安装速度相对慢，推荐使用 &lt;a href=&#34;https://vuepress.mirror.docker-practice.com/install/centos/#%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85&#34;&gt;使用脚本自动安装 Docker&lt;/a&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -fsSL get.docker.com -o get-docker.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo sh get-docker.sh --mirror Aliyun
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 开机启动 docker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; docker
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 启动 docker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl start docker
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-阿里云镜像加速&#34;&gt;2. 阿里云镜像加速&lt;/h3&gt;
+&lt;p&gt;注意！&lt;code&gt;registry-mirrors&lt;/code&gt; 需要替换成自己的 &lt;a href=&#34;https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors&#34;&gt;阿里云镜像加速器地址&lt;/a&gt;，通过点击地址获取&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo mkdir -p /etc/docker
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo tee /etc/docker/daemon.json &lt;span class=&#34;s&#34;&gt;&amp;lt;&amp;lt;-&amp;#39;EOF&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;  &amp;#34;registry-mirrors&amp;#34;: [&amp;#34;这里替换成自己的阿里云镜像加速器地址&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;EOF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl daemon-reload
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl restart docker
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;docker-cli&#34;&gt;Docker CLI&lt;/h2&gt;
+&lt;p&gt;CLI 是 Command-Line Interface （命令行界面）的缩写
+命令详情可以参考官方文档：&lt;a href=&#34;https://docs.docker.com/engine/reference/commandline/cli/&#34;&gt;Docker Reference Documentation&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Oracle数据库对比MySQL</title>
+      <link>https://aaronlinv.github.io/posts/oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E6%AF%94mysql/</link>
+      <pubDate>Wed, 03 Feb 2021 17:00:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E6%AF%94mysql/</guid>
+      <description>&lt;h1 id=&#34;基本&#34;&gt;基本&lt;/h1&gt;
+&lt;p&gt;Oracle默认端口：1521 默认用户：system
+MySQL默认端口：3306 默认用户：root&lt;/p&gt;
+&lt;p&gt;连接MySQL：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mysql -u root -p
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-- 输入密码
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-- 查询所有数据库
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;show databases&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-- 切换到 &lt;span class=&#34;s2&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt; 这个数据库
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;use test&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-- 查询该数据库所有表
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;show tables&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;连接Oracle：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sqlplus
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-- 输入用户名
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-- 输入密码
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-- 查询该用户的表
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt; TABLE_NAME from user_tables&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意：Oracle 登录需要授予登录用户 session权限，建表需要分配限额&lt;/p&gt;
+&lt;h1 id=&#34;常用字段类型&#34;&gt;常用字段类型&lt;/h1&gt;
+&lt;p&gt;Oracle
+数值 number number(10) number(10,2)
+字符串 varchar2 varchar2(20)
+日期 date&lt;/p&gt;
+&lt;p&gt;MySQL
+数值 tinyint smallint mediumint int bigint decimal
+字符串 varchar(10)  必须指定
+日期 date time datetime timestamp year&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>《高效能人士的七个习惯》读书笔记</title>
+      <link>https://aaronlinv.github.io/posts/%E9%AB%98%E6%95%88%E8%83%BD%E4%BA%BA%E5%A3%AB%E7%9A%84%E4%B8%83%E4%B8%AA%E4%B9%A0%E6%83%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 15 Nov 2020 20:15:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E9%AB%98%E6%95%88%E8%83%BD%E4%BA%BA%E5%A3%AB%E7%9A%84%E4%B8%83%E4%B8%AA%E4%B9%A0%E6%83%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;读完&lt;a href=&#34;https://book.douban.com/subject/5325618/&#34;&gt;《高效能人士的七个习惯》&lt;/a&gt;，这本书中提到的很多内容引起了共鸣，我开始使用其中提到的一些习惯开始改变生活，并且这些习惯有在使我的生活更加积极高效。开始跳出自己，审视真实想法、动机、基本的思维方式并能够选择改变它们&lt;/p&gt;
+&lt;p&gt;看到伐木工人伐木的例子，才恍然大悟，我们深陷技术框架中却不自知，忽视了训练一些更为重要的能力。只专注于那些紧急而重要的事情，却忽视那些不紧急而重要的事，疲于应对眼前的事，没有着眼于未来&lt;/p&gt;
+&lt;p&gt;虽然书中提及了很多系统性的方法，但是要落实到行动中，还是有比较大的跨度，还是需要结合书中内容反复实践，从“积极主动”和“以终为始”做起，慢慢达到书中提及的7个习惯&lt;/p&gt;
+&lt;p&gt;书中主要讲述了7个习惯，这7个习惯相互依赖，前3个习惯为个人领域，在个人领域实现成功后进入公共领域，获得更大的成功:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;积极主动&lt;/li&gt;
+&lt;li&gt;以终为始&lt;/li&gt;
+&lt;li&gt;要事第一&lt;/li&gt;
+&lt;li&gt;双赢思维&lt;/li&gt;
+&lt;li&gt;知彼解己&lt;/li&gt;
+&lt;li&gt;统合综效&lt;/li&gt;
+&lt;li&gt;不断更新&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;习惯一-积极主动&#34;&gt;习惯一 积极主动&lt;/h3&gt;
+&lt;p&gt;人类不仅能针对特定环境选择回应方式、更能主动创造有利环境。有两个很重要的概念，关注圈：每个格外关注的问题，影响圈：关注圈中可以掌控的事。积极的人，专注影响圈，做力所能及的事，扩大影响圈，使用积极回应（关注自己能改变的事情，能控制的事情）学会转型，放下往事、吸取教训并继续向前。不去埋怨外界，不把自己当成受害者，可以先从改变自己的消极语言开始，关注自己的回答是不是包含消极的情绪，刻意去改变它，尝试用积极的方式回应&lt;/p&gt;
+&lt;h3 id=&#34;习惯二-以终为始&#34;&gt;习惯二 以终为始&lt;/h3&gt;
+&lt;p&gt;任何事物都需要两次创造：先在头脑中构思，即智力上或第一次的创造，然后付诸实践，即体力上或第二次创造。明确真正的目标很重要，然后才好勇往直前，坚持到底，践行使命。人会因为意外打击：亲人离世、罹患重病、经济危机、陷入危机的时候，我们会扪心自问：“到底什么才是真正重要的？我究竟在追求什么”。可以想象参加自己的葬礼，我们希望我们的家人、朋友认为我们是什么样的人，那我们现在就需要采取对应的行动，去不断趋近这个目标&lt;/p&gt;
+&lt;h3 id=&#34;习惯三-要事第一&#34;&gt;习惯三 要事第一&lt;/h3&gt;
+&lt;p&gt;习惯三是习惯一和二的具体实践，别让琐事牵着鼻子走，时间管理矩阵（四象限）。偏重第一象限，应对各种问题，疲于奔命，只能借助第四象限的事物逃避现实、稍微放松一下；而将所有时间花在第三第四象限，是不负责任的生活，因为这些都不重要；完成第二象限事务，完成这些活动能提高个人处事能力&lt;/p&gt;
+&lt;p&gt;第一代时间管理着重利用便条与备忘录，没有优先级概念，做完一件事固然会给人带来成就感，但是所做的是必要而非重要的事，组织纪律和备忘录让人有种错觉，就是他们不必对结果负责；第二代强调事历与日程表，反映出时间管理注意到了规划未来的重要；第三代根据轻重缓急设定短、中、长期目标，再逐日指定目标，将有限的精力和时间加以分配，争取最高的效率，这种方式过分强调效率，把时间崩得死死的，使人失去增进感情、满足个人需求以及享受意外惊喜的机会。而第四代：以原则为中心，配合个人对使命的认知，兼顾重要性和急迫性，强调产出与产能齐头并进，着重第二象限事物的完成&lt;/p&gt;
+&lt;h3 id=&#34;人际关系的本质&#34;&gt;人际关系的本质：&lt;/h3&gt;
+&lt;p&gt;缺乏独立人格，却一味玩弄人际关系的技巧，纵使得逞一时，也不过是运气罢了。处顺境至终还可任你为所欲为，但天有不测风云，一旦面临逆境，技巧便不可靠&lt;/p&gt;
+&lt;p&gt;牢记一点：速战速决是不切实际的，建立和维护关系都需要时间，建立并维持人际关系是一种长期的投资行为&lt;/p&gt;
+&lt;p&gt;情感账户投资方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;理解他人：（换位思考，将心比心）&lt;/li&gt;
+&lt;li&gt;注意小节：（礼貌，不经意的失言）&lt;/li&gt;
+&lt;li&gt;信守承诺：（不轻易许诺，许过就一定要兑现）&lt;/li&gt;
+&lt;li&gt;明确期望：（一开始就提出明确的期望，让相关的每个人都了解，要做到这一点需要投入很多的时间和精力，这样会省去你将来更多的麻烦和周折）&lt;/li&gt;
+&lt;li&gt;正值诚信：避免背后攻击他人&lt;/li&gt;
+&lt;li&gt;勇于致歉：（但是一再道歉就显得不真诚）&lt;/li&gt;
+&lt;li&gt;无条件的爱：无条件的爱可以给人安全感与自信心，鼓励个人肯定自我。有条件的爱，往往会引起被爱者的反抗心理，为证明自己的独立，不惜为反对而反&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;习惯四-双赢思维&#34;&gt;习惯四 双赢思维&lt;/h3&gt;
+&lt;p&gt;长远来看，不是双赢，就一定两败俱伤，只有双赢才是在相互依赖的环境中唯一可行的交往模式，不能双赢就好聚好散（放弃交易）。心中里有退路，顿觉轻松无比，更不必耍手段、施压力，迫使对方就范。坦诚相见，更有助于发掘及解决问题。即使买卖不成，仁义尚在，或许日后还有合作的机会&lt;/p&gt;
+&lt;h3 id=&#34;习惯五-知彼解己&#34;&gt;习惯五 知彼解己&lt;/h3&gt;
+&lt;p&gt;如果你要和我交往，想对我有影响力，你首先要了解我，而做到这一点不能只靠技巧。如果我觉察到你在使用某些技巧，就会有受骗和被操纵的感觉。我不知道你为什么这样做，有什么动机。你让我没有安全感，自然也不会对你敞开心扉。移情聆听本质不是要你赞同对方，而是要在情感和理智上充分而深入地理解对方。当你清晰、具体地表达想法，最为重要的是，在理解别人思路和担忧的前提下表达，那么可信度会大大增加。在沟通的时候，我们应该先怀着理解对方的想法去聆听，不要一味想着如何回答，将心比心站在对方的角度上，思考如何回答，再争取让别人了解自己的看法&lt;/p&gt;
+&lt;p&gt;四种自传式回应&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;价值判断&amp;ndash;对旁人的意见只接受或不接受&lt;/li&gt;
+&lt;li&gt;追根究底&amp;ndash; 依自己的价值观探查别人的隐私&lt;/li&gt;
+&lt;li&gt;好为人师&amp;ndash;以自己的经验提供忠告&lt;/li&gt;
+&lt;li&gt;自以为是&amp;ndash;根据自己的行为与动机衡量别人的行为与动机&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;习惯六-统合综效----创造性合作的原则&#34;&gt;习惯六 统合综效 &amp;ndash; 创造性合作的原则&lt;/h3&gt;
+&lt;p&gt;如果一位具有相当聪明才智的人跟我意见不同，那么对方的主张必定有我尚未体会的奥妙，值得加以了解&lt;/p&gt;
+&lt;p&gt;沟通层次：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;相互提防（赢/输或输/赢模式）&lt;/li&gt;
+&lt;li&gt;互相尊重（妥协）&lt;/li&gt;
+&lt;li&gt;统合综效（双赢）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在与他人合作时我们要尊重差异：与人合作最重要的是，重视不同个体的不同心理、情绪与智能，以及个人眼中所见到的不同世界。即使处于不利境地，也不应该放弃追求统合综效。不要在意别人的无礼行径，避开那些消极力量，发现并利用别人的优势，提高自己的认识，拓展自己的视野。你应该在相互依赖的环境中勇敢而坦率第表达自己的观点、情感和经历，借此鼓励他人同样地坦诚相待。尊重人与人之间的差异，当有人不同意你的观点的时候，你应该说：“你跟我有不一样的看法，这很好”，你不一定要对他们表示赞同，但是你可以表示肯定，并尽量给予理解。如果你坚持双赢，确实愿意努力理解对方，你就能找到一种让每一个人都收益的解决方案&lt;/p&gt;
+&lt;p&gt;变得统合综效：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;定义问题或机会&lt;/li&gt;
+&lt;li&gt;他们的方式（首先试着理解别人的想法）&lt;/li&gt;
+&lt;li&gt;我的方式（试着通过分享获得理解）&lt;/li&gt;
+&lt;li&gt;头脑风暴（创造新的机遇和想法）&lt;/li&gt;
+&lt;li&gt;快速通道（找到最佳解决方案）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;习惯七-不断更新----平衡的自我提升原则&#34;&gt;习惯七 不断更新 &amp;ndash; 平衡的自我提升原则&lt;/h3&gt;
+&lt;p&gt;假使你在森林中 看到一名伐木工人，为了锯一棵树已幸苦了5个小时，筋疲力竭却进展有限，你当然会建议他：“为什么不暂停几分钟，把锯子磨得更锋利？”，对方却回答：“我没空，锯树都来不及，哪有时间磨锯子”&lt;/p&gt;
+&lt;p&gt;自我提升和完善的四个层面：身体、精神、智力、社会/情感&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;身体：健康饮食、充足休息、定期锻炼&lt;/li&gt;
+&lt;li&gt;精神：人的本质、核心和对价值体系的坚持&lt;/li&gt;
+&lt;li&gt;智力层面：一旦脱离了学校的训导，许多人的头脑就会退化：不再认真读书，不再探索身外的新世界，不再用心思考，也不再写作，至少不再重视写作
+智力层面的更新主要靠教育、借此不断学习知识，磨砺心智，开拓视野
+定期阅读优秀文学作品 也是拓展思维的最佳方式
+磨练心智的另一种有效方式的写作。通过不断记录自己的想法、经历、深刻见解和学习心得，我们的思路就会更加清晰、准确和连贯&lt;/li&gt;
+&lt;li&gt;社会/情感：围绕着人际关系、移情交流和创造性合作的原则&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>Git笔记</title>
+      <link>https://aaronlinv.github.io/posts/git%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 03 Sep 2020 23:50:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/git%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;学习建议&#34;&gt;学习建议&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/896043488029600&#34;&gt;廖雪峰Git教程 &lt;/a&gt;比较详细，可操作性也比较强，在评论区可以找到勘误
+Git官方推荐的&lt;a href=&#34;https://git-scm.com/book/zh/v2&#34;&gt;《Pro Git》&lt;/a&gt;也很不错，推荐掌握了一定Git基础后再看
+对于没有 Linux 基础，或者文字版学起来比较困难的朋友可以看系列视频教程 &lt;a href=&#34;https://www.bilibili.com/video/BV1HW411f7VJ&#34;&gt;互联网人都该懂点 Git&lt;/a&gt;
+Linux 下最常用的编辑器就是 Vim，然而第一用可能会让你怀疑人生，建议先学习一下 ：&lt;a href=&#34;https://blog.csdn.net/qinfuan2017/article/details/79728906&#34;&gt;使用Vim创建和编辑文本文件&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;注意点&#34;&gt;注意点&lt;/h2&gt;
+&lt;p&gt;Git 2.23 (2019.8.16)
+git checkout 这个命令被拆分成了两个新命令：git switch 和 git restore
+创建并切换到dev分支：git checkout -b dev 现在用git switch -c dev 效果相同&lt;/p&gt;
+&lt;h2 id=&#34;初始配置&#34;&gt;初始配置&lt;/h2&gt;
+&lt;p&gt;安装Git Bash后需要做初始配置&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用户名邮箱&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 任意文件夹右键 点击“ Git Bash Here ”&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# &amp;#34;&amp;#34;内替换为自己的用户名和邮箱&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.name &lt;span class=&#34;s2&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.email &lt;span class=&#34;s2&#34;&gt;&amp;#34;email&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看配置是否成功&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config user.name
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config user.email
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;SSH 免密登录&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# ssh-keygen 用于生成，管理和转换身份验证密钥&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -t：密钥的类型 &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -C：用于识别这个密钥的注释（不添加注释直接ssh-keygen -t rsa也不影响使用）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -t rsa -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;邮箱地址&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 连续按3次回车&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 将用户目录下.ssh文件夹内的id_rsa.pub的内容粘贴到GitHub的SSH Keys中&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 具体位置：GitHub Settings -&amp;gt; SSH and GPG keys -&amp;gt; SSH keys&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 测试是否成功 Github &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 码云测试命令为：ssh git@gitee.com 反馈的结果与 GitHub 类似&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh git@github.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Are you sure you want to continue connecting (yes/no)? &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 这时需要输入：yes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#成功会提示成功认证你的账户&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Hi aaronlinv! You&amp;#39;ve successfully authenticated, but GitHub does not provide shell access.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Connection to github.com closed.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;场景0git-基本使用&#34;&gt;场景0：Git 基本使用&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 新建文件夹，初始化为Git仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir learn-git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; learn-git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 在当前目录添加并编辑文件(不熟悉 vim 编辑器可以用其他编辑器新建文件并编辑文件 )&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim test.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看文件状态 test.txt现在为Untracked状态&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git status
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 添加文件到暂存区&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add test.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 提交commit -m 代表添加一个“提交信息”&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;add test.txt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 推送到 GitHub（在 GitHub 上创建空白仓库，并复制仓库地址）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# &amp;#34;git@github.com:aaronlinv/learn-git.git&amp;#34; 需要替换为自己新建的仓库地址&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 先添加远端仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# origin：远端仓库的别名（默认origin）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote add origin git@github.com:aaronlinv/learn-git.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看远端操作（会显示 fetch和push）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote -v 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 推送到远端仓库（使用SSH协议需要配置SSH免密登录）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -u：指定默认远端仓库别名，下一次推送只需使用git push&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# origin：远端仓库的别名（默认origin）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# master：分支名称&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;push 是可能会遇到报错：refusing to merge unrelated histories
+原因是远程仓库和本地仓库做了不同的改变并commit，导致本地仓库和远程仓库变成了独立的两个仓库，所以不能直接合并，执行以下命令合并代码，再push即可&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>安卓初学指南</title>
+      <link>https://aaronlinv.github.io/posts/%E5%AE%89%E5%8D%93%E5%88%9D%E5%AD%A6%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Wed, 02 Sep 2020 21:44:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E5%AE%89%E5%8D%93%E5%88%9D%E5%AD%A6%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;在项目的第二阶段遇到挺多坑，所以整理了一下经验，如果你想尝试安卓开发，希望能帮到你。在此之前可以先看我之前写的 &lt;a href=&#34;https://www.cnblogs.com/aaronlinv/p/13596037.html&#34;&gt;初见安卓开发&lt;/a&gt;，了解一下我们目前的情况&lt;/p&gt;
+&lt;h3 id=&#34;预先准备&#34;&gt;预先准备&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;需要熟悉 Java 基础语法&lt;/li&gt;
+&lt;li&gt;安装开发环境（ JDK、AndroidStudio (简称 AS )、虚拟机等），安装环境比较繁琐，而且需要下载很多东西（默认都是安装到 C盘，总共可能会占用 20G 左右的空间）。安装可能会劝退一部分朋友，这里推荐两个教程跟着做就没问题了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;安装AS之前一般会先安装 Java 开发工具包(JDK)，可以参考这篇博客&lt;a href=&#34;https://www.cnblogs.com/whycxb/p/9032559.html&#34;&gt;【Android Studio安装部署系列】JDK开发环境搭建&lt;/a&gt;，比较值得一说的是，现在下载 JDK 要到 Oracle 官网，而且还需要注册账号，有点麻烦。然后开始安装 AS，参考这个视频教程 &lt;a href=&#34;https://www.bilibili.com/video/BV18b411H7Fr&#34;&gt;1# Android Studio开发环境 (Attect) Android开发教程&lt;/a&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/wyf2017/article/details/81355414&#34;&gt;Android Studio 设置代码提示和代码自动补全快捷键&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/zlc364624/p/10704980.html&#34;&gt;Android Studio 真机测试/开发者模式&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;初学比较常用的快捷键：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;智能建议：Alt 回车&lt;/li&gt;
+&lt;li&gt;代码整理（格式化代码）： Ctrl Alt L&lt;/li&gt;
+&lt;li&gt;注释：Ctrl /&lt;/li&gt;
+&lt;li&gt;块注释：Ctrl Shift /&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;开始学习&#34;&gt;开始学习&lt;/h3&gt;
+&lt;p&gt;如果没有任何开发经验，比较推荐看视频&lt;a href=&#34;https://www.bilibili.com/video/av50954019&#34;&gt;Android开发教程（ 2019最新版,使用 JetPack ）&lt;/a&gt;，这个教程使用的是 JetPack库，前 40 集使用 Java，从 41 集开始换为了 Kotlin。个人觉得这作者讲的深入浅出，而且教程中也传递了很多规范化的思想，很适合初学者。要注意作者早期视频使用的是内测版本的 ViewModel库，而现在默认自带稳定版，所以不需要手动添加 ViewModel 依赖，视频中使用的 ViewModel 构造方法已过时，应该使用下面这个：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;MyViewModel&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;myViewModel&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ViewModelProvider&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyViewModel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;初学最好按着教程一步一步来，变量名也最好跟着教程来，这样出错了跟着视频，排错起来也比较容易。一定要跟着敲代码，边敲边理解整个逻辑，刚开始可能比较懵，但是到后面，对整个体系有了一定了解，就会豁然开朗，这个时候可以看看&lt;a href=&#34;https://developer.android.com/guide&#34;&gt;官方文档&lt;/a&gt;，这样会加深对安卓开发或是JetPack的理解&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;觉得学的差不多了，就可以开始在GitHub上找一些感兴趣的安卓项目（或者是找一些最佳实践），克隆下来，看看别人是怎么写的，模仿这写一写，这个过程会遇到很多问题，解决这些问题，就会收获很大的提升&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>初见安卓开发</title>
+      <link>https://aaronlinv.github.io/posts/%E5%88%9D%E8%A7%81%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Tue, 01 Sep 2020 14:34:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E5%88%9D%E8%A7%81%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/</guid>
+      <description>&lt;h2 id=&#34;初见安卓开发&#34;&gt;初见安卓开发&lt;/h2&gt;
+&lt;p&gt;&lt;img alt=&#34;Android开发者官网 2020.6.1&#34; loading=&#34;lazy&#34; src=&#34;%E5%88%9D%E8%A7%81%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/1929786-20200901142151492-852214615.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;从 &lt;a href=&#34;https://developer.android.google.cn/&#34;&gt;Android开发者官网&lt;/a&gt; 的导航栏我们可以看得出来 Google 在安卓开发方面主推 Jetpack 和 Kotlin&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://developer.android.google.cn/jetpack/&#34;&gt;Android Jetpack&lt;/a&gt; 是一套组件库，其中包含了很多组件，比如：LiveData、Room、ViewModel等等，使用这些组件极大简化了开发，消除样板代码，提高应用质量
+&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://developer.android.google.cn/kotlin&#34;&gt;Kotlin&lt;/a&gt; 是 JetBrains 在 2011 年发布的静态类型编程语言（这是一个开源项目），虽然语法上不能与 Java 兼容，但它是面向JVM，所以它可以和Java代码相互运作。在 Google I/O 2017 中，Google 宣布在 Android 上为 Kotlin 提供最佳支持，后来 Google 就把 Android 开发的官方语言更换为了 Kotlin&lt;/p&gt;
+&lt;h2 id=&#34;java-or-kotlin&#34;&gt;Java or Kotlin&lt;/h2&gt;
+&lt;p&gt;选择语言确实比较重要，会极大影响后续的开发工作。目前情况：团队成员有 Java 基础、无 Kotlin 基础、无安卓开发经验，项目有时间限制。这里列举几个我们团队比较可感知的影响因素进行对比&lt;/p&gt;
+&lt;h4 id=&#34;java&#34;&gt;Java&lt;/h4&gt;
+&lt;p&gt;优点：Java安卓开发的资料相对多、遇到问题搜索到的概率比较大、Github 上有大量的 Java 安卓项目可以学习
+缺点：相对 Kotlin 有很多样板代码、没有 Kotlin 的一些特性代码写起来会比较麻烦、Jetpack 库的资料大多用 Kotlin 举例&lt;/p&gt;
+&lt;h4 id=&#34;kotlin&#34;&gt;Kotlin&lt;/h4&gt;
+&lt;p&gt;优点：有很多语法糖、简化 findViewById、简化数据类、空指针安全、函数式编程、协程（解决异步任务处理）&amp;hellip;
+缺点：Kotlin 安卓相关的教程比较少，Kotlin 的资料相对没有 Java 那么多，遇到问题搜索到的概率相对低一点&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

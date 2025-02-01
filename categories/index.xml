@@ -11,13 +11,83 @@
     </image>
     <generator>Hugo -- 0.142.0</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Nov 2022 08:32:33 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 15 May 2024 08:56:33 +0800</lastBuildDate>
     <atom:link href="https://aaronlinv.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>编程杂记</title>
       <link>https://aaronlinv.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E8%AE%B0/</link>
-      <pubDate>Wed, 09 Nov 2022 08:32:33 +0800</pubDate>
+      <pubDate>Wed, 15 May 2024 08:56:33 +0800</pubDate>
       <guid>https://aaronlinv.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>前端</title>
+      <link>https://aaronlinv.github.io/categories/%E5%89%8D%E7%AB%AF/</link>
+      <pubDate>Sun, 28 Apr 2024 08:58:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/categories/%E5%89%8D%E7%AB%AF/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://aaronlinv.github.io/categories/git/</link>
+      <pubDate>Wed, 27 Mar 2024 08:50:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/categories/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spring</title>
+      <link>https://aaronlinv.github.io/categories/spring/</link>
+      <pubDate>Thu, 24 Aug 2023 08:40:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/categories/spring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>重拾系列</title>
+      <link>https://aaronlinv.github.io/categories/%E9%87%8D%E6%8B%BE%E7%B3%BB%E5%88%97/</link>
+      <pubDate>Thu, 13 Apr 2023 08:43:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/categories/%E9%87%8D%E6%8B%BE%E7%B3%BB%E5%88%97/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android</title>
+      <link>https://aaronlinv.github.io/categories/android/</link>
+      <pubDate>Tue, 10 May 2022 09:08:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/categories/android/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>工具</title>
+      <link>https://aaronlinv.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 04 Mar 2022 08:53:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/categories/%E5%B7%A5%E5%85%B7/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>读书笔记</title>
+      <link>https://aaronlinv.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 25 Jan 2022 01:24:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>简单入门</title>
+      <link>https://aaronlinv.github.io/categories/%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Wed, 05 Jan 2022 09:08:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/categories/%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://aaronlinv.github.io/categories/docker/</link>
+      <pubDate>Wed, 15 Sep 2021 09:01:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/categories/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>数据库</title>
+      <link>https://aaronlinv.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Wed, 03 Feb 2021 17:00:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description></description>
     </item>
   </channel>

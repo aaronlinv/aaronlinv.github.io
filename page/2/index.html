@@ -1,0 +1,122 @@
+<!doctype html><html lang=en dir=auto><head><meta name=generator content="Hugo 0.142.0"><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Aaron Lin</title>
+<meta name=keywords content="Blog,Web,Technology"><meta name=description content="Less is more"><meta name=author content><link rel=canonical href=https://aaronlinv.github.io/><meta name=google-site-verification content="XYZabc"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as=style><link rel=icon href=https://aaronlinv.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://aaronlinv.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://aaronlinv.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://aaronlinv.github.io/apple-touch-icon.png><link rel=mask-icon href=https://aaronlinv.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://aaronlinv.github.io/index.xml><link rel=alternate type=application/json href=https://aaronlinv.github.io/index.json><link rel=alternate hreflang=en href=https://aaronlinv.github.io/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://aaronlinv.github.io/"><meta property="og:site_name" content="Aaron Lin"><meta property="og:title" content="Aaron Lin"><meta property="og:description" content="Less is more"><meta property="og:locale" content="en"><meta property="og:type" content="website"><meta property="og:image" content="https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="Aaron Lin"><meta name=twitter:description content="Less is more"><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Aaron Lin","url":"https://aaronlinv.github.io/","description":"Less is more","logo":"https://aaronlinv.github.io/favicon.ico","sameAs":[]}</script></head><body class=list id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://aaronlinv.github.io/ accesskey=h title="Aaron's Blog (Alt + H)">Aaron's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://aaronlinv.github.io/archives/ title=Archive><span>Archive</span></a></li><li><a href=https://aaronlinv.github.io/categories/ title=Categories><span>Categories</span></a></li><li><a href=https://aaronlinv.github.io/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://aaronlinv.github.io/about/ title=About><span>About</span></a></li></ul></nav></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Git 中的回退操作：reset 和 revert</h2></header><div class=entry-content><p>Git 中回退有 reset 和 revert，这两个的区别就是是否保留更改记录
+假设当前的提交情况是：A &lt;- B &lt;- C &lt;- D &lt;- HEAD，如下图：
+当前是 D，希望回退到 A，那我们可以使用 reset 命令，reset 后再看 git log 就会发现：B &lt;- C &lt;- D 宛如没有出现过，这适用于想完全舍弃 A 之后的修改
+但是如果我们想保留 B &lt;- C &lt;- D 的修改记录，可能这三个 commit 的功能只是暂时用不到，以后可能还用到，或者可能当前分支是一个公共分支，B &lt;- C &lt;- D 可能已经被同步到了其他小伙伴电脑上，为了尽量避免代码冲突。这些情况就需要使用 revert 命令，这样会重新生成新的 commit，其中包含回退的记录（假设 D 这个 commit 是添加了一些代码，那么 revert D 的 commit 就是删除这些代码）
+reset 使用 git reset A ，reset 会修改 head 的指向，这样可以回滚到 A，默认使用的参数是 --mixed，这个参数决定了 reset 时 Git 该如何处理工作区和暂存区
+...</p></div><footer class=entry-footer><span title='2022-07-08 08:36:33 +0800 +0800'>July 8, 2022</span></footer><a class=entry-link aria-label="post link to Git 中的回退操作：reset 和 revert" href=https://aaronlinv.github.io/posts/git-%E4%B8%AD%E7%9A%84%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9Creset-%E5%92%8C-revert/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>安卓导航抽屉 Navigation Drawer 实现沉浸通知栏</h2></header><div class=entry-content><p>在使用 Navigation Drawer Activity 模版的时候，遇到了通知栏无法完全沉浸的问题，尝试搜索一些现有的解决方法，但是或多或少都会存在一些问题，通过反复尝试找到找到了一种比较靠谱的思路
+环境 测试模拟器：Pixel 3A
+compileSdk：32
+minSdk：28
+targetSdk：32
+创建工程 默认效果展示： 修改步骤 设置状态栏变为透明：修改主题配置 &lt;item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant&lt;/item> 修改为：
+&lt;item name="android:statusBarColor">@android:color/transparent&lt;/item> 修改后完整文件：
+&lt;resources> &lt;!-- Base application theme. --> &lt;style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.DarkActionBar"> &lt;!-- Primary brand color. --> &lt;item name="colorPrimary">@color/purple_500&lt;/item> &lt;item name="colorPrimaryVariant">@color/purple_700&lt;/item> &lt;item name="colorOnPrimary">@color/white&lt;/item> &lt;!-- Secondary brand color. --> &lt;item name="colorSecondary">@color/teal_200&lt;/item> &lt;item name="colorSecondaryVariant">@color/teal_700&lt;/item> &lt;item name="colorOnSecondary">@color/black&lt;/item> &lt;!-- Status bar color. --> + &lt;item name="android:statusBarColor">@android:color/transparent&lt;/item> &lt;!-- Customize your theme here. --> &lt;/style> &lt;style name="Theme.MyApplication.NoActionBar"> &lt;item name="windowActionBar">false&lt;/item> &lt;item name="windowNoTitle">true&lt;/item> &lt;/style> &lt;style name="Theme.MyApplication.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" /> &lt;style name="Theme.MyApplication.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" /> &lt;/resources> 修改后的效果： ...</p></div><footer class=entry-footer><span title='2022-05-10 09:08:33 +0800 +0800'>May 10, 2022</span></footer><a class=entry-link aria-label="post link to 安卓导航抽屉 Navigation Drawer 实现沉浸通知栏" href=https://aaronlinv.github.io/posts/%E5%AE%89%E5%8D%93%E5%AF%BC%E8%88%AA%E6%8A%BD%E5%B1%89-navigation-drawer-%E5%AE%9E%E7%8E%B0%E6%B2%89%E6%B5%B8%E9%80%9A%E7%9F%A5%E6%A0%8F/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>使用 Postman 的 Environments 和 Tests 简化在不同环境中的切换步骤</h2></header><div class=entry-content><p>调试 API 的时候，我们需要经常需要在本地、开发、生产来回切换，还需要面临 Token 失效等的问题，让人头大，看到一些教程有介绍用 Postman 来简化流程，但是实践起来还是遇到一些问题，所以就有了这篇细致地介绍使用 Postman 的 Environments 和 Tests 来简化在不同环境中切换的步骤，无感知地调试 API 的博客
+手动更新 Token 在 Environments 面板中 new 一个新的 Environment (环境)，用于存储当前环境的：Token、地址、用户名、密码，需要先填上地址、用户名、密码的 CURRENT VALUE 在 Collections 中添加一个新的 Collection（集合），名字为 Demo，点击右键选择 Add Request 添加一个获取 Token 的 Request。注意右上角的 Environment 需要选择刚才定义的，这样才可以通过 {{}} 获取到 Environment 中变量的值。这里的 base URL、账号、密码都可以根据实际请求的情况进行设置 编写这个 Request 的 Test（Test会在请求执行后自动运行），编写 Test 目的是为了在请求后自动更新当前 Environment 的 Token，写完就点击 Send 发送请求。点击右上角的眼睛，可以快速查看当前 Environment 变量 // 判断相应的状态码是否为 200 pm.test("Status code is 200", function () { console.log((pm.response)) pm.response.to.have.status(200); }); // 更新当前 Environment 的 Token console.log(pm.response.json()) var token = pm.response.json().token pm.environment.set("token", token); 使用 Request 调用获取 Token 的 Request，更新全局 Token
+...</p></div><footer class=entry-footer><span title='2022-03-04 08:53:33 +0800 +0800'>March 4, 2022</span></footer><a class=entry-link aria-label="post link to 使用 Postman 的 Environments 和 Tests 简化在不同环境中的切换步骤" href=https://aaronlinv.github.io/posts/%E4%BD%BF%E7%94%A8-postman-%E7%9A%84-environments-%E5%92%8C-tests-%E7%AE%80%E5%8C%96%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>我的二本学生 阅读笔记</h2></header><div class=entry-content><p>第一次知道黄灯老师是在随机波动的播客：【随机波动025】一本二本的尽头是否都是就业零件？
+后面又在软工教学群里看到了分享：专访《我的二本学生》作者黄灯：看见中国普通年轻人的命运
+随后也看到了十三幺：许知远对话黄灯 我和我的二本学生 以及黄灯老师的演讲：黄灯：二本学生的困境，也是当下所有年轻人的危机
+近期翻阅了黄灯老师所写的这本札记，对于所提到学生有了更具象的了解，书中一些片段与生活认知有高度的重叠，其中就包括：苦难对于学生不同的影响、原生家庭对于孩子成长的影响、大的时代背景下的个体的选择和命运、多子女家庭和独生子女家庭学生性格的差异
+看这本书的时候，我总会回想起大学时期担任软件工程助教的那些事情。通过助教这个工作，有幸以另一种角度窥见自己所在的学校、自己熟悉的课堂，见证同学们学习的状态。在结束了一个学期的助教工作后，我越发了解同学们的所面临的境况，同时也更深刻地感受到了教师的无奈，以及他们所面临的困境。对于我来说有时这种绝望是打在身上的，能够触及的改变太少了
+正如黄灯老师所说的：
+我希望我的学生毕业之后都能在社会上立足，不要过着很艰难的生活 我也希望他们更有冲劲，能够去追求梦想，有更多的勇气，但我知道其实很多爸爸妈妈，他们希望自己的孩子读完大学之后有一份稳定的工作，让父母放心，在城里面立足
+我也看到有不少学生，在坚持自己的理想和底线的时候，在现实中会碰的头破血流 我们作为过来人其实在他准备那样去做的时候就能够预料到他的后果，但是当时可能也不忍心去把他的那种激情破灭，但是事实上你过了好多年，再回过头去看其实孩子还是付出很大的代价
+这个社会的反，抗不能完全由年轻人冲到前面，我觉得这个社会的改革应该首先从反省自己开始，尤其是那些获得利益的人 一个农村来的孩子，父母通过打工，在外面卖苦力来供养他读书，说句不好听的，你指望他来改变这个社会，我觉得太残酷了
+互相看见是特别重要的，互相看见才会达成和解，这社会才会产生一种韧性的力量，而不是动不动就撕裂
+序言 看见他们 中国二本院校的学生，从某种程度而言，折射了中国最多数普通年轻人的状况，他们的命运，勾画出了中国年轻群体最为常见的成长路径
+写作的直接动因：课上的关于风的现场写作所引出的故事，让作者意识到了自己对于广东经济发展刻板印象
+一 在龙洞 龙洞的变化折射了城市变迁史 不同的学生毕业后都租住在龙洞，伟福将住所收拾的妥帖，让人舒坦，在结束一天的工作后，能拥有让自己享受的空间 冉辛追将龙洞作为人生过渡期的暂居之处，受到爷爷的影响，对文学骨子里地热爱，最后却选择了人力资源专业，他的选择让爷爷迷茫和失望，这种遗憾也成为了他人生选择的隐秘动力，父母支持考研，提供生活费，通过三年的努力，最终成为复旦的一员。与之相似的还有姚大顺，他们都没有办法按照生活预设好的轨道前行，所以最终选择了考研，但家庭和成长环境不同，导致了大顺无法接受家人资助，全心考研。经过折腾最后回到了龙洞，他是家中的长子，母亲希望他可以稳定下来
+除了身份已变，他的生活，和学生时代没有太大的不同，他依旧拥有龙洞，拥有学校的操场，拥有活色生香的饭堂，当然，也拥有大学时代低廉的生活成本，甚至还可以非常方便地联系想见的老师。这种便捷也许会让他忘记现实的残酷，淡化母亲给予他的忧伤，让他偶然沉湎咋学生时代的幻梦中
+二 公共课 公共课所教授的《经济应用文写作》与博士期间所学习的写作之间的鸿沟是面临的挑战
+对于人文学科而言，多媒体对于课堂的干扰和伤害，先让没有引起足够的重视，信息的泛滥及花里胡哨的内容，让老师无形中倍感压迫，也让学生在深度思考和理解上，缺乏锻炼的机会和耐心
+邓桦真 《风》 写自己家境的贫寒，为贷款烦透心 朱洁韵 《父爱》 个性要强，来到大学后，幡然醒悟懂得了父亲的爱
+面临的一个问题：无法触及一个真实群体的问题，企图借助考试，调动他们与己有关的生活经验，以此了解他们对于社会、自身的认知
+让学生困惑的事情：
+电子产品对生活的渗透 负载在家庭之上的生存挣扎 城市孩子：批判应式教育，深恶痛绝，刘奕晓比喻为“一场赌博”，方雪怡：高考作为划分线，中国学生的青春时代被简单粗暴地划分成两部分 农村孩子：充满闯过高考的庆幸惴惴不安
+正因为经受了压力过大的考试阶段，课堂上学生中规中矩、老成持重，他们的平和中正与我们大学时代的张扬放肆，鲜明对比。他们收缩了属于青春年代的触角和锋芒，逼到绝境，唯一能够下手的对象只有自己
+从记事起，无形的、细密的重荷就负载在他们身上，早已将他们裁剪得规规整整，难以在生活中泄露狡黠的契机
+教育像一场慢性炎症，中小学时代服下的猛药、抗生素、激素，到了大学时代，终于结下了漠然、无所谓、不思考、不主动的恶果
+三 班主任 因为班主任的身份，目睹了一个群体从学生时代，完全步入真实的社会，并和这个社会产生真实的关联
+这些二本学生有的是在毕业后短暂挣扎，但最后又是为了解决生存
+梦想，每个人都应该拥有，但不是每个人都能实现 大学毕业后，我的首要任务是要解决我和家人的生活问题
+四任班长，其中能几个之所以能在社会立足，并过上让长辈放心、安心的稳定生活，要不就是早早认清现实的规划顺着社会去经营生活，要么就是是经过现实的碰撞，终于认清进入体制内工作的优势，选择毕业后回炉考公务员。志勇综合条件优秀，但是毕业后九年经历证明了，现实已经没有多少空间和可能
+夹缝中的光芒： 钟梦兰：得益于中国高速的城市化进程，父亲从事建筑行业，在市里购地建房，在小城市生活 潘海燕：父母进城打工，保证了三姊妹的教育费用，没有重蹈村里贫困家庭长女的遭遇，早早辍学嫁人 广东发达经济条件和成熟的市场意识，导致家庭开过工厂或小作坊和内地农村家庭依赖农业的鲜明对比，造成职业观念的不同：倾向于从事商业活动
+062111毕业生去向： 班上的女生很多在毕业后经过折腾，通过考公务员，进入机关事业单位，获得安稳工作，其二是银行、保险等金融机构，其三，国营、民营及各类私营企业，最后是：创业
+梅怡的就业观中，没有动过寻找稳定工作的心思，和父母的鼓励、大城市出身、长大后的见识、较好的家庭经济条件分不开
+062111学生之所以能在教育彻底市场化的境况下，获得良好的发展机会，显示了这一代普通青年，曾经拥有的丰富资源和时代机遇
+分化已经开始： 一部分实现了财务自由，另一部分居无定所、收入有限，两者分野的关键要素是是否买房
+曾迎欢 毕业就去北京，开拓了眼界，提升了能力，打下了基础，回到广州。婚后选择买房，靠着借款和存款一次性付清，有了第一个孩子后，选择全职妈妈，期间还留意政策风向、金融市场动态，适当理财，第二年又购置第二套房。基本上每年一套房，实现财富增值。得益于努力和忧患意识
+陈柳鸿 家里经商，耳濡目染，她的小姨注重培养她社交能力，毕业后通过家里人脉，进入广州某行业协会，由于复杂的人际关系，离开，进入了某电视台，认识了杨总，走上了艺术品拍卖，开始累积了人脉，与知名作家妻子合作做翡翠生意，后面合作崩盘，自己单干抓住微商红利。庆幸关键时刻总有贵人相助
+杨胜轩 父母下岗，房屋拆迁，在拆迁补偿的基础上借钱买饭，抓住了稍纵即逝的红利。父母下岗后生存所遭遇的艰辛，在他性格中打下了很深的烙印
+对照记 两种完全不同的教育图景：计划经济条件下国家主导的高等教育 与 市场经济条件下资本与资源主导的高等教育
+...</p></div><footer class=entry-footer><span title='2022-01-25 01:24:33 +0800 +0800'>January 25, 2022</span></footer><a class=entry-link aria-label="post link to 我的二本学生 阅读笔记" href=https://aaronlinv.github.io/posts/%E6%88%91%E7%9A%84%E4%BA%8C%E6%9C%AC%E5%AD%A6%E7%94%9F-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>《马文 柯林斯的教育之道》阅读笔记</h2></header><div class=entry-content><p>《马文·柯林斯的教育之道》 是 哈佛幸福课（积极心理学） 中强列推荐的一本书
+这本书主写的是 马文·柯林斯 的成长经历已经和教育理念，仅看介绍，会误认为这本书只是在说鼓励式的教学理念，看完发现还有写塑造了她性格的人生经历，这部分更具有启发性。提及的很多点引起共鸣，能看到个人成长经历对于她教育方式的影响，最终形成的教育理念又改变了很多人的命运
+马文儿时生活在亚拉巴马州蒙罗韦尔小镇，在这里远离了许多犯罪行为，人文、自然让她度过了无忧无虑的快乐童年。她目睹了因为种族的缘故父亲遭受到的不公待遇，但父亲从不墨守成规、安于旧俗 ，拥有强大的价值观和坚定信仰，这使得马文有强烈的安全感并且坚定自信
+小时候通过模仿祖母诵读，马文学会了通过音节拼读单词，祖母读那些书籍诗歌启蒙了马文
+小学时马文因写错2被老师用尺子打手，这影响了马文的教学理念：应该对孩子采取积极的策略，不应该指责和嘲笑，应该建立信心 ，孩子是敏感，自尊心是脆弱的
+因为黑人身份在上学和就业时处处受到限制，致使她在培门罗县训机构教书，这段经历使马文掌握了教学方法，还让她懂得了优秀的教师更应该懂了解学生
+在去芝加哥拜访祖母表亲安妮时，遇见了她的丈夫柯拉鲁斯，丈夫始终都很支持马文做的事
+“能够对别人的孩子表现出极大耐心的男士一定会事一个好父亲和好丈夫”
+在辞去医疗秘书工作后，马文到南卡尔洪小学二年级教书。传统教学通过图片教授阅读，这降低教材和课程难度，学生的反馈使得马文摒弃了这种教学方式，转而选择一些优秀的故事，教授孩子们正确的价值观和生活经验，这相较于传统课本更能激发阅读兴趣
+办公室政治让马文失去了继续留在公立学校的动力，最终马文开始和一群对公立学校不满的女性邻居一起在 丹尼尔·黑尔·威廉姆斯大学 里建立了私立小学，在这所马文自己的小学里，她充分践行了她的教育理念，后来马搬到了自己家二楼并将学校改名为 西区预备学校，继续教书育人
+马文给《芝加哥太阳时报》的专栏作家 扎伊·史密斯 写信，并接受了采访，之后收到关注和捐助，她到公立学校演讲，获得500美元，她也以此激励孩子努力学习
+之后有了更多像 莉莲·沃恩、艾拉·麦考伊 这样的对待孩子温柔有耐心且乐于接受马文的教学方法的老师加入了马文的学校
+《60分钟》栏目为学校打开资金来源，学校换了新的校址，有了更多的学生
+面对各种正面和负面的报道，各种各样的批评，刚开始马文拒绝回应，朋友建议马文回应，但是这使得马文筋疲力竭
+那些讥笑讽刺和含沙射影的批评永远不可能减少她真正的成就：那些孩子接受教育，受到鼓励，变得自信果敢，最后在这个世界上闯出了属于自己得路。这才是马文的宝贵遗产
+马文教学的载体是基础读本中的每个故事，还引入了补充材料，培养学生发散性思维，用概括的方式来启发他们，让学生看见知识的流动 -> 用故事撑起孩子们广阔的知识面 -> 孩子们可把这些知识用于课堂、生活，从而形成正反馈不断激励孩子们自发学习。不局限于文学，她也会讲述歌剧及其背后的故事，她相信：要想让年轻人受到良好的教育，需要让他们接触所有的文化形式。她还在课堂上提出开放式的问题，激发学生批判性思维，提出省略事实的不完整问题，教会他们评估问题，意识到信息不充分
+马文则坚信：“真正的解决途径就是教育，我们必须教会孩子自尊自立，我们必须教导他们，读书、培养技能和自立是非常重要的”
+“马文作为老师的最高目标就是赋予学生为自己学习的意愿”
+教育的重中之重就是让孩子阅读，需要艰难且乏味的学习，没有任何捷径可走
+危害当代教育一个弊端是由于过度强调“进步注意”的教学方法造成的。学校为了努力遵从 约翰·杜威 以学生为中学而非以课程为中心的教学理念，过多地牺牲了教学内容，过度关注如何教而不是教什么
+在我们的学校里，没有奇迹，更没有魔法，否则教书对我而言就不会那么劳神费力了，学习对于这些孩子而言也不会那么艰辛困难了。正是由于所有的这些付出和艰难，孩子们才会细细品味每一次成功，并甘之如饴。并且一但他们开始成功了，便会想要更多，甚至不愿回头
+马文擅长用鼓励或批评引导学生：
+“你们会学习所有的发音规律，这样的单词将不再是什么难懂的谜，多么富有或者多么漂亮。你可以和任何人对话，无论对方多么聪明，多么富有或者多么漂亮。你们都是聪明伶俐的孩子，没有什么事你们做不到的”
+“总有一天，在无数次的赞扬和拥抱之后，他的抵触情绪会自动消解。孩子们最终想要的是，一个真实的自己可以被接受，感受到自己是有价值的。一但他们感觉到自价值，就会痴迷于学习，而且永远都会求知若渴”
+人和事分开，你的行为愚蠢 不等于 人愚蠢，这样学生才能接受意见和批评，放弃错误行为，而不是去尊严或自我价值
+关注每一个孩子，这可能与她的经历有关，对于被孤立的感觉更能感同身受，她也提倡互助小组，不断督促彼此，为彼此取得的小成绩而感到快乐
+课间看见独自的孩子会重新组织游戏玩伴，让每个孩子都感觉到被集体接受，不被排斥
+每个孩子都需要感觉到被爱和被需要。每个孩子都需要归属感。大多数孩子依旧因为在之前的学校里被羞辱和被排挤而痛苦不堪
+她不是被动地等着学生向她寻求帮助，而是常常就让自己在学生身边，通常困惑的孩子会呆在座位上，忘记了解决问题这件事，直到最后完全跟不上，彻底放弃
+当你们想要伤害另一个人的时候，又怎么能够抱怨这个社会有种族偏见呢，所以你们学会互相帮助和相互爱护之前，不要谈论别人都对你们做了什么
+她认为也应该把 ”不好的事物“ 也展现在孩子面前，这也是我们传统教育中比较缺失的东西，导致一部分人不知道该怎么面对现实生活中的苦难
+让孩子知道自己的坏情绪，这很重要，小孩子容易认为是他们做了什么事才给大人添了许多麻烦
+毫不避讳地和孩子谈论自己的事，教师不应该故作完美：“如果老师不展现人类脆弱的一面，那么孩子也会羞于承认他们自己脆弱的一面”
+我也认为，不应该过度保护孩子，不应该把他们的阅读方位局限于只会以盲目乐观地视角审视这个世界的故事。生活是混乱无序且充满瑕疵的，而且孩子们应该被告知这一点，像死亡、贪婪和暴力这些话题并非不可言说的禁忌
+和孩子们分享自己以前做的“坏事”，告诉孩子们：“如果有老师放我一马，我就会得过且过”，所以她严格要求孩子们的学习
+父母对于孩子的教育也起到了非常大的作用
+“在这个混乱的世界里，唯有拥有意志坚定的父母或强大的老师的孩子才能有所成就，至少具备其中一个条件，或者二者都具备”
+必须强大起来并为孩子定调子的应该是家长，家长不给孩子立规矩，却期待老师在课堂上维持好纪律和秩序，在家从未要求承担责任，或者做家务</p></div><footer class=entry-footer><span title='2022-01-05 09:08:33 +0800 +0800'>January 5, 2022</span></footer><a class=entry-link aria-label="post link to 《马文 柯林斯的教育之道》阅读笔记" href=https://aaronlinv.github.io/posts/%E9%A9%AC%E6%96%87%E6%9F%AF%E6%9E%97%E6%96%AF%E7%9A%84%E6%95%99%E8%82%B2%E4%B9%8B%E9%81%93%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>简单的 Shell 脚本入门教程</h2></header><div class=entry-content><p>Shell脚本 运作方式与解释型语言相当，如果有语言基础，学起 Shell 脚本就非常容易，但是 Shell 与常见的语言不同，一些常见的函数在 Shell 中需要组合一些命令得以实现
+工具推荐 Shell 似乎没有定制的 IDE，这里推荐 VS Code 搭配对应的插件：
+shellman 智能提示和自动补全，在插件页面有介绍常用代码片段的触发关键词，作者在 Shellman reborn 中写到了 Shellman 诞生的故事，挺有趣的 shellcheck 语法静态检查工具，插件安装后需要本地安装 shellcheck，参考 shellcheck Installing，Mac OS 可以使用 brew install shellcheck，这样在写 Shell 的时候，语法有误的地方就会以波浪线的方式提示 shell-format 代码整理，Win 快捷键：Alt + Shift + F，Mac OS 快捷键：option + shift + F Code Runner 脚本运行，右键 Run Code，Win 快捷键：Ctrl + Alt + N，Mac OS 快捷键：control + option + N 运行 shell 脚本 新建脚本：test.sh
+#!/usr/bin/env bash # 使用echo 打印字符串或者变量 echo 'hello world' 可以用 Code Runner 运行，就会输出：hello world
+...</p></div><footer class=entry-footer><span title='2022-01-05 09:08:33 +0800 +0800'>January 5, 2022</span></footer><a class=entry-link aria-label="post link to 简单的 Shell 脚本入门教程" href=https://aaronlinv.github.io/posts/%E7%AE%80%E5%8D%95%E7%9A%84-shell-%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>开源≠免费 常见开源协议介绍</h2></header><div class=entry-content><p>不根据协议使用开源软件可能面临的风险 2003 年 Linksys 公司（同年 3 月被思科收购）推出 WRT-54G，这款路由器采用了基于 Linux 的固件，而 Linux 使用的是 GPL 开源协议，所以思科迫于压力，开放了 WRT-54G 的源码，这使得爱好者们知道了路由器固件的实现方式，进而促成了各种相关开源项目的繁荣，其中就包括 OpenWRT
+Android 和 Linux 内核 的关系 Android 使用了 Linux 内核，而 Linux 内核采用的是 GPL 的开源协议，所以 Google 修改了 Linux 内核，使得驱动程序可以在 Linux 内核的上层运行，这样上层的代码可以绕过GPL协议。这也使得所有 Android 上的开源驱动，不经过修改无法直接用在 Linux 内核上，造成了Linux 内核的分裂，所以 Linux 内核开发小组撤下了 Android 所贡献的代码
+而非内核部分，Android 开源项目 (AOSP) 许可提到了：
+对于用户空间（非内核）软件，相比其他许可（例如宽通用公共许可证 (LGPL)），我们更倾向于 Apache 2.0（以及 BSD 和 MIT 等类似许可） 我们为自己的代码首选 Apache 2.0
+因为 AOSP 采用了 Apache 2.0 协议，所以任何人都可以基于 AOSP 开发自己的 Android 系统，而且不需要开源，国内的一些定制 Android 系统都是基于 AOSP，具体可以参考定制Android固件列表。虽然 AOSP 是开源的，但是 Google 移动服务 GMS（Google Mobile Service）是闭源的，GMS 中包括，如果手机厂商想要使用 GMS，就必须向 Google 支付授权费。GMS 包含了 Google 自家的App 和服务，除此之外海外 Android 平台发布的 App 严重依赖 GMS，没有 GMS 可能导致软件无法使用等问题，Google 禁止华为对 GMS 的使用，导致华为手机海外出货量大幅下降
+...</p></div><footer class=entry-footer><span title='2021-12-20 09:29:33 +0800 +0800'>December 20, 2021</span></footer><a class=entry-link aria-label="post link to 开源≠免费 常见开源协议介绍" href=https://aaronlinv.github.io/posts/%E5%BC%80%E6%BA%90%E5%85%8D%E8%B4%B9-%E5%B8%B8%E8%A7%81%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>简单的 Go 入门教程</h2></header><div class=entry-content><p>Go（又称 Golang ）是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言
+Docker 和 Kubernetes 都是使用 Go 进行开发的，这几年 Go 越来越流行，生态也越来越好了
+初学 Go 的时候会遇到了一些小问题，在一些教程中没有提及或者因为时效性的缘故，经常需要查阅很多资料才能弄懂，所以想写一篇比较新人视角的文章帮助大家入门
+安装 Go 的官网就是 golang.org，点击首页的 Download Go 就可以跳转到下载页面，然后下载对应操作系统的 Go，如果国内访问缓慢，可以访问镜像站：golang.google.cn，官方安装教程：Download and install
+Windows 只要下载对应的 msi 文件，然后打开后按照提示基本上就是下一步下一步… 具体可以参考这篇博客：Windows Go 开发环境下载、安装并配置，安装完成后 Windows 需要 Win键 + R键，然后输入 cmd，输入 go version，显示版本号就说明安装完成
+GOPROXY 国内下载依赖库会比较缓慢，所有我们需要配置 Go Proxy 加速依赖下载（有点像 Java 中修改 Maven 镜像仓库），这里镜像源使用 七牛云
+go env -w GOPROXY=https://goproxy.cn,direct 也可以通过 go env 查看所有的 Go 环境变量，其中就包括 GOPROXY，这个变量定义的就是配置 Go 镜像
+Hello World 推荐使用 JetBrains 家的 GoLand，使用体验基本和 JetBrains 家的其他软件例如：IDEA、PyCharm 相似，还有一种也比较主流，就是使用 VSCode 配合 Go 插件，可以参考：VsCode Go插件配置最佳实践指南，相对来说需要比较多的配置，而且调试比较麻烦，对于新手不是很友好
+...</p></div><footer class=entry-footer><span title='2021-10-18 09:10:33 +0800 +0800'>October 18, 2021</span></footer><a class=entry-link aria-label="post link to 简单的 Go 入门教程" href=https://aaronlinv.github.io/posts/%E7%AE%80%E5%8D%95%E7%9A%84-go-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Docker Compose 实践及梳理</h2></header><div class=entry-content><p>上一节：IDEA 配合 Dockerfile 部署 SpringBoot 工程
+Docker Compose 可以实现 Docker 容器集群的编排，可以通过 docker-compose.yml 文件，定义我们的服务及其需要的依赖，轻松地运行在测试、生产等环境
+文档 Product manuals
+Compose file version 3 reference
+Docker 从入门到实践 【中文】
+安装 Compose Compose 依赖 Docker Engine，所有要保证环境安装了 Docker，可参考官方教程，主要分为两步：
+# 1. 下载 Compose 只执行文件到 usr/local/bin/ 目录 # 下载失败可以参考下一小结提供地址安装 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose # 2. 对 Compose 可执行文件添加运行权限 sudo chmod +x /usr/local/bin/docker-compose # 输入下面命令查看帮助，测试安装是否成功 docker-compose -h Compose 开源在 Docker 官方的 GitHub 仓库：docker/compose，所有的 Compose 都会发布在仓库的 Releases 里，步骤1就是使用 curl 命令从 Releases 里下载可执行文件，uname -s和uname -m 可以读取系统的内核名称和硬件架构，用来匹配需要的 Compose 版本， curl 的 -L 参数会让 HTTP 请求跟随重定向（默认不跟随），-o (小写o) 会将服务器响应保存成文件，直接下载到：usr/local/bin/ 下，文件名为：docker-compose，因为这个路径已经在环境变量中了，所以完成步骤2，添加可执行权限后，就可以在任意位置使用了
+...</p></div><footer class=entry-footer><span title='2021-09-15 09:01:33 +0800 +0800'>September 15, 2021</span></footer><a class=entry-link aria-label="post link to Docker Compose 实践及梳理" href=https://aaronlinv.github.io/posts/docker-compose-%E5%AE%9E%E8%B7%B5%E5%8F%8A%E6%A2%B3%E7%90%86/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>IDEA 配合 Dockerfile 部署 SpringBoot 工程</h2></header><div class=entry-content><p>上一节：Dockerfile 实践及梳理 下一节：Docker Compose 实践及梳理
+准备 SpringBoot 工程 新建 SpringBoot 项目，默认的端口是 8080 ，新建 Controller 和 Mapping @RestController public class HelloController { @GetMapping("hello") public String hello() { return "hello world!"; } } 注意，需要在 pom 中添加 spring-boot-maven-plugin 插件，否则运行 jar 包时会提示：没有主清单属性
+&lt;build> &lt;plugins> &lt;plugin> &lt;groupId>org.springframework.boot&lt;/groupId> &lt;artifactId>spring-boot-maven-plugin&lt;/artifactId> &lt;/plugin> &lt;/plugins> &lt;/build> 启动项目，访问 http://localhost:8080/hello 测试
+在项目目录添加 Dockerfile 文件 FROM openjdk:8-jre # ./target/demo-0.0.1-SNAPSHOT.jar 为编译后的 jar 包位置 # jar 包的名称要与自己配置的相同，格式为：项目名称-版本号.jar COPY ./target/demo-0.0.1-SNAPSHOT.jar app.jar EXPOSE 8080 ENTRYPOINT ["java","-jar"] CMD ["app.jar"] Docker 远程连接配置 演示使用的 Docker 宿主机是 CentOS 7，修改配置并重启 Docker 服务 vim /lib/systemd/system/docker.service 将 ExecStar 这行配置修改为下面这行
+...</p></div><footer class=entry-footer><span title='2021-09-05 01:31:33 +0800 +0800'>September 5, 2021</span></footer><a class=entry-link aria-label="post link to IDEA 配合 Dockerfile 部署 SpringBoot 工程" href=https://aaronlinv.github.io/posts/idea-%E9%85%8D%E5%90%88-dockerfile-%E9%83%A8%E7%BD%B2-springboot-%E5%B7%A5%E7%A8%8B/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://aaronlinv.github.io/>«&nbsp;Prev&nbsp;
+</a><a class=next href=https://aaronlinv.github.io/page/3/>Next&nbsp;&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2025 <a href=https://aaronlinv.github.io/>Aaron Lin</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
