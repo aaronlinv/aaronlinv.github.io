@@ -11,8 +11,93 @@
     </image>
     <generator>Hugo -- 0.142.0</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Apr 2023 08:43:33 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2025 08:46:33 +0800</lastBuildDate>
     <atom:link href="https://aaronlinv.github.io/categories/%E9%87%8D%E6%8B%BE%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>重拾 SSH：从基础到安全加固</title>
+      <link>https://aaronlinv.github.io/posts/%E9%87%8D%E6%8B%BE-ssh%E4%BB%8E%E5%9F%BA%E7%A1%80%E5%88%B0%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/</link>
+      <pubDate>Fri, 24 Jan 2025 08:46:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E9%87%8D%E6%8B%BE-ssh%E4%BB%8E%E5%9F%BA%E7%A1%80%E5%88%B0%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/</guid>
+      <description>&lt;p&gt;安全外壳协议（Secure Shell Protocol，简称SSH）是一种加密的网络传输协议，属于应用层协议。&lt;a href=&#34;https://www.openssh.com/&#34;&gt;OpenSSH&lt;/a&gt; 是最流行的 SSH 实现，它是大量操作系统的默认组件&lt;/p&gt;
+&lt;p&gt;OpenSSH 套件由以下工具组成：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;远程操作使用：&lt;strong&gt;ssh&lt;/strong&gt;, &lt;strong&gt;scp&lt;/strong&gt; 和 sftp&lt;/li&gt;
+&lt;li&gt;密钥管理：ssh-add, ssh-keysign, ssh-keyscan 和 &lt;strong&gt;ssh-keygen&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;服务端： &lt;strong&gt;sshd&lt;/strong&gt;, sftp-server 和 ssh-agent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;使用-ssh-连接服务器&#34;&gt;使用 SSH 连接服务器&lt;/h2&gt;
+&lt;h3 id=&#34;1-客户端创建公私钥对&#34;&gt;1. 客户端创建公私钥对&lt;/h3&gt;
+&lt;p&gt;密钥类型选择 &lt;code&gt;ed25519&lt;/code&gt; 椭圆曲线，它生成的公私钥都要比 &lt;code&gt;RSA&lt;/code&gt; 更短，具有较高的安全性和性能&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# - a KDF (Key Derivation Function) 的迭代次数 默认：16 ，防止暴力破解&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# - t 类型&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Ubuntu 22.04 默认：RSA 3072；Mac OS 默认：ED25519 256&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# - C 备注，可以备注上创建年月，定期更换私钥&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -a &lt;span class=&#34;m&#34;&gt;256&lt;/span&gt; -t ed25519 -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;Brandon+2025-01@MacBook&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 可以手动指定路径和密码，也可以一路回车&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 &lt;code&gt;~/.ssh&lt;/code&gt; 下会生成公私钥对&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; 411&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;  id_ed25519
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;  98&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;  id_ed25519.pub
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 私钥需要妥善保管，避免暴露&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat id_ed25519
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-----BEGIN OPENSSH PRIVATE KEY-----
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;QyNTUxOQAAACCRtC9cJJBFwvVsp4vV058ci8lSHNrf2qcx8W+umtK7OwAAAKArJx9PKycf...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-----END OPENSSH PRIVATE KEY-----
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# .pub 结尾为公钥&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat id_ed25519.pub
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJG0L1wkkEXC9Wyni9XTnxyLIt/zHxb66a0rs7 Brandon+2025-01@MacBook
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-在服务器上添加公钥&#34;&gt;2. 在服务器上添加公钥&lt;/h3&gt;
+&lt;p&gt;将上面客户端生成的公钥 &lt;code&gt;ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJG0L1wkkEXC9Wyni9XTnxyLIt/zHxb66a0rs7 Brandon+2025-01@MacBook&lt;/code&gt;
+加入到服务端 &lt;code&gt;~/.ssh/authorized_keys&lt;/code&gt;，每个私钥占据一行&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>重拾 iptables</title>
+      <link>https://aaronlinv.github.io/posts/%E9%87%8D%E6%8B%BE-iptables/</link>
+      <pubDate>Fri, 27 Dec 2024 08:31:33 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E9%87%8D%E6%8B%BE-iptables/</guid>
+      <description>&lt;p&gt;iptables 是一个常看常忘的命令，本文试图从应用的角度理解它&lt;/p&gt;
+&lt;p&gt;iptables 是运行在用户空间的应用软件，通过控制 Linux 内核 netfilter 模块，来管理网络数据包的处理和转发&lt;/p&gt;
+&lt;h2 id=&#34;一些常用的场景&#34;&gt;一些常用的场景&lt;/h2&gt;
+&lt;h3 id=&#34;1-禁止-ip-访问后端-ip&#34;&gt;1. 禁止 ip 访问后端 IP&lt;/h3&gt;
+&lt;p&gt;在 &lt;code&gt;192.168.64.6&lt;/code&gt; 上增加规则：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -A INPUT: 将规则添加到 INPUT 链，表示处理进入的流量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -s 192.168.64.7: 指定源 IP 地址，即要阻止的 IP&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -d 192.168.64.6: 指定目标 IP 地址，即后端 IP&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -j DROP: 表示丢弃匹配的流量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;iptables -A INPUT -s 192.168.64.7 -d 192.168.64.6 -j DROP
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -j REJECT: 丢弃流量的同时向源 IP 返回一个拒绝消息。请求方直接提示：Connection refused&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;iptables -A INPUT -s 192.168.64.7 -d 192.168.64.6 -j REJECT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -p 指定协议类型为 TCP&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# --dport 指定目标端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;iptables -A INPUT -s 192.168.64.7 -d 192.168.64.6 -p tcp --dport &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt; -j REJECT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 看当前的 iptables 规则&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -L &amp;#34;list&amp;#34;，列出当前的规则&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -n &amp;#34;numeric&amp;#34;，即使用数字 IP 地址和端口号而不是主机名和服务名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -v &amp;#34;verbose&amp;#34;，显示详细信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;iptables -L -n -v
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 列出带编号的规则&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;iptables -L --line-numbers
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 删除 INPUT 链中的第 1 条规则&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 注意！删除成功后序号会改变，需要重新查询序号&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;iptables -D INPUT &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 清除 INPUT 链所有规则&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;iptables -F INPUT  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 清除当前活跃的表（未指定默认是 filter 表）的所有 iptables 规则&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 等同于 iptables -F -t filter&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;iptables -F
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-端口转发&#34;&gt;2. 端口转发&lt;/h3&gt;
+&lt;p&gt;默认情况下，Linux 系统不会转发目的 IP 地址不是本地网络的 IPv4 数据包。这是出于安全考虑，防止系统意外成为恶意流量的转发表。要启用 IPv4 数据包转发功能，需要修改内核参数 &lt;code&gt;net.ipv4.ip_forward&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>快速重拾 Tmux</title>
       <link>https://aaronlinv.github.io/posts/%E5%BF%AB%E9%80%9F%E9%87%8D%E6%8B%BE-tmux-/</link>
