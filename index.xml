@@ -1274,6 +1274,7 @@ git checkout 这个命令被拆分成了两个新命令：git switch 和 git res
 &lt;p&gt;越来越逼仄的空间，退无可退，不如坦然面对&lt;/p&gt;
 &lt;h3 id=&#34;极简主义&#34;&gt;极简主义&lt;/h3&gt;
 &lt;p&gt;践行极简主义，删繁就简，做少少的事，爱具体的人&lt;/p&gt;
+&lt;p&gt;简单让我自由，不重要的东西就应该被忘记&lt;/p&gt;
 &lt;h3 id=&#34;快命令&#34;&gt;快命令&lt;/h3&gt;
 &lt;p&gt;因为自己经常使用一些 Linux 命令片段和 Prompt，所以写了一个易于检索粘贴的 uTools 插件：&lt;a href=&#34;https://www.u-tools.cn/plugins/detail/%E5%BF%AB%E5%91%BD%E4%BB%A4/&#34;&gt;快命令&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;在一些朋友的建议下，又写了 Raycast 版本：&lt;a href=&#34;https://www.raycast.com/aaron_lin/swift-command&#34;&gt;Swift Command
