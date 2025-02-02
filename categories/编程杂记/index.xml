@@ -9,7 +9,7 @@
       <url>https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.142.0</generator>
+    <generator>Hugo -- 0.143.0</generator>
     <language>en</language>
     <lastBuildDate>Wed, 15 May 2024 08:56:33 +0800</lastBuildDate>
     <atom:link href="https://aaronlinv.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
@@ -25,8 +25,7 @@
 &lt;p&gt;偶然间看到 &lt;a href=&#34;https://twitter.com/OwenYoungZh/status/1775977873301713157&#34;&gt;Owen&lt;/a&gt; 发的贴子：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;看到一个说法：笔记是一种无限游戏，没有结果，只有过程；而博客是一种有限游戏，因为它产出了完成的作品：博文。这说明我们不能当一个完美主义者，只在脑海或草稿箱中保留想法，我们应该尽可能完成作品，公开它，然后不断的练习这个过程。&lt;/p&gt;
-&lt;p&gt;我更坚定那个想法了：做一个默认设计为公开的笔记软件&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;我更坚定那个想法了：做一个默认设计为公开的笔记软件&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;看到这个贴子，马上联想到了 &lt;strong&gt;Learn in Public&lt;/strong&gt; 这个概念，开始思考自己的这些年记笔记的方式，意识到了原来的方式可能存在一些问题，于是开始尝试践行 Learn in Public，将自己学习的一些东西写成博客、用学到的知识做一个有意义的产品等等。经过了这段时间的实践，再结合上自己日常使用 AI 的一些感受和想法，很自然地就想到了这个话题&lt;/p&gt;
 &lt;h2 id=&#34;什么是-learn-in-public&#34;&gt;什么是 Learn In Public&lt;/h2&gt;
 &lt;p&gt;在 swyx 发布 &lt;a href=&#34;https://www.swyx.io/learn-in-public&#34;&gt;Learn In Public&lt;/a&gt; 后，这个概念变得更加流行。Learn in Public 强调的是 &lt;strong&gt;将学到的东西分享到公共空间&lt;/strong&gt;&lt;/p&gt;
@@ -139,8 +138,7 @@
 &lt;p&gt;而非内核部分，&lt;a href=&#34;https://source.android.google.cn/setup/start/licenses?hl=zh-cn&#34;&gt;Android 开源项目 (AOSP) 许可&lt;/a&gt;提到了：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;对于用户空间（非内核）软件，相比其他许可（例如宽通用公共许可证 (LGPL)），我们更倾向于 Apache 2.0（以及 BSD 和 MIT 等类似许可）
-我们为自己的代码首选 Apache 2.0&lt;/p&gt;
-&lt;/blockquote&gt;
+我们为自己的代码首选 Apache 2.0&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;因为 AOSP 采用了 Apache 2.0 协议，所以任何人都可以基于 AOSP 开发自己的 Android 系统，而且不需要开源，国内的一些定制 Android 系统都是基于 AOSP，具体可以参考&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AE%A2%E8%A3%BD%E5%8C%96Android%E9%9F%8C%E9%AB%94%E5%88%97%E8%A1%A8&#34;&gt;定制Android固件列表&lt;/a&gt;。虽然 AOSP 是开源的，但是 Google 移动服务 GMS（Google Mobile Service）是闭源的，GMS 中包括，如果手机厂商想要使用 GMS，就必须向 Google 支付授权费。GMS 包含了 Google 自家的App 和服务，除此之外海外 Android 平台发布的 App 严重依赖 GMS，没有 GMS 可能导致软件无法使用等问题，Google 禁止华为对 GMS 的使用，导致华为手机海外出货量大幅下降&lt;/p&gt;</description>
     </item>
   </channel>
