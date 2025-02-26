@@ -21,7 +21,7 @@
       <description>&lt;p&gt;学习编程之初就常被告诫：“永远不要相信用户的输入”，但实际编码中，可能因为各种原因而忽略这点，本文尝试以 SQL 注入的角度探寻校验输入的重要性&lt;/p&gt;
 &lt;p&gt;以下实验均以 &lt;a href=&#34;https://github.com/Audi-1/sqli-labs&#34;&gt;SQLI labs&lt;/a&gt; 靶场为例&lt;/p&gt;
 &lt;hr&gt;
-&lt;h4 id=&#34;1-联合注入union-based&#34;&gt;1. 联合注入（Union-Based）&lt;/h4&gt;
+&lt;h3 id=&#34;1-联合注入union-based&#34;&gt;1. 联合注入（Union-Based）&lt;/h3&gt;
 &lt;p&gt;来自：&lt;a href=&#34;https://github.com/Audi-1/sqli-labs/tree/master/Less-1&#34;&gt;Less-1&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;../sql-injection/1.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;这是一个常见的查询页面。&lt;code&gt;http://127.0.0.1/Less-1/?id=1&lt;/code&gt; ，通过 &lt;code&gt;id=1&lt;/code&gt; 传递参数。后端常见的 SQL 写法：&lt;code&gt;SELECT * FROM users WHERE id=&#39;$id&#39; LIMIT 0,1;&lt;/code&gt;&lt;/p&gt;
