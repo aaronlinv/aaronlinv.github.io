@@ -3,10 +3,10 @@
 <a href=/posts/index.xml title=RSS aria-label=RSS><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="23"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></h1></header><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>永远不要相信用户的输入：从 SQL 注入攻防看输入验证的重要性</h2></header><div class=entry-content><p>学习编程之初就常被告诫：“永远不要相信用户的输入”，但实际编码中，可能因为各种原因而忽略这点，本文尝试以 SQL 注入的角度探寻校验输入的重要性
 以下实验均以 SQLI labs 靶场为例
 1. 联合注入（Union-Based） 来自：Less-1
-这是一个常见的查询页面。http://127.0.0.1/Less-1/?id=1 ，通过 id=1 传递参数。后端常见的 SQL 写法：SELECT * FROM users WHERE id='$id' LIMIT 0,1";
+这是一个常见的查询页面。http://127.0.0.1/Less-1/?id=1 ，通过 id=1 传递参数。后端常见的 SQL 写法：SELECT * FROM users WHERE id='$id' LIMIT 0,1;
 攻击者可以通过构造 id 的参数值，执行任意的 SQL 语句：
 其中关键步骤是构造 1' --+：
-通过某个具体参数 1 和 单引号 ' 来结束前面的语句：SELECT * FROM users WHERE id='，是其成为合法的 SQL 语句： SELECT * FROM users WHERE id='1' 通过 --+ 来注释后面的 ' LIMIT 0,1"; 基于上面的原理，我们就可以在 1' 和 --+ 之间插入语句了，进行联合注入，具体步骤如下：
+通过某个具体参数 1 和 单引号 ' 来结束前面的语句：SELECT * FROM users WHERE id='，使其成为合法的 SQL 语句： SELECT * FROM users WHERE id='1' 通过 --+ 来注释后面的 ' LIMIT 0,1"; 基于上面的原理，我们就可以在 1' 和 --+ 之间插入语句了，进行联合注入，具体步骤如下：
 通过 order by 测列宽：?id=-1' order by 4 --+，通过不断尝试和错误提示可以得知列宽为 3 判断回显值对应的位置，?id=-1' union select 1,2,3 --+，2 和 3 这两个位置都可供使用 ...</p></div><footer class=entry-footer><span title='2025-02-25 21:02:50 +0800 +0800'>February 25, 2025</span></footer><a class=entry-link aria-label="post link to 永远不要相信用户的输入：从 SQL 注入攻防看输入验证的重要性" href=https://aaronlinv.github.io/posts/sql-injection/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>重拾 SSH：从基础到安全加固</h2></header><div class=entry-content><p>安全外壳协议（Secure Shell Protocol，简称SSH）是一种加密的网络传输协议，属于应用层协议。OpenSSH 是最流行的 SSH 实现，它是大量操作系统的默认组件
 OpenSSH 套件由以下工具组成：
 远程操作使用：ssh, scp 和 sftp 密钥管理：ssh-add, ssh-keysign, ssh-keyscan 和 ssh-keygen 服务端： sshd, sftp-server 和 ssh-agent 使用 SSH 连接服务器 1. 客户端创建公私钥对 密钥类型选择 ed25519 椭圆曲线，它生成的公私钥都要比 RSA 更短，具有较高的安全性和性能
