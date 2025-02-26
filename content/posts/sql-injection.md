@@ -10,7 +10,7 @@ title: '永远不要相信用户的输入：从 SQL 注入攻防看输入验证�
 
 ---
 
-#### 1. 联合注入（Union-Based）  
+### 1. 联合注入（Union-Based）  
 
 来自：[Less-1](https://github.com/Audi-1/sqli-labs/tree/master/Less-1)
 
@@ -62,7 +62,7 @@ union select 1,2, group_concat(concat_ws('~',username,password)) from security.u
 
 ---
 
-#### 2. 报错注入（Error-Based）  
+### 2. 报错注入（Error-Based）  
 
 
 来自：[Less-5](https://github.com/Audi-1/sqli-labs/tree/master/Less-5)
@@ -88,7 +88,7 @@ XPATH syntax error: '~security'
 
 ---
 
-#### 3. 布尔盲注（Boolean-Based Blind）  
+### 3. 布尔盲注（Boolean-Based Blind）  
 
 来自：[Less-7](https://github.com/Audi-1/sqli-labs/tree/master/Less-7)
 
@@ -109,7 +109,7 @@ tips：这里使用的是 `?id=1'))` 有别于前文的 `1'`，这是因为不�
 再配合二分法提高效率，最终也能得到所有库表信息
 
 
-#### 4. 时间盲注（Time-Based Blind）  
+### 4. 时间盲注（Time-Based Blind）  
 
 来自：[Less-9](https://github.com/Audi-1/sqli-labs/tree/master/Less-9)
 
@@ -126,7 +126,7 @@ tips：这里使用的是 `?id=1'))` 有别于前文的 `1'`，这是因为不�
 
 ---
 
-#### 5. 绕过过滤（Bypass）  
+### 5. 绕过过滤（Bypass）  
 
 来自：[Less-25](https://github.com/Audi-1/sqli-labs/tree/master/Less-25)
 
@@ -142,7 +142,7 @@ tips：这里使用的是 `?id=1'))` 有别于前文的 `1'`，这是因为不�
 
 ---
 
-#### 6. 宽字节注入（GBK Bypass）  
+### 6. 宽字节注入（GBK Bypass）  
 
 
 来自：[Less-32](https://github.com/Audi-1/sqli-labs/tree/master/Less-32)
@@ -160,7 +160,7 @@ tips：这里使用的是 `?id=1'))` 有别于前文的 `1'`，这是因为不�
 
 ---
 
-#### 7. Header 注入（HTTP Header Injection）  
+### 7. Header 注入（HTTP Header Injection）  
 
 
 来自：[Less-18](https://github.com/Audi-1/sqli-labs/tree/master/Less-18)
@@ -178,7 +178,7 @@ $insert="INSERT INTO `security`.`uagents` (`uagent`, `ip_address`, `username`) V
 
 ---
 
-#### 8. 二次注入（Second-Order）  
+### 8. 二次注入（Second-Order）  
 
 
 来自：[Less-24](https://github.com/Audi-1/sqli-labs/tree/master/Less-24)
@@ -214,7 +214,7 @@ UPDATE users SET PASSWORD='$pass' where username='admin'
 
 ---
 
-#### 结尾
+### 结尾
 
 我们可能觉得现代框架和工具链可以避免这些问题，但通过上面的例子可以感受到，道高一尺魔高一丈，**稍有疏忽就可能被利用**
 
@@ -236,7 +236,7 @@ SQL注入攻击揭示的不仅是技术漏洞，更指向一个通用安全原�
 - ...
 
 
-#### 参考资料
+### 参考资料
 
 本文只为抛砖引玉，精简了部分细节，详情可以参考以下教程：
 
