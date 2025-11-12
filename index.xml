@@ -9,10 +9,43 @@
       <url>https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.147.8</generator>
+    <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Feb 2025 21:02:50 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Nov 2025 21:58:06 +0800</lastBuildDate>
     <atom:link href="https://aaronlinv.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一次由 DNS 反解析引发的 SpringBoot 启动卡顿问题</title>
+      <link>https://aaronlinv.github.io/posts/%E4%B8%80%E6%AC%A1%E7%94%B1-dns-%E5%8F%8D%E8%A7%A3%E6%9E%90%E5%BC%95%E5%8F%91%E7%9A%84-springboot-%E5%90%AF%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 12 Nov 2025 21:58:06 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E4%B8%80%E6%AC%A1%E7%94%B1-dns-%E5%8F%8D%E8%A7%A3%E6%9E%90%E5%BC%95%E5%8F%91%E7%9A%84-springboot-%E5%90%AF%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;使用 114 DNS 时，反解析内网 IP 无响应，导致 SpringBoot 启动时 Liquibase 初始化阻塞约 30 秒&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;InetAddress.getLocalHost()&lt;/code&gt; 获取到的可能是&lt;code&gt;127.0.0.1&lt;/code&gt;，而非实际的内网 IP（如 192.168.x.x）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;现象&#34;&gt;现象&lt;/h2&gt;
+&lt;p&gt;SpringBoot启动时（HikariPool 初始化后）卡顿 30s&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;2025-11-09 15:14:33 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-09 15:14:33 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.p6spy.engine.wrapper.ConnectionWrapper@7f6137fb
+2025-11-09 15:14:33 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;排查&#34;&gt;排查&lt;/h2&gt;
+&lt;p&gt;通过 jstack 分析线程栈，定位到 &lt;code&gt;liquibase.util.NetUtil.getLocalHostName()&lt;/code&gt; 阻塞&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# jps&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jstack &lt;span class=&#34;m&#34;&gt;66713&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;下方线程栈显示阻塞点位于 &lt;code&gt;Inet6AddressImpl.getHostByAddr()&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;&amp;#34;main&amp;#34; #1 prio=5 os_prio=31 cpu=3549.34ms elapsed=14.86s tid=0x000000010a808200 nid=0xd03 runnable  [0x000000016fa00000]
+   java.lang.Thread.State: RUNNABLE
+	at java.net.Inet6AddressImpl.getHostByAddr(java.base@17.0.14/Native Method)
+	at java.net.InetAddress$PlatformNameService.getHostByAddr(java.base@17.0.14/InetAddress.java:940)
+	at java.net.InetAddress.getHostFromNameService(java.base@17.0.14/InetAddress.java:662)
+	at java.net.InetAddress.getHostName(java.base@17.0.14/InetAddress.java:605)
+	at java.net.InetAddress.getHostName(java.base@17.0.14/InetAddress.java:577)
+	at liquibase.util.NetUtil.getLocalHostName(NetUtil.java:79)
+	at liquibase.sqlgenerator.core.LockDatabaseChangeLogGenerator.&amp;lt;clinit&amp;gt;(LockDatabaseChangeLogGenerator.java:30)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;对应源码：&lt;/p&gt;</description>
+    </item>
     <item>
       <title>永远不要相信用户的输入：从 SQL 注入攻防看输入验证的重要性</title>
       <link>https://aaronlinv.github.io/posts/sql-injection/</link>
@@ -210,7 +243,8 @@
 &lt;p&gt;偶然间看到 &lt;a href=&#34;https://twitter.com/OwenYoungZh/status/1775977873301713157&#34;&gt;Owen&lt;/a&gt; 发的贴子：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;看到一个说法：笔记是一种无限游戏，没有结果，只有过程；而博客是一种有限游戏，因为它产出了完成的作品：博文。这说明我们不能当一个完美主义者，只在脑海或草稿箱中保留想法，我们应该尽可能完成作品，公开它，然后不断的练习这个过程。&lt;/p&gt;
-&lt;p&gt;我更坚定那个想法了：做一个默认设计为公开的笔记软件&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;我更坚定那个想法了：做一个默认设计为公开的笔记软件&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;看到这个贴子，马上联想到了 &lt;strong&gt;Learn in Public&lt;/strong&gt; 这个概念，开始思考自己的这些年记笔记的方式，意识到了原来的方式可能存在一些问题，于是开始尝试践行 Learn in Public，将自己学习的一些东西写成博客、用学到的知识做一个有意义的产品等等。经过了这段时间的实践，再结合上自己日常使用 AI 的一些感受和想法，很自然地就想到了这个话题&lt;/p&gt;
 &lt;h2 id=&#34;什么是-learn-in-public&#34;&gt;什么是 Learn In Public&lt;/h2&gt;
 &lt;p&gt;在 swyx 发布 &lt;a href=&#34;https://www.swyx.io/learn-in-public&#34;&gt;Learn In Public&lt;/a&gt; 后，这个概念变得更加流行。Learn in Public 强调的是 &lt;strong&gt;将学到的东西分享到公共空间&lt;/strong&gt;&lt;/p&gt;
@@ -684,15 +718,19 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
 &lt;p&gt;正如黄灯老师所说的：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;我希望我的学生毕业之后都能在社会上立足，不要过着很艰难的生活
-我也希望他们更有冲劲，能够去追求梦想，有更多的勇气，但我知道其实很多爸爸妈妈，他们希望自己的孩子读完大学之后有一份稳定的工作，让父母放心，在城里面立足&lt;/p&gt;&lt;/blockquote&gt;
+我也希望他们更有冲劲，能够去追求梦想，有更多的勇气，但我知道其实很多爸爸妈妈，他们希望自己的孩子读完大学之后有一份稳定的工作，让父母放心，在城里面立足&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;我也看到有不少学生，在坚持自己的理想和底线的时候，在现实中会碰的头破血流
-我们作为过来人其实在他准备那样去做的时候就能够预料到他的后果，但是当时可能也不忍心去把他的那种激情破灭，但是事实上你过了好多年，再回过头去看其实孩子还是付出很大的代价&lt;/p&gt;&lt;/blockquote&gt;
+我们作为过来人其实在他准备那样去做的时候就能够预料到他的后果，但是当时可能也不忍心去把他的那种激情破灭，但是事实上你过了好多年，再回过头去看其实孩子还是付出很大的代价&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这个社会的反，抗不能完全由年轻人冲到前面，我觉得这个社会的改革应该首先从反省自己开始，尤其是那些获得利益的人
-一个农村来的孩子，父母通过打工，在外面卖苦力来供养他读书，说句不好听的，你指望他来改变这个社会，我觉得太残酷了&lt;/p&gt;&lt;/blockquote&gt;
+一个农村来的孩子，父母通过打工，在外面卖苦力来供养他读书，说句不好听的，你指望他来改变这个社会，我觉得太残酷了&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;互相看见是特别重要的，互相看见才会达成和解，这社会才会产生一种韧性的力量，而不是动不动就撕裂&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;互相看见是特别重要的，互相看见才会达成和解，这社会才会产生一种韧性的力量，而不是动不动就撕裂&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h1 id=&#34;序言-看见他们&#34;&gt;序言 看见他们&lt;/h1&gt;
 &lt;p&gt;中国二本院校的学生，从某种程度而言，折射了中国最多数普通年轻人的状况，他们的命运，勾画出了中国年轻群体最为常见的成长路径&lt;/p&gt;
 &lt;p&gt;写作的直接动因：课上的关于风的现场写作所引出的故事，让作者意识到了自己对于广东经济发展刻板印象&lt;/p&gt;
@@ -701,11 +739,13 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
 不同的学生毕业后都租住在龙洞，伟福将住所收拾的妥帖，让人舒坦，在结束一天的工作后，能拥有让自己享受的空间
 冉辛追将龙洞作为人生过渡期的暂居之处，受到爷爷的影响，对文学骨子里地热爱，最后却选择了人力资源专业，他的选择让爷爷迷茫和失望，这种遗憾也成为了他人生选择的隐秘动力，父母支持考研，提供生活费，通过三年的努力，最终成为复旦的一员。与之相似的还有姚大顺，他们都没有办法按照生活预设好的轨道前行，所以最终选择了考研，但家庭和成长环境不同，导致了大顺无法接受家人资助，全心考研。经过折腾最后回到了龙洞，他是家中的长子，母亲希望他可以稳定下来&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;除了身份已变，他的生活，和学生时代没有太大的不同，他依旧拥有龙洞，拥有学校的操场，拥有活色生香的饭堂，当然，也拥有大学时代低廉的生活成本，甚至还可以非常方便地联系想见的老师。这种便捷也许会让他忘记现实的残酷，淡化母亲给予他的忧伤，让他偶然沉湎咋学生时代的幻梦中&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;除了身份已变，他的生活，和学生时代没有太大的不同，他依旧拥有龙洞，拥有学校的操场，拥有活色生香的饭堂，当然，也拥有大学时代低廉的生活成本，甚至还可以非常方便地联系想见的老师。这种便捷也许会让他忘记现实的残酷，淡化母亲给予他的忧伤，让他偶然沉湎咋学生时代的幻梦中&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h1 id=&#34;二-公共课&#34;&gt;二 公共课&lt;/h1&gt;
 &lt;p&gt;公共课所教授的《经济应用文写作》与博士期间所学习的写作之间的鸿沟是面临的挑战&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;对于人文学科而言，多媒体对于课堂的干扰和伤害，先让没有引起足够的重视，信息的泛滥及花里胡哨的内容，让老师无形中倍感压迫，也让学生在深度思考和理解上，缺乏锻炼的机会和耐心&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;对于人文学科而言，多媒体对于课堂的干扰和伤害，先让没有引起足够的重视，信息的泛滥及花里胡哨的内容，让老师无形中倍感压迫，也让学生在深度思考和理解上，缺乏锻炼的机会和耐心&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;邓桦真 《风》 写自己家境的贫寒，为贷款烦透心
 朱洁韵 《父爱》 个性要强，来到大学后，幡然醒悟懂得了父亲的爱&lt;/p&gt;
 &lt;p&gt;面临的一个问题：无法触及一个真实群体的问题，企图借助考试，调动他们与己有关的生活经验，以此了解他们对于社会、自身的认知&lt;/p&gt;
@@ -717,17 +757,21 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
 &lt;p&gt;城市孩子：批判应式教育，深恶痛绝，刘奕晓比喻为“一场赌博”，方雪怡：高考作为划分线，中国学生的青春时代被简单粗暴地划分成两部分
 农村孩子：充满闯过高考的庆幸惴惴不安&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;正因为经受了压力过大的考试阶段，课堂上学生中规中矩、老成持重，他们的平和中正与我们大学时代的张扬放肆，鲜明对比。他们收缩了属于青春年代的触角和锋芒，逼到绝境，唯一能够下手的对象只有自己&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;正因为经受了压力过大的考试阶段，课堂上学生中规中矩、老成持重，他们的平和中正与我们大学时代的张扬放肆，鲜明对比。他们收缩了属于青春年代的触角和锋芒，逼到绝境，唯一能够下手的对象只有自己&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;从记事起，无形的、细密的重荷就负载在他们身上，早已将他们裁剪得规规整整，难以在生活中泄露狡黠的契机&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;从记事起，无形的、细密的重荷就负载在他们身上，早已将他们裁剪得规规整整，难以在生活中泄露狡黠的契机&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;教育像一场慢性炎症，中小学时代服下的猛药、抗生素、激素，到了大学时代，终于结下了漠然、无所谓、不思考、不主动的恶果&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;教育像一场慢性炎症，中小学时代服下的猛药、抗生素、激素，到了大学时代，终于结下了漠然、无所谓、不思考、不主动的恶果&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h1 id=&#34;三-班主任&#34;&gt;三 班主任&lt;/h1&gt;
 &lt;p&gt;因为班主任的身份，目睹了一个群体从学生时代，完全步入真实的社会，并和这个社会产生真实的关联&lt;/p&gt;
 &lt;p&gt;这些二本学生有的是在毕业后短暂挣扎，但最后又是为了解决生存&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;梦想，每个人都应该拥有，但不是每个人都能实现
-大学毕业后，我的首要任务是要解决我和家人的生活问题&lt;/p&gt;&lt;/blockquote&gt;
+大学毕业后，我的首要任务是要解决我和家人的生活问题&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;四任班长，其中能几个之所以能在社会立足，并过上让长辈放心、安心的稳定生活，要不就是早早认清现实的规划顺着社会去经营生活，要么就是是经过现实的碰撞，终于认清进入体制内工作的优势，选择毕业后回炉考公务员。志勇综合条件优秀，但是毕业后九年经历证明了，现实已经没有多少空间和可能&lt;/p&gt;
 &lt;p&gt;夹缝中的光芒：
 钟梦兰：得益于中国高速的城市化进程，父亲从事建筑行业，在市里购地建房，在小城市生活
@@ -737,9 +781,18 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
 班上的女生很多在毕业后经过折腾，通过考公务员，进入机关事业单位，获得安稳工作，其二是银行、保险等金融机构，其三，国营、民营及各类私营企业，最后是：创业&lt;/p&gt;
 &lt;p&gt;梅怡的就业观中，没有动过寻找稳定工作的心思，和父母的鼓励、大城市出身、长大后的见识、较好的家庭经济条件分不开&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;062111学生之所以能在教育彻底市场化的境况下，获得良好的发展机会，显示了这一代普通青年，曾经拥有的丰富资源和时代机遇&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;062111学生之所以能在教育彻底市场化的境况下，获得良好的发展机会，显示了这一代普通青年，曾经拥有的丰富资源和时代机遇&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;分化已经开始：
-一部分实现了财务自由，另一部分居无定所、收入有限，两者分野的关键要素是是否买房&lt;/p&gt;</description>
+一部分实现了财务自由，另一部分居无定所、收入有限，两者分野的关键要素是是否买房&lt;/p&gt;
+&lt;h2 id=&#34;曾迎欢&#34;&gt;曾迎欢&lt;/h2&gt;
+&lt;p&gt;毕业就去北京，开拓了眼界，提升了能力，打下了基础，回到广州。婚后选择买房，靠着借款和存款一次性付清，有了第一个孩子后，选择全职妈妈，期间还留意政策风向、金融市场动态，适当理财，第二年又购置第二套房。基本上每年一套房，实现财富增值。&lt;strong&gt;得益于努力和忧患意识&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;陈柳鸿&#34;&gt;陈柳鸿&lt;/h2&gt;
+&lt;p&gt;家里经商，耳濡目染，她的小姨注重培养她社交能力，毕业后通过家里人脉，进入广州某行业协会，由于复杂的人际关系，离开，进入了某电视台，认识了杨总，走上了艺术品拍卖，开始累积了人脉，与知名作家妻子合作做翡翠生意，后面合作崩盘，自己单干抓住微商红利。&lt;strong&gt;庆幸关键时刻总有贵人相助&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;杨胜轩&#34;&gt;杨胜轩&lt;/h2&gt;
+&lt;p&gt;父母下岗，房屋拆迁，在拆迁补偿的基础上借钱买饭，抓住了稍纵即逝的红利。父母下岗后生存所遭遇的艰辛，在他性格中打下了很深的烙印&lt;/p&gt;
+&lt;h2 id=&#34;对照记&#34;&gt;对照记&lt;/h2&gt;
+&lt;p&gt;两种完全不同的教育图景：&lt;strong&gt;计划经济条件下国家主导的高等教育&lt;/strong&gt; 与 &lt;strong&gt;市场经济条件下资本与资源主导的高等教育&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>《马文 柯林斯的教育之道》阅读笔记</title>
@@ -754,7 +807,8 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
 &lt;p&gt;因为黑人身份在上学和就业时处处受到限制，致使她在培门罗县训机构教书，这段经历使马文掌握了教学方法，还让她懂得了优秀的教师更应该懂了解学生&lt;/p&gt;
 &lt;p&gt;在去芝加哥拜访祖母表亲安妮时，遇见了她的丈夫柯拉鲁斯，丈夫始终都很支持马文做的事&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;“能够对别人的孩子表现出极大耐心的男士一定会事一个好父亲和好丈夫”&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;“能够对别人的孩子表现出极大耐心的男士一定会事一个好父亲和好丈夫”&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;在辞去医疗秘书工作后，马文到南卡尔洪小学二年级教书。传统教学通过图片教授阅读，这降低教材和课程难度，学生的反馈使得马文摒弃了这种教学方式，转而选择一些优秀的故事，教授孩子们正确的价值观和生活经验，这相较于传统课本更能激发阅读兴趣&lt;/p&gt;
 &lt;p&gt;办公室政治让马文失去了继续留在公立学校的动力，最终马文开始和一群对公立学校不满的女性邻居一起在 丹尼尔·黑尔·威廉姆斯大学 里建立了私立小学，在这所马文自己的小学里，她充分践行了她的教育理念，后来马搬到了自己家二楼并将学校改名为 西区预备学校，继续教书育人&lt;/p&gt;
 &lt;p&gt;马文给《芝加哥太阳时报》的专栏作家 扎伊·史密斯 写信，并接受了采访，之后收到关注和捐助，她到公立学校演讲，获得500美元，她也以此激励孩子努力学习&lt;/p&gt;
@@ -762,36 +816,66 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
 &lt;p&gt;《60分钟》栏目为学校打开资金来源，学校换了新的校址，有了更多的学生&lt;/p&gt;
 &lt;p&gt;面对各种正面和负面的报道，各种各样的批评，刚开始马文拒绝回应，朋友建议马文回应，但是这使得马文筋疲力竭&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;那些讥笑讽刺和含沙射影的批评永远不可能减少她真正的成就：那些孩子接受教育，受到鼓励，变得自信果敢，最后在这个世界上闯出了属于自己得路。这才是马文的宝贵遗产&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;那些讥笑讽刺和含沙射影的批评永远不可能减少她真正的成就：那些孩子接受教育，受到鼓励，变得自信果敢，最后在这个世界上闯出了属于自己得路。这才是马文的宝贵遗产&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;马文教学的载体是基础读本中的每个故事，还引入了补充材料，培养学生发散性思维，用概括的方式来启发他们，让学生看见知识的流动 -&amp;gt; 用故事撑起孩子们广阔的知识面 -&amp;gt; 孩子们可把这些知识用于课堂、生活，从而形成正反馈不断激励孩子们自发学习。不局限于文学，她也会讲述歌剧及其背后的故事，她相信：要想让年轻人受到良好的教育，需要让他们接触所有的文化形式。她还在课堂上提出开放式的问题，激发学生批判性思维，提出省略事实的不完整问题，教会他们评估问题，意识到信息不充分&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;马文则坚信：“真正的解决途径就是教育，我们必须教会孩子自尊自立，我们必须教导他们，读书、培养技能和自立是非常重要的”&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;马文则坚信：“真正的解决途径就是教育，我们必须教会孩子自尊自立，我们必须教导他们，读书、培养技能和自立是非常重要的”&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;“马文作为老师的最高目标就是赋予学生为自己学习的意愿”&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;“马文作为老师的最高目标就是赋予学生为自己学习的意愿”&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;教育的重中之重就是让孩子阅读，需要艰难且乏味的学习，没有任何捷径可走&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;教育的重中之重就是让孩子阅读，需要艰难且乏味的学习，没有任何捷径可走&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;危害当代教育一个弊端是由于过度强调“进步注意”的教学方法造成的。学校为了努力遵从 约翰·杜威 以学生为中学而非以课程为中心的教学理念，过多地牺牲了教学内容，过度关注如何教而不是教什么&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;危害当代教育一个弊端是由于过度强调“进步注意”的教学方法造成的。学校为了努力遵从 约翰·杜威 以学生为中学而非以课程为中心的教学理念，过多地牺牲了教学内容，过度关注如何教而不是教什么&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;在我们的学校里，没有奇迹，更没有魔法，否则教书对我而言就不会那么劳神费力了，学习对于这些孩子而言也不会那么艰辛困难了。正是由于所有的这些付出和艰难，孩子们才会细细品味每一次成功，并甘之如饴。并且一但他们开始成功了，便会想要更多，甚至不愿回头&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;在我们的学校里，没有奇迹，更没有魔法，否则教书对我而言就不会那么劳神费力了，学习对于这些孩子而言也不会那么艰辛困难了。正是由于所有的这些付出和艰难，孩子们才会细细品味每一次成功，并甘之如饴。并且一但他们开始成功了，便会想要更多，甚至不愿回头&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;马文擅长用鼓励或批评引导学生：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;“你们会学习所有的发音规律，这样的单词将不再是什么难懂的谜，多么富有或者多么漂亮。你可以和任何人对话，无论对方多么聪明，多么富有或者多么漂亮。你们都是聪明伶俐的孩子，没有什么事你们做不到的”&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;“你们会学习所有的发音规律，这样的单词将不再是什么难懂的谜，多么富有或者多么漂亮。你可以和任何人对话，无论对方多么聪明，多么富有或者多么漂亮。你们都是聪明伶俐的孩子，没有什么事你们做不到的”&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;“总有一天，在无数次的赞扬和拥抱之后，他的抵触情绪会自动消解。孩子们最终想要的是，一个真实的自己可以被接受，感受到自己是有价值的。一但他们感觉到自价值，就会痴迷于学习，而且永远都会求知若渴”&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;“总有一天，在无数次的赞扬和拥抱之后，他的抵触情绪会自动消解。孩子们最终想要的是，一个真实的自己可以被接受，感受到自己是有价值的。一但他们感觉到自价值，就会痴迷于学习，而且永远都会求知若渴”&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;人和事分开，你的行为愚蠢 不等于 人愚蠢，这样学生才能接受意见和批评，放弃错误行为，而不是去尊严或自我价值&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;人和事分开，你的行为愚蠢 不等于 人愚蠢，这样学生才能接受意见和批评，放弃错误行为，而不是去尊严或自我价值&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;关注每一个孩子，这可能与她的经历有关，对于被孤立的感觉更能感同身受，她也提倡互助小组，不断督促彼此，为彼此取得的小成绩而感到快乐&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;课间看见独自的孩子会重新组织游戏玩伴，让每个孩子都感觉到被集体接受，不被排斥&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;课间看见独自的孩子会重新组织游戏玩伴，让每个孩子都感觉到被集体接受，不被排斥&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;每个孩子都需要感觉到被爱和被需要。每个孩子都需要归属感。大多数孩子依旧因为在之前的学校里被羞辱和被排挤而痛苦不堪&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;每个孩子都需要感觉到被爱和被需要。每个孩子都需要归属感。大多数孩子依旧因为在之前的学校里被羞辱和被排挤而痛苦不堪&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;她不是被动地等着学生向她寻求帮助，而是常常就让自己在学生身边，通常困惑的孩子会呆在座位上，忘记了解决问题这件事，直到最后完全跟不上，彻底放弃&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;她不是被动地等着学生向她寻求帮助，而是常常就让自己在学生身边，通常困惑的孩子会呆在座位上，忘记了解决问题这件事，直到最后完全跟不上，彻底放弃&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;当你们想要伤害另一个人的时候，又怎么能够抱怨这个社会有种族偏见呢，所以你们学会互相帮助和相互爱护之前，不要谈论别人都对你们做了什么&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;她认为也应该把 ”不好的事物“ 也展现在孩子面前，这也是我们传统教育中比较缺失的东西，导致一部分人不知道该怎么面对现实生活中的苦难&lt;/p&gt;</description>
+&lt;p&gt;当你们想要伤害另一个人的时候，又怎么能够抱怨这个社会有种族偏见呢，所以你们学会互相帮助和相互爱护之前，不要谈论别人都对你们做了什么&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;她认为也应该把 ”不好的事物“ 也展现在孩子面前，这也是我们传统教育中比较缺失的东西，导致一部分人不知道该怎么面对现实生活中的苦难&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;让孩子知道自己的坏情绪，这很重要，小孩子容易认为是他们做了什么事才给大人添了许多麻烦&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;毫不避讳地和孩子谈论自己的事，教师不应该故作完美：“如果老师不展现人类脆弱的一面，那么孩子也会羞于承认他们自己脆弱的一面”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我也认为，不应该过度保护孩子，不应该把他们的阅读方位局限于只会以盲目乐观地视角审视这个世界的故事。生活是混乱无序且充满瑕疵的，而且孩子们应该被告知这一点，像死亡、贪婪和暴力这些话题并非不可言说的禁忌&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;和孩子们分享自己以前做的“坏事”，告诉孩子们：“如果有老师放我一马，我就会得过且过”，所以她严格要求孩子们的学习&lt;/p&gt;
+&lt;p&gt;父母对于孩子的教育也起到了非常大的作用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“在这个混乱的世界里，唯有拥有意志坚定的父母或强大的老师的孩子才能有所成就，至少具备其中一个条件，或者二者都具备”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;必须强大起来并为孩子定调子的应该是家长，家长不给孩子立规矩，却期待老师在课堂上维持好纪律和秩序，在家从未要求承担责任，或者做家务&lt;/p&gt;
+&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>简单的 Shell 脚本入门教程</title>
@@ -827,7 +911,8 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
 &lt;p&gt;而非内核部分，&lt;a href=&#34;https://source.android.google.cn/setup/start/licenses?hl=zh-cn&#34;&gt;Android 开源项目 (AOSP) 许可&lt;/a&gt;提到了：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;对于用户空间（非内核）软件，相比其他许可（例如宽通用公共许可证 (LGPL)），我们更倾向于 Apache 2.0（以及 BSD 和 MIT 等类似许可）
-我们为自己的代码首选 Apache 2.0&lt;/p&gt;&lt;/blockquote&gt;
+我们为自己的代码首选 Apache 2.0&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;因为 AOSP 采用了 Apache 2.0 协议，所以任何人都可以基于 AOSP 开发自己的 Android 系统，而且不需要开源，国内的一些定制 Android 系统都是基于 AOSP，具体可以参考&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AE%A2%E8%A3%BD%E5%8C%96Android%E9%9F%8C%E9%AB%94%E5%88%97%E8%A1%A8&#34;&gt;定制Android固件列表&lt;/a&gt;。虽然 AOSP 是开源的，但是 Google 移动服务 GMS（Google Mobile Service）是闭源的，GMS 中包括，如果手机厂商想要使用 GMS，就必须向 Google 支付授权费。GMS 包含了 Google 自家的App 和服务，除此之外海外 Android 平台发布的 App 严重依赖 GMS，没有 GMS 可能导致软件无法使用等问题，Google 禁止华为对 GMS 的使用，导致华为手机海外出货量大幅下降&lt;/p&gt;</description>
     </item>
     <item>
@@ -905,11 +990,11 @@ JS 模块化&lt;strong&gt;标准&lt;/strong&gt;（常用）：1. &lt;code&gt;Com
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;在项目目录添加 Dockerfile 文件&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; openjdk:8-jre&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;openjdk:8-jre&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;#  ./target/demo-0.0.1-SNAPSHOT.jar 为编译后的 jar 包位置&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# jar 包的名称要与自己配置的相同，格式为：项目名称-版本号.jar&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; ./target/demo-0.0.1-SNAPSHOT.jar app.jar&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;EXPOSE&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; 8080&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;EXPOSE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;8080&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ENTRYPOINT&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;java&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;-jar&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CMD&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;app.jar&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;

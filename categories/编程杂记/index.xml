@@ -9,10 +9,43 @@
       <url>https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://aaronlinv.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.147.8</generator>
+    <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 15 May 2024 08:56:33 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Nov 2025 21:58:06 +0800</lastBuildDate>
     <atom:link href="https://aaronlinv.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一次由 DNS 反解析引发的 SpringBoot 启动卡顿问题</title>
+      <link>https://aaronlinv.github.io/posts/%E4%B8%80%E6%AC%A1%E7%94%B1-dns-%E5%8F%8D%E8%A7%A3%E6%9E%90%E5%BC%95%E5%8F%91%E7%9A%84-springboot-%E5%90%AF%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 12 Nov 2025 21:58:06 +0800</pubDate>
+      <guid>https://aaronlinv.github.io/posts/%E4%B8%80%E6%AC%A1%E7%94%B1-dns-%E5%8F%8D%E8%A7%A3%E6%9E%90%E5%BC%95%E5%8F%91%E7%9A%84-springboot-%E5%90%AF%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;使用 114 DNS 时，反解析内网 IP 无响应，导致 SpringBoot 启动时 Liquibase 初始化阻塞约 30 秒&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;InetAddress.getLocalHost()&lt;/code&gt; 获取到的可能是&lt;code&gt;127.0.0.1&lt;/code&gt;，而非实际的内网 IP（如 192.168.x.x）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;现象&#34;&gt;现象&lt;/h2&gt;
+&lt;p&gt;SpringBoot启动时（HikariPool 初始化后）卡顿 30s&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;2025-11-09 15:14:33 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-09 15:14:33 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.p6spy.engine.wrapper.ConnectionWrapper@7f6137fb
+2025-11-09 15:14:33 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;排查&#34;&gt;排查&lt;/h2&gt;
+&lt;p&gt;通过 jstack 分析线程栈，定位到 &lt;code&gt;liquibase.util.NetUtil.getLocalHostName()&lt;/code&gt; 阻塞&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# jps&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jstack &lt;span class=&#34;m&#34;&gt;66713&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;下方线程栈显示阻塞点位于 &lt;code&gt;Inet6AddressImpl.getHostByAddr()&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;&amp;#34;main&amp;#34; #1 prio=5 os_prio=31 cpu=3549.34ms elapsed=14.86s tid=0x000000010a808200 nid=0xd03 runnable  [0x000000016fa00000]
+   java.lang.Thread.State: RUNNABLE
+	at java.net.Inet6AddressImpl.getHostByAddr(java.base@17.0.14/Native Method)
+	at java.net.InetAddress$PlatformNameService.getHostByAddr(java.base@17.0.14/InetAddress.java:940)
+	at java.net.InetAddress.getHostFromNameService(java.base@17.0.14/InetAddress.java:662)
+	at java.net.InetAddress.getHostName(java.base@17.0.14/InetAddress.java:605)
+	at java.net.InetAddress.getHostName(java.base@17.0.14/InetAddress.java:577)
+	at liquibase.util.NetUtil.getLocalHostName(NetUtil.java:79)
+	at liquibase.sqlgenerator.core.LockDatabaseChangeLogGenerator.&amp;lt;clinit&amp;gt;(LockDatabaseChangeLogGenerator.java:30)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;对应源码：&lt;/p&gt;</description>
+    </item>
     <item>
       <title>为什么 AI 时代更应该 Learn in Public</title>
       <link>https://aaronlinv.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88-ai-%E6%97%B6%E4%BB%A3%E6%9B%B4%E5%BA%94%E8%AF%A5-learn-in-public/</link>
@@ -25,7 +58,8 @@
 &lt;p&gt;偶然间看到 &lt;a href=&#34;https://twitter.com/OwenYoungZh/status/1775977873301713157&#34;&gt;Owen&lt;/a&gt; 发的贴子：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;看到一个说法：笔记是一种无限游戏，没有结果，只有过程；而博客是一种有限游戏，因为它产出了完成的作品：博文。这说明我们不能当一个完美主义者，只在脑海或草稿箱中保留想法，我们应该尽可能完成作品，公开它，然后不断的练习这个过程。&lt;/p&gt;
-&lt;p&gt;我更坚定那个想法了：做一个默认设计为公开的笔记软件&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;我更坚定那个想法了：做一个默认设计为公开的笔记软件&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;看到这个贴子，马上联想到了 &lt;strong&gt;Learn in Public&lt;/strong&gt; 这个概念，开始思考自己的这些年记笔记的方式，意识到了原来的方式可能存在一些问题，于是开始尝试践行 Learn in Public，将自己学习的一些东西写成博客、用学到的知识做一个有意义的产品等等。经过了这段时间的实践，再结合上自己日常使用 AI 的一些感受和想法，很自然地就想到了这个话题&lt;/p&gt;
 &lt;h2 id=&#34;什么是-learn-in-public&#34;&gt;什么是 Learn In Public&lt;/h2&gt;
 &lt;p&gt;在 swyx 发布 &lt;a href=&#34;https://www.swyx.io/learn-in-public&#34;&gt;Learn In Public&lt;/a&gt; 后，这个概念变得更加流行。Learn in Public 强调的是 &lt;strong&gt;将学到的东西分享到公共空间&lt;/strong&gt;&lt;/p&gt;
@@ -138,7 +172,8 @@
 &lt;p&gt;而非内核部分，&lt;a href=&#34;https://source.android.google.cn/setup/start/licenses?hl=zh-cn&#34;&gt;Android 开源项目 (AOSP) 许可&lt;/a&gt;提到了：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;对于用户空间（非内核）软件，相比其他许可（例如宽通用公共许可证 (LGPL)），我们更倾向于 Apache 2.0（以及 BSD 和 MIT 等类似许可）
-我们为自己的代码首选 Apache 2.0&lt;/p&gt;&lt;/blockquote&gt;
+我们为自己的代码首选 Apache 2.0&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;因为 AOSP 采用了 Apache 2.0 协议，所以任何人都可以基于 AOSP 开发自己的 Android 系统，而且不需要开源，国内的一些定制 Android 系统都是基于 AOSP，具体可以参考&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AE%A2%E8%A3%BD%E5%8C%96Android%E9%9F%8C%E9%AB%94%E5%88%97%E8%A1%A8&#34;&gt;定制Android固件列表&lt;/a&gt;。虽然 AOSP 是开源的，但是 Google 移动服务 GMS（Google Mobile Service）是闭源的，GMS 中包括，如果手机厂商想要使用 GMS，就必须向 Google 支付授权费。GMS 包含了 Google 自家的App 和服务，除此之外海外 Android 平台发布的 App 严重依赖 GMS，没有 GMS 可能导致软件无法使用等问题，Google 禁止华为对 GMS 的使用，导致华为手机海外出货量大幅下降&lt;/p&gt;</description>
     </item>
   </channel>
